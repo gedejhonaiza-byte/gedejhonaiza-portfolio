@@ -1,23 +1,24 @@
 /* =====================================
-   LUXURY PORTFOLIO INTERACTIONS
+   JHONAIZA LUXURY PORTFOLIO INTERACTIONS
 ===================================== */
 
 
 /* =========================
-   LOADER
+   PAGE LOADER
 ========================= */
 
 window.addEventListener("load", () => {
 
     const loader = document.querySelector(".loader");
 
-    if (loader) {
 
-        setTimeout(() => {
+    if(loader){
+
+        setTimeout(()=>{
 
             loader.classList.add("hide");
 
-        }, 500);
+        },800);
 
     }
 
@@ -27,49 +28,68 @@ window.addEventListener("load", () => {
 
 
 
+
 /* =========================
-   CUSTOM CURSOR
+   CUSTOM GOLD CURSOR
 ========================= */
 
-const cursor = document.querySelector(".cursor");
 
-
-if (cursor) {
-
-
-    document.addEventListener("mousemove", (e) => {
-
-        cursor.style.left = e.clientX + "px";
-
-        cursor.style.top = e.clientY + "px";
-
-    });
+const cursor =
+document.querySelector(".cursor");
 
 
 
-    const cursorTargets =
-    document.querySelectorAll("a, button");
+if(cursor){
 
 
-    cursorTargets.forEach(item => {
+document.addEventListener(
+"mousemove",
+(e)=>{
 
 
-        item.addEventListener("mouseenter", () => {
-
-            cursor.classList.add("active");
-
-        });
+cursor.style.left =
+e.clientX + "px";
 
 
-
-        item.addEventListener("mouseleave", () => {
-
-            cursor.classList.remove("active");
-
-        });
+cursor.style.top =
+e.clientY + "px";
 
 
-    });
+});
+
+
+
+
+const hoverElements =
+document.querySelectorAll(
+"a, button, .card, .skill-card, .project-card"
+);
+
+
+
+hoverElements.forEach(item=>{
+
+
+item.addEventListener(
+"mouseenter",
+()=>{
+
+cursor.classList.add("active");
+
+});
+
+
+
+item.addEventListener(
+"mouseleave",
+()=>{
+
+cursor.classList.remove("active");
+
+});
+
+
+});
 
 
 }
@@ -79,71 +99,147 @@ if (cursor) {
 
 
 
+
+
 /* =========================
-   SCROLL REVEAL ANIMATION
+   HERO ENTRANCE ANIMATION
+========================= */
+
+
+const heroItems =
+document.querySelectorAll(
+".hero-content-side > *"
+);
+
+
+
+heroItems.forEach(
+(item,index)=>{
+
+
+item.style.opacity="0";
+
+item.style.transform=
+"translateY(40px)";
+
+
+
+setTimeout(()=>{
+
+
+item.style.transition=
+"all .9s ease";
+
+
+item.style.opacity="1";
+
+
+item.style.transform=
+"translateY(0)";
+
+
+
+},300 + index * 150);
+
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+   SCROLL REVEAL
 ========================= */
 
 
 const revealElements =
 document.querySelectorAll(
-    ".section, .card, .project-card, .skill-card"
+".section, .card, .skill-card, .project-card"
 );
 
 
 
-if ("IntersectionObserver" in window) {
+if(
+"IntersectionObserver" in window
+){
 
 
-    const observer =
-    new IntersectionObserver(
-    (entries) => {
+const revealObserver =
+new IntersectionObserver(
+(entries)=>{
 
 
-        entries.forEach(entry => {
+entries.forEach(
+(entry)=>{
 
 
-            if (entry.isIntersecting) {
+if(entry.isIntersecting){
 
 
-                entry.target.classList.add("visible");
-
-
-                observer.unobserve(entry.target);
-
-
-            }
-
-
-        });
-
-
-    },
-    {
-        threshold:0.15
-    });
+entry.target.classList.add(
+"visible"
+);
 
 
 
-    revealElements.forEach(element => {
+revealObserver.unobserve(
+entry.target
+);
 
 
-        element.classList.add("reveal");
+}
 
 
-        observer.observe(element);
+});
 
 
-    });
+},
+{
+
+threshold:.15
+
+});
 
 
-} else {
 
 
-    revealElements.forEach(element => {
+revealElements.forEach(
+(element)=>{
 
-        element.classList.add("visible");
 
-    });
+element.classList.add(
+"reveal"
+);
+
+
+revealObserver.observe(
+element
+);
+
+
+});
+
+
+}
+
+else{
+
+
+revealElements.forEach(
+(element)=>{
+
+
+element.classList.add(
+"visible"
+);
+
+
+});
 
 
 }
@@ -154,55 +250,56 @@ if ("IntersectionObserver" in window) {
 
 
 
+
 /* =========================
-   SMOOTH NAVIGATION
+   SMOOTH SCROLL
 ========================= */
 
 
-const navigationLinks =
-document.querySelectorAll(
-    'a[href^="#"]'
+document
+.querySelectorAll(
+'a[href^="#"]'
+)
+.forEach(link=>{
+
+
+link.addEventListener(
+"click",
+function(e){
+
+
+
+const target =
+document.querySelector(
+this.getAttribute("href")
 );
 
 
 
-navigationLinks.forEach(link => {
+if(target){
 
 
-    link.addEventListener("click", function(e){
+e.preventDefault();
 
 
-        const targetID =
-        this.getAttribute("href");
+target.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
 
 
-        const target =
-        document.querySelector(targetID);
-
-
-
-        if(target){
-
-
-            e.preventDefault();
-
-
-            target.scrollIntoView({
-
-                behavior:"smooth",
-
-                block:"start"
-
-            });
-
-
-        }
-
-
-    });
+}
 
 
 });
+
+
+});
+
+
 
 
 
@@ -210,30 +307,173 @@ navigationLinks.forEach(link => {
 
 
 /* =========================
-   BUTTON RIPPLE EFFECT
+   BUTTON LUXURY EFFECT
 ========================= */
 
 
-document.querySelectorAll(".btn")
-.forEach(button => {
+document
+.querySelectorAll(
+".btn, .contact-btn, .social-btn"
+)
+.forEach(button=>{
 
 
-    button.addEventListener("click", () => {
+button.addEventListener(
+"mousedown",
+()=>{
 
 
-        button.style.transform =
-        "scale(.96)";
-
-
-        setTimeout(()=>{
-
-            button.style.transform =
-            "";
-
-        },150);
-
-
-    });
+button.style.transform =
+"scale(.94)";
 
 
 });
+
+
+
+
+button.addEventListener(
+"mouseup",
+()=>{
+
+
+button.style.transform =
+"";
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =========================
+   NAV ACTIVE EFFECT
+========================= */
+
+
+const sections =
+document.querySelectorAll(
+"section"
+);
+
+
+const navLinks =
+document.querySelectorAll(
+".navbar a"
+);
+
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+
+let current="";
+
+
+
+sections.forEach(
+section=>{
+
+
+const sectionTop =
+section.offsetTop - 150;
+
+
+if(
+scrollY >= sectionTop
+){
+
+current =
+section.getAttribute("id");
+
+}
+
+
+});
+
+
+
+navLinks.forEach(
+link=>{
+
+
+link.style.color="";
+
+
+
+if(
+link.getAttribute("href")
+===
+"#"+current
+){
+
+link.style.color =
+"#d4af37";
+
+}
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+/* =========================
+   GOLD PARALLAX EFFECT
+========================= */
+
+
+const hero =
+document.querySelector(
+".hero-premium"
+);
+
+
+
+if(hero){
+
+
+window.addEventListener(
+"mousemove",
+(e)=>{
+
+
+const x =
+(e.clientX /
+window.innerWidth - .5)
+* 20;
+
+
+const y =
+(e.clientY /
+window.innerHeight - .5)
+* 20;
+
+
+
+hero.style.backgroundPosition =
+`${x}px ${y}px`;
+
+
+
+});
+
+
+}
