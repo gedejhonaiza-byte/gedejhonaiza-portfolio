@@ -470,3 +470,71 @@ box-shadow:
 0 20px 50px rgba(0,0,0,.5);
 
 }
+/* CONTACT SECTION */
+
+
+.contact {
+
+padding:100px 10%;
+
+text-align:center;
+
+}
+
+
+.contact p {
+
+max-width:600px;
+
+margin:20px auto;
+
+color:#aaa;
+
+font-size:18px;
+
+}
+
+
+
+.contact-links {
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+margin-top:40px;
+
+}
+
+
+
+.contact-links a {
+
+padding:15px 35px;
+
+background:#d8b36a;
+
+color:#111;
+
+border-radius:40px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+
+
+.contact-links a:hover {
+
+transform:translateY(-5px);
+
+box-shadow:
+0 10px 30px rgba(216,179,106,.4);
+
+}
