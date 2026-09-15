@@ -1756,3 +1756,287 @@ footer{
 
 
 }
+/* =====================================
+   LUXURY SKILLS SECTION
+===================================== */
+
+
+.skills-section{
+
+    position:relative;
+
+}
+
+
+
+.skills-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+
+    gap:30px;
+
+
+    margin-top:50px;
+
+
+}
+
+
+
+
+.skill-card{
+
+
+    position:relative;
+
+
+    padding:35px 30px;
+
+
+    min-height:260px;
+
+
+    text-align:left;
+
+
+    background:
+
+
+    linear-gradient(
+
+    145deg,
+
+    rgba(255,255,255,.05),
+
+    rgba(255,255,255,.015)
+
+    );
+
+
+    border-radius:25px;
+
+
+    border:
+
+    1px solid rgba(212,175,55,.18);
+
+
+    overflow:hidden;
+
+
+    transition:.45s;
+
+
+}
+
+
+
+
+
+.skill-card::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    top:0;
+
+
+    left:-100%;
+
+
+    width:80%;
+
+
+    height:100%;
+
+
+    background:
+
+
+    linear-gradient(
+
+    90deg,
+
+    transparent,
+
+    rgba(212,175,55,.15),
+
+    transparent
+
+    );
+
+
+    transition:.8s;
+
+
+}
+
+
+
+
+
+.skill-card:hover::before{
+
+
+    left:130%;
+
+
+}
+
+
+
+
+
+.skill-card:hover{
+
+
+    transform:
+
+    translateY(-12px);
+
+
+    border-color:#d4af37;
+
+
+    box-shadow:
+
+
+    0 25px 60px rgba(0,0,0,.5),
+
+
+    0 0 25px rgba(212,175,55,.15);
+
+
+}
+
+
+
+
+
+.skill-icon{
+
+
+    width:55px;
+
+
+    height:55px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    border-radius:50%;
+
+
+    color:#d4af37;
+
+
+    font-size:25px;
+
+
+    border:
+
+    1px solid rgba(212,175,55,.35);
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+.skill-card h3{
+
+
+    color:#f5f0e6;
+
+
+    font-family:
+
+    'Cormorant Garamond',serif;
+
+
+    font-size:32px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.skill-card p{
+
+
+    color:#aaa;
+
+
+    font-size:14px;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
+
+
+@media(max-width:1000px){
+
+
+.skills-grid{
+
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+
+}
+
+
+
+}
+
+
+
+
+@media(max-width:700px){
+
+
+.skills-grid{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+}
