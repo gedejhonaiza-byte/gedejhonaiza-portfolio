@@ -281,3 +281,68 @@ display:none;
 }
 
 }
+/* SKILLS SECTION */
+
+
+.skills-container {
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.skill-card {
+
+background:
+rgba(255,255,255,0.05);
+
+padding:30px;
+
+border-radius:20px;
+
+border:1px solid rgba(216,179,106,0.3);
+
+backdrop-filter:blur(10px);
+
+transition:0.4s;
+
+}
+
+
+
+.skill-card h3 {
+
+color:#d8b36a;
+
+font-size:25px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.skill-card p {
+
+color:#aaa;
+
+}
+
+
+
+.skill-card:hover {
+
+transform:translateY(-10px);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,0.4);
+
+border-color:#d8b36a;
+
+}
