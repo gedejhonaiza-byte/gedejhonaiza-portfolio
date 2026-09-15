@@ -1,190 +1,769 @@
-/* =====================================
-   LUXURY PORTFOLIO INTERACTIONS
-===================================== */
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
 
+<meta charset="UTF-8">
 
-// LOADER
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-window.addEventListener("load",()=>{
 
+<title>
+Jhonaiza Gede | Creative Developer Portfolio
+</title>
 
-    const loader =
-    document.querySelector(".loader");
 
+<meta name="description" content="
+Jhonaiza Gede - Creative Developer, Web Designer, and Graphic Designer creating modern websites, digital designs, and creative solutions.
+">
 
-    loader.classList.add("hide");
 
+<meta name="keywords" content="
+Jhonaiza Gede, Creative Developer, Web Designer, Graphic Designer, Portfolio
+">
 
-});
 
+<meta name="author" content="Jhonaiza Gede">
 
 
 
+<!-- FAVICON -->
 
-// CUSTOM CURSOR
+<link rel="icon" 
+href="Favicon.png.webp"
+type="image/webp">
 
 
-const cursor =
-document.querySelector(".cursor");
 
+<!-- GOOGLE FONT -->
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-document.addEventListener(
-"mousemove",
-(e)=>{
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 
-cursor.style.left =
-e.clientX + "px";
+<link href="
+https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
 
-cursor.style.top =
-e.clientY + "px";
 
+<!-- STYLE -->
 
-});
+<link rel="stylesheet" href="style.css">
 
 
+</head>
 
 
 
+<body>
 
-// CURSOR HOVER EFFECT
 
+<!-- =====================
+LOADER
+===================== -->
 
-const links =
-document.querySelectorAll(
-"a, button"
-);
 
+<div class="loader">
 
+    <div class="loader-logo">
+        JG
+    </div>
 
-links.forEach(link=>{
+</div>
 
 
-link.addEventListener(
-"mouseenter",
-()=>{
 
-cursor.classList.add("active");
 
-});
+<!-- =====================
+CUSTOM CURSOR
+===================== -->
 
 
-link.addEventListener(
-"mouseleave",
-()=>{
+<div class="cursor"></div>
 
-cursor.classList.remove("active");
 
-});
 
 
-});
 
 
 
+<!-- =====================
+NAVIGATION
+===================== -->
 
 
+<header>
 
-// SCROLL REVEAL
 
+<nav class="navbar">
 
-const reveal =
-document.querySelectorAll(
-".section, .card, .project-card, .skill-card"
-);
 
+<div class="logo">
+J
+</div>
 
 
-const observer =
-new IntersectionObserver(
-(entries)=>{
 
+<ul>
 
-entries.forEach(entry=>{
 
+<li>
+<a href="#home">
+Home
+</a>
+</li>
 
-if(entry.isIntersecting){
 
+<li>
+<a href="#about">
+About
+</a>
+</li>
 
-entry.target.classList.add(
-"visible"
-);
 
+<li>
+<a href="#skills">
+Skills
+</a>
+</li>
 
-}
 
+<li>
+<a href="#projects">
+Projects
+</a>
+</li>
 
-});
 
+<li>
+<a href="#contact">
+Contact
+</a>
+</li>
 
-},
-{
 
-threshold:.15
+</ul>
 
-});
 
+</nav>
 
 
-reveal.forEach(item=>{
+</header>
 
 
-item.classList.add(
-"reveal"
-);
 
 
-observer.observe(item);
 
 
-});
 
 
+<!-- =====================
+HERO SECTION
+===================== -->
 
 
+<section class="hero hero-premium" id="home">
 
 
-// SMOOTH NAVIGATION
 
+<div class="gold-particles">
 
-document.querySelectorAll(
-'a[href^="#"]'
-)
-.forEach(anchor=>{
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 
+</div>
 
-anchor.addEventListener(
-"click",
-function(e){
 
 
-const target =
-document.querySelector(
-this.getAttribute("href")
-);
 
 
+<div class="hero-overlay"></div>
 
-if(target){
 
 
-e.preventDefault();
 
 
-target.scrollIntoView({
+<div class="hero-photo-wrap">
 
-behavior:"smooth"
 
-});
+<img 
+src="profile.jpg.webp"
+alt="Jhonaiza Gede"
+class="hero-photo">
 
 
-}
+</div>
 
 
-});
 
 
-});
+
+
+
+<div class="hero-content-side">
+
+
+
+<p class="hero-mini-title">
+JG CREATIVE STUDIO
+</p>
+
+
+
+
+<h1>
+
+Hi, I’m
+<br>
+
+Jhonaiza
+
+</h1>
+
+
+
+
+
+<h3>
+
+A Graphic Designer
+
+<span>|</span>
+
+Web Designer
+
+</h3>
+
+
+
+
+
+
+<p class="hero-text">
+
+I help clients grow by creating professional digital experiences,
+including modern websites, graphic designs, branding visuals,
+SEO optimization, and creative digital solutions.
+
+</p>
+
+
+
+
+
+
+<div class="hero-actions">
+
+
+<a href="#projects"
+class="btn btn-gold">
+
+VIEW PORTFOLIO
+
+</a>
+
+
+
+<a href="#contact"
+class="btn btn-outline">
+
+BOOK A PROJECT
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="hero-badge">
+
+
+<p>
+
+With 5 years of experience,
+I create visually compelling,
+user-friendly, and conversion-focused
+digital experiences for brands that want to stand out.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- =====================
+ABOUT
+===================== -->
+
+
+<section class="section about-section"
+id="about">
+
+
+<p class="section-label">
+ABOUT ME
+</p>
+
+
+
+<h2>
+Creating Digital Experiences
+With Purpose
+</h2>
+
+
+
+
+<p>
+
+I am Jhonaiza Gede, a creative developer,
+graphic designer, and web designer passionate
+about creating meaningful digital experiences.
+
+I combine creativity, technology, and modern design
+principles to build websites and digital solutions
+that are elegant, functional, and user-focused.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================
+SKILLS
+===================== -->
+
+
+<section class="section skills-section"
+id="skills">
+
+
+<p class="section-label">
+MY EXPERTISE
+</p>
+
+
+
+<h2>
+Skills & Capabilities
+</h2>
+
+
+
+
+<div class="skills-grid">
+
+
+
+<div class="skill-card">
+
+<div class="skill-icon">
+✦
+</div>
+
+<h3>
+Web Design
+</h3>
+
+<p>
+Modern responsive websites with elegant layouts.
+</p>
+
+</div>
+
+
+
+
+
+<div class="skill-card">
+
+<div class="skill-icon">
+✧
+</div>
+
+<h3>
+UI / UX Design
+</h3>
+
+<p>
+Creating clean and user-focused digital experiences.
+</p>
+
+</div>
+
+
+
+
+
+<div class="skill-card">
+
+<div class="skill-icon">
+◈
+</div>
+
+<h3>
+Graphic Design
+</h3>
+
+<p>
+Branding visuals and creative digital assets.
+</p>
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- =====================
+PROJECTS
+===================== -->
+
+
+<section class="section projects-section"
+id="projects">
+
+
+<p class="section-label">
+PORTFOLIO
+</p>
+
+
+
+<h2>
+Featured Projects
+</h2>
+
+
+
+
+
+<div class="project-grid">
+
+
+
+<div class="project-card">
+
+
+<div class="project-image">
+
+<img src="profile.jpg.webp"
+alt="Portfolio Project">
+
+</div>
+
+
+
+<div class="project-content">
+
+
+<h3>
+Luxury Portfolio Website
+</h3>
+
+
+<p>
+Modern personal portfolio with elegant
+dark and gold visual design.
+</p>
+
+
+
+<a href="#" class="project-link">
+VIEW PROJECT →
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="project-card">
+
+
+<div class="project-image">
+
+<img src="profile.jpg.webp"
+alt="Brand Project">
+
+</div>
+
+
+
+<div class="project-content">
+
+
+<h3>
+Brand Identity Design
+</h3>
+
+
+<p>
+Creative visuals and digital branding
+solutions for businesses.
+</p>
+
+
+
+<a href="#" class="project-link">
+VIEW PROJECT →
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="project-card">
+
+
+<div class="project-image">
+
+<img src="profile.jpg.webp"
+alt="Web Project">
+
+</div>
+
+
+
+<div class="project-content">
+
+
+<h3>
+Web Experience Design
+</h3>
+
+
+<p>
+Responsive websites designed for
+modern audiences.
+</p>
+
+
+
+<a href="#" class="project-link">
+VIEW PROJECT →
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- =====================
+CONTACT
+===================== -->
+
+
+<section class="section contact-section"
+id="contact">
+
+
+<p class="section-label">
+CONTACT
+</p>
+
+
+
+<h2>
+Let's Create Something Exceptional
+</h2>
+
+
+
+
+<p>
+
+Have a project idea or collaboration in mind?
+Let's build something meaningful together.
+
+</p>
+
+
+
+
+<div class="contact-actions">
+
+
+<a href="mailto:your@email.com"
+class="contact-btn">
+
+EMAIL ME
+
+</a>
+
+
+
+
+<a href="https://github.com/"
+class="social-btn">
+
+GITHUB
+
+</a>
+
+
+
+
+<a href="https://linkedin.com/"
+class="social-btn">
+
+LINKEDIN
+
+</a>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- =====================
+FOOTER
+===================== -->
+
+
+<footer class="luxury-footer">
+
+
+<div class="footer-logo">
+JG
+</div>
+
+
+
+<p>
+
+Jhonaiza Gede
+<br>
+
+Creative Developer • Web Designer • Digital Creator
+
+</p>
+
+
+
+<div class="footer-line"></div>
+
+
+
+<p class="copyright">
+
+© 2026 Jhonaiza Gede. All Rights Reserved.
+
+</p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
