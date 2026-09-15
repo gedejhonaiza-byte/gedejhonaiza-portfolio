@@ -538,3 +538,53 @@ box-shadow:
 0 10px 30px rgba(216,179,106,.4);
 
 }
+/* MODERN NAVIGATION */
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+nav a {
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+nav a:hover {
+
+    color:#d8b36a;
+
+}
+
+
+nav ul {
+
+    align-items:center;
+
+}
+
+
+
+/* BUTTON ANIMATION */
+
+button,
+.contact-links a {
+
+    transition:.3s;
+
+}
+
+
+button:hover,
+.contact-links a:hover {
+
+    transform:translateY(-5px);
+
+}
