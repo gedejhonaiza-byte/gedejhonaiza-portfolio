@@ -1,38 +1,202 @@
+/* =====================================
+   LUXURY PORTFOLIO INTERACTIONS
+===================================== */
+
+
 /* =========================
-   LUXURY PORTFOLIO SCRIPT
+   LOADER
+========================= */
+
+window.addEventListener("load", () => {
+
+    const loader = document.querySelector(".loader");
+
+    if (loader) {
+
+        setTimeout(() => {
+
+            loader.classList.add("hide");
+
+        }, 500);
+
+    }
+
+});
+
+
+
+
+
+/* =========================
+   CUSTOM CURSOR
+========================= */
+
+const cursor = document.querySelector(".cursor");
+
+
+if (cursor) {
+
+
+    document.addEventListener("mousemove", (e) => {
+
+        cursor.style.left = e.clientX + "px";
+
+        cursor.style.top = e.clientY + "px";
+
+    });
+
+
+
+    const cursorTargets =
+    document.querySelectorAll("a, button");
+
+
+    cursorTargets.forEach(item => {
+
+
+        item.addEventListener("mouseenter", () => {
+
+            cursor.classList.add("active");
+
+        });
+
+
+
+        item.addEventListener("mouseleave", () => {
+
+            cursor.classList.remove("active");
+
+        });
+
+
+    });
+
+
+}
+
+
+
+
+
+
+/* =========================
+   SCROLL REVEAL ANIMATION
 ========================= */
 
 
-/* PAGE LOAD ANIMATION */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-
-    const heroItems = document.querySelectorAll(
-        ".hero-content-card > *"
-    );
+const revealElements =
+document.querySelectorAll(
+    ".section, .card, .project-card, .skill-card"
+);
 
 
-    heroItems.forEach((item,index)=>{
 
-        item.style.opacity="0";
-
-        item.style.transform="translateY(40px)";
+if ("IntersectionObserver" in window) {
 
 
-        setTimeout(()=>{
-
-            item.style.transition=
-            "all .8s ease";
-
-
-            item.style.opacity="1";
-
-            item.style.transform=
-            "translateY(0)";
+    const observer =
+    new IntersectionObserver(
+    (entries) => {
 
 
-        },300 + (index * 150));
+        entries.forEach(entry => {
+
+
+            if (entry.isIntersecting) {
+
+
+                entry.target.classList.add("visible");
+
+
+                observer.unobserve(entry.target);
+
+
+            }
+
+
+        });
+
+
+    },
+    {
+        threshold:0.15
+    });
+
+
+
+    revealElements.forEach(element => {
+
+
+        element.classList.add("reveal");
+
+
+        observer.observe(element);
+
+
+    });
+
+
+} else {
+
+
+    revealElements.forEach(element => {
+
+        element.classList.add("visible");
+
+    });
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   SMOOTH NAVIGATION
+========================= */
+
+
+const navigationLinks =
+document.querySelectorAll(
+    'a[href^="#"]'
+);
+
+
+
+navigationLinks.forEach(link => {
+
+
+    link.addEventListener("click", function(e){
+
+
+        const targetID =
+        this.getAttribute("href");
+
+
+        const target =
+        document.querySelector(targetID);
+
+
+
+        if(target){
+
+
+            e.preventDefault();
+
+
+            target.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+
+        }
 
 
     });
@@ -46,257 +210,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* =========================
-   TYPING EFFECT
+   BUTTON RIPPLE EFFECT
 ========================= */
 
 
-const typingText =
-document.querySelector(".typing");
+document.querySelectorAll(".btn")
+.forEach(button => {
 
 
-if(typingText){
+    button.addEventListener("click", () => {
 
 
-const words=[
+        button.style.transform =
+        "scale(.96)";
 
-"Creative Developer",
 
-"Web Designer",
+        setTimeout(()=>{
 
-"UI Designer",
+            button.style.transform =
+            "";
 
-"Digital Creator"
+        },150);
 
-];
 
-
-let wordIndex=0;
-
-let charIndex=0;
-
-let deleting=false;
-
-
-
-function typeEffect(){
-
-
-let currentWord=
-words[wordIndex];
-
-
-if(!deleting){
-
-
-typingText.textContent =
-currentWord.substring(
-0,
-charIndex++
-);
-
-
-if(charIndex >
-currentWord.length){
-
-
-deleting=true;
-
-setTimeout(typeEffect,1200);
-
-return;
-
-
-}
-
-
-}else{
-
-
-typingText.textContent =
-currentWord.substring(
-0,
-charIndex--
-);
-
-
-
-if(charIndex===0){
-
-
-deleting=false;
-
-wordIndex++;
-
-
-if(wordIndex>=words.length){
-
-wordIndex=0;
-
-}
-
-
-}
-
-
-}
-
-
-setTimeout(typeEffect,
-deleting ? 60 : 120);
-
-
-}
-
-
-
-typeEffect();
-
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
-
-const revealElements =
-document.querySelectorAll(
-".section, .card"
-);
-
-
-
-const observer =
-new IntersectionObserver(
-(entries)=>{
-
-
-entries.forEach(entry=>{
-
-
-if(entry.isIntersecting){
-
-
-entry.target.classList.add(
-"show"
-);
-
-
-}
-
-
-});
-
-
-},
-{
-
-threshold:.15
-
-});
-
-
-
-revealElements.forEach(el=>{
-
-
-el.classList.add("hidden");
-
-
-observer.observe(el);
-
-
-});
-
-
-
-
-
-
-
-/* =========================
-   GOLD CURSOR GLOW
-========================= */
-
-
-const glow =
-document.createElement("div");
-
-
-glow.className="cursor-glow";
-
-
-document.body.appendChild(glow);
-
-
-
-document.addEventListener(
-"mousemove",
-(e)=>{
-
-
-glow.style.left =
-e.clientX+"px";
-
-
-glow.style.top =
-e.clientY+"px";
-
-
-});
-
-
-
-
-
-
-
-/* =========================
-   SMOOTH NAVIGATION
-========================= */
-
-
-document.querySelectorAll(
-'a[href^="#"]'
-)
-.forEach(link=>{
-
-
-link.addEventListener(
-"click",
-function(e){
-
-
-const target =
-document.querySelector(
-this.getAttribute("href")
-);
-
-
-if(target){
-
-
-e.preventDefault();
-
-
-target.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-
-}
-
-
-});
+    });
 
 
 });
