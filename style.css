@@ -1072,3 +1072,358 @@ footer{
 
 
 }
+/* =====================================
+   CINEMATIC GOLD LUXURY EFFECTS
+===================================== */
+
+
+/* GOLD LIGHT ORBS */
+
+.hero-premium::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    left:-180px;
+
+    bottom:-120px;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(212,175,55,.18),
+        transparent 70%
+    );
+
+
+    filter:blur(60px);
+
+
+    animation:
+    goldPulse 8s infinite alternate;
+
+}
+
+
+
+@keyframes goldPulse{
+
+    from{
+
+        opacity:.4;
+
+        transform:scale(1);
+
+    }
+
+
+    to{
+
+        opacity:.9;
+
+        transform:scale(1.25);
+
+    }
+
+}
+
+
+
+
+/* PROFILE GOLD FRAME */
+
+.hero-photo-wrap::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:430px;
+
+    height:560px;
+
+
+    border-radius:35px;
+
+
+    border:
+
+    1px solid rgba(212,175,55,.55);
+
+
+    animation:
+
+    frameGlow 5s infinite;
+
+
+}
+
+
+
+
+@keyframes frameGlow{
+
+
+    0%{
+
+        box-shadow:
+
+        0 0 10px rgba(212,175,55,.2);
+
+    }
+
+
+    50%{
+
+        box-shadow:
+
+        0 0 45px rgba(212,175,55,.45);
+
+    }
+
+
+    100%{
+
+        box-shadow:
+
+        0 0 10px rgba(212,175,55,.2);
+
+    }
+
+
+}
+
+
+
+
+
+
+/* GOLD FLOATING PARTICLES */
+
+
+.gold-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+
+
+.gold-particles span{
+
+
+    position:absolute;
+
+
+    width:5px;
+
+    height:5px;
+
+
+    background:#d4af37;
+
+
+    border-radius:50%;
+
+
+    opacity:.5;
+
+
+    box-shadow:
+
+    0 0 15px #d4af37;
+
+
+    animation:
+
+    floatGold 12s infinite linear;
+
+
+}
+
+
+
+.gold-particles span:nth-child(1){
+
+    left:10%;
+
+    top:80%;
+
+    animation-delay:0s;
+
+}
+
+
+.gold-particles span:nth-child(2){
+
+    left:25%;
+
+    top:60%;
+
+    animation-delay:2s;
+
+}
+
+
+.gold-particles span:nth-child(3){
+
+    left:55%;
+
+    top:85%;
+
+    animation-delay:4s;
+
+}
+
+
+.gold-particles span:nth-child(4){
+
+    left:75%;
+
+    top:50%;
+
+    animation-delay:1s;
+
+}
+
+
+.gold-particles span:nth-child(5){
+
+    left:90%;
+
+    top:70%;
+
+    animation-delay:3s;
+
+}
+
+
+.gold-particles span:nth-child(6){
+
+    left:45%;
+
+    top:40%;
+
+    animation-delay:5s;
+
+}
+
+
+
+@keyframes floatGold{
+
+
+    0%{
+
+        transform:
+
+        translateY(0)
+        scale(1);
+
+        opacity:.2;
+
+    }
+
+
+    50%{
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        transform:
+
+        translateY(-500px)
+        scale(1.8);
+
+
+        opacity:0;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* PREMIUM TEXT SHINE */
+
+
+.hero-content-side h1{
+
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    #ffffff,
+
+    #e8d6a0,
+
+    #ffffff
+
+    );
+
+
+    background-size:200%;
+
+
+    -webkit-background-clip:text;
+
+
+    -webkit-text-fill-color:transparent;
+
+
+    animation:
+
+    textShine 8s infinite;
+
+
+}
+
+
+
+
+@keyframes textShine{
+
+
+    from{
+
+        background-position:0%;
+
+    }
+
+
+    to{
+
+        background-position:200%;
+
+    }
+
+}
