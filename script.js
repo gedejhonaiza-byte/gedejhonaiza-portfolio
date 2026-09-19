@@ -1,616 +1,445 @@
-/* =========================================================
-   JHONAIZA GEDE PORTFOLIO
-   SCRIPT.JS
-========================================================= */
+/*==================== MENU SHOW Y HIDDEN ====================*/
+const navMenu = document.querySelector("#nav-menu");
+const navToggle = document.querySelector("#nav-toggle");
+const navClose = document.getElementById("nav-close");
 
+/*===== MENU SHOW =====*/
+/* Validate if constant exists */
+if (navToggle) {
+    navToggle.addEventListener("click", showMenu);
+}
 
-document.addEventListener("DOMContentLoaded", () => {
+function showMenu() {
+    navMenu.classList.add("show-menu");
+}
 
-
-    /* =====================================================
-       01. PAGE LOADER
-    ===================================================== */
-
-    const loader = document.querySelector(".loader");
-
-    window.addEventListener("load", () => {
-
-        setTimeout(() => {
-
-            if (loader) {
-                loader.classList.add("hide");
-            }
-
-        }, 700);
-
+/*===== MENU HIDDEN =====*/
+/* Validate if constant exists */
+if (navClose) {
+    navClose.addEventListener("click", () => {
+        navMenu.classList.remove("show-menu");
     });
+}
 
+/*==================== REMOVE MENU MOBILE ====================*/
+const navLink = document.querySelectorAll(".nav__link");
 
+function linkAction() {
+    const navMenu = document.getElementById("nav-menu");
+    // when we click on each nav__link, we remove the show menu class
+    navMenu.classList.remove("show-menu");
+}
 
-    /* =====================================================
-       02. CUSTOM CURSOR
-    ===================================================== */
+navLink.forEach((n) => n.addEventListener("click", linkAction));
 
-    const cursor = document.querySelector(".cursor");
+/*==================== ACCORDION SKILLS ====================*/
+const skillsContent = document.getElementsByClassName("skills__content");
+const skillsHeader = document.querySelectorAll(".skills__header");
 
-    if (cursor) {
+const skillNumbers = document.querySelectorAll(".skills__number");
+const skillBars = document.querySelectorAll(".skills__percentage");
 
-        document.addEventListener("mousemove", (event) => {
+// Define the percentage values for each skill
+const skillValues = [
+    100, 100, 85, 75,
+    92, 70, 90, 65,
+    73, 100, 79, 84,
+    90, 85, 88, 86, 80,
+    85, 81, 83, 89, 82,
+    100, 80, 93, 90, 85
+];
 
-            cursor.style.left = event.clientX + "px";
-            cursor.style.top = event.clientY + "px";
+// Function to animate the skill bar and number
+function updateSkills() {
+    skillBars.forEach((bar, index) => {
+        let targetWidth = skillValues[index];
+        let numberElement = skillNumbers[index];
 
+        let currentWidth = 0;
+        let currentNumber = 0;
+
+        numberElement.style.opacity = 1;
+
+        const interval = setInterval(() => {
+            if (currentWidth < targetWidth) {
+                currentWidth++;
+                currentNumber++;
+
+                bar.style.width = `${currentWidth}%`;
+                numberElement.textContent = `${currentNumber}%`;
+            } else {
+                clearInterval(interval);
+            }
+        }, 30);
+    });
+}
+
+function toggleSkills() {
+    let itemClass = this.parentNode.className;
+
+    for (let i = 0; i < skillsContent.length; i++) {
+        skillsContent[i].className = "skills__content skills__close";
+    }
+
+    if (itemClass === "skills__content skills__close") {
+        this.parentNode.className = "skills__content skills__open";
+        updateSkills();
+    }
+}
+
+skillsHeader.forEach((el) => {
+    el.addEventListener("click", toggleSkills);
+});
+
+/*==================== QUALIFICATION TABS ====================*/
+const tabs = document.querySelectorAll("[data-target]"),
+    tabContents = document.querySelectorAll("[data-content]");
+
+tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+        const target = document.querySelector(tab.dataset.target);
+
+        tabContents.forEach((tabContent) => {
+            tabContent.classList.remove("qualification__active");
         });
 
+        target.classList.add("qualification__active");
 
-        const interactiveElements =
-            document.querySelectorAll(
-                "a, button, .service-card, .skill-card, .project-card"
+        tabs.forEach((tab) => {
+            tab.classList.remove("qualification__active");
+        });
+
+        tab.classList.add("qualification__active");
+    });
+});
+
+/*==================== SERVICES MODAL ====================*/
+const modalViews = document.querySelectorAll(".services__modal"),
+    modalBtns = document.querySelectorAll(".services__button"),
+    modalCloses = document.querySelectorAll(".services__modal-close");
+
+let modal = function (modalClick) {
+    modalViews[modalClick].classList.add("active-modal");
+};
+
+modalBtns.forEach((modalBtn, i) => {
+    modalBtn.addEventListener("click", () => {
+        modal(i);
+    });
+});
+
+modalCloses.forEach((modalClose) => {
+    modalClose.addEventListener("click", () => {
+        modalViews.forEach((modalView) => {
+            modalView.classList.remove("active-modal");
+        });
+    });
+});
+
+/*==================== PORTFOLIO SWIPER ====================*/
+let swiperPortfolio = new Swiper(".portfolio__container", {
+    cssMode: true,
+    loop: true,
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+
+/*==================== TESTIMONIAL ====================*/
+let swiperTestimonial = new Swiper(".testimonial_container", {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 48,
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+    },
+
+    breakpoints: {
+        568: {
+            slidePerView: 2,
+        },
+    },
+});
+
+/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+const sections = document.querySelectorAll("section[id]");
+
+function scrollActive() {
+    const verticalScrollPosition =
+        window.verticalScrollPosition || window.pageYOffset;
+
+    sections.forEach((current) => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50;
+        let sectionId = current.getAttribute("id");
+
+        if (
+            verticalScrollPosition > sectionTop &&
+            verticalScrollPosition <= sectionTop + sectionHeight
+        ) {
+            const activeLink = document.querySelector(
+                ".nav__menu a[href*=" + sectionId + "]"
             );
 
-
-        interactiveElements.forEach((element) => {
-
-            element.addEventListener("mouseenter", () => {
-
-                cursor.classList.add("active");
-
-            });
-
-
-            element.addEventListener("mouseleave", () => {
-
-                cursor.classList.remove("active");
-
-            });
-
-        });
-
-    }
-
-
-
-    /* =====================================================
-       03. NAVBAR SCROLL EFFECT
-    ===================================================== */
-
-    const header = document.querySelector("header");
-
-
-    function updateHeader() {
-
-        if (!header) return;
-
-
-        if (window.scrollY > 50) {
-
-            header.classList.add("scrolled");
+            if (activeLink) {
+                activeLink.classList.add("active-link");
+            }
 
         } else {
 
-            header.classList.remove("scrolled");
+            const activeLink = document.querySelector(
+                ".nav__menu a[href*=" + sectionId + "]"
+            );
 
-        }
-
-    }
-
-
-    updateHeader();
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        { passive: true }
-    );
-
-
-
-    /* =====================================================
-       04. BACK TO TOP BUTTON
-    ===================================================== */
-
-    const backToTop =
-        document.querySelector(".back-to-top");
-
-
-    function updateBackToTop() {
-
-        if (!backToTop) return;
-
-
-        if (window.scrollY > 500) {
-
-            backToTop.classList.add("show");
-
-        } else {
-
-            backToTop.classList.remove("show");
-
-        }
-
-    }
-
-
-    updateBackToTop();
-
-
-    window.addEventListener(
-        "scroll",
-        updateBackToTop,
-        { passive: true }
-    );
-
-
-
-    /* =====================================================
-       05. SMOOTH INTERNAL LINKS
-    ===================================================== */
-
-    const internalLinks =
-        document.querySelectorAll('a[href^="#"]');
-
-
-    internalLinks.forEach((link) => {
-
-        link.addEventListener("click", (event) => {
-
-            const targetId =
-                link.getAttribute("href");
-
-
-            /*
-            Ignore placeholder links such as:
-            href="#"
-            */
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-
-                return;
-
+            if (activeLink) {
+                activeLink.classList.remove("active-link");
             }
-
-
-            const target =
-                document.querySelector(targetId);
-
-
-            if (!target) return;
-
-
-            event.preventDefault();
-
-
-            target.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "start"
-
-            });
-
-        });
-
-    });
-
-
-
-    /* =====================================================
-       06. SCROLL REVEAL
-    ===================================================== */
-
-    const revealElements = [
-
-        ...document.querySelectorAll(
-            ".section-heading"
-        ),
-
-        ...document.querySelectorAll(
-            ".about-image-wrap"
-        ),
-
-        ...document.querySelectorAll(
-            ".about-content"
-        ),
-
-        ...document.querySelectorAll(
-            ".service-card"
-        ),
-
-        ...document.querySelectorAll(
-            ".skill-card"
-        ),
-
-        ...document.querySelectorAll(
-            ".process-item"
-        ),
-
-        ...document.querySelectorAll(
-            ".project-card"
-        ),
-
-        ...document.querySelectorAll(
-            ".why-heading"
-        ),
-
-        ...document.querySelectorAll(
-            ".why-item"
-        ),
-
-        ...document.querySelectorAll(
-            ".contact-container"
-        )
-
-    ];
-
-
-    revealElements.forEach((element) => {
-
-        element.classList.add("reveal");
-
-    });
-
-
-
-    const observer = new IntersectionObserver(
-
-        (entries) => {
-
-            entries.forEach((entry) => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add(
-                        "active"
-                    );
-
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-
-        {
-
-            threshold: 0.12,
-
-            rootMargin:
-                "0px 0px -40px 0px"
-
         }
-
-    );
-
-
-    revealElements.forEach((element) => {
-
-        observer.observe(element);
-
     });
+}
 
+window.addEventListener("scroll", scrollActive);
 
+/*==================== CHANGE BACKGROUND HEADER ====================*/
+function scrollHeader() {
+    const nav = document.getElementById("header");
 
-    /* =====================================================
-       07. STAGGERED SERVICE ANIMATION
-    ===================================================== */
+    if (!nav) return;
 
-    const serviceCards =
-        document.querySelectorAll(
-            ".service-card"
-        );
-
-
-    serviceCards.forEach(
-        (card, index) => {
-
-            card.style.transitionDelay =
-                `${index * 0.05}s`;
-
-        }
-    );
-
-
-
-    /* =====================================================
-       08. STAGGERED PROJECT ANIMATION
-    ===================================================== */
-
-    const projectCards =
-        document.querySelectorAll(
-            ".project-card"
-        );
-
-
-    projectCards.forEach(
-        (card, index) => {
-
-            card.style.transitionDelay =
-                `${index * 0.08}s`;
-
-        }
-    );
-
-
-
-    /* =====================================================
-       09. ACTIVE NAVIGATION
-    ===================================================== */
-
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
-        );
-
-
-    const navLinks =
-        document.querySelectorAll(
-            ".nav-links a"
-        );
-
-
-    function updateNavigation() {
-
-        let currentSection = "";
-
-
-        sections.forEach((section) => {
-
-            const sectionTop =
-                section.offsetTop - 180;
-
-
-            const sectionHeight =
-                section.offsetHeight;
-
-
-            if (
-                window.scrollY >= sectionTop &&
-                window.scrollY <
-                    sectionTop + sectionHeight
-            ) {
-
-                currentSection =
-                    section.getAttribute("id");
-
-            }
-
-        });
-
-
-        navLinks.forEach((link) => {
-
-            link.classList.remove("active");
-
-
-            if (
-                link.getAttribute("href") ===
-                `#${currentSection}`
-            ) {
-
-                link.classList.add("active");
-
-            }
-
-        });
-
+    if (window.pageYOffset >= 80) {
+        nav.classList.add("scroll-header");
+    } else {
+        nav.classList.remove("scroll-header");
     }
+}
 
+window.addEventListener("scroll", scrollHeader);
 
-    window.addEventListener(
-        "scroll",
-        updateNavigation,
-        { passive: true }
-    );
+/*==================== SHOW SCROLL UP ====================*/
+function scrollUp() {
+    const scrollUp = document.getElementById("scroll-up");
 
+    if (!scrollUp) return;
 
-    updateNavigation();
+    if (window.pageYOffset >= 560) {
+        scrollUp.classList.add("show-scroll");
+    } else {
+        scrollUp.classList.remove("show-scroll");
+    }
+}
 
+window.addEventListener("scroll", scrollUp);
 
+/*==================== DARK / LIGHT THEME ====================*/
+const themeButton = document.getElementById("theme-button");
+const logo = document.getElementById("logo");
+const favicon = document.getElementById("favicon");
 
-    /* =====================================================
-       10. HERO SUBTLE PARALLAX
-    ===================================================== */
+const darkTheme = "dark-theme";
+const iconTheme = "uil-sun";
 
-    const heroPhoto =
-        document.querySelector(
-            ".hero-photo-wrap"
-        );
+/* Saved theme */
+const selectedTheme = localStorage.getItem("selected-theme");
+const selectedIcon = localStorage.getItem("selected-icon");
 
+/* Get current theme */
+const getCurrentTheme = () =>
+    document.body.classList.contains(darkTheme)
+        ? "dark"
+        : "light";
 
-    const heroContent =
-        document.querySelector(
-            ".hero-content-side"
-        );
+const getCurrentIcon = () =>
+    themeButton && themeButton.classList.contains(iconTheme)
+        ? "uil-moon"
+        : "uil-sun";
 
+/* Apply saved theme */
+if (selectedTheme) {
+    document.body.classList[
+        selectedTheme === "dark" ? "add" : "remove"
+    ](darkTheme);
 
-    function heroParallax() {
+    if (themeButton) {
+        themeButton.classList[
+            selectedIcon === "uil-moon"
+                ? "add"
+                : "remove"
+        ](iconTheme);
+    }
+}
+
+/*
+Your GitHub only uses one logo/favicon image:
+Favicon.png.webp
+
+So the image remains the same in both
+light mode and dark mode.
+*/
+
+if (logo) {
+    logo.src = "Favicon.png.webp";
+}
+
+if (favicon) {
+    favicon.href = "Favicon.png.webp";
+}
+
+/* Toggle theme */
+if (themeButton) {
+
+    themeButton.addEventListener("click", () => {
+
+        document.body.classList.toggle(darkTheme);
+
+        themeButton.classList.toggle(iconTheme);
 
         /*
-        Disable effect on smaller screens.
+        Keep the same Jhonaiza favicon/logo
+        for both themes.
         */
 
-        if (window.innerWidth <= 850) {
-
-            if (heroPhoto) {
-                heroPhoto.style.transform = "";
-            }
-
-            if (heroContent) {
-                heroContent.style.transform = "";
-            }
-
-            return;
-
+        if (logo) {
+            logo.src = "Favicon.png.webp";
         }
 
-
-        const scroll =
-            window.scrollY;
-
-
-        if (scroll < window.innerHeight) {
-
-            if (heroPhoto) {
-
-                heroPhoto.style.transform =
-                    `translateY(${scroll * 0.035}px)`;
-
-            }
-
-
-            if (heroContent) {
-
-                heroContent.style.transform =
-                    `translateY(${scroll * -0.018}px)`;
-
-            }
-
+        if (favicon) {
+            favicon.href = "Favicon.png.webp";
         }
 
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        heroParallax,
-        { passive: true }
-    );
-
-
-
-    /* =====================================================
-       11. PROJECT IMAGE TILT EFFECT
-    ===================================================== */
-
-    const projectItems =
-        document.querySelectorAll(
-            ".project-card"
+        /* Save theme */
+        localStorage.setItem(
+            "selected-theme",
+            getCurrentTheme()
         );
 
-
-    projectItems.forEach((card) => {
-
-
-        card.addEventListener(
-            "mousemove",
-            (event) => {
-
-                /*
-                Disable tilt on tablets/mobile.
-                */
-
-                if (
-                    window.innerWidth <= 850
-                ) {
-
-                    return;
-
-                }
-
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const centerX =
-                    rect.width / 2;
-
-
-                const centerY =
-                    rect.height / 2;
-
-
-                const rotateX =
-                    ((y - centerY) /
-                    centerY) * -2;
-
-
-                const rotateY =
-                    ((x - centerX) /
-                    centerX) * 2;
-
-
-                card.style.transform =
-                    `
-                    perspective(1000px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateY(-8px)
-                    `;
-
-            }
+        localStorage.setItem(
+            "selected-icon",
+            getCurrentIcon()
         );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                card.style.transform = "";
-
-            }
-        );
-
     });
+}
 
+/*==================== HOME SUBTITLE ====================*/
 
+/* Typewriter constructor */
+var TxtType = function (el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = "";
+    this.isDeleting = false;
 
-    /* =====================================================
-       12. REMOVE DELAY AFTER REVEAL
-    ===================================================== */
+    this.tick();
+};
 
-    setTimeout(() => {
+/* Typewriter effect */
+TxtType.prototype.tick = function () {
 
-        document
-            .querySelectorAll(".reveal")
-            .forEach((element) => {
+    var i =
+        this.loopNum %
+        this.toRotate.length;
 
-                element.style.transitionDelay =
-                    "0s";
+    var fullTxt =
+        this.toRotate[i];
 
-            });
+    if (this.isDeleting) {
 
-    }, 1800);
+        this.txt =
+            fullTxt.substring(
+                0,
+                this.txt.length - 1
+            );
 
+    } else {
 
-
-    /* =====================================================
-       13. CURRENT YEAR
-    ===================================================== */
-
-    const copyright =
-        document.querySelector(
-            ".copyright"
-        );
-
-
-    if (copyright) {
-
-        const year =
-            new Date().getFullYear();
-
-
-        copyright.innerHTML =
-            `© ${year} Jhonaiza Gede. All Rights Reserved.`;
-
+        this.txt =
+            fullTxt.substring(
+                0,
+                this.txt.length + 1
+            );
     }
 
+    this.el.innerHTML =
+        '<span class="wrap">' +
+        this.txt +
+        "</span>";
 
+    var that = this;
+
+    var delta = 100;
+
+    if (this.isDeleting) {
+        delta /= 2;
+    }
+
+    if (
+        !this.isDeleting &&
+        this.txt === fullTxt
+    ) {
+
+        delta = this.period;
+
+        this.isDeleting = true;
+
+    } else if (
+        this.isDeleting &&
+        this.txt === ""
+    ) {
+
+        this.isDeleting = false;
+
+        this.loopNum++;
+
+        delta = 500;
+    }
+
+    setTimeout(function () {
+        that.tick();
+    }, delta);
+};
+
+/* Initialize typewriter */
+window.addEventListener("load", function () {
+
+    var elements =
+        document.getElementsByClassName(
+            "typewrite"
+        );
+
+    for (
+        var i = 0;
+        i < elements.length;
+        i++
+    ) {
+
+        var toRotate =
+            elements[i].getAttribute(
+                "data-type"
+            );
+
+        var period =
+            elements[i].getAttribute(
+                "data-period"
+            );
+
+        if (toRotate) {
+
+            new TxtType(
+                elements[i],
+                JSON.parse(toRotate),
+                period
+            );
+        }
+    }
 });
