@@ -2,2511 +2,1684 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- FAVICON -->
+    <!-- =========================================
+         BASIC META
+    ========================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Jhonaiza Gede | Creative Developer Portfolio
+    </title>
+
+    <meta
+        name="description"
+        content="Jhonaiza Gede is a Creative Developer, Web Designer, and Graphic Designer creating modern websites, digital designs, branding, and creative experiences."
+    >
+
+    <meta
+        name="keywords"
+        content="Jhonaiza Gede, Creative Developer, Web Designer, Graphic Designer, Portfolio, UI UX Designer, Branding, Digital Design"
+    >
+
+    <meta
+        name="author"
+        content="Jhonaiza Gede"
+    >
+
+    <meta
+        name="theme-color"
+        content="#090909"
+    >
+
+
+    <!-- =========================================
+         FAVICON
+    ========================================== -->
+
     <link
-        id="favicon"
         rel="icon"
         href="Favicon.png.webp"
         type="image/webp"
     >
 
-    <!-- UNICONS -->
+
+    <!-- =========================================
+         GOOGLE FONTS
+    ========================================== -->
+
     <link
-        rel="stylesheet"
-        href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
     >
 
-    <!-- SWIPER CSS -->
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@6.8.4/swiper-bundle.min.css"
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
     >
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-    <title>Jhonaiza Gede | Portfolio</title>
+
+    <!-- =========================================
+         MAIN CSS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- ==================== HEADER ==================== -->
 
-    <header class="header" id="header">
+<!-- =============================================
+     PAGE LOADER
+============================================== -->
 
-        <nav class="nav container">
+<div class="loader">
 
-            <a href="#home" class="nav__logo">
+    <div class="loader-logo">
+        JG
+    </div>
 
-                <img
-                    src="Favicon.png.webp"
-                    alt="Jhonaiza Gede Logo"
-                    class="nav__logo-img"
-                    id="logo"
-                >
+</div>
 
-                Jhonaiza Gede&nbsp;<span>Portfolio</span>
+
+<!-- =============================================
+     CUSTOM CURSOR
+============================================== -->
+
+<div class="cursor"></div>
+
+
+<!-- =============================================
+     NAVIGATION
+============================================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a
+            href="#home"
+            class="logo"
+            aria-label="Jhonaiza Gede Home"
+        >
+            JG
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#services">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="#skills">
+                    Skills
+                </a>
+            </li>
+
+            <li>
+                <a href="#projects">
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+
+        <a
+            href="#contact"
+            class="nav-cta"
+        >
+            Let's Talk
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =============================================
+     HERO SECTION
+============================================== -->
+
+<section
+    class="hero hero-premium"
+    id="home"
+>
+
+
+    <!-- DECORATIVE PARTICLES -->
+
+    <div class="gold-particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <div class="hero-overlay"></div>
+
+
+    <!-- =========================================
+         HERO PROFILE IMAGE
+    ========================================== -->
+
+    <div class="hero-photo-wrap">
+
+        <img
+            src="Profile 1.webp.webp"
+            alt="Jhonaiza Gede"
+            class="hero-photo"
+        >
+
+    </div>
+
+
+    <!-- =========================================
+         HERO CONTENT
+    ========================================== -->
+
+    <div class="hero-content-side">
+
+
+        <p class="hero-mini-title">
+
+            CREATIVE DESIGN • WEB • DIGITAL EXPERIENCES
+
+        </p>
+
+
+        <h1>
+
+            Hi, I'm
+
+            <br>
+
+            <span>
+                Jhonaiza Gede
+            </span>
+
+        </h1>
+
+
+        <h3>
+
+            Graphic Designer
+
+            <span>•</span>
+
+            Web Designer
+
+            <span>•</span>
+
+            Creative Developer
+
+        </h3>
+
+
+        <p class="hero-text">
+
+            I transform ideas into polished digital experiences
+            through modern web design, compelling visuals,
+            thoughtful branding, and user-focused solutions.
+
+        </p>
+
+
+        <p class="hero-text hero-secondary-text">
+
+            I combine creativity, strategy, and technology
+            to help brands and businesses build a stronger
+            and more memorable presence online.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#projects"
+                class="btn btn-gold"
+            >
+
+                VIEW MY WORK
+
+                <span>→</span>
 
             </a>
 
 
-            <div class="nav__menu" id="nav-menu">
-
-                <ul class="nav__list grid">
-
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">
-                            <i class="uil uil-estate nav__icon"></i>
-                            Home
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class="uil uil-user nav__icon"></i>
-                            About
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"></i>
-                            Skills
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#services" class="nav__link">
-                            <i class="uil uil-briefcase-alt nav__icon"></i>
-                            Services
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#portfolio" class="nav__link">
-                            <i class="uil uil-scenery nav__icon"></i>
-                            Portfolio
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <i class="uil uil-message nav__icon"></i>
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-
-                <i
-                    class="uil uil-times nav__close"
-                    id="nav-close"
-                ></i>
-
-            </div>
-
-
-            <div class="nav__btns">
-
-                <i
-                    class="uil uil-moon change-theme"
-                    id="theme-button"
-                ></i>
-
-                <div
-                    class="nav__toggle"
-                    id="nav-toggle"
-                >
-                    <i class="uil uil-apps"></i>
-                </div>
-
-            </div>
-
-        </nav>
-
-    </header>
-
-
-
-    <!-- ==================== MAIN ==================== -->
-
-    <main class="main">
-
-
-        <!-- ==================== HOME ==================== -->
-
-        <section class="home section" id="home">
-
-            <div class="home__container container grid">
-
-                <div class="home__content grid">
-
-
-                    <!-- SOCIAL -->
-
-                    <div class="home__social">
-
-                        <a
-                            href="https://www.linkedin.com"
-                            target="_blank"
-                            class="home__social-icon"
-                            aria-label="LinkedIn"
-                        >
-                            <i class="uil uil-linkedin-alt"></i>
-                        </a>
-
-                        <a
-                            href="https://www.skype.com"
-                            target="_blank"
-                            class="home__social-icon"
-                            aria-label="Skype"
-                        >
-                            <i class="uil uil-skype"></i>
-                        </a>
-
-                        <a
-                            href="https://www.whatsapp.com"
-                            target="_blank"
-                            class="home__social-icon"
-                            aria-label="WhatsApp"
-                        >
-                            <i class="uil uil-whatsapp"></i>
-                        </a>
-
-                    </div>
-
-
-                    <!-- PROFILE IMAGE -->
-
-                    <div class="home__img">
-
-                        <svg
-                            class="home__blob"
-                            viewBox="0 0 200 187"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                        >
-
-                            <mask
-                                id="mask0"
-                                mask-type="alpha"
-                            >
-
-                                <path
-                                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                                />
-
-                            </mask>
-
-
-                            <g mask="url(#mask0)">
-
-                                <path
-                                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                                />
-
-                                <image
-                                    class="home__blob-img"
-                                    x="12"
-                                    y="18"
-                                    href="profile.jpg.webp"
-                                />
-
-                            </g>
-
-                        </svg>
-
-                    </div>
-
-
-                    <!-- HERO CONTENT -->
-
-                    <div class="home__data">
-
-                        <h1 class="home__title">
-
-                            Hello, It's
-
-                            <span class="neon-text">
-
-                                <span>J</span>
-                                <span>H</span>
-                                <span>O</span>
-                                <span>N</span>
-                                <span>A</span>
-                                <span>I</span>
-                                <span>Z</span>
-                                <span>A</span>
-
-                                &nbsp;
-
-                                <span>G</span>
-                                <span>E</span>
-                                <span>D</span>
-                                <span>E</span>
-
-                            </span>
-
-                        </h1>
-
-
-                        <h3 class="home__subtitle">
-
-                            <a
-                                href="#"
-                                class="typewrite"
-                                data-period="2000"
-                                data-type='[
-                                    "I am a Full Stack Web Developer",
-                                    "I am a Graphic Designer",
-                                    "I am a Web Designer",
-                                    "I am a Front-End Developer",
-                                    "I am a Back-End Developer",
-                                    "I am an SEO Specialist",
-                                    "I am a Digital Marketer"
-                                ]'
-                            >
-
-                                <span class="wrap"></span>
-
-                            </a>
-
-                        </h3>
-
-
-                        <p class="home__description">
-
-                            I help businesses grow with expert digital
-                            services, including web development,
-                            graphic design, front-end and back-end
-                            optimization, SEO, and digital marketing.
-                            I've got you covered every step of the way.
-
-                        </p>
-
-
-                        <a
-                            href="#contact"
-                            class="button button--flex"
-                        >
-
-                            Contact Me
-
-                            <i
-                                class="uil uil-message button__icon"
-                            ></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="home__scroll">
-
-                    <a
-                        href="#about"
-                        class="home__scroll-button button--flex"
-                    >
-
-                        <i
-                            class="uil uil-mouse-alt home__scroll-mouse"
-                        ></i>
-
-                        <span class="home__scroll-name">
-                            Scroll down
-                        </span>
-
-                        <i class="uil uil-arrow-down"></i>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================== ABOUT ==================== -->
-
-        <section class="about section" id="about">
-
-            <h2 class="section__title">
-                About Me
-            </h2>
-
-            <span class="section__subtitle">
-                Introduction
-            </span>
-
-
-            <div class="about__container container grid">
-
-                <img
-                    src="profile.jpg.webp"
-                    alt="Jhonaiza Gede"
-                    class="about__img"
-                >
-
-
-                <div class="about__data">
-
-                    <p class="about__description">
-
-                        I am a 4-year Bachelor's degree holder
-                        in Information Technology (BSIT),
-                        specializing as a Full Stack Web Developer,
-                        Graphic Designer, and Web Designer.
-
-                        I focus on front-end and back-end development,
-                        UI/UX design, SEO, and digital marketing.
-
-                        I create high-quality, user-friendly websites
-                        that drive engagement and support business growth.
-
-                    </p>
-
-
-                    <div class="about__info">
-
-                        <div>
-
-                            <span class="about__info-title">
-                                05+
-                            </span>
-
-                            <span class="about__info-name">
-                                Years
-                                <br>
-                                experience
-                            </span>
-
-                        </div>
-
-
-                        <div>
-
-                            <span class="about__info-title">
-                                07+
-                            </span>
-
-                            <span class="about__info-name">
-                                Completed
-                                <br>
-                                projects
-                            </span>
-
-                        </div>
-
-
-                        <div>
-
-                            <span class="about__info-title">
-                                05+
-                            </span>
-
-                            <span class="about__info-name">
-                                Companies
-                                <br>
-                                worked
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="about__buttons">
-
-                        <a
-                            href="#contact"
-                            class="button button--flex"
-                        >
-
-                            Hire Me
-
-                            <i
-                                class="uil uil-message button__icon"
-                            ></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================== SKILLS ==================== -->
-
-        <section class="skills section" id="skills">
-
-            <h2 class="section__title">
-                Skills
-            </h2>
-
-            <span class="section__subtitle">
-                My technical level
-            </span>
-
-
-            <div class="skills__container container grid">
-
-
-                <!-- COLUMN 1 -->
-
-                <div>
-
-
-                    <!-- FRONTEND -->
-
-                    <div class="skills__content skills__close">
-
-                        <div class="skills__header">
-
-                            <i
-                                class="uil uil-brackets-curly skills__icon"
-                            ></i>
-
-                            <div>
-
-                                <h1 class="skills__title">
-                                    Frontend Developer
-                                </h1>
-
-                                <span class="skills__subtitle">
-                                    More than 3 years
-                                </span>
-
-                            </div>
-
-                            <i
-                                class="uil uil-angle-down skills__arrow"
-                            ></i>
-
-                        </div>
-
-
-                        <div class="skills__list grid">
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        HTML
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__html"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        CSS
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__css"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        JavaScript
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__js"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        React
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__react"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- BACKEND -->
-
-                    <div class="skills__content skills__close">
-
-                        <div class="skills__header">
-
-                            <i
-                                class="uil uil-server-network skills__icon"
-                            ></i>
-
-                            <div>
-
-                                <h1 class="skills__title">
-                                    Backend Developer
-                                </h1>
-
-                                <span class="skills__subtitle">
-                                    More than 3 years
-                                </span>
-
-                            </div>
-
-                            <i
-                                class="uil uil-angle-down skills__arrow"
-                            ></i>
-
-                        </div>
-
-
-                        <div class="skills__list grid">
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        PHP
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__php"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Node JS
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__node"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Firebase
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__firebase"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Python
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__python"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- GRAPHIC DESIGN -->
-
-                    <div class="skills__content skills__close">
-
-                        <div class="skills__header">
-
-                            <i
-                                class="uil uil-swatchbook skills__icon"
-                            ></i>
-
-                            <div>
-
-                                <h1 class="skills__title">
-                                    Graphic Designer
-                                </h1>
-
-                                <span class="skills__subtitle">
-                                    More than 4 years
-                                </span>
-
-                            </div>
-
-                            <i
-                                class="uil uil-angle-down skills__arrow"
-                            ></i>
-
-                        </div>
-
-
-                        <div class="skills__list grid">
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Figma
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__figma"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Canva
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__canva"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Illustrator
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__illustrator"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Photoshop
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-
-                                    <span
-                                        class="skills__percentage skills__photoshop"
-                                    ></span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- COLUMN 2 -->
-
-                <div>
-
-
-                    <!-- WEB DESIGN -->
-
-                    <div class="skills__content skills__close">
-
-                        <div class="skills__header">
-
-                            <i
-                                class="uil uil-brush-alt skills__icon"
-                            ></i>
-
-                            <div>
-
-                                <h1 class="skills__title">
-                                    Web Designer
-                                </h1>
-
-                                <span class="skills__subtitle">
-                                    More than 3 years
-                                </span>
-
-                            </div>
-
-                            <i
-                                class="uil uil-angle-down skills__arrow"
-                            ></i>
-
-                        </div>
-
-
-                        <div class="skills__list grid">
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        UI / UX Design
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Code-Based Design
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Website Builders
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- SEO -->
-
-                    <div class="skills__content skills__close">
-
-                        <div class="skills__header">
-
-                            <i
-                                class="uil uil-search-alt skills__icon"
-                            ></i>
-
-                            <div>
-
-                                <h1 class="skills__title">
-                                    SEO Specialist
-                                </h1>
-
-                                <span class="skills__subtitle">
-                                    Search optimization
-                                </span>
-
-                            </div>
-
-                            <i
-                                class="uil uil-angle-down skills__arrow"
-                            ></i>
-
-                        </div>
-
-
-                        <div class="skills__list grid">
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Keyword Research
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        On-Page SEO
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Local SEO
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DIGITAL MARKETING -->
-
-                    <div class="skills__content skills__close">
-
-                        <div class="skills__header">
-
-                            <i
-                                class="uil uil-presentation-line skills__icon"
-                            ></i>
-
-                            <div>
-
-                                <h1 class="skills__title">
-                                    Digital Marketer
-                                </h1>
-
-                                <span class="skills__subtitle">
-                                    Digital growth
-                                </span>
-
-                            </div>
-
-                            <i
-                                class="uil uil-angle-down skills__arrow"
-                            ></i>
-
-                        </div>
-
-
-                        <div class="skills__list grid">
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Social Media Marketing
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Content Marketing
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-
-                            <div class="skills__data">
-
-                                <div class="skills__titles">
-
-                                    <h3 class="skills__name">
-                                        Email Marketing
-                                    </h3>
-
-                                    <span class="skills__number">
-                                        0%
-                                    </span>
-
-                                </div>
-
-                                <div class="skills__bar">
-                                    <span class="skills__percentage"></span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================== ACHIEVEMENTS ==================== -->
-
-        <section class="qualification section">
-
-            <h2 class="section__title">
-                Achievements
-            </h2>
-
-            <span class="section__subtitle">
-                My Experience & Achievements
-            </span>
-
-
-            <div class="qualification__container container">
-
-
-                <div class="qualification__tabs">
-
-                    <div
-                        class="qualification__button button--flex qualification__active"
-                        data-target="#education"
-                    >
-
-                        <i
-                            class="uil uil-briefcase-alt qualification__icon"
-                        ></i>
-
-                        Experience
-
-                    </div>
-
-
-                    <div
-                        class="qualification__button button--flex"
-                        data-target="#work"
-                    >
-
-                        <i
-                            class="uil uil-medal qualification__icon"
-                        ></i>
-
-                        Achievements
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- EXPERIENCE -->
-
-                <div class="qualification__sections">
-
-                    <div
-                        class="qualification__content qualification__active"
-                        data-content
-                        id="education"
-                    >
-
-
-                        <div class="qualification__data">
-
-                            <div>
-
-                                <img
-                                    src="profile.jpg.webp"
-                                    alt="Experience"
-                                    class="qualification__image"
-                                    onclick="openModal(this)"
-                                >
-
-                                <h3 class="qualification__title">
-                                    Web Development
-                                </h3>
-
-                                <span class="qualification__subtitle">
-                                    Website development and design
-                                </span>
-
-                                <div class="qualification__calendar">
-
-                                    <i
-                                        class="uil uil-calendar-alt"
-                                    ></i>
-
-                                    Professional Experience
-
-                                </div>
-
-                            </div>
-
-
-                            <div>
-
-                                <span
-                                    class="qualification__rounder"
-                                ></span>
-
-                                <span
-                                    class="qualification__line"
-                                ></span>
-
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="qualification__data">
-
-                            <div></div>
-
-                            <div>
-
-                                <span
-                                    class="qualification__rounder"
-                                ></span>
-
-                                <span
-                                    class="qualification__line"
-                                ></span>
-
-                            </div>
-
-
-                            <div>
-
-                                <img
-                                    src="profile.jpg.webp"
-                                    alt="Graphic Design"
-                                    class="qualification__image"
-                                    onclick="openModal(this)"
-                                >
-
-                                <h3 class="qualification__title">
-                                    Graphic Designer
-                                </h3>
-
-                                <span class="qualification__subtitle">
-                                    Branding and visual design
-                                </span>
-
-                                <div class="qualification__calendar">
-
-                                    <i
-                                        class="uil uil-calendar-alt"
-                                    ></i>
-
-                                    Creative Experience
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- ACHIEVEMENTS -->
-
-                <div class="qualification__sections">
-
-                    <div
-                        class="qualification__content"
-                        data-content
-                        id="work"
-                    >
-
-
-                        <div class="qualification__data">
-
-                            <div>
-
-                                <img
-                                    src="profile.jpg.webp"
-                                    alt="Certification"
-                                    class="qualification__image"
-                                    onclick="openModal(this)"
-                                >
-
-                                <h3 class="qualification__title">
-                                    Professional Development
-                                </h3>
-
-                                <span class="qualification__subtitle">
-                                    Technology and creative skills
-                                </span>
-
-                            </div>
-
-
-                            <div>
-
-                                <span
-                                    class="qualification__rounder"
-                                ></span>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- IMAGE MODAL -->
-
-        <script>
-
-            function openModal(img) {
-
-                const modal =
-                    document.createElement("div");
-
-                modal.style.position = "fixed";
-                modal.style.top = "0";
-                modal.style.left = "0";
-                modal.style.width = "100%";
-                modal.style.height = "100%";
-
-                modal.style.backgroundColor =
-                    "rgba(0,0,0,.85)";
-
-                modal.style.display = "flex";
-
-                modal.style.justifyContent =
-                    "center";
-
-                modal.style.alignItems =
-                    "center";
-
-                modal.style.zIndex =
-                    "9999";
-
-                modal.innerHTML =
-                    `<img
-                        src="${img.src}"
-                        style="
-                            max-width:90%;
-                            max-height:90%;
-                            border-radius:10px;
-                        "
-                    >`;
-
-                modal.onclick = () =>
-                    document.body.removeChild(modal);
-
-                document.body.appendChild(modal);
-
-            }
-
-        </script>
-
-
-
-        <!-- ==================== SERVICES ==================== -->
-
-        <section class="services section" id="services">
-
-            <h2 class="section__title">
-                Services
-            </h2>
-
-            <span class="section__subtitle">
-                What I offer
-            </span>
-
-
-            <div class="services__container container grid">
-
-
-                <!-- GRAPHIC DESIGN -->
-
-                <div class="services__content">
-
-                    <div>
-
-                        <i
-                            class="uil uil-swatchbook skills__icon1"
-                        ></i>
-
-                        <h3 class="services__title">
-                            Graphic
-                            <br>
-                            Designer
-                        </h3>
-
-                    </div>
-
-
-                    <span
-                        class="button button--flex button--small button--link services__button"
-                    >
-
-                        View More
-
-                        <i
-                            class="uil uil-arrow-right button__icon"
-                        ></i>
-
-                    </span>
-
-
-                    <div class="services__modal">
-
-                        <div class="services__modal-content">
-
-                            <h4 class="services__modal-title">
-                                Graphic Designer
-                            </h4>
-
-                            <i
-                                class="uil uil-times services__modal-close"
-                            ></i>
-
-
-                            <ul class="services__modal-services grid">
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Professional digital
-                                        and print graphics.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Social media graphics,
-                                        posters, and branding.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Creative visual communication.
-                                    </p>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- FULL STACK -->
-
-                <div class="services__content">
-
-                    <div>
-
-                        <i
-                            class="uil uil-brackets-curly skills__icon1"
-                        ></i>
-
-                        <h3 class="services__title">
-                            Full Stack
-                            <br>
-                            Developer
-                        </h3>
-
-                    </div>
-
-
-                    <span
-                        class="button button--flex button--small button--link services__button"
-                    >
-
-                        View More
-
-                        <i
-                            class="uil uil-arrow-right button__icon"
-                        ></i>
-
-                    </span>
-
-
-                    <div class="services__modal">
-
-                        <div class="services__modal-content">
-
-                            <h4 class="services__modal-title">
-                                Full Stack Developer
-                            </h4>
-
-                            <i
-                                class="uil uil-times services__modal-close"
-                            ></i>
-
-
-                            <ul class="services__modal-services grid">
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Responsive website development.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Front-end and back-end
-                                        development.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Website performance optimization.
-                                    </p>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- SEO -->
-
-                <div class="services__content">
-
-                    <div>
-
-                        <i
-                            class="uil uil-search-alt skills__icon1"
-                        ></i>
-
-                        <h3 class="services__title">
-                            SEO
-                            <br>
-                            Specialist
-                        </h3>
-
-                    </div>
-
-
-                    <span
-                        class="button button--flex button--small button--link services__button"
-                    >
-
-                        View More
-
-                        <i
-                            class="uil uil-arrow-right button__icon"
-                        ></i>
-
-                    </span>
-
-
-                    <div class="services__modal">
-
-                        <div class="services__modal-content">
-
-                            <h4 class="services__modal-title">
-                                SEO Specialist
-                            </h4>
-
-                            <i
-                                class="uil uil-times services__modal-close"
-                            ></i>
-
-
-                            <ul class="services__modal-services grid">
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Keyword research.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        On-page optimization.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Search visibility optimization.
-                                    </p>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- DIGITAL MARKETING -->
-
-                <div class="services__content">
-
-                    <div>
-
-                        <i
-                            class="uil uil-presentation-line skills__icon1"
-                        ></i>
-
-                        <h3 class="services__title">
-                            Digital
-                            <br>
-                            Marketer
-                        </h3>
-
-                    </div>
-
-
-                    <span
-                        class="button button--flex button--small button--link services__button"
-                    >
-
-                        View More
-
-                        <i
-                            class="uil uil-arrow-right button__icon"
-                        ></i>
-
-                    </span>
-
-
-                    <div class="services__modal">
-
-                        <div class="services__modal-content">
-
-                            <h4 class="services__modal-title">
-                                Digital Marketer
-                            </h4>
-
-                            <i
-                                class="uil uil-times services__modal-close"
-                            ></i>
-
-
-                            <ul class="services__modal-services grid">
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Social media marketing.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Content strategy.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Digital campaign support.
-                                    </p>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- WEB DESIGN -->
-
-                <div class="services__content">
-
-                    <div>
-
-                        <i
-                            class="uil uil-brush-alt skills__icon1"
-                        ></i>
-
-                        <h3 class="services__title">
-                            Web
-                            <br>
-                            Designer
-                        </h3>
-
-                    </div>
-
-
-                    <span
-                        class="button button--flex button--small button--link services__button"
-                    >
-
-                        View More
-
-                        <i
-                            class="uil uil-arrow-right button__icon"
-                        ></i>
-
-                    </span>
-
-
-                    <div class="services__modal">
-
-                        <div class="services__modal-content">
-
-                            <h4 class="services__modal-title">
-                                Web Designer
-                            </h4>
-
-                            <i
-                                class="uil uil-times services__modal-close"
-                            ></i>
-
-
-                            <ul class="services__modal-services grid">
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Modern website design.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        Responsive layouts.
-                                    </p>
-
-                                </li>
-
-                                <li class="services__modal-service">
-
-                                    <i
-                                        class="uil uil-check-circle services__modal-icon"
-                                    ></i>
-
-                                    <p>
-                                        User-friendly interfaces.
-                                    </p>
-
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================== PORTFOLIO ==================== -->
-
-        <section class="portfolio section" id="portfolio">
-
-            <h2 class="section__title">
-                Portfolio
-            </h2>
-
-            <span class="section__subtitle">
-                Most recent work
-            </span>
-
-
-            <div
-                class="portfolio__container container swiper-container"
+            <a
+                href="#contact"
+                class="btn btn-outline"
             >
 
-                <div class="swiper-wrapper">
+                LET'S WORK TOGETHER
 
-
-                    <!-- PROJECT 1 -->
-
-                    <div
-                        class="portfolio__content grid swiper-slide"
-                    >
-
-                        <img
-                            src="profile.jpg.webp"
-                            alt="Web Design Project"
-                            class="portfolio__img"
-                        >
-
-
-                        <div class="portfolio__data">
-
-                            <h3 class="portfolio__title">
-                                Web Design Project
-                            </h3>
-
-                            <p class="portfolio__description">
-
-                                Modern responsive website
-                                created with a strong focus on
-                                clean design and usability.
-
-                            </p>
-
-                            <a
-                                href="#contact"
-                                class="button button--flex button--small portfolio__button"
-                            >
-
-                                Contact Me
-
-                                <i
-                                    class="uil uil-arrow-right button__icon"
-                                ></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- PROJECT 2 -->
-
-                    <div
-                        class="portfolio__content grid swiper-slide"
-                    >
-
-                        <img
-                            src="profile.jpg.webp"
-                            alt="Graphic Design Project"
-                            class="portfolio__img"
-                        >
-
-
-                        <div class="portfolio__data">
-
-                            <h3 class="portfolio__title">
-                                Graphic Design
-                            </h3>
-
-                            <p class="portfolio__description">
-
-                                Creative visual design for
-                                digital platforms, brands,
-                                events, and marketing.
-
-                            </p>
-
-                            <a
-                                href="#contact"
-                                class="button button--flex button--small portfolio__button"
-                            >
-
-                                Contact Me
-
-                                <i
-                                    class="uil uil-arrow-right button__icon"
-                                ></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- PROJECT 3 -->
-
-                    <div
-                        class="portfolio__content grid swiper-slide"
-                    >
-
-                        <img
-                            src="profile.jpg.webp"
-                            alt="SEO Project"
-                            class="portfolio__img"
-                        >
-
-
-                        <div class="portfolio__data">
-
-                            <h3 class="portfolio__title">
-                                SEO & Digital Growth
-                            </h3>
-
-                            <p class="portfolio__description">
-
-                                Search optimization and
-                                digital strategies designed
-                                to strengthen online presence.
-
-                            </p>
-
-                            <a
-                                href="#contact"
-                                class="button button--flex button--small portfolio__button"
-                            >
-
-                                Contact Me
-
-                                <i
-                                    class="uil uil-arrow-right button__icon"
-                                ></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="swiper-button-next">
-
-                    <i
-                        class="uil uil-angle-right-b swiper-portfolio-icon"
-                    ></i>
-
-                </div>
-
-
-                <div class="swiper-button-prev">
-
-                    <i
-                        class="uil uil-angle-left-b swiper-portfolio-icon"
-                    ></i>
-
-                </div>
-
-
-                <div class="swiper-pagination"></div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================== PROJECT CTA ==================== -->
-
-        <section class="project section">
-
-            <div class="project__bg">
-
-                <div class="project__container container grid">
-
-
-                    <div class="project__data">
-
-                        <h2 class="project__title">
-
-                            Expert in Web Development,
-                            Design & Digital Growth!
-
-                        </h2>
-
-
-                        <p class="project__description">
-
-                            As a Full Stack Developer,
-                            Graphic Designer, SEO Specialist,
-                            and Digital Marketer, I create
-                            professional digital experiences
-                            designed to support business growth.
-
-                        </p>
-
-
-                        <a
-                            href="#contact"
-                            class="button button--flex button--white"
-                        >
-
-                            Contact Me
-
-                            <i
-                                class="uil uil-message project__icon button__icon"
-                            ></i>
-
-                        </a>
-
-                    </div>
-
-
-                    <img
-                        src="profile.jpg.webp"
-                        alt="Jhonaiza Gede"
-                        class="project__img"
-                    >
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================== CONTACT ==================== -->
-
-        <section class="contact section" id="contact">
-
-            <h2 class="section__title">
-                Contact Me
-            </h2>
-
-            <span class="section__subtitle">
-                Get in touch
-            </span>
-
-
-            <div class="contact__container container grid">
-
-
-                <div>
-
-
-                    <div class="contact__information">
-
-                        <i
-                            class="uil uil-envelope contact__icon"
-                        ></i>
-
-                        <div>
-
-                            <h3 class="contact__title">
-                                Email
-                            </h3>
-
-                            <span class="contact__subtitle">
-                                Your professional email here
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="contact__information">
-
-                        <i
-                            class="uil uil-map-marker contact__icon"
-                        ></i>
-
-                        <div>
-
-                            <h3 class="contact__title">
-                                Location
-                            </h3>
-
-                            <span class="contact__subtitle">
-                                Philippines
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <form
-                    class="contact__form grid"
-                    onsubmit="return false;"
-                >
-
-
-                    <div class="contact__inputs grid">
-
-
-                        <div class="contact__content">
-
-                            <label
-                                class="contact__label"
-                            >
-                                Name
-                            </label>
-
-                            <input
-                                type="text"
-                                class="contact__input"
-                            >
-
-                        </div>
-
-
-
-                        <div class="contact__content">
-
-                            <label
-                                class="contact__label"
-                            >
-                                Email
-                            </label>
-
-                            <input
-                                type="email"
-                                class="contact__input"
-                            >
-
-                        </div>
-
-
-                    </div>
-
-
-
-                    <div class="contact__content">
-
-                        <label
-                            class="contact__label"
-                        >
-                            Subject
-                        </label>
-
-                        <input
-                            type="text"
-                            class="contact__input"
-                        >
-
-                    </div>
-
-
-
-                    <div class="contact__content">
-
-                        <label
-                            class="contact__label"
-                        >
-                            Message
-                        </label>
-
-                        <textarea
-                            rows="7"
-                            class="contact__input"
-                        ></textarea>
-
-                    </div>
-
-
-
-                    <div>
-
-                        <a
-                            href="#"
-                            class="button button--flex"
-                        >
-
-                            Send Message
-
-                            <i
-                                class="uil uil-message button__icon"
-                            ></i>
-
-                        </a>
-
-                    </div>
-
-
-                </form>
-
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- ==================== FOOTER ==================== -->
-
-    <footer class="footer">
-
-        <div class="footer__bg">
-
-            <div class="footer__container container grid">
-
-
-                <div>
-
-                    <h1 class="footer__title">
-                        Jhonaiza Gede
-                    </h1>
-
-                    <span class="footer__subtitle">
-                        Web Developer & Graphic Designer
-                    </span>
-
-                </div>
-
-
-
-                <ul class="footer__links">
-
-                    <li>
-                        <a
-                            href="#services"
-                            class="footer__link"
-                        >
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                            href="#portfolio"
-                            class="footer__link"
-                        >
-                            Portfolio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                            href="#contact"
-                            class="footer__link"
-                        >
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-
-
-                <div class="footer__socials">
-
-                    <a
-                        href="https://www.facebook.com/"
-                        target="_blank"
-                        class="footer__social"
-                        aria-label="Facebook"
-                    >
-                        <i class="uil uil-facebook-f"></i>
-                    </a>
-
-                    <a
-                        href="https://www.instagram.com/"
-                        target="_blank"
-                        class="footer__social"
-                        aria-label="Instagram"
-                    >
-                        <i class="uil uil-instagram"></i>
-                    </a>
-
-                    <a
-                        href="https://www.linkedin.com/"
-                        target="_blank"
-                        class="footer__social"
-                        aria-label="LinkedIn"
-                    >
-                        <i class="uil uil-linkedin-alt"></i>
-                    </a>
-
-                </div>
-
-
-            </div>
-
-
-            <p class="footer__copy">
-
-                &#169; Jhonaiza Gede.
-                All rights reserved.
-
-            </p>
-
+            </a>
 
         </div>
 
-    </footer>
+
+        <!-- EXPERIENCE -->
+
+        <div class="hero-badge">
+
+            <div class="hero-badge-number">
+                5+
+            </div>
+
+            <div>
+
+                <small>
+                    YEARS OF
+                </small>
+
+                <p>
+                    Creative Experience
+                </p>
+
+            </div>
+
+        </div>
 
 
+    </div>
 
-    <!-- ==================== SCROLL TOP ==================== -->
+
+    <!-- SCROLL -->
 
     <a
-        href="#home"
-        class="scrollup"
-        id="scroll-up"
-        aria-label="Scroll to top"
+        href="#about"
+        class="scroll-down"
+        aria-label="Scroll to About section"
     >
 
-        <i
-            class="uil uil-arrow-up scrollup__icon"
-        ></i>
+        <span>
+            SCROLL
+        </span>
+
+        <div class="scroll-line"></div>
 
     </a>
 
 
-
-    <!-- SWIPER -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/swiper@6.8.4/swiper-bundle.min.js"
-    ></script>
+</section>
 
 
-    <!-- MAIN SCRIPT -->
 
-    <script src="script.js"></script>
+<!-- =============================================
+     ABOUT SECTION
+============================================== -->
+
+<section
+    class="section about-section"
+    id="about"
+>
+
+
+    <div class="section-heading">
+
+        <p class="section-label">
+            ABOUT ME
+        </p>
+
+        <h2>
+            Designing With Purpose.
+            <br>
+            Creating With Impact.
+        </h2>
+
+    </div>
+
+
+    <div class="about-container">
+
+
+        <!-- ABOUT IMAGE -->
+
+        <div class="about-image-wrap">
+
+            <div class="about-image">
+
+                <img
+                    src="profile.jpg.webp"
+                    alt="Jhonaiza Gede Creative Designer"
+                >
+
+            </div>
+
+
+            <div class="about-experience">
+
+                <strong>
+                    5+
+                </strong>
+
+                <span>
+                    YEARS OF
+                    <br>
+                    CREATIVE
+                    <br>
+                    EXPERIENCE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT CONTENT -->
+
+        <div class="about-content">
+
+
+            <p class="about-lead">
+
+                I'm <strong>Jhonaiza Gede</strong>,
+                a multidisciplinary creative specializing in
+                Graphic Design, Web Design, and Creative Development.
+
+            </p>
+
+
+            <p>
+
+                I focus on creating digital solutions that balance
+                aesthetics with functionality. I believe great design
+                should do more than look beautiful—it should communicate
+                clearly, create memorable experiences, and help businesses
+                connect with the people they serve.
+
+            </p>
+
+
+            <p>
+
+                My approach combines modern design principles,
+                creativity, attention to detail, and practical
+                digital solutions to turn ideas into experiences
+                that feel intentional, professional, and distinctly yours.
+
+            </p>
+
+
+            <div class="about-values">
+
+
+                <div class="about-value">
+
+                    <span>
+                        01
+                    </span>
+
+                    <p>
+                        Creative Thinking
+                    </p>
+
+                </div>
+
+
+                <div class="about-value">
+
+                    <span>
+                        02
+                    </span>
+
+                    <p>
+                        Modern Design
+                    </p>
+
+                </div>
+
+
+                <div class="about-value">
+
+                    <span>
+                        03
+                    </span>
+
+                    <p>
+                        Purposeful Solutions
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =============================================
+     SERVICES / WHAT I DO
+============================================== -->
+
+<section
+    class="section services-section"
+    id="services"
+>
+
+
+    <div class="section-heading centered">
+
+        <p class="section-label">
+            WHAT I DO
+        </p>
+
+        <h2>
+            Creative Solutions
+            <br>
+            for the Digital World
+        </h2>
+
+        <p class="section-intro">
+
+            Thoughtful design and digital solutions created
+            to help brands communicate, connect, and grow.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="services-grid">
+
+
+        <!-- SERVICE 01 -->
+
+        <article class="service-card">
+
+            <span class="service-number">
+                01
+            </span>
+
+            <div class="service-icon">
+                ✦
+            </div>
+
+            <h3>
+                Web Design
+            </h3>
+
+            <p>
+
+                Modern, responsive, and visually engaging
+                websites designed to create a professional
+                online presence across desktop, tablet,
+                and mobile.
+
+            </p>
+
+        </article>
+
+
+
+        <!-- SERVICE 02 -->
+
+        <article class="service-card">
+
+            <span class="service-number">
+                02
+            </span>
+
+            <div class="service-icon">
+                ◇
+            </div>
+
+            <h3>
+                UI / UX Design
+            </h3>
+
+            <p>
+
+                Clean and intuitive digital interfaces focused
+                on usability, visual hierarchy, accessibility,
+                and enjoyable user experiences.
+
+            </p>
+
+        </article>
+
+
+
+        <!-- SERVICE 03 -->
+
+        <article class="service-card">
+
+            <span class="service-number">
+                03
+            </span>
+
+            <div class="service-icon">
+                ✧
+            </div>
+
+            <h3>
+                Graphic Design
+            </h3>
+
+            <p>
+
+                Professional visual materials for brands,
+                businesses, organizations, events, campaigns,
+                and digital platforms.
+
+            </p>
+
+        </article>
+
+
+
+        <!-- SERVICE 04 -->
+
+        <article class="service-card">
+
+            <span class="service-number">
+                04
+            </span>
+
+            <div class="service-icon">
+                ◈
+            </div>
+
+            <h3>
+                Branding & Identity
+            </h3>
+
+            <p>
+
+                Consistent visual systems that communicate
+                your identity through typography, color,
+                imagery, graphics, and branded materials.
+
+            </p>
+
+        </article>
+
+
+
+        <!-- SERVICE 05 -->
+
+        <article class="service-card">
+
+            <span class="service-number">
+                05
+            </span>
+
+            <div class="service-icon">
+                ✦
+            </div>
+
+            <h3>
+                Social Media Design
+            </h3>
+
+            <p>
+
+                Scroll-stopping graphics and promotional
+                content designed to strengthen your brand
+                presence across social platforms.
+
+            </p>
+
+        </article>
+
+
+
+        <!-- SERVICE 06 -->
+
+        <article class="service-card">
+
+            <span class="service-number">
+                06
+            </span>
+
+            <div class="service-icon">
+                ◇
+            </div>
+
+            <h3>
+                Creative Development
+            </h3>
+
+            <p>
+
+                Interactive web experiences combining
+                thoughtful design, responsive components,
+                animations, and modern visual effects.
+
+            </p>
+
+        </article>
+
+
+
+        <!-- SERVICE 07 -->
+
+        <article class="service-card">
+
+            <span class="service-number">
+                07
+            </span>
+
+            <div class="service-icon">
+                ↗
+            </div>
+
+            <h3>
+                SEO & Optimization
+            </h3>
+
+            <p>
+
+                Website structure and content optimization
+                designed to improve discoverability,
+                usability, performance, and online presence.
+
+            </p>
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =============================================
+     SKILLS SECTION
+============================================== -->
+
+<section
+    class="section skills-section"
+    id="skills"
+>
+
+
+    <div class="section-heading centered">
+
+        <p class="section-label">
+            TOOLS & CAPABILITIES
+        </p>
+
+        <h2>
+            Bringing Ideas to Life
+        </h2>
+
+    </div>
+
+
+
+    <div class="skills-grid">
+
+
+        <!-- DESIGN -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                ✦
+            </div>
+
+            <p class="skill-category">
+                DESIGN
+            </p>
+
+            <h3>
+                Visual Design
+            </h3>
+
+            <p>
+
+                Graphic Design • Branding •
+                Social Media Graphics •
+                Visual Identity • Layout Design •
+                UI / UX
+
+            </p>
+
+        </div>
+
+
+
+        <!-- WEB -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                ◈
+            </div>
+
+            <p class="skill-category">
+                WEB
+            </p>
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+
+                Web Design • Responsive Design •
+                HTML • CSS • JavaScript •
+                Website Development
+
+            </p>
+
+        </div>
+
+
+
+        <!-- DIGITAL -->
+
+        <div class="skill-card">
+
+            <div class="skill-icon">
+                ✧
+            </div>
+
+            <p class="skill-category">
+                DIGITAL
+            </p>
+
+            <h3>
+                Digital Strategy
+            </h3>
+
+            <p>
+
+                SEO Optimization • Content Presentation •
+                Digital Branding • User Experience •
+                Website Performance
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =============================================
+     MY APPROACH
+============================================== -->
+
+<section
+    class="section process-section"
+    id="process"
+>
+
+
+    <div class="section-heading">
+
+        <p class="section-label">
+            MY APPROACH
+        </p>
+
+        <h2>
+            From Idea to
+            <br>
+            Digital Experience
+        </h2>
+
+    </div>
+
+
+
+    <div class="process-list">
+
+
+        <!-- STEP 01 -->
+
+        <div class="process-item">
+
+            <span class="process-number">
+                01
+            </span>
+
+            <h3>
+                Discover
+            </h3>
+
+            <p>
+
+                Understanding your vision, goals,
+                audience, and what your project
+                needs to accomplish.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- STEP 02 -->
+
+        <div class="process-item">
+
+            <span class="process-number">
+                02
+            </span>
+
+            <h3>
+                Create
+            </h3>
+
+            <p>
+
+                Transforming ideas into a clear
+                creative direction with thoughtful
+                layouts, visuals, and experiences.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- STEP 03 -->
+
+        <div class="process-item">
+
+            <span class="process-number">
+                03
+            </span>
+
+            <h3>
+                Develop
+            </h3>
+
+            <p>
+
+                Building responsive and functional
+                digital experiences with attention
+                to performance and detail.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- STEP 04 -->
+
+        <div class="process-item">
+
+            <span class="process-number">
+                04
+            </span>
+
+            <h3>
+                Refine
+            </h3>
+
+            <p>
+
+                Testing, improving, and polishing
+                every element to create a professional
+                final result.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- STEP 05 -->
+
+        <div class="process-item">
+
+            <span class="process-number">
+                05
+            </span>
+
+            <h3>
+                Deliver
+            </h3>
+
+            <p>
+
+                Providing a finished solution designed
+                to represent your brand confidently
+                and effectively.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =============================================
+     PROJECTS SECTION
+============================================== -->
+
+<section
+    class="section projects-section"
+    id="projects"
+>
+
+
+    <div class="section-heading">
+
+        <p class="section-label">
+            FEATURED WORK
+        </p>
+
+        <h2>
+            Selected Projects
+        </h2>
+
+        <p class="section-intro">
+
+            A collection of websites, visual designs,
+            branding concepts, and digital experiences
+            created with clarity, creativity,
+            functionality, and impact.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="project-grid">
+
+
+        <!-- PROJECT 01 -->
+
+        <article class="project-card">
+
+
+            <div class="project-image">
+
+                <img
+                    src="profile.jpg.webp"
+                    alt="Premium Portfolio Website"
+                >
+
+                <div class="project-overlay">
+
+                    <span>
+                        VIEW PROJECT
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <p class="project-category">
+
+                    WEB DESIGN • UI/UX • DEVELOPMENT
+
+                </p>
+
+                <h3>
+                    Premium Portfolio Website
+                </h3>
+
+                <p>
+
+                    A sophisticated portfolio experience
+                    combining modern typography, immersive
+                    layouts, responsive design, and subtle
+                    interactive effects.
+
+                </p>
+
+                <a
+                    href="#"
+                    class="project-link"
+                >
+
+                    VIEW PROJECT
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- PROJECT 02 -->
+
+        <article class="project-card">
+
+
+            <div class="project-image">
+
+                <img
+                    src="profile.jpg.webp"
+                    alt="Brand Identity and Creative Design"
+                >
+
+                <div class="project-overlay">
+
+                    <span>
+                        VIEW PROJECT
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <p class="project-category">
+
+                    BRANDING • GRAPHIC DESIGN • IDENTITY
+
+                </p>
+
+                <h3>
+                    Brand Identity & Creative Design
+                </h3>
+
+                <p>
+
+                    Visual identity concepts, marketing
+                    materials, promotional graphics, and
+                    digital assets created to build
+                    recognizable brands.
+
+                </p>
+
+                <a
+                    href="#"
+                    class="project-link"
+                >
+
+                    VIEW PROJECT
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- PROJECT 03 -->
+
+        <article class="project-card">
+
+
+            <div class="project-image">
+
+                <img
+                    src="profile.jpg.webp"
+                    alt="Modern Web Experience"
+                >
+
+                <div class="project-overlay">
+
+                    <span>
+                        VIEW PROJECT
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+                <p class="project-category">
+
+                    WEB DESIGN • RESPONSIVE • UI/UX
+
+                </p>
+
+                <h3>
+                    Modern Web Experience
+                </h3>
+
+                <p>
+
+                    A responsive digital experience designed
+                    around usability, visual hierarchy,
+                    performance, and seamless interaction
+                    across devices.
+
+                </p>
+
+                <a
+                    href="#"
+                    class="project-link"
+                >
+
+                    VIEW PROJECT
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =============================================
+     WHY WORK WITH ME
+============================================== -->
+
+<section
+    class="section why-section"
+    id="why-me"
+>
+
+
+    <div class="why-container">
+
+
+        <div class="why-heading">
+
+            <p class="section-label">
+                WHY WORK WITH ME
+            </p>
+
+            <h2>
+                Creativity
+                <br>
+                With Purpose.
+            </h2>
+
+            <p>
+
+                Every project deserves more than a template.
+
+            </p>
+
+            <p>
+
+                I approach each project with attention to
+                its unique goals, audience, and personality.
+                My aim is to create work that feels intentional
+                rather than generic—combining strong visual
+                design with practical functionality.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="why-list">
+
+
+            <div class="why-item">
+
+                <span>
+                    01
+                </span>
+
+                <div>
+
+                    <h3>
+                        Creative Thinking
+                    </h3>
+
+                    <p>
+                        Fresh ideas shaped around your
+                        vision and objectives.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="why-item">
+
+                <span>
+                    02
+                </span>
+
+                <div>
+
+                    <h3>
+                        Modern Design
+                    </h3>
+
+                    <p>
+                        Clean, contemporary visuals built
+                        for today's digital environment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="why-item">
+
+                <span>
+                    03
+                </span>
+
+                <div>
+
+                    <h3>
+                        Responsive Experience
+                    </h3>
+
+                    <p>
+                        Designs optimized for desktop,
+                        tablet, and mobile devices.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="why-item">
+
+                <span>
+                    04
+                </span>
+
+                <div>
+
+                    <h3>
+                        Attention to Detail
+                    </h3>
+
+                    <p>
+                        Thoughtful typography, spacing,
+                        imagery, interactions, and
+                        finishing touches.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="why-item">
+
+                <span>
+                    05
+                </span>
+
+                <div>
+
+                    <h3>
+                        Client-Focused Process
+                    </h3>
+
+                    <p>
+                        Clear communication and collaborative
+                        development from concept through
+                        completion.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =============================================
+     CONTACT SECTION
+============================================== -->
+
+<section
+    class="section contact-section"
+    id="contact"
+>
+
+
+    <div class="contact-container">
+
+
+        <p class="section-label">
+            LET'S WORK TOGETHER
+        </p>
+
+
+        <h2>
+
+            Have an Idea?
+
+            <br>
+
+            <span>
+                Let's Turn It Into
+                Something Exceptional.
+            </span>
+
+        </h2>
+
+
+        <p class="contact-description">
+
+            Whether you need a professional website,
+            a stronger visual identity, creative graphics,
+            or a complete digital experience, I'd love
+            to hear about your project.
+
+        </p>
+
+
+        <p class="contact-subtext">
+
+            Tell me what you're building, what you want
+            to improve, and what you want your audience
+            to experience.
+
+        </p>
+
+
+        <!-- CONTACT ACTIONS -->
+
+        <div class="contact-actions">
+
+
+            <a
+                href="mailto:gedejhonaiza@gmail.com?subject=Project Inquiry"
+                class="contact-btn"
+            >
+
+                START A PROJECT
+
+                <span>→</span>
+
+            </a>
+
+
+            <a
+                href="mailto:gedejhonaiza@gmail.com"
+                class="social-btn"
+            >
+
+                EMAIL ME
+
+            </a>
+
+
+        </div>
+
+
+        <!-- EMAIL DISPLAY -->
+
+        <a
+            href="mailto:gedejhonaiza@gmail.com"
+            class="contact-email"
+        >
+
+            gedejhonaiza@gmail.com
+
+        </a>
+
+
+        <!-- SOCIAL LINKS -->
+
+        <div class="social-links">
+
+
+            <!--
+            CHANGE # TO YOUR REAL GITHUB PROFILE
+            -->
+
+            <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GITHUB
+            </a>
+
+
+            <!--
+            CHANGE # TO YOUR REAL LINKEDIN PROFILE
+            -->
+
+            <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LINKEDIN
+            </a>
+
+
+            <!--
+            CHANGE # TO YOUR REAL FACEBOOK PROFILE/PAGE
+            -->
+
+            <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                FACEBOOK
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =============================================
+     FOOTER
+============================================== -->
+
+<footer class="luxury-footer">
+
+
+    <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="#home"
+                class="footer-logo"
+            >
+                JG
+            </a>
+
+
+            <div>
+
+                <h3>
+                    Jhonaiza Gede
+                </h3>
+
+                <p>
+                    Creative Developer • Graphic Designer • Web Designer
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-message">
+
+            <p>
+
+                Creating thoughtful digital experiences
+                where creativity, design, and technology
+                come together.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-line"></div>
+
+
+
+    <div class="footer-bottom">
+
+
+        <div class="footer-nav">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <p class="copyright">
+
+            © 2026 Jhonaiza Gede.
+            All Rights Reserved.
+
+        </p>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =============================================
+     BACK TO TOP
+============================================== -->
+
+<a
+    href="#home"
+    class="back-to-top"
+    aria-label="Back to top"
+>
+    ↑
+</a>
+
+
+
+<!-- =============================================
+     JAVASCRIPT
+============================================== -->
+
+<script src="script.js"></script>
 
 
 </body>
