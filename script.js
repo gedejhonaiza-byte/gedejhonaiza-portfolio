@@ -2,6 +2,7 @@
    JHONAIZA GEDE PORTFOLIO
 ========================================================= */
 
+
 document.addEventListener(
     "DOMContentLoaded",
     () => {
@@ -35,7 +36,7 @@ document.addEventListener(
 
 
         /* =================================================
-           COMPUTER CODE
+           LOADER COMPUTER CODE
         ================================================= */
 
         const loaderCodeBackground =
@@ -44,14 +45,7 @@ document.addEventListener(
             );
 
 
-        const heroCodeBackground =
-            document.getElementById(
-                "heroCodeBackground"
-            );
-
-
-
-        const codeLines = [
+        const loaderCodeLines = [
 
             '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
@@ -67,7 +61,7 @@ document.addEventListener(
 
             'document.querySelector(<span class="code-string">".project"</span>);',
 
-            'background: linear-gradient(135deg, #080808, #d0aa31);',
+            'background: linear-gradient(135deg, #050505, #ffc91b);',
 
             '&lt;div class=<span class="code-string">"creative"</span>&gt;',
 
@@ -79,13 +73,13 @@ document.addEventListener(
 
             '<span class="code-keyword">if</span> (idea) { createExperience(); }',
 
-            'font-family: "Cormorant Garamond";',
+            'font-family: "Poppins", sans-serif;',
 
             '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
 
             '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
 
-            'border: 1px solid rgba(208,170,49,.25);',
+            'border: 1px solid rgba(255,201,27,.25);',
 
             '<span class="code-keyword">return</span> digitalExperience;',
 
@@ -117,14 +111,11 @@ document.addEventListener(
 
 
 
-        function buildCodeBackground(
-            container,
-            options = {}
-        ) {
+        function buildLoaderCode() {
 
 
             if (
-                !container
+                !loaderCodeBackground
             ) {
 
                 return;
@@ -132,7 +123,7 @@ document.addEventListener(
             }
 
 
-            container.innerHTML =
+            loaderCodeBackground.innerHTML =
                 "";
 
 
@@ -141,7 +132,6 @@ document.addEventListener(
 
 
             let columns =
-                options.desktopColumns ||
                 15;
 
 
@@ -151,7 +141,6 @@ document.addEventListener(
             ) {
 
                 columns =
-                    options.mobileColumns ||
                     6;
 
             }
@@ -162,7 +151,6 @@ document.addEventListener(
             ) {
 
                 columns =
-                    options.tabletColumns ||
                     9;
 
             }
@@ -197,40 +185,26 @@ document.addEventListener(
                     }%`;
 
 
-                const minimumDuration =
-                    options.minimumDuration ||
-                    18;
-
-
-                const durationRange =
-                    options.durationRange ||
-                    16;
-
-
                 column.style.animationDuration =
                     `${
-                        minimumDuration +
+                        18 +
                         Math.random() *
-                        durationRange
+                        16
                     }s`;
 
 
                 column.style.animationDelay =
                     `-${
                         Math.random() *
-                        20
+                        18
                     }s`;
 
 
-                const lineCount =
-                    options.lineCount ||
-                    16;
-
 
                 for (
-                    let lineIndex = 0;
-                    lineIndex < lineCount;
-                    lineIndex++
+                    let j = 0;
+                    j < 16;
+                    j++
                 ) {
 
 
@@ -241,10 +215,10 @@ document.addEventListener(
 
 
                     line.innerHTML =
-                        codeLines[
+                        loaderCodeLines[
                             Math.floor(
                                 Math.random() *
-                                codeLines.length
+                                loaderCodeLines.length
                             )
                         ];
 
@@ -257,7 +231,7 @@ document.addEventListener(
                 }
 
 
-                container.appendChild(
+                loaderCodeBackground.appendChild(
                     column
                 );
 
@@ -269,31 +243,262 @@ document.addEventListener(
 
 
 
-        buildCodeBackground(
-            loaderCodeBackground,
-            {
-                desktopColumns: 15,
-                tabletColumns: 9,
-                mobileColumns: 6,
-                minimumDuration: 18,
-                durationRange: 16,
-                lineCount: 16
+        buildLoaderCode();
+
+
+
+        /* =================================================
+           HERO COMPUTER CODE
+           LARGE BLURRED CODE FRAGMENTS
+        ================================================= */
+
+        const heroCodeBackground =
+            document.getElementById(
+                "heroCodeBackground"
+            );
+
+
+        const heroCodeBlocks = [
+
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width">
+</head>`,
+
+`const portfolio = {
+  designer: "Jhonaiza Gede",
+  specialty: "Creative Developer",
+  responsive: true,
+  creative: true
+};`,
+
+`function createExperience() {
+  const idea = getVision();
+  const design = buildInterface(idea);
+  return optimize(design);
+}`,
+
+`.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns:
+  1.05fr .95fr;
+  min-height: 100vh;
+}`,
+
+`const projects =
+document.querySelectorAll(
+  ".project-card"
+);
+
+projects.forEach(project => {
+  project.classList.add("active");
+});`,
+
+`@media (max-width: 767px) {
+  .portfolio {
+    grid-template-columns: 1fr;
+    padding: 70px 20px;
+  }
+}`,
+
+`function updateNavigation() {
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+  });
+}`,
+
+`<section id="projects">
+  <article class="project">
+    <h2>Creative Experience</h2>
+    <p>Design • Develop • Create</p>
+  </article>
+</section>`,
+
+`const skills = [
+  "Web Design",
+  "Graphic Design",
+  "UI / UX",
+  "JavaScript",
+  "Branding",
+  "SEO"
+];`,
+
+`userExperience
+  .design()
+  .develop()
+  .optimize()
+  .deliver();`
+
+        ];
+
+
+
+        function buildHeroCode() {
+
+
+            if (
+                !heroCodeBackground
+            ) {
+
+                return;
+
             }
-        );
 
 
+            heroCodeBackground.innerHTML =
+                "";
 
-        buildCodeBackground(
-            heroCodeBackground,
-            {
-                desktopColumns: 13,
-                tabletColumns: 8,
-                mobileColumns: 6,
-                minimumDuration: 30,
-                durationRange: 22,
-                lineCount: 18
+
+            const width =
+                window.innerWidth;
+
+
+            let totalBlocks =
+                9;
+
+
+            if (
+                width <=
+                767
+            ) {
+
+                totalBlocks =
+                    7;
+
             }
-        );
+
+
+            for (
+                let i = 0;
+                i < totalBlocks;
+                i++
+            ) {
+
+
+                const block =
+                    document.createElement(
+                        "pre"
+                    );
+
+
+                block.className =
+                    "hero-code-block";
+
+
+                block.textContent =
+                    heroCodeBlocks[
+                        i %
+                        heroCodeBlocks.length
+                    ];
+
+
+                /*
+                 Deliberately spread snippets
+                 around the hero instead of
+                 using a Matrix rain layout.
+                */
+
+                const positions = [
+
+                    {
+                        left: "2%",
+                        top: "15%"
+                    },
+
+                    {
+                        left: "37%",
+                        top: "10%"
+                    },
+
+                    {
+                        right: "2%",
+                        top: "16%"
+                    },
+
+                    {
+                        left: "4%",
+                        bottom: "4%"
+                    },
+
+                    {
+                        left: "40%",
+                        bottom: "8%"
+                    },
+
+                    {
+                        right: "1%",
+                        bottom: "6%"
+                    },
+
+                    {
+                        left: "26%",
+                        top: "43%"
+                    },
+
+                    {
+                        right: "26%",
+                        top: "48%"
+                    },
+
+                    {
+                        left: "58%",
+                        top: "25%"
+                    }
+
+                ];
+
+
+                const position =
+                    positions[
+                        i %
+                        positions.length
+                    ];
+
+
+                Object.keys(
+                    position
+                )
+                .forEach(
+                    property => {
+
+
+                        block.style[
+                            property
+                        ] =
+                            position[
+                                property
+                            ];
+
+
+                    }
+                );
+
+
+                block.style.animationDelay =
+                    `-${
+                        i *
+                        1.7
+                    }s`;
+
+
+                heroCodeBackground.appendChild(
+                    block
+                );
+
+
+            }
+
+
+        }
+
+
+
+        buildHeroCode();
 
 
 
@@ -612,12 +817,6 @@ document.addEventListener(
                 );
 
 
-            /*
-             Gives progress a more natural
-             loading rhythm instead of
-             a perfectly linear bar.
-            */
-
             if (
                 progress <
                 .55
@@ -722,6 +921,172 @@ document.addEventListener(
         setTimeout(
             finishLoader,
             7800
+        );
+
+
+
+        /* =================================================
+           HERO ROLE TYPEWRITER
+        ================================================= */
+
+        const heroRoleTyping =
+            document.getElementById(
+                "heroRoleTyping"
+            );
+
+
+        const heroRoles = [
+
+            "Web Design",
+
+            "Graphic Design",
+
+            "UI / UX Design",
+
+            "Creative Development",
+
+            "Branding",
+
+            "SEO Optimization"
+
+        ];
+
+
+        let heroRoleIndex =
+            0;
+
+
+        let heroCharIndex =
+            0;
+
+
+        let heroDeleting =
+            false;
+
+
+
+        function typeHeroRole() {
+
+
+            if (
+                !heroRoleTyping
+            ) {
+
+                return;
+
+            }
+
+
+            const currentRole =
+                heroRoles[
+                    heroRoleIndex
+                ];
+
+
+
+            if (
+                !heroDeleting
+            ) {
+
+
+                heroCharIndex++;
+
+
+                heroRoleTyping.textContent =
+                    currentRole.substring(
+                        0,
+                        heroCharIndex
+                    );
+
+
+                if (
+                    heroCharIndex >=
+                    currentRole.length
+                ) {
+
+
+                    heroDeleting =
+                        true;
+
+
+                    setTimeout(
+                        typeHeroRole,
+                        1250
+                    );
+
+
+                    return;
+
+                }
+
+
+                setTimeout(
+                    typeHeroRole,
+                    70
+                );
+
+
+            }
+
+            else {
+
+
+                heroCharIndex--;
+
+
+                heroRoleTyping.textContent =
+                    currentRole.substring(
+                        0,
+                        heroCharIndex
+                    );
+
+
+                if (
+                    heroCharIndex <=
+                    0
+                ) {
+
+
+                    heroDeleting =
+                        false;
+
+
+                    heroRoleIndex =
+                        (
+                            heroRoleIndex +
+                            1
+                        )
+                        %
+                        heroRoles.length;
+
+
+                    setTimeout(
+                        typeHeroRole,
+                        220
+                    );
+
+
+                    return;
+
+                }
+
+
+                setTimeout(
+                    typeHeroRole,
+                    35
+                );
+
+
+            }
+
+
+        }
+
+
+
+        setTimeout(
+            typeHeroRole,
+            900
         );
 
 
@@ -1328,7 +1693,107 @@ document.addEventListener(
 
 
         /* =================================================
-           REBUILD ANIMATED CODE AFTER RESIZE
+           HERO CODE MOUSE DEPTH
+        ================================================= */
+
+        const hero =
+            document.querySelector(
+                ".hero"
+            );
+
+
+        if (
+            hero &&
+            heroCodeBackground
+        ) {
+
+
+            hero.addEventListener(
+                "mousemove",
+                event => {
+
+
+                    if (
+                        window.innerWidth <=
+                        900
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const rect =
+                        hero.getBoundingClientRect();
+
+
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        )
+                        /
+                        rect.width;
+
+
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        )
+                        /
+                        rect.height;
+
+
+                    const moveX =
+                        (
+                            x -
+                            .5
+                        )
+                        *
+                        -12;
+
+
+                    const moveY =
+                        (
+                            y -
+                            .5
+                        )
+                        *
+                        -8;
+
+
+                    heroCodeBackground.style.transform =
+                        `translate3d(
+                            ${moveX}px,
+                            ${moveY}px,
+                            0
+                        )`;
+
+
+                }
+            );
+
+
+            hero.addEventListener(
+                "mouseleave",
+                () => {
+
+
+                    heroCodeBackground.style.transform =
+                        "translate3d(0,0,0)";
+
+
+                }
+            );
+
+
+        }
+
+
+
+        /* =================================================
+           RESIZE
         ================================================= */
 
         let resizeTimer;
@@ -1349,21 +1814,11 @@ document.addEventListener(
                         () => {
 
 
-                            buildCodeBackground(
-                                heroCodeBackground,
-                                {
-                                    desktopColumns: 13,
-                                    tabletColumns: 8,
-                                    mobileColumns: 6,
-                                    minimumDuration: 30,
-                                    durationRange: 22,
-                                    lineCount: 18
-                                }
-                            );
+                            buildHeroCode();
 
 
                         },
-                        300
+                        280
                     );
 
 
@@ -1373,7 +1828,7 @@ document.addEventListener(
 
 
         /* =================================================
-           YEAR
+           CURRENT YEAR
         ================================================= */
 
         const copyright =
