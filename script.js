@@ -1,6 +1,5 @@
 /* =========================================================
    JHONAIZA GEDE PORTFOLIO
-   COMPLETE SCRIPT
 ========================================================= */
 
 
@@ -8,10 +7,6 @@ document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-
-        /* =================================================
-           BASIC ELEMENTS
-        ================================================= */
 
         const body =
             document.body;
@@ -37,7 +32,7 @@ document.addEventListener(
 
 
         /* =================================================
-           COMPUTER CODE LOADER
+           SLOW COMPUTER CODE LOADER
         ================================================= */
 
         const loader =
@@ -58,6 +53,12 @@ document.addEventListener(
             );
 
 
+        const typingText =
+            document.getElementById(
+                "loaderTypingText"
+            );
+
+
         const codeBackground =
             document.getElementById(
                 "loaderCodeBackground"
@@ -71,22 +72,22 @@ document.addEventListener(
 
 
         /* =================================================
-           CODE LINES
+           COMPUTER CODE BACKGROUND
         ================================================= */
 
         const codeLines = [
 
             '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
-            '<span class="code-keyword">function</span> createDesign() { return "impact"; }',
+            '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
 
-            '&lt;section class=<span class="code-string">"hero"</span>&gt;',
+            '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
 
             'display: grid;',
 
             'grid-template-columns: 1fr 1fr;',
 
-            'const designer = <span class="code-string">"Jhonaiza Gede"</span>;',
+            '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
 
             'document.querySelector(<span class="code-string">".project"</span>);',
 
@@ -98,13 +99,13 @@ document.addEventListener(
 
             '<span class="code-keyword">let</span> creativity = true;',
 
-            'animation: reveal 0.8s ease;',
+            'animation: reveal .8s ease;',
 
-            '<span class="code-keyword">if</span> (idea) { buildExperience(); }',
+            '<span class="code-keyword">if</span> (idea) { createExperience(); }',
 
             'font-family: "Cormorant Garamond";',
 
-            'const skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JS"</span>];',
+            '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
 
             '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
 
@@ -130,7 +131,7 @@ document.addEventListener(
 
             'transition: all .4s ease;',
 
-            'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
+            'console.log(<span class="code-string">"Loading creative experience..."</span>);',
 
             'creativeDeveloper.initialize();',
 
@@ -140,11 +141,7 @@ document.addEventListener(
 
 
 
-        /* =================================================
-           BUILD CODE BACKGROUND
-        ================================================= */
-
-        function createCodeBackground() {
+        function buildCodeBackground() {
 
 
             if (
@@ -156,41 +153,41 @@ document.addEventListener(
             }
 
 
-            const screenWidth =
+            codeBackground.innerHTML =
+                "";
+
+
+            const width =
                 window.innerWidth;
 
 
-            let columns;
+            let columnCount =
+                15;
 
 
             if (
-                screenWidth <= 500
+                width <=
+                500
             ) {
 
-                columns = 6;
+                columnCount =
+                    6;
 
             } else if (
-                screenWidth <= 900
+                width <=
+                900
             ) {
 
-                columns = 9;
-
-            } else {
-
-                columns = 15;
+                columnCount =
+                    9;
 
             }
 
 
 
-            codeBackground.innerHTML =
-                "";
-
-
-
             for (
                 let i = 0;
-                i < columns;
+                i < columnCount;
                 i++
             ) {
 
@@ -206,17 +203,21 @@ document.addEventListener(
 
 
                 column.style.left =
-                    `${(
-                        i /
-                        columns
-                    ) * 100}%`;
+                    `${
+                        (
+                            i /
+                            columnCount
+                        )
+                        *
+                        100
+                    }%`;
 
 
                 column.style.animationDuration =
                     `${
-                        14 +
+                        18 +
                         Math.random() *
-                        15
+                        16
                     }s`;
 
 
@@ -227,24 +228,11 @@ document.addEventListener(
                     }s`;
 
 
-                column.style.opacity =
-                    `${
-                        0.35 +
-                        Math.random() *
-                        0.6
-                    }`;
-
-
-
-                const lineCount =
-                    14;
-
-
 
                 for (
-                    let j = 0;
-                    j < lineCount;
-                    j++
+                    let lineIndex = 0;
+                    lineIndex < 16;
+                    lineIndex++
                 ) {
 
 
@@ -254,17 +242,13 @@ document.addEventListener(
                         );
 
 
-                    const randomLine =
+                    line.innerHTML =
                         codeLines[
                             Math.floor(
                                 Math.random() *
                                 codeLines.length
                             )
                         ];
-
-
-                    line.innerHTML =
-                        randomLine;
 
 
                     column.appendChild(
@@ -287,48 +271,162 @@ document.addEventListener(
 
 
 
-        createCodeBackground();
+        buildCodeBackground();
 
 
 
         /* =================================================
-           LOADING PROGRESS
+           FAST TYPING STATUS
         ================================================= */
 
-        let loadingValue =
+        const typingMessages = [
+
+            "Initializing interface...",
+
+            "Loading creative assets...",
+
+            "Compiling digital experience...",
+
+            "Preparing featured projects...",
+
+            "Optimizing responsive layout...",
+
+            "Connecting creative components...",
+
+            "Almost ready...",
+
+            "Launching portfolio..."
+
+        ];
+
+
+        let messageIndex =
             0;
 
 
-        let loaderFinished =
+        let characterIndex =
+            0;
+
+
+        let deleting =
+            false;
+
+
+        let typingStopped =
             false;
 
 
 
-        function renderLoader() {
-
-
-            const roundedValue =
-                Math.floor(
-                    loadingValue
-                );
+        function typeLoaderMessage() {
 
 
             if (
-                loaderPercent
+                !typingText ||
+                typingStopped
             ) {
 
-                loaderPercent.textContent =
-                    `${roundedValue}%`;
+                return;
 
             }
 
 
+            const message =
+                typingMessages[
+                    messageIndex
+                ];
+
+
+
             if (
-                loaderProgress
+                !deleting
             ) {
 
-                loaderProgress.style.width =
-                    `${roundedValue}%`;
+
+                characterIndex++;
+
+
+                typingText.textContent =
+                    message.substring(
+                        0,
+                        characterIndex
+                    );
+
+
+                if (
+                    characterIndex >=
+                    message.length
+                ) {
+
+
+                    deleting =
+                        true;
+
+
+                    setTimeout(
+                        typeLoaderMessage,
+                        260
+                    );
+
+
+                    return;
+
+                }
+
+
+                setTimeout(
+                    typeLoaderMessage,
+                    25
+                );
+
+
+            } else {
+
+
+                characterIndex--;
+
+
+                typingText.textContent =
+                    message.substring(
+                        0,
+                        characterIndex
+                    );
+
+
+                if (
+                    characterIndex <=
+                    0
+                ) {
+
+
+                    deleting =
+                        false;
+
+
+                    messageIndex =
+                        (
+                            messageIndex +
+                            1
+                        )
+                        %
+                        typingMessages.length;
+
+
+                    setTimeout(
+                        typeLoaderMessage,
+                        70
+                    );
+
+
+                    return;
+
+                }
+
+
+                setTimeout(
+                    typeLoaderMessage,
+                    12
+                );
+
 
             }
 
@@ -337,11 +435,54 @@ document.addEventListener(
 
 
 
-        function finishLoader() {
+        typeLoaderMessage();
+
+
+
+        /* =================================================
+           SLOW 0–100% LOADER
+           
+           Approx. 6.5 seconds
+        ================================================= */
+
+        const loaderDuration =
+            6500;
+
+
+        const loaderStartTime =
+            performance.now();
+
+
+        let pageLoaded =
+            false;
+
+
+        let loaderComplete =
+            false;
+
+
+
+        window.addEventListener(
+            "load",
+            () => {
+
+
+                pageLoaded =
+                    true;
+
+
+            }
+        );
+
+
+
+        function updateLoaderProgress(
+            currentTime
+        ) {
 
 
             if (
-                loaderFinished
+                loaderComplete
             ) {
 
                 return;
@@ -349,15 +490,218 @@ document.addEventListener(
             }
 
 
-            loaderFinished =
+            const elapsed =
+                currentTime -
+                loaderStartTime;
+
+
+            let rawProgress =
+                elapsed /
+                loaderDuration;
+
+
+            rawProgress =
+                Math.min(
+                    rawProgress,
+                    1
+                );
+
+
+
+            /*
+             Smooth progress curve.
+
+             Starts steadily,
+             slows slightly around 60–90%,
+             then completes.
+            */
+
+            let progress;
+
+
+            if (
+                rawProgress <
+                0.55
+            ) {
+
+
+                progress =
+                    rawProgress *
+                    1.08;
+
+
+            } else if (
+                rawProgress <
+                0.88
+            ) {
+
+
+                progress =
+                    0.594 +
+                    (
+                        rawProgress -
+                        0.55
+                    )
+                    *
+                    0.82;
+
+
+            } else {
+
+
+                progress =
+                    0.8646 +
+                    (
+                        rawProgress -
+                        0.88
+                    )
+                    *
+                    1.128;
+
+
+            }
+
+
+            progress =
+                Math.min(
+                    progress,
+                    1
+                );
+
+
+            const percent =
+                Math.floor(
+                    progress *
+                    100
+                );
+
+
+
+            if (
+                loaderPercent
+            ) {
+
+
+                loaderPercent.textContent =
+                    `${percent}%`;
+
+
+            }
+
+
+
+            if (
+                loaderProgress
+            ) {
+
+
+                loaderProgress.style.width =
+                    `${percent}%`;
+
+
+            }
+
+
+
+            if (
+                rawProgress >=
+                1
+            ) {
+
+
+                /*
+                If page is loaded, finish.
+
+                Even if a slow asset has an issue,
+                the failsafe below guarantees the
+                visitor isn't trapped.
+                */
+
+                finishPageLoader();
+
+
+                return;
+
+            }
+
+
+
+            requestAnimationFrame(
+                updateLoaderProgress
+            );
+
+
+        }
+
+
+
+        requestAnimationFrame(
+            updateLoaderProgress
+        );
+
+
+
+        /* =================================================
+           FINISH LOADER
+        ================================================= */
+
+        function finishPageLoader() {
+
+
+            if (
+                loaderComplete
+            ) {
+
+                return;
+
+            }
+
+
+            loaderComplete =
                 true;
 
 
-            loadingValue =
-                100;
+            typingStopped =
+                true;
 
 
-            renderLoader();
+
+            if (
+                loaderPercent
+            ) {
+
+
+                loaderPercent.textContent =
+                    "100%";
+
+
+            }
+
+
+
+            if (
+                loaderProgress
+            ) {
+
+
+                loaderProgress.style.width =
+                    "100%";
+
+
+            }
+
+
+
+            if (
+                typingText
+            ) {
+
+
+                typingText.textContent =
+                    "Experience ready.";
+
+
+            }
 
 
 
@@ -369,9 +713,11 @@ document.addEventListener(
                         loader
                     ) {
 
+
                         loader.classList.add(
                             "hide"
                         );
+
 
                     }
 
@@ -387,7 +733,7 @@ document.addEventListener(
 
 
                 },
-                500
+                650
             );
 
 
@@ -395,204 +741,15 @@ document.addEventListener(
 
 
 
-        function animateLoader() {
-
-
-            if (
-                loadingValue >= 100
-            ) {
-
-                finishLoader();
-
-                return;
-
-            }
-
-
-
-            let increment;
-
-
-
-            if (
-                loadingValue < 25
-            ) {
-
-                increment =
-                    Math.random() *
-                    3 +
-                    1;
-
-            } else if (
-                loadingValue < 65
-            ) {
-
-                increment =
-                    Math.random() *
-                    2 +
-                    0.7;
-
-            } else if (
-                loadingValue < 90
-            ) {
-
-                increment =
-                    Math.random() *
-                    1.1 +
-                    0.3;
-
-            } else {
-
-                increment =
-                    Math.random() *
-                    0.45 +
-                    0.1;
-
-            }
-
-
-
-            loadingValue +=
-                increment;
-
-
-
-            if (
-                loadingValue >
-                99
-            ) {
-
-                loadingValue =
-                    99;
-
-            }
-
-
-
-            renderLoader();
-
-
-
-            setTimeout(
-                animateLoader,
-                35
-            );
-
-
-        }
-
-
-
-        animateLoader();
-
-
-
-        /* =================================================
-           COMPLETE WHEN ASSETS LOAD
-        ================================================= */
-
-        window.addEventListener(
-            "load",
-            () => {
-
-
-                const completeInterval =
-                    setInterval(
-                        () => {
-
-
-                            loadingValue +=
-                                5;
-
-
-                            if (
-                                loadingValue >=
-                                100
-                            ) {
-
-
-                                loadingValue =
-                                    100;
-
-
-                                clearInterval(
-                                    completeInterval
-                                );
-
-
-                                finishLoader();
-
-
-                            }
-
-
-                            renderLoader();
-
-
-                        },
-                        28
-                    );
-
-
-            }
-        );
-
-
-
-        /* =================================================
-           FAILSAFE
-        ================================================= */
+        /*
+        Failsafe:
+        loader always ends even if an asset
+        takes unusually long.
+        */
 
         setTimeout(
-            () => {
-
-
-                finishLoader();
-
-
-            },
-            5500
-        );
-
-
-
-        /* =================================================
-           REBUILD CODE AFTER RESIZE
-        ================================================= */
-
-        let resizeTimer;
-
-
-        window.addEventListener(
-            "resize",
-            () => {
-
-
-                clearTimeout(
-                    resizeTimer
-                );
-
-
-                resizeTimer =
-                    setTimeout(
-                        () => {
-
-
-                            if (
-                                !loaderFinished
-                            ) {
-
-                                createCodeBackground();
-
-                            }
-
-
-                        },
-                        250
-                    );
-
-
-            }
+            finishPageLoader,
+            7800
         );
 
 
@@ -726,39 +883,42 @@ document.addEventListener(
             menuToggle
         ) {
 
+
             menuToggle.addEventListener(
                 "click",
                 openMobileMenu
             );
 
-        }
 
+        }
 
 
         if (
             mobileMenuClose
         ) {
 
+
             mobileMenuClose.addEventListener(
                 "click",
                 closeMobileMenu
             );
 
-        }
 
+        }
 
 
         if (
             menuBackdrop
         ) {
 
+
             menuBackdrop.addEventListener(
                 "click",
                 closeMobileMenu
             );
 
-        }
 
+        }
 
 
         mobileNavLinks.forEach(
@@ -775,7 +935,6 @@ document.addEventListener(
         );
 
 
-
         document.addEventListener(
             "keydown",
             event => {
@@ -786,7 +945,9 @@ document.addEventListener(
                     "Escape"
                 ) {
 
+
                     closeMobileMenu();
+
 
                 }
 
@@ -797,7 +958,7 @@ document.addEventListener(
 
 
         /* =================================================
-           CUSTOM CURSOR
+           CURSOR
         ================================================= */
 
         if (
@@ -822,48 +983,44 @@ document.addEventListener(
             );
 
 
-            const interactive =
-                document.querySelectorAll(
-
+            document
+                .querySelectorAll(
                     "a, button, .service-card, .skill-card, .project-card"
+                )
+                .forEach(
+                    element => {
 
+
+                        element.addEventListener(
+                            "mouseenter",
+                            () => {
+
+
+                                cursor.classList.add(
+                                    "active"
+                                );
+
+
+                            }
+                        );
+
+
+                        element.addEventListener(
+                            "mouseleave",
+                            () => {
+
+
+                                cursor.classList.remove(
+                                    "active"
+                                );
+
+
+                            }
+                        );
+
+
+                    }
                 );
-
-
-            interactive.forEach(
-                element => {
-
-
-                    element.addEventListener(
-                        "mouseenter",
-                        () => {
-
-
-                            cursor.classList.add(
-                                "active"
-                            );
-
-
-                        }
-                    );
-
-
-                    element.addEventListener(
-                        "mouseleave",
-                        () => {
-
-
-                            cursor.classList.remove(
-                                "active"
-                            );
-
-
-                        }
-                    );
-
-
-                }
-            );
 
 
         }
@@ -871,7 +1028,7 @@ document.addEventListener(
 
 
         /* =================================================
-           HEADER SCROLL
+           HEADER
         ================================================= */
 
         function updateHeader() {
@@ -896,9 +1053,7 @@ document.addEventListener(
         }
 
 
-
         updateHeader();
-
 
 
         window.addEventListener(
@@ -937,9 +1092,7 @@ document.addEventListener(
         }
 
 
-
         updateBackToTop();
-
 
 
         window.addEventListener(
@@ -953,81 +1106,79 @@ document.addEventListener(
 
 
         /* =================================================
-           SMOOTH INTERNAL LINKS
+           SMOOTH LINKS
         ================================================= */
 
-        const internalLinks =
-            document.querySelectorAll(
+        document
+            .querySelectorAll(
                 'a[href^="#"]'
-            );
+            )
+            .forEach(
+                link => {
 
 
-        internalLinks.forEach(
-            link => {
+                    link.addEventListener(
+                        "click",
+                        event => {
 
 
-                link.addEventListener(
-                    "click",
-                    event => {
+                            const targetId =
+                                link.getAttribute(
+                                    "href"
+                                );
 
 
-                        const targetId =
-                            link.getAttribute(
-                                "href"
-                            );
+                            if (
+                                !targetId ||
+                                targetId ===
+                                "#"
+                            ) {
 
-
-                        if (
-                            !targetId ||
-                            targetId ===
-                            "#"
-                        ) {
-
-                            return;
-
-                        }
-
-
-                        const target =
-                            document.querySelector(
-                                targetId
-                            );
-
-
-                        if (
-                            !target
-                        ) {
-
-                            return;
-
-                        }
-
-
-                        event.preventDefault();
-
-
-                        closeMobileMenu();
-
-
-                        target.scrollIntoView(
-                            {
-
-                                behavior:
-                                    "smooth",
-
-                                block:
-                                    "start"
+                                return;
 
                             }
-                        );
 
 
-                    }
-                );
+                            const target =
+                                document.querySelector(
+                                    targetId
+                                );
 
 
-            }
-        );
+                            if (
+                                !target
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            event.preventDefault();
+
+
+                            closeMobileMenu();
+
+
+                            target.scrollIntoView(
+                                {
+
+                                    behavior:
+                                        "smooth",
+
+                                    block:
+                                        "start"
+
+                                }
+                            );
+
+
+                        }
+                    );
+
+
+                }
+            );
 
 
 
@@ -1223,7 +1374,8 @@ document.addEventListener(
                     if (
                         link.getAttribute(
                             "href"
-                        ) ===
+                        )
+                        ===
                         `#${current}`
                     ) {
 
@@ -1243,7 +1395,6 @@ document.addEventListener(
         }
 
 
-
         window.addEventListener(
             "scroll",
             updateNavigation,
@@ -1251,7 +1402,6 @@ document.addEventListener(
                 passive: true
             }
         );
-
 
 
         updateNavigation();
@@ -1288,8 +1438,10 @@ document.addEventListener(
                     heroPhoto
                 ) {
 
+
                     heroPhoto.style.transform =
                         "";
+
 
                 }
 
@@ -1298,8 +1450,10 @@ document.addEventListener(
                     heroContent
                 ) {
 
+
                     heroContent.style.transform =
                         "";
+
 
                 }
 
@@ -1355,7 +1509,6 @@ document.addEventListener(
         }
 
 
-
         window.addEventListener(
             "scroll",
             heroParallax,
@@ -1370,112 +1523,110 @@ document.addEventListener(
            PROJECT TILT
         ================================================= */
 
-        const projectCards =
-            document.querySelectorAll(
+        document
+            .querySelectorAll(
                 ".project-card"
-            );
+            )
+            .forEach(
+                card => {
 
 
-        projectCards.forEach(
-            card => {
+                    card.addEventListener(
+                        "mousemove",
+                        event => {
 
 
-                card.addEventListener(
-                    "mousemove",
-                    event => {
+                            if (
+                                window.innerWidth <=
+                                850
+                            ) {
+
+                                return;
+
+                            }
 
 
-                        if (
-                            window.innerWidth <=
-                            850
-                        ) {
-
-                            return;
-
-                        }
+                            const rect =
+                                card.getBoundingClientRect();
 
 
-                        const rect =
-                            card.getBoundingClientRect();
+                            const x =
+                                event.clientX -
+                                rect.left;
 
 
-                        const x =
-                            event.clientX -
-                            rect.left;
+                            const y =
+                                event.clientY -
+                                rect.top;
 
 
-                        const y =
-                            event.clientY -
-                            rect.top;
+                            const centerX =
+                                rect.width /
+                                2;
 
 
-                        const centerX =
-                            rect.width /
-                            2;
+                            const centerY =
+                                rect.height /
+                                2;
 
 
-                        const centerY =
-                            rect.height /
-                            2;
-
-
-                        const rotateX =
-                            (
+                            const rotateX =
                                 (
-                                    y -
+                                    (
+                                        y -
+                                        centerY
+                                    )
+                                    /
                                     centerY
                                 )
-                                /
-                                centerY
-                            )
-                            *
-                            -1.3;
+                                *
+                                -1.3;
 
 
-                        const rotateY =
-                            (
+                            const rotateY =
                                 (
-                                    x -
+                                    (
+                                        x -
+                                        centerX
+                                    )
+                                    /
                                     centerX
                                 )
-                                /
-                                centerX
-                            )
-                            *
-                            1.3;
+                                *
+                                1.3;
 
 
-                        card.style.transform =
-                            `perspective(1200px)
-                            rotateX(${rotateX}deg)
-                            rotateY(${rotateY}deg)
-                            translateY(-8px)`;
+                            card.style.transform =
+                                `perspective(1200px)
+                                rotateX(${rotateX}deg)
+                                rotateY(${rotateY}deg)
+                                translateY(-8px)`;
 
 
-                    }
-                );
+                        }
+                    );
 
 
-                card.addEventListener(
-                    "mouseleave",
-                    () => {
+                    card.addEventListener(
+                        "mouseleave",
+                        () => {
 
 
-                        card.style.transform =
-                            "";
+                            card.style.transform =
+                                "";
 
 
-                    }
-                );
+                        }
+                    );
 
 
-            }
-        );
+                }
+            );
 
 
 
         /* =================================================
-           CURRENT YEAR
+           YEAR
         ================================================= */
 
         const copyright =
@@ -1489,13 +1640,10 @@ document.addEventListener(
         ) {
 
 
-            const year =
-                new Date()
-                    .getFullYear();
-
-
             copyright.innerHTML =
-                `© ${year} Jhonaiza Gede. All Rights Reserved.`;
+                `© ${
+                    new Date().getFullYear()
+                } Jhonaiza Gede. All Rights Reserved.`;
 
 
         }
