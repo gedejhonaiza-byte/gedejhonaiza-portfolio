@@ -1,206 +1,270 @@
 /* =========================================================
    JHONAIZA GEDE PORTFOLIO
-   COMPLETE SCRIPT.JS
+   COMPLETE RESPONSIVE SCRIPT
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    /* =====================================================
-       MAIN ELEMENTS
-    ===================================================== */
 
-    const body = document.body;
+        /* =================================================
+           MAIN ELEMENTS
+        ================================================= */
 
-    const header =
-        document.querySelector(".desktop-header");
+        const body =
+            document.body;
 
-    const cursor =
-        document.querySelector(".cursor");
 
-    const backToTop =
-        document.querySelector(".back-to-top");
+        const header =
+            document.querySelector(
+                ".desktop-header"
+            );
 
-    const hero =
-        document.querySelector(".hero");
 
+        const cursor =
+            document.querySelector(
+                ".cursor"
+            );
 
-    /* =====================================================
-       LOADER COMPUTER CODE
-    ===================================================== */
 
-    const loaderCodeBackground =
-        document.getElementById(
-            "loaderCodeBackground"
-        );
+        const backToTop =
+            document.querySelector(
+                ".back-to-top"
+            );
 
 
-    const loaderCodeLines = [
+        const hero =
+            document.querySelector(
+                ".hero"
+            );
 
-        '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
-        '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
 
-        '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
+        /* =================================================
+           LOADER COMPUTER CODE
+        ================================================= */
 
-        'display: grid;',
+        const loaderCodeBackground =
+            document.getElementById(
+                "loaderCodeBackground"
+            );
 
-        'grid-template-columns: 1fr 1fr;',
 
-        '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
+        const loaderCodeLines = [
 
-        'document.querySelector(<span class="code-string">".project"</span>);',
+            '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
-        'background: linear-gradient(135deg, #050505, #D7B56D);',
+            '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
 
-        '&lt;div class=<span class="code-string">"creative"</span>&gt;',
+            '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
 
-        'transform: translateY(-10px);',
+            'display: grid;',
 
-        '<span class="code-keyword">let</span> creativity = true;',
+            'grid-template-columns: 1fr 1fr;',
 
-        'animation: reveal .8s ease;',
+            '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
 
-        '<span class="code-keyword">if</span> (idea) { createExperience(); }',
+            'document.querySelector(<span class="code-string">".project"</span>);',
 
-        'font-family: "Poppins", sans-serif;',
+            'background: linear-gradient(135deg, #050505, #D7B56D);',
 
-        '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
+            '&lt;div class=<span class="code-string">"creative"</span>&gt;',
 
-        '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
+            'transform: translateY(-10px);',
 
-        'border: 1px solid rgba(215,181,109,.25);',
+            '<span class="code-keyword">let</span> creativity = true;',
 
-        '<span class="code-keyword">return</span> digitalExperience;',
+            'animation: reveal .8s ease;',
 
-        'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
+            '<span class="code-keyword">if</span> (idea) { createExperience(); }',
 
-        'const brand = { creativity: true, purpose: true };',
+            'font-family: "Poppins", sans-serif;',
 
-        'backdrop-filter: blur(20px);',
+            '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
 
-        '&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
+            '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
 
-        'responsive: true;',
+            'border: 1px solid rgba(215,181,109,.25);',
 
-        'userExperience.optimize();',
+            '<span class="code-keyword">return</span> digitalExperience;',
 
-        '<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
+            'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
 
-        'object-fit: cover;',
+            'const brand = { creativity: true, purpose: true };',
 
-        'transition: all .4s ease;',
+            'backdrop-filter: blur(20px);',
 
-        'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
+            '&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
 
-        'creativeDeveloper.initialize();',
+            'responsive: true;',
 
-        '&lt;/portfolio&gt;'
+            'userExperience.optimize();',
 
-    ];
+            '<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
 
+            'object-fit: cover;',
 
-    function buildLoaderCode() {
+            'transition: all .4s ease;',
 
-        if (!loaderCodeBackground) {
-            return;
-        }
+            'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
 
+            'creativeDeveloper.initialize();',
 
-        loaderCodeBackground.innerHTML = "";
+            '&lt;/portfolio&gt;'
 
+        ];
 
-        const width =
-            window.innerWidth;
 
 
-        let columns = 15;
+        function buildLoaderCode() {
 
 
-        if (width <= 520) {
-
-            columns = 6;
-
-        } else if (width <= 900) {
-
-            columns = 9;
-
-        }
-
-
-        for (
-            let i = 0;
-            i < columns;
-            i++
-        ) {
-
-            const column =
-                document.createElement("div");
-
-
-            column.className =
-                "code-column";
-
-
-            column.style.left =
-                `${(i / columns) * 100}%`;
-
-
-            column.style.animationDuration =
-                `${18 + Math.random() * 16}s`;
-
-
-            column.style.animationDelay =
-                `-${Math.random() * 18}s`;
-
-
-            for (
-                let j = 0;
-                j < 16;
-                j++
+            if (
+                !loaderCodeBackground
             ) {
 
-                const line =
-                    document.createElement("span");
-
-
-                line.innerHTML =
-                    loaderCodeLines[
-                        Math.floor(
-                            Math.random() *
-                            loaderCodeLines.length
-                        )
-                    ];
-
-
-                column.appendChild(line);
+                return;
 
             }
 
 
-            loaderCodeBackground.appendChild(
-                column
-            );
+            loaderCodeBackground.innerHTML =
+                "";
+
+
+            const width =
+                window.innerWidth;
+
+
+            let columns =
+                15;
+
+
+            if (
+                width <=
+                520
+            ) {
+
+                columns =
+                    6;
+
+            }
+
+            else if (
+                width <=
+                900
+            ) {
+
+                columns =
+                    9;
+
+            }
+
+
+
+            for (
+                let i = 0;
+                i < columns;
+                i++
+            ) {
+
+
+                const column =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                column.className =
+                    "code-column";
+
+
+                column.style.left =
+                    `${
+                        (
+                            i /
+                            columns
+                        )
+                        *
+                        100
+                    }%`;
+
+
+                column.style.animationDuration =
+                    `${
+                        18 +
+                        Math.random() *
+                        16
+                    }s`;
+
+
+                column.style.animationDelay =
+                    `-${
+                        Math.random() *
+                        18
+                    }s`;
+
+
+
+                for (
+                    let j = 0;
+                    j < 16;
+                    j++
+                ) {
+
+
+                    const line =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    line.innerHTML =
+                        loaderCodeLines[
+                            Math.floor(
+                                Math.random() *
+                                loaderCodeLines.length
+                            )
+                        ];
+
+
+                    column.appendChild(
+                        line
+                    );
+
+
+                }
+
+
+                loaderCodeBackground
+                    .appendChild(
+                        column
+                    );
+
+
+            }
+
 
         }
 
-    }
 
 
-    buildLoaderCode();
+        buildLoaderCode();
 
 
 
-    /* =====================================================
-       HERO COMPUTER CODE BACKGROUND
-    ===================================================== */
+        /* =================================================
+           HERO COMPUTER CODE
+        ================================================= */
 
-    const heroCodeBackground =
-        document.getElementById(
-            "heroCodeBackground"
-        );
+        const heroCodeBackground =
+            document.getElementById(
+                "heroCodeBackground"
+            );
 
 
-    const heroCodeBlocks = [
+        const heroCodeBlocks = [
 
 `const portfolio = {
   designer: "Jhonaiza Gede",
@@ -265,1553 +329,1923 @@ projects.forEach(project => {
   .design()
   .develop()
   .optimize()
-  .deliver();`,
+  .deliver();`
 
-`const creativeProcess = {
-  discover: true,
-  design: true,
-  develop: true,
-  refine: true,
-  deliver: true
-};`
+        ];
 
-    ];
 
 
-    const heroCodePositions = [
+        const heroCodePositions = [
 
-        {
-            left: "2%",
-            top: "10%"
-        },
+            {
+                left: "2%",
+                top: "10%"
+            },
 
-        {
-            left: "35%",
-            top: "6%"
-        },
+            {
+                left: "35%",
+                top: "6%"
+            },
 
-        {
-            right: "2%",
-            top: "14%"
-        },
+            {
+                right: "2%",
+                top: "14%"
+            },
 
-        {
-            left: "4%",
-            bottom: "5%"
-        },
+            {
+                left: "4%",
+                bottom: "5%"
+            },
 
-        {
-            left: "38%",
-            bottom: "7%"
-        },
+            {
+                left: "38%",
+                bottom: "7%"
+            },
 
-        {
-            right: "1%",
-            bottom: "8%"
-        },
+            {
+                right: "1%",
+                bottom: "8%"
+            },
 
-        {
-            left: "25%",
-            top: "42%"
-        },
+            {
+                left: "25%",
+                top: "42%"
+            },
 
-        {
-            right: "25%",
-            top: "48%"
-        },
+            {
+                right: "25%",
+                top: "48%"
+            },
 
-        {
-            left: "59%",
-            top: "27%"
-        }
+            {
+                left: "59%",
+                top: "27%"
+            }
 
-    ];
+        ];
 
 
-    function buildHeroCode() {
 
-        if (!heroCodeBackground) {
-            return;
-        }
-
-
-        heroCodeBackground.innerHTML = "";
-
-
-        const width =
-            window.innerWidth;
-
-
-        let totalBlocks = 9;
-
-
-        if (width <= 767) {
-
-            totalBlocks = 7;
-
-        }
-
-
-        for (
-            let i = 0;
-            i < totalBlocks;
-            i++
-        ) {
-
-            const block =
-                document.createElement("pre");
-
-
-            block.className =
-                "hero-code-block";
-
-
-            block.textContent =
-                heroCodeBlocks[
-                    i %
-                    heroCodeBlocks.length
-                ];
-
-
-            const position =
-                heroCodePositions[
-                    i %
-                    heroCodePositions.length
-                ];
-
-
-            Object.keys(position)
-                .forEach(property => {
-
-                    block.style[property] =
-                        position[property];
-
-                });
-
-
-            block.style.animationDelay =
-                `-${i * 1.7}s`;
-
-
-            heroCodeBackground.appendChild(
-                block
-            );
-
-        }
-
-    }
-
-
-    buildHeroCode();
-
-
-
-    /* =====================================================
-       PAGE LOADER
-    ===================================================== */
-
-    const loader =
-        document.getElementById(
-            "pageLoader"
-        );
-
-
-    const loaderPercent =
-        document.getElementById(
-            "loaderPercent"
-        );
-
-
-    const loaderProgress =
-        document.getElementById(
-            "loaderProgress"
-        );
-
-
-    const loaderTypingText =
-        document.getElementById(
-            "loaderTypingText"
-        );
-
-
-    body.classList.add(
-        "loader-active"
-    );
-
-
-    const loaderMessages = [
-
-        "Initializing interface...",
-
-        "Loading creative assets...",
-
-        "Compiling digital experience...",
-
-        "Preparing featured projects...",
-
-        "Optimizing responsive layout...",
-
-        "Connecting creative components...",
-
-        "Almost ready...",
-
-        "Launching portfolio..."
-
-    ];
-
-
-    let loaderMessageIndex = 0;
-
-    let loaderCharacterIndex = 0;
-
-    let loaderDeleting = false;
-
-    let loaderTypingStopped = false;
-
-
-    function typeLoaderMessage() {
-
-        if (
-            !loaderTypingText ||
-            loaderTypingStopped
-        ) {
-            return;
-        }
-
-
-        const currentMessage =
-            loaderMessages[
-                loaderMessageIndex
-            ];
-
-
-        if (!loaderDeleting) {
-
-            loaderCharacterIndex++;
-
-
-            loaderTypingText.textContent =
-                currentMessage.substring(
-                    0,
-                    loaderCharacterIndex
-                );
+        function buildHeroCode() {
 
 
             if (
-                loaderCharacterIndex >=
-                currentMessage.length
+                !heroCodeBackground
             ) {
-
-                loaderDeleting = true;
-
-
-                setTimeout(
-                    typeLoaderMessage,
-                    260
-                );
-
 
                 return;
 
             }
 
 
-            setTimeout(
-                typeLoaderMessage,
-                25
+            heroCodeBackground.innerHTML =
+                "";
+
+
+            const width =
+                window.innerWidth;
+
+
+            let totalBlocks =
+                9;
+
+
+            if (
+                width <=
+                767
+            ) {
+
+                totalBlocks =
+                    7;
+
+            }
+
+
+
+            for (
+                let i = 0;
+                i < totalBlocks;
+                i++
+            ) {
+
+
+                const block =
+                    document.createElement(
+                        "pre"
+                    );
+
+
+                block.className =
+                    "hero-code-block";
+
+
+                block.textContent =
+                    heroCodeBlocks[
+                        i %
+                        heroCodeBlocks.length
+                    ];
+
+
+                const position =
+                    heroCodePositions[
+                        i %
+                        heroCodePositions.length
+                    ];
+
+
+                Object.keys(
+                    position
+                )
+                .forEach(
+                    property => {
+
+
+                        block.style[
+                            property
+                        ] =
+                            position[
+                                property
+                            ];
+
+
+                    }
+                );
+
+
+                block.style.animationDelay =
+                    `-${
+                        i *
+                        1.7
+                    }s`;
+
+
+                heroCodeBackground
+                    .appendChild(
+                        block
+                    );
+
+
+            }
+
+
+        }
+
+
+
+        buildHeroCode();
+
+
+
+        /* =================================================
+           LOADER
+        ================================================= */
+
+        const loader =
+            document.getElementById(
+                "pageLoader"
             );
 
-        } else {
 
-            loaderCharacterIndex--;
+        const loaderPercent =
+            document.getElementById(
+                "loaderPercent"
+            );
 
 
-            loaderTypingText.textContent =
-                currentMessage.substring(
-                    0,
-                    loaderCharacterIndex
+        const loaderProgress =
+            document.getElementById(
+                "loaderProgress"
+            );
+
+
+        const loaderTypingText =
+            document.getElementById(
+                "loaderTypingText"
+            );
+
+
+        body.classList.add(
+            "loader-active"
+        );
+
+
+
+        const loaderMessages = [
+
+            "Initializing interface...",
+
+            "Loading creative assets...",
+
+            "Compiling digital experience...",
+
+            "Preparing featured projects...",
+
+            "Optimizing responsive layout...",
+
+            "Connecting creative components...",
+
+            "Almost ready...",
+
+            "Launching portfolio..."
+
+        ];
+
+
+        let loaderMessageIndex =
+            0;
+
+
+        let loaderCharacterIndex =
+            0;
+
+
+        let loaderDeleting =
+            false;
+
+
+        let loaderTypingStopped =
+            false;
+
+
+
+        function typeLoaderMessage() {
+
+
+            if (
+                !loaderTypingText ||
+                loaderTypingStopped
+            ) {
+
+                return;
+
+            }
+
+
+            const currentMessage =
+                loaderMessages[
+                    loaderMessageIndex
+                ];
+
+
+
+            if (
+                !loaderDeleting
+            ) {
+
+
+                loaderCharacterIndex++;
+
+
+                loaderTypingText.textContent =
+                    currentMessage.substring(
+                        0,
+                        loaderCharacterIndex
+                    );
+
+
+                if (
+                    loaderCharacterIndex >=
+                    currentMessage.length
+                ) {
+
+
+                    loaderDeleting =
+                        true;
+
+
+                    setTimeout(
+                        typeLoaderMessage,
+                        260
+                    );
+
+
+                    return;
+
+                }
+
+
+                setTimeout(
+                    typeLoaderMessage,
+                    25
+                );
+
+
+            }
+
+            else {
+
+
+                loaderCharacterIndex--;
+
+
+                loaderTypingText.textContent =
+                    currentMessage.substring(
+                        0,
+                        loaderCharacterIndex
+                    );
+
+
+                if (
+                    loaderCharacterIndex <=
+                    0
+                ) {
+
+
+                    loaderDeleting =
+                        false;
+
+
+                    loaderMessageIndex =
+                        (
+                            loaderMessageIndex +
+                            1
+                        )
+                        %
+                        loaderMessages.length;
+
+
+                    setTimeout(
+                        typeLoaderMessage,
+                        70
+                    );
+
+
+                    return;
+
+                }
+
+
+                setTimeout(
+                    typeLoaderMessage,
+                    12
+                );
+
+
+            }
+
+
+        }
+
+
+
+        typeLoaderMessage();
+
+
+
+        const loaderDuration =
+            6500;
+
+
+        const loaderStartTime =
+            performance.now();
+
+
+        let loaderComplete =
+            false;
+
+
+
+        function finishLoader() {
+
+
+            if (
+                loaderComplete
+            ) {
+
+                return;
+
+            }
+
+
+            loaderComplete =
+                true;
+
+
+            loaderTypingStopped =
+                true;
+
+
+            if (
+                loaderPercent
+            ) {
+
+                loaderPercent.textContent =
+                    "100%";
+
+            }
+
+
+            if (
+                loaderProgress
+            ) {
+
+                loaderProgress.style.width =
+                    "100%";
+
+            }
+
+
+            if (
+                loaderTypingText
+            ) {
+
+                loaderTypingText.textContent =
+                    "Experience ready.";
+
+            }
+
+
+            setTimeout(
+                () => {
+
+
+                    if (
+                        loader
+                    ) {
+
+                        loader.classList.add(
+                            "hide"
+                        );
+
+                    }
+
+
+                    body.classList.remove(
+                        "loader-active"
+                    );
+
+
+                },
+                650
+            );
+
+
+        }
+
+
+
+        function updateLoaderProgress(
+            currentTime
+        ) {
+
+
+            if (
+                loaderComplete
+            ) {
+
+                return;
+
+            }
+
+
+            const elapsed =
+                currentTime -
+                loaderStartTime;
+
+
+            let progress =
+                Math.min(
+                    elapsed /
+                    loaderDuration,
+                    1
                 );
 
 
             if (
-                loaderCharacterIndex <= 0
+                progress <
+                .55
             ) {
 
-                loaderDeleting = false;
+                progress =
+                    progress *
+                    1.08;
 
+            }
 
-                loaderMessageIndex =
+            else if (
+                progress <
+                .88
+            ) {
+
+                progress =
+                    .594 +
                     (
-                        loaderMessageIndex +
-                        1
-                    ) %
-                    loaderMessages.length;
+                        progress -
+                        .55
+                    )
+                    *
+                    .82;
+
+            }
+
+            else {
+
+                progress =
+                    .8646 +
+                    (
+                        progress -
+                        .88
+                    )
+                    *
+                    1.128;
+
+            }
 
 
-                setTimeout(
-                    typeLoaderMessage,
-                    70
+            progress =
+                Math.min(
+                    progress,
+                    1
                 );
 
+
+            const percent =
+                Math.floor(
+                    progress *
+                    100
+                );
+
+
+            if (
+                loaderPercent
+            ) {
+
+                loaderPercent.textContent =
+                    `${percent}%`;
+
+            }
+
+
+            if (
+                loaderProgress
+            ) {
+
+                loaderProgress.style.width =
+                    `${percent}%`;
+
+            }
+
+
+            if (
+                elapsed >=
+                loaderDuration
+            ) {
+
+                finishLoader();
 
                 return;
 
             }
 
 
-            setTimeout(
-                typeLoaderMessage,
-                12
-            );
-
-        }
-
-    }
-
-
-    typeLoaderMessage();
-
-
-
-    /* =====================================================
-       LOADER PROGRESS
-       ABOUT 6.5 SECONDS
-    ===================================================== */
-
-    const loaderDuration =
-        6500;
-
-
-    const loaderStartTime =
-        performance.now();
-
-
-    let loaderComplete =
-        false;
-
-
-    function finishLoader() {
-
-        if (loaderComplete) {
-            return;
-        }
-
-
-        loaderComplete = true;
-
-        loaderTypingStopped = true;
-
-
-        if (loaderPercent) {
-
-            loaderPercent.textContent =
-                "100%";
-
-        }
-
-
-        if (loaderProgress) {
-
-            loaderProgress.style.width =
-                "100%";
-
-        }
-
-
-        if (loaderTypingText) {
-
-            loaderTypingText.textContent =
-                "Experience ready.";
-
-        }
-
-
-        setTimeout(() => {
-
-            if (loader) {
-
-                loader.classList.add(
-                    "hide"
-                );
-
-            }
-
-
-            body.classList.remove(
-                "loader-active"
-            );
-
-        }, 650);
-
-    }
-
-
-    function updateLoaderProgress(
-        currentTime
-    ) {
-
-        if (loaderComplete) {
-            return;
-        }
-
-
-        const elapsed =
-            currentTime -
-            loaderStartTime;
-
-
-        let progress =
-            Math.min(
-                elapsed /
-                loaderDuration,
-                1
+            requestAnimationFrame(
+                updateLoaderProgress
             );
 
 
-        /*
-           Natural progress movement:
-           quicker first half,
-           slightly slower near completion.
-        */
-
-        if (progress < 0.55) {
-
-            progress =
-                progress * 1.08;
-
-        } else if (
-            progress < 0.88
-        ) {
-
-            progress =
-                0.594 +
-                (
-                    progress -
-                    0.55
-                ) *
-                0.82;
-
-        } else {
-
-            progress =
-                0.8646 +
-                (
-                    progress -
-                    0.88
-                ) *
-                1.128;
-
         }
 
-
-        progress =
-            Math.min(
-                progress,
-                1
-            );
-
-
-        const percent =
-            Math.floor(
-                progress *
-                100
-            );
-
-
-        if (loaderPercent) {
-
-            loaderPercent.textContent =
-                `${percent}%`;
-
-        }
-
-
-        if (loaderProgress) {
-
-            loaderProgress.style.width =
-                `${percent}%`;
-
-        }
-
-
-        if (
-            elapsed >=
-            loaderDuration
-        ) {
-
-            finishLoader();
-
-            return;
-
-        }
 
 
         requestAnimationFrame(
             updateLoaderProgress
         );
 
-    }
 
-
-    requestAnimationFrame(
-        updateLoaderProgress
-    );
-
-
-    /*
-       Failsafe so the visitor
-       can never become stuck
-       on the loader.
-    */
-
-    setTimeout(
-        finishLoader,
-        7800
-    );
-
-
-
-    /* =====================================================
-       HERO ROLE TYPEWRITER
-    ===================================================== */
-
-    const heroRoleTyping =
-        document.getElementById(
-            "heroRoleTyping"
+        setTimeout(
+            finishLoader,
+            7800
         );
 
 
-    const heroRoles = [
 
-        "Web Design",
+        /* =================================================
+           HERO ROLE TYPEWRITER
+        ================================================= */
 
-        "Graphic Design",
-
-        "UI / UX Design",
-
-        "Creative Development",
-
-        "Branding",
-
-        "SEO Optimization"
-
-    ];
+        const heroRoleTyping =
+            document.getElementById(
+                "heroRoleTyping"
+            );
 
 
-    let heroRoleIndex = 0;
+        const heroRoles = [
 
-    let heroCharacterIndex = 0;
+            "Web Design",
 
-    let heroDeleting = false;
+            "Graphic Design",
 
+            "UI / UX Design",
 
-    function typeHeroRole() {
+            "Creative Development",
 
-        if (!heroRoleTyping) {
-            return;
-        }
+            "Branding",
 
+            "SEO Optimization"
 
-        const currentRole =
-            heroRoles[
-                heroRoleIndex
-            ];
+        ];
 
 
-        if (!heroDeleting) {
+        let heroRoleIndex =
+            0;
 
-            heroCharacterIndex++;
+
+        let heroCharacterIndex =
+            0;
 
 
-            heroRoleTyping.textContent =
-                currentRole.substring(
-                    0,
-                    heroCharacterIndex
-                );
+        let heroDeleting =
+            false;
+
+
+
+        function typeHeroRole() {
 
 
             if (
-                heroCharacterIndex >=
-                currentRole.length
+                !heroRoleTyping
             ) {
-
-                heroDeleting = true;
-
-
-                setTimeout(
-                    typeHeroRole,
-                    1250
-                );
-
 
                 return;
 
             }
 
 
-            setTimeout(
-                typeHeroRole,
-                70
-            );
+            const currentRole =
+                heroRoles[
+                    heroRoleIndex
+                ];
 
-        } else {
-
-            heroCharacterIndex--;
-
-
-            heroRoleTyping.textContent =
-                currentRole.substring(
-                    0,
-                    heroCharacterIndex
-                );
 
 
             if (
-                heroCharacterIndex <= 0
+                !heroDeleting
             ) {
 
-                heroDeleting = false;
+
+                heroCharacterIndex++;
 
 
-                heroRoleIndex =
-                    (
-                        heroRoleIndex +
-                        1
-                    ) %
-                    heroRoles.length;
+                heroRoleTyping.textContent =
+                    currentRole.substring(
+                        0,
+                        heroCharacterIndex
+                    );
+
+
+                if (
+                    heroCharacterIndex >=
+                    currentRole.length
+                ) {
+
+
+                    heroDeleting =
+                        true;
+
+
+                    setTimeout(
+                        typeHeroRole,
+                        1250
+                    );
+
+
+                    return;
+
+                }
 
 
                 setTimeout(
                     typeHeroRole,
-                    220
+                    70
                 );
 
+
+            }
+
+            else {
+
+
+                heroCharacterIndex--;
+
+
+                heroRoleTyping.textContent =
+                    currentRole.substring(
+                        0,
+                        heroCharacterIndex
+                    );
+
+
+                if (
+                    heroCharacterIndex <=
+                    0
+                ) {
+
+
+                    heroDeleting =
+                        false;
+
+
+                    heroRoleIndex =
+                        (
+                            heroRoleIndex +
+                            1
+                        )
+                        %
+                        heroRoles.length;
+
+
+                    setTimeout(
+                        typeHeroRole,
+                        220
+                    );
+
+
+                    return;
+
+                }
+
+
+                setTimeout(
+                    typeHeroRole,
+                    35
+                );
+
+
+            }
+
+
+        }
+
+
+
+        setTimeout(
+            typeHeroRole,
+            900
+        );
+
+
+
+        /* =================================================
+           HEADER SCROLL
+        ================================================= */
+
+        function updateHeader() {
+
+
+            if (
+                !header
+            ) {
 
                 return;
 
             }
 
 
-            setTimeout(
-                typeHeroRole,
-                35
+            header.classList.toggle(
+                "scrolled",
+                window.scrollY >
+                40
             );
 
-        }
 
-    }
-
-
-    setTimeout(
-        typeHeroRole,
-        900
-    );
-
-
-
-    /* =====================================================
-       DESKTOP HEADER SCROLL EFFECT
-    ===================================================== */
-
-    function updateHeader() {
-
-        if (!header) {
-            return;
         }
 
 
-        header.classList.toggle(
-            "scrolled",
-            window.scrollY > 40
-        );
 
-    }
+        updateHeader();
 
 
-    updateHeader();
-
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        {
-            passive: true
-        }
-    );
-
-
-
-    /* =====================================================
-       CUSTOM CURSOR
-    ===================================================== */
-
-    if (cursor) {
-
-        document.addEventListener(
-            "mousemove",
-            event => {
-
-                cursor.style.left =
-                    `${event.clientX}px`;
-
-
-                cursor.style.top =
-                    `${event.clientY}px`;
-
+        window.addEventListener(
+            "scroll",
+            updateHeader,
+            {
+                passive: true
             }
         );
 
 
-        document
-            .querySelectorAll(
-                `
-                a,
-                button,
-                .service-card,
-                .skill-card,
-                .project-card,
-                .about-stat
-                `
-            )
-            .forEach(item => {
 
-                item.addEventListener(
-                    "mouseenter",
-                    () => {
+        /* =================================================
+           CUSTOM CURSOR
+        ================================================= */
 
-                        cursor.classList.add(
-                            "active"
-                        );
-
-                    }
-                );
+        if (
+            cursor
+        ) {
 
 
-                item.addEventListener(
-                    "mouseleave",
-                    () => {
-
-                        cursor.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-            });
-
-    }
-
-
-
-    /* =====================================================
-       SMOOTH INTERNAL LINKS
-    ===================================================== */
-
-    document
-        .querySelectorAll(
-            'a[href^="#"]'
-        )
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
+            document.addEventListener(
+                "mousemove",
                 event => {
 
-                    const href =
-                        link.getAttribute(
-                            "href"
-                        );
+
+                    cursor.style.left =
+                        `${event.clientX}px`;
 
 
-                    if (
-                        !href ||
-                        href === "#"
-                    ) {
-                        return;
-                    }
+                    cursor.style.top =
+                        `${event.clientY}px`;
 
-
-                    const target =
-                        document.querySelector(
-                            href
-                        );
-
-
-                    if (!target) {
-                        return;
-                    }
-
-
-                    event.preventDefault();
-
-
-                    target.scrollIntoView({
-
-                        behavior:
-                            "smooth",
-
-                        block:
-                            "start"
-
-                    });
 
                 }
             );
 
-        });
 
-
-
-    /* =====================================================
-       ACTIVE NAVIGATION
-    ===================================================== */
-
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
-        );
-
-
-    const desktopNavLinks =
-        document.querySelectorAll(
-            ".nav-links a"
-        );
-
-
-    const mobileNavLinks =
-        document.querySelectorAll(
-            ".mobile-bottom-link"
-        );
-
-
-    function updateNavigation() {
-
-        let current =
-            "home";
-
-
-        sections.forEach(section => {
-
-            const sectionTop =
-                section.offsetTop -
-                220;
-
-
-            const sectionHeight =
-                section.offsetHeight;
-
-
-            if (
-                window.scrollY >=
-                    sectionTop &&
-                window.scrollY <
-                    sectionTop +
-                    sectionHeight
-            ) {
-
-                current =
-                    section.id;
-
-            }
-
-        });
-
-
-        desktopNavLinks.forEach(
-            link => {
-
-                link.classList.toggle(
-                    "active",
-                    link.getAttribute(
-                        "href"
-                    ) ===
-                    `#${current}`
-                );
-
-            }
-        );
-
-
-        mobileNavLinks.forEach(
-            link => {
-
-                link.classList.toggle(
-                    "active",
-                    link.getAttribute(
-                        "href"
-                    ) ===
-                    `#${current}`
-                );
-
-            }
-        );
-
-    }
-
-
-    updateNavigation();
-
-
-    window.addEventListener(
-        "scroll",
-        updateNavigation,
-        {
-            passive: true
-        }
-    );
-
-
-
-    /* =====================================================
-       BACK TO TOP BUTTON
-    ===================================================== */
-
-    function updateBackToTop() {
-
-        if (!backToTop) {
-            return;
-        }
-
-
-        backToTop.classList.toggle(
-            "show",
-            window.scrollY > 500
-        );
-
-    }
-
-
-    updateBackToTop();
-
-
-    window.addEventListener(
-        "scroll",
-        updateBackToTop,
-        {
-            passive: true
-        }
-    );
-
-
-
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
-
-    const revealElements = [
-
-        ...document.querySelectorAll(
-            ".section-heading"
-        ),
-
-        ...document.querySelectorAll(
-            ".about-image-wrap"
-        ),
-
-        ...document.querySelectorAll(
-            ".about-visual"
-        ),
-
-        ...document.querySelectorAll(
-            ".about-portrait-wrap"
-        ),
-
-        ...document.querySelectorAll(
-            ".about-content"
-        ),
-
-        ...document.querySelectorAll(
-            ".about-stat"
-        ),
-
-        ...document.querySelectorAll(
-            ".service-card"
-        ),
-
-        ...document.querySelectorAll(
-            ".skill-card"
-        ),
-
-        ...document.querySelectorAll(
-            ".process-item"
-        ),
-
-        ...document.querySelectorAll(
-            ".project-card"
-        ),
-
-        ...document.querySelectorAll(
-            ".why-heading"
-        ),
-
-        ...document.querySelectorAll(
-            ".why-item"
-        ),
-
-        ...document.querySelectorAll(
-            ".contact-container"
-        )
-
-    ];
-
-
-    revealElements.forEach(
-        element => {
-
-            element.classList.add(
-                "reveal"
-            );
-
-        }
-    );
-
-
-    if (
-        "IntersectionObserver" in
-        window
-    ) {
-
-        const observer =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target
-                                    .classList
-                                    .add(
-                                        "active"
-                                    );
-
-
-                                observer.unobserve(
-                                    entry.target
+            document
+                .querySelectorAll(
+                    `
+                    a,
+                    button,
+                    .service-card,
+                    .skill-card,
+                    .project-card,
+                    .about-stat
+                    `
+                )
+                .forEach(
+                    item => {
+
+
+                        item.addEventListener(
+                            "mouseenter",
+                            () => {
+
+
+                                cursor.classList.add(
+                                    "active"
                                 );
 
+
                             }
+                        );
+
+
+                        item.addEventListener(
+                            "mouseleave",
+                            () => {
+
+
+                                cursor.classList.remove(
+                                    "active"
+                                );
+
+
+                            }
+                        );
+
+
+                    }
+                );
+
+
+        }
+
+
+
+        /* =================================================
+           SMOOTH INTERNAL LINKS
+        ================================================= */
+
+        document
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
+            .forEach(
+                link => {
+
+
+                    link.addEventListener(
+                        "click",
+                        event => {
+
+
+                            const href =
+                                link.getAttribute(
+                                    "href"
+                                );
+
+
+                            if (
+                                !href ||
+                                href ===
+                                "#"
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            const target =
+                                document.querySelector(
+                                    href
+                                );
+
+
+                            if (
+                                !target
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            event.preventDefault();
+
+
+                            target.scrollIntoView(
+                                {
+
+                                    behavior:
+                                        "smooth",
+
+                                    block:
+                                        "start"
+
+                                }
+                            );
+
 
                         }
                     );
 
-                },
-                {
-
-                    threshold: 0.12,
-
-                    rootMargin:
-                        "0px 0px -40px 0px"
 
                 }
             );
 
 
-        revealElements.forEach(
-            element => {
 
-                observer.observe(
-                    element
-                );
+        /* =================================================
+           ACTIVE NAVIGATION
+        ================================================= */
 
+        const sections =
+            document.querySelectorAll(
+                "section[id]"
+            );
+
+
+        const desktopNavLinks =
+            document.querySelectorAll(
+                ".nav-links a"
+            );
+
+
+        const mobileNavLinks =
+            document.querySelectorAll(
+                ".mobile-bottom-link"
+            );
+
+
+
+        function updateNavigation() {
+
+
+            let current =
+                "home";
+
+
+            sections.forEach(
+                section => {
+
+
+                    const sectionTop =
+                        section.offsetTop -
+                        220;
+
+
+                    const sectionHeight =
+                        section.offsetHeight;
+
+
+                    if (
+                        window.scrollY >=
+                        sectionTop
+                        &&
+                        window.scrollY <
+                        sectionTop +
+                        sectionHeight
+                    ) {
+
+
+                        current =
+                            section.id;
+
+
+                    }
+
+
+                }
+            );
+
+
+            desktopNavLinks.forEach(
+                link => {
+
+
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute(
+                            "href"
+                        )
+                        ===
+                        `#${current}`
+                    );
+
+
+                }
+            );
+
+
+            mobileNavLinks.forEach(
+                link => {
+
+
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute(
+                            "href"
+                        )
+                        ===
+                        `#${current}`
+                    );
+
+
+                }
+            );
+
+
+        }
+
+
+
+        updateNavigation();
+
+
+        window.addEventListener(
+            "scroll",
+            updateNavigation,
+            {
+                passive: true
             }
         );
 
-    } else {
+
+
+        /* =================================================
+           BACK TO TOP
+        ================================================= */
+
+        function updateBackToTop() {
+
+
+            if (
+                !backToTop
+            ) {
+
+                return;
+
+            }
+
+
+            backToTop.classList.toggle(
+                "show",
+                window.scrollY >
+                500
+            );
+
+
+        }
+
+
+
+        updateBackToTop();
+
+
+        window.addEventListener(
+            "scroll",
+            updateBackToTop,
+            {
+                passive: true
+            }
+        );
+
+
+
+        /* =================================================
+           SCROLL REVEAL
+        ================================================= */
+
+        const revealElements = [
+
+            ...document.querySelectorAll(
+                ".section-heading"
+            ),
+
+            ...document.querySelectorAll(
+                ".about-visual"
+            ),
+
+            ...document.querySelectorAll(
+                ".about-content"
+            ),
+
+            ...document.querySelectorAll(
+                ".about-stat"
+            ),
+
+            ...document.querySelectorAll(
+                ".service-card"
+            ),
+
+            ...document.querySelectorAll(
+                ".skill-card"
+            ),
+
+            ...document.querySelectorAll(
+                ".process-item"
+            ),
+
+            ...document.querySelectorAll(
+                ".project-card"
+            ),
+
+            ...document.querySelectorAll(
+                ".why-heading"
+            ),
+
+            ...document.querySelectorAll(
+                ".why-item"
+            ),
+
+            ...document.querySelectorAll(
+                ".contact-container"
+            )
+
+        ];
+
+
 
         revealElements.forEach(
             element => {
+
 
                 element.classList.add(
-                    "active"
+                    "reveal"
                 );
+
 
             }
         );
 
-    }
+
+
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
+
+
+            const observer =
+                new IntersectionObserver(
+                    entries => {
+
+
+                        entries.forEach(
+                            entry => {
+
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+
+                                    entry.target
+                                        .classList
+                                        .add(
+                                            "active"
+                                        );
+
+
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+
+
+                                }
+
+
+                            }
+                        );
+
+
+                    },
+                    {
+
+                        threshold:
+                            .12,
+
+                        rootMargin:
+                            "0px 0px -40px 0px"
+
+                    }
+                );
+
+
+            revealElements.forEach(
+                element => {
+
+
+                    observer.observe(
+                        element
+                    );
+
+
+                }
+            );
+
+
+        }
+
+        else {
+
+
+            revealElements.forEach(
+                element => {
+
+
+                    element.classList.add(
+                        "active"
+                    );
+
+
+                }
+            );
+
+
+        }
 
 
 
-    /* =====================================================
-       PROJECT CARD TILT
-    ===================================================== */
+        /* =================================================
+           ANIMATED ABOUT NUMBERS
+        ================================================= */
 
-    document
-        .querySelectorAll(
-            ".project-card"
-        )
-        .forEach(card => {
+        const statNumbers =
+            document.querySelectorAll(
+                ".stat-number"
+            );
 
-            card.addEventListener(
+
+        let statsStarted =
+            false;
+
+
+
+        function animateStat(
+            element
+        ) {
+
+
+            const finalNumber =
+                Number(
+                    element.dataset.number
+                );
+
+
+            const suffix =
+                element.dataset.suffix ||
+                "";
+
+
+            if (
+                Number.isNaN(
+                    finalNumber
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            const duration =
+                1400;
+
+
+            const startTime =
+                performance.now();
+
+
+
+            function update(
+                currentTime
+            ) {
+
+
+                const progress =
+                    Math.min(
+                        (
+                            currentTime -
+                            startTime
+                        )
+                        /
+                        duration,
+                        1
+                    );
+
+
+                /*
+                   Ease-out animation.
+                */
+
+                const eased =
+                    1 -
+                    Math.pow(
+                        1 -
+                        progress,
+                        3
+                    );
+
+
+                const currentValue =
+                    Math.round(
+                        finalNumber *
+                        eased
+                    );
+
+
+                element.textContent =
+                    `${currentValue}${suffix}`;
+
+
+                if (
+                    progress <
+                    1
+                ) {
+
+
+                    requestAnimationFrame(
+                        update
+                    );
+
+
+                }
+
+                else {
+
+
+                    element.textContent =
+                        `${finalNumber}${suffix}`;
+
+
+                }
+
+
+            }
+
+
+
+            requestAnimationFrame(
+                update
+            );
+
+
+        }
+
+
+
+        function startStats() {
+
+
+            if (
+                statsStarted
+            ) {
+
+                return;
+
+            }
+
+
+            statsStarted =
+                true;
+
+
+            statNumbers.forEach(
+                (
+                    element,
+                    index
+                ) => {
+
+
+                    setTimeout(
+                        () => {
+
+
+                            animateStat(
+                                element
+                            );
+
+
+                        },
+                        index *
+                        140
+                    );
+
+
+                }
+            );
+
+
+        }
+
+
+
+        const aboutStats =
+            document.querySelector(
+                ".about-stats"
+            );
+
+
+        if (
+            aboutStats &&
+            "IntersectionObserver"
+            in window
+        ) {
+
+
+            const statsObserver =
+                new IntersectionObserver(
+                    entries => {
+
+
+                        entries.forEach(
+                            entry => {
+
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+
+                                    startStats();
+
+
+                                    statsObserver.disconnect();
+
+
+                                }
+
+
+                            }
+                        );
+
+
+                    },
+                    {
+
+                        threshold:
+                            .35
+
+                    }
+                );
+
+
+            statsObserver.observe(
+                aboutStats
+            );
+
+
+        }
+
+        else {
+
+
+            startStats();
+
+
+        }
+
+
+
+        /* =================================================
+           PROJECT CARD TILT
+        ================================================= */
+
+        document
+            .querySelectorAll(
+                ".project-card"
+            )
+            .forEach(
+                card => {
+
+
+                    card.addEventListener(
+                        "mousemove",
+                        event => {
+
+
+                            if (
+                                window.innerWidth <=
+                                900
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            const rect =
+                                card.getBoundingClientRect();
+
+
+                            const x =
+                                event.clientX -
+                                rect.left;
+
+
+                            const y =
+                                event.clientY -
+                                rect.top;
+
+
+                            const centerX =
+                                rect.width /
+                                2;
+
+
+                            const centerY =
+                                rect.height /
+                                2;
+
+
+                            const rotateX =
+                                (
+                                    (
+                                        y -
+                                        centerY
+                                    )
+                                    /
+                                    centerY
+                                )
+                                *
+                                -1.2;
+
+
+                            const rotateY =
+                                (
+                                    (
+                                        x -
+                                        centerX
+                                    )
+                                    /
+                                    centerX
+                                )
+                                *
+                                1.2;
+
+
+                            card.style.transform =
+                                `
+                                perspective(1200px)
+                                rotateX(${rotateX}deg)
+                                rotateY(${rotateY}deg)
+                                translateY(-8px)
+                                `;
+
+
+                        }
+                    );
+
+
+                    card.addEventListener(
+                        "mouseleave",
+                        () => {
+
+
+                            card.style.transform =
+                                "";
+
+
+                        }
+                    );
+
+
+                }
+            );
+
+
+
+        /* =================================================
+           HERO CODE MOUSE DEPTH
+        ================================================= */
+
+        if (
+            hero &&
+            heroCodeBackground
+        ) {
+
+
+            hero.addEventListener(
                 "mousemove",
                 event => {
+
 
                     if (
                         window.innerWidth <=
                         900
                     ) {
+
                         return;
+
                     }
 
 
                     const rect =
-                        card.getBoundingClientRect();
+                        hero.getBoundingClientRect();
 
 
                     const x =
-                        event.clientX -
-                        rect.left;
+                        (
+                            event.clientX -
+                            rect.left
+                        )
+                        /
+                        rect.width;
 
 
                     const y =
-                        event.clientY -
-                        rect.top;
-
-
-                    const centerX =
-                        rect.width / 2;
-
-
-                    const centerY =
-                        rect.height / 2;
-
-
-                    const rotateX =
                         (
-                            (
-                                y -
-                                centerY
-                            ) /
-                            centerY
-                        ) *
-                        -1.2;
+                            event.clientY -
+                            rect.top
+                        )
+                        /
+                        rect.height;
 
 
-                    const rotateY =
+                    const moveX =
                         (
-                            (
-                                x -
-                                centerX
-                            ) /
-                            centerX
-                        ) *
-                        1.2;
+                            x -
+                            .5
+                        )
+                        *
+                        -12;
 
 
-                    card.style.transform =
-                        `
-                        perspective(1200px)
-                        rotateX(${rotateX}deg)
-                        rotateY(${rotateY}deg)
-                        translateY(-8px)
-                        `;
+                    const moveY =
+                        (
+                            y -
+                            .5
+                        )
+                        *
+                        -8;
+
+
+                    heroCodeBackground
+                        .style
+                        .transform =
+                        `translate3d(
+                            ${moveX}px,
+                            ${moveY}px,
+                            0
+                        )`;
+
 
                 }
             );
 
 
-            card.addEventListener(
+            hero.addEventListener(
                 "mouseleave",
                 () => {
 
-                    card.style.transform =
-                        "";
+
+                    heroCodeBackground
+                        .style
+                        .transform =
+                        "translate3d(0,0,0)";
+
 
                 }
             );
 
-        });
 
-
-
-    /* =====================================================
-       HERO CODE MOUSE DEPTH
-    ===================================================== */
-
-    if (
-        hero &&
-        heroCodeBackground
-    ) {
-
-        hero.addEventListener(
-            "mousemove",
-            event => {
-
-                if (
-                    window.innerWidth <=
-                    900
-                ) {
-                    return;
-                }
-
-
-                const rect =
-                    hero.getBoundingClientRect();
-
-
-                const x =
-                    (
-                        event.clientX -
-                        rect.left
-                    ) /
-                    rect.width;
-
-
-                const y =
-                    (
-                        event.clientY -
-                        rect.top
-                    ) /
-                    rect.height;
-
-
-                const moveX =
-                    (
-                        x -
-                        0.5
-                    ) *
-                    -12;
-
-
-                const moveY =
-                    (
-                        y -
-                        0.5
-                    ) *
-                    -8;
-
-
-                heroCodeBackground
-                    .style
-                    .transform =
-                    `
-                    translate3d(
-                        ${moveX}px,
-                        ${moveY}px,
-                        0
-                    )
-                    `;
-
-            }
-        );
-
-
-        hero.addEventListener(
-            "mouseleave",
-            () => {
-
-                heroCodeBackground
-                    .style
-                    .transform =
-                    "translate3d(0,0,0)";
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
-       OPTIONAL HERO PROFILE DEPTH
-    ===================================================== */
-
-    const heroProfileScene =
-        document.querySelector(
-            ".hero-photo-scene"
-        );
-
-
-    if (
-        hero &&
-        heroProfileScene
-    ) {
-
-        hero.addEventListener(
-            "mousemove",
-            event => {
-
-                if (
-                    window.innerWidth <=
-                    900
-                ) {
-                    return;
-                }
-
-
-                const rect =
-                    hero.getBoundingClientRect();
-
-
-                const x =
-                    (
-                        event.clientX -
-                        rect.left
-                    ) /
-                    rect.width;
-
-
-                const y =
-                    (
-                        event.clientY -
-                        rect.top
-                    ) /
-                    rect.height;
-
-
-                const moveX =
-                    (
-                        x -
-                        0.5
-                    ) *
-                    5;
-
-
-                const moveY =
-                    (
-                        y -
-                        0.5
-                    ) *
-                    4;
-
-
-                heroProfileScene
-                    .style
-                    .transform =
-                    `
-                    translate3d(
-                        ${moveX}px,
-                        ${moveY}px,
-                        0
-                    )
-                    `;
-
-            }
-        );
-
-
-        hero.addEventListener(
-            "mouseleave",
-            () => {
-
-                heroProfileScene
-                    .style
-                    .transform =
-                    "";
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
-       ABOUT STATS NUMBER ANIMATION
-    ===================================================== */
-
-    const aboutStats =
-        document.querySelectorAll(
-            ".about-stat strong"
-        );
-
-
-    function animateNumber(
-        element
-    ) {
-
-        const originalText =
-            element.textContent.trim();
-
-
-        const numberMatch =
-            originalText.match(
-                /\d+/
-            );
-
-
-        if (!numberMatch) {
-            return;
         }
 
 
-        const finalNumber =
-            parseInt(
-                numberMatch[0],
-                10
+
+        /* =================================================
+           HERO PROFILE DEPTH
+           USES CSS VARIABLES TO PRESERVE RESPONSIVE SCALE
+        ================================================= */
+
+        const heroProfileStage =
+            document.querySelector(
+                ".hero-profile-stage"
             );
 
 
-        const suffix =
-            originalText.replace(
-                numberMatch[0],
-                ""
-            );
+        if (
+            hero &&
+            heroProfileStage
+        ) {
 
 
-        let currentNumber = 0;
+            hero.addEventListener(
+                "mousemove",
+                event => {
 
 
-        const duration =
-            1200;
+                    if (
+                        window.innerWidth <=
+                        900
+                    ) {
+
+                        return;
+
+                    }
 
 
-        const frameRate =
-            30;
+                    const rect =
+                        hero.getBoundingClientRect();
 
 
-        const totalFrames =
-            Math.round(
-                duration /
-                frameRate
-            );
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        )
+                        /
+                        rect.width;
 
 
-        const increment =
-            finalNumber /
-            totalFrames;
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        )
+                        /
+                        rect.height;
 
 
-        const timer =
-            setInterval(() => {
-
-                currentNumber +=
-                    increment;
-
-
-                if (
-                    currentNumber >=
-                    finalNumber
-                ) {
-
-                    element.textContent =
-                        finalNumber +
-                        suffix;
+                    const moveX =
+                        (
+                            x -
+                            .5
+                        )
+                        *
+                        5;
 
 
-                    clearInterval(
-                        timer
-                    );
+                    const moveY =
+                        (
+                            y -
+                            .5
+                        )
+                        *
+                        4;
 
 
-                    return;
+                    heroProfileStage
+                        .style
+                        .setProperty(
+                            "--hero-move-x",
+                            `${moveX}px`
+                        );
+
+
+                    heroProfileStage
+                        .style
+                        .setProperty(
+                            "--hero-move-y",
+                            `${moveY}px`
+                        );
+
 
                 }
+            );
 
 
-                element.textContent =
-                    Math.floor(
-                        currentNumber
-                    ) +
-                    suffix;
-
-            }, frameRate);
-
-    }
+            hero.addEventListener(
+                "mouseleave",
+                () => {
 
 
-    if (
-        aboutStats.length &&
-        "IntersectionObserver" in window
-    ) {
+                    heroProfileStage
+                        .style
+                        .setProperty(
+                            "--hero-move-x",
+                            "0px"
+                        );
 
-        const statsObserver =
-            new IntersectionObserver(
-                entries => {
 
-                    entries.forEach(
-                        entry => {
+                    heroProfileStage
+                        .style
+                        .setProperty(
+                            "--hero-move-y",
+                            "0px"
+                        );
+
+
+                }
+            );
+
+
+        }
+
+
+
+        /* =================================================
+           RESPONSIVE RESIZE
+        ================================================= */
+
+        let resizeTimer;
+
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+
+                clearTimeout(
+                    resizeTimer
+                );
+
+
+                resizeTimer =
+                    setTimeout(
+                        () => {
+
+
+                            buildHeroCode();
+
+
+                            /*
+                               Prevent custom desktop
+                               parallax values lingering
+                               when switching to mobile.
+                            */
 
                             if (
-                                entry.isIntersecting
+                                window.innerWidth <=
+                                900 &&
+                                heroProfileStage
                             ) {
 
-                                animateNumber(
-                                    entry.target
-                                );
+
+                                heroProfileStage
+                                    .style
+                                    .setProperty(
+                                        "--hero-move-x",
+                                        "0px"
+                                    );
 
 
-                                statsObserver.unobserve(
-                                    entry.target
-                                );
+                                heroProfileStage
+                                    .style
+                                    .setProperty(
+                                        "--hero-move-y",
+                                        "0px"
+                                    );
+
 
                             }
 
-                        }
+
+                        },
+                        280
                     );
 
-                },
-                {
-                    threshold: 0.7
-                }
-            );
-
-
-        aboutStats.forEach(
-            stat => {
-
-                statsObserver.observe(
-                    stat
-                );
 
             }
         );
 
-    }
 
 
+        /* =================================================
+           CURRENT YEAR
+        ================================================= */
 
-    /* =====================================================
-       REBUILD HERO CODE ON RESIZE
-    ===================================================== */
-
-    let resizeTimer;
-
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            clearTimeout(
-                resizeTimer
+        const copyright =
+            document.querySelector(
+                ".copyright"
             );
 
 
-            resizeTimer =
-                setTimeout(
-                    () => {
+        if (
+            copyright
+        ) {
 
-                        buildHeroCode();
 
-                    },
-                    280
-                );
+            copyright.textContent =
+                `© ${
+                    new Date().getFullYear()
+                } Jhonaiza Gede. All Rights Reserved.`;
+
 
         }
-    );
 
-
-
-    /* =====================================================
-       CURRENT YEAR
-    ===================================================== */
-
-    const copyright =
-        document.querySelector(
-            ".copyright"
-        );
-
-
-    if (copyright) {
-
-        copyright.textContent =
-            `© ${new Date().getFullYear()} Jhonaiza Gede. All Rights Reserved.`;
 
     }
-
-});
+);
