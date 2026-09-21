@@ -4323,3 +4323,1067 @@ and
     }
 
 }
+
+/* =========================================================
+   PROJECT UPDATE — METALLIC GOLD + PROFILE ART + MODERN ICONS
+   Added as final overrides so the original design stays intact.
+========================================================= */
+
+:root {
+    --metal-gold: #D7B56D;
+    --metal-highlight: #FFF2BD;
+    --metal-deep: #7D5B25;
+    --metal-mid: #B98B42;
+    --metal-text: #17130B;
+}
+
+/* =========================================================
+   LOADER — PROFILE IMAGE INSTEAD OF JG
+========================================================= */
+
+.loader-logo {
+    position: relative;
+    z-index: 2;
+
+    width: 84px;
+    height: 84px;
+
+    padding: 4px;
+
+    overflow: hidden;
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--metal-deep) 0%,
+            var(--metal-gold) 34%,
+            var(--metal-highlight) 52%,
+            var(--metal-gold) 72%,
+            var(--metal-deep) 100%
+        );
+
+    box-shadow:
+        0 0 18px rgba(215,181,109,.30),
+        0 0 42px rgba(255,242,189,.10),
+        0 12px 30px rgba(0,0,0,.42);
+
+    letter-spacing: 0;
+    text-shadow: none;
+}
+
+.loader-logo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center center;
+
+    border-radius: 50%;
+    border: 2px solid #090909;
+}
+
+.loader-logo-ring {
+    border-color: rgba(215,181,109,.58);
+    box-shadow:
+        0 0 24px rgba(215,181,109,.22),
+        0 0 55px rgba(255,242,189,.07);
+}
+
+/* =========================================================
+   HERO PROFILE — TILTED CREATIVE CARD INSPIRED BY REFERENCE
+========================================================= */
+
+.hero-photo-column {
+    position: relative;
+    z-index: 5;
+
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 100%;
+    min-height: 560px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-photo-scene {
+    position: relative;
+
+    width: min(455px, 94%);
+    aspect-ratio: 1 / 1.15;
+
+    transform: translateY(6px);
+}
+
+.hero-photo-outline {
+    position: absolute;
+
+    top: 82px;
+    left: 42px;
+
+    width: 335px;
+    height: 340px;
+
+    border: 2px solid rgba(255,255,255,.86);
+    border-radius: 30px;
+
+    transform: rotate(17deg);
+
+    opacity: .78;
+
+    box-shadow:
+        0 0 24px rgba(255,255,255,.025);
+}
+
+.hero-photo-accent {
+    position: absolute;
+
+    top: 117px;
+    left: 55px;
+
+    width: 282px;
+    height: 300px;
+
+    border-radius: 25px;
+
+    transform: rotate(17deg);
+
+    background:
+        linear-gradient(
+            145deg,
+            #7D5B25 0%,
+            #B98B42 20%,
+            #D7B56D 45%,
+            #FFF2BD 60%,
+            #CDA95D 79%,
+            #7D5B25 100%
+        );
+
+    background-size: 220% 220%;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.38),
+        0 0 35px rgba(215,181,109,.16);
+
+    animation: heroAccentMetal 7s ease-in-out infinite;
+}
+
+@keyframes heroAccentMetal {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero-photo-frame {
+    position: absolute;
+
+    top: 28px;
+    left: 76px;
+
+    width: 300px;
+    height: 410px;
+
+    overflow: hidden;
+
+    border: 3px solid rgba(255,255,255,.95);
+    border-radius: 29px;
+
+    transform: rotate(17deg);
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(255,255,255,.045),
+            rgba(215,181,109,.025)
+        );
+
+    box-shadow:
+        0 30px 72px rgba(0,0,0,.48),
+        0 0 0 1px rgba(255,255,255,.04),
+        0 0 30px rgba(215,181,109,.06);
+}
+
+.hero-photo-frame .hero-photo {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    transform: rotate(-17deg) scale(1.18);
+    transform-origin: center bottom;
+
+    filter:
+        drop-shadow(0 20px 22px rgba(0,0,0,.28));
+
+    transition:
+        transform .8s cubic-bezier(.22,1,.36,1),
+        filter .8s ease;
+}
+
+.hero-photo-frame:hover .hero-photo {
+    transform: rotate(-17deg) scale(1.23) translateY(-3px);
+
+    filter:
+        drop-shadow(0 24px 28px rgba(0,0,0,.36));
+}
+
+.hero-photo-frame::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            125deg,
+            transparent 20%,
+            rgba(255,255,255,.05) 44%,
+            transparent 66%
+        );
+}
+
+.hero-photo-shine {
+    position: absolute;
+
+    z-index: 4;
+
+    top: -55%;
+    left: -75%;
+
+    width: 38%;
+    height: 220%;
+
+    transform: rotate(18deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    filter: blur(1px);
+
+    animation: newHeroShine 6.5s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+@keyframes newHeroShine {
+    0%, 58% {
+        left: -75%;
+        opacity: 0;
+    }
+
+    68% {
+        opacity: .65;
+    }
+
+    100% {
+        left: 155%;
+        opacity: 0;
+    }
+}
+
+.hero-doodle-line {
+    position: absolute;
+
+    top: 58px;
+    left: 0;
+
+    width: 100px;
+    height: 96px;
+
+    border-left: 2px solid rgba(255,255,255,.82);
+    border-top: 2px solid rgba(255,255,255,.82);
+    border-radius: 28px 0 0 0;
+
+    transform: rotate(-18deg);
+
+    opacity: .8;
+}
+
+.hero-doodle-circles {
+    position: absolute;
+
+    top: 4px;
+    right: 24px;
+
+    width: 42px;
+    height: 42px;
+}
+
+.hero-doodle-circles span {
+    position: absolute;
+
+    width: 21px;
+    height: 21px;
+
+    border: 2px solid rgba(255,255,255,.82);
+    border-radius: 50%;
+}
+
+.hero-doodle-circles span:first-child {
+    top: 0;
+    right: 9px;
+}
+
+.hero-doodle-circles span:last-child {
+    top: 13px;
+    right: 0;
+}
+
+.hero-doodle-plus {
+    position: absolute;
+
+    right: 0;
+    bottom: 87px;
+
+    width: 24px;
+    height: 24px;
+}
+
+.hero-doodle-plus::before,
+.hero-doodle-plus::after {
+    content: "";
+
+    position: absolute;
+
+    background: rgba(255,255,255,.86);
+    border-radius: 2px;
+}
+
+.hero-doodle-plus::before {
+    left: 0;
+    top: 11px;
+
+    width: 24px;
+    height: 2px;
+}
+
+.hero-doodle-plus::after {
+    top: 0;
+    left: 11px;
+
+    width: 2px;
+    height: 24px;
+}
+
+.hero-photo-tag {
+    position: absolute;
+
+    z-index: 8;
+
+    right: 10px;
+    bottom: 45px;
+
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid rgba(215,181,109,.30);
+    border-radius: 999px;
+
+    background: rgba(7,7,7,.78);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    color: #d7d3cb;
+
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.30);
+}
+
+.hero-photo-tag span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--metal-gold);
+
+    box-shadow:
+        0 0 10px var(--metal-gold),
+        0 0 18px rgba(255,242,189,.30);
+}
+
+/* =========================================================
+   MODERN SERVICE + SKILL CARD ICONS
+========================================================= */
+
+.service-card,
+.skill-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Transparent decorative sample image inside cards */
+.service-card::before,
+.skill-card::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    right: -22px;
+    bottom: -22px;
+
+    width: 165px;
+    height: 165px;
+
+    opacity: .13;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23D7B56D' stroke-width='3'%3E%3Ccircle cx='100' cy='100' r='70'/%3E%3Ccircle cx='100' cy='100' r='48'/%3E%3Cpath d='M30 122 82 72l36 38 52-56M53 158l33-28 34 23 34-39'/%3E%3C/g%3E%3C/svg%3E");
+
+    transform: rotate(-12deg);
+
+    pointer-events: none;
+}
+
+.service-card::after,
+.skill-card::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    top: -55px;
+    left: -55px;
+
+    width: 160px;
+    height: 160px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(215,181,109,.09),
+            transparent 68%
+        );
+
+    pointer-events: none;
+}
+
+.service-icon,
+.skill-icon {
+    position: relative;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(215,181,109,.34);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,242,189,.07),
+            rgba(215,181,109,.025)
+        );
+
+    color: var(--metal-gold);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 12px 28px rgba(0,0,0,.22),
+        0 0 20px rgba(215,181,109,.035);
+
+    transition:
+        transform .35s cubic-bezier(.22,1,.36,1),
+        border-color .35s ease,
+        box-shadow .35s ease,
+        color .35s ease;
+}
+
+.service-icon {
+    margin-bottom: 37px;
+}
+
+.skill-icon {
+    margin-bottom: 42px;
+}
+
+.service-icon svg,
+.skill-icon svg {
+    width: 28px;
+    height: 28px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.service-card:hover .service-icon,
+.skill-card:hover .skill-icon {
+    transform: translateY(-4px) rotate(-3deg);
+
+    border-color: rgba(255,242,189,.62);
+
+    color: var(--metal-highlight);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 15px 32px rgba(0,0,0,.28),
+        0 0 22px rgba(215,181,109,.14);
+}
+
+/* =========================================================
+   LUXURY METALLIC GOLD BUTTON SYSTEM
+========================================================= */
+
+.nav-hire,
+.hero-cv-button,
+.hero-project-link,
+.contact-btn,
+.social-btn,
+.mobile-hire-link,
+.back-to-top {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,242,189,.72);
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            115deg,
+            #755521 0%,
+            #A77B35 12%,
+            #D7B56D 30%,
+            #FFF2BD 48%,
+            #E8CC8B 58%,
+            #D7B56D 72%,
+            #9A7130 88%,
+            #6C4D1D 100%
+        );
+
+    background-size: 220% 100%;
+
+    color: var(--metal-text);
+
+    font-weight: 600;
+    text-decoration: none;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,.78),
+        inset 0 -2px 4px rgba(90,57,10,.34),
+        0 6px 14px rgba(0,0,0,.30),
+        0 0 18px rgba(215,181,109,.15);
+
+    text-shadow: 0 1px 0 rgba(255,255,255,.24);
+
+    transition:
+        transform .32s cubic-bezier(.22,1,.36,1),
+        box-shadow .32s ease,
+        border-color .32s ease,
+        filter .32s ease;
+}
+
+.nav-hire::before,
+.hero-cv-button::before,
+.hero-project-link::before,
+.contact-btn::before,
+.social-btn::before,
+.mobile-hire-link::before,
+.back-to-top::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    top: -80%;
+    left: -55%;
+
+    width: 34%;
+    height: 260%;
+
+    transform: rotate(22deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.15),
+            rgba(255,255,255,.82),
+            rgba(255,242,189,.92),
+            rgba(255,255,255,.18),
+            transparent
+        );
+
+    filter: blur(1px);
+
+    animation: luxuryGoldShimmer 3.8s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+.nav-hire::after,
+.hero-cv-button::after,
+.hero-project-link::after,
+.contact-btn::after,
+.social-btn::after,
+.mobile-hire-link::after,
+.back-to-top::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    top: 2px;
+    left: 8%;
+
+    width: 84%;
+    height: 43%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,.48),
+            rgba(255,242,189,.12),
+            transparent
+        );
+
+    opacity: .76;
+
+    pointer-events: none;
+}
+
+@keyframes luxuryGoldShimmer {
+    0% {
+        left: -55%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .9;
+    }
+
+    40% {
+        left: 130%;
+        opacity: .45;
+    }
+
+    41%,
+    100% {
+        left: 130%;
+        opacity: 0;
+    }
+}
+
+.nav-hire:hover,
+.hero-cv-button:hover,
+.hero-project-link:hover,
+.contact-btn:hover,
+.social-btn:hover,
+.mobile-hire-link:hover,
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.025);
+
+    border-color: var(--metal-highlight);
+
+    color: var(--metal-text);
+
+    filter: brightness(1.07) saturate(1.03);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.95),
+        inset 0 -2px 5px rgba(102,64,11,.31),
+        0 12px 28px rgba(0,0,0,.38),
+        0 0 20px rgba(215,181,109,.46),
+        0 0 38px rgba(255,242,189,.18);
+}
+
+.nav-hire:active,
+.hero-cv-button:active,
+.hero-project-link:active,
+.contact-btn:active,
+.social-btn:active,
+.mobile-hire-link:active,
+.back-to-top:active {
+    transform: translateY(-1px) scale(.985);
+}
+
+.nav-hire {
+    min-width: 138px;
+    min-height: 48px;
+
+    padding: 11px 23px;
+}
+
+.hero-cv-button {
+    min-width: 190px;
+
+    padding: 15px 31px;
+
+    color: var(--metal-text);
+}
+
+.hero-project-link {
+    min-width: 190px;
+
+    padding: 14px 27px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: var(--metal-text);
+}
+
+.hero-project-link span,
+.hero-project-link:hover span {
+    color: var(--metal-text);
+}
+
+.contact-btn,
+.social-btn {
+    min-width: 185px;
+
+    padding: 14px 26px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--metal-text);
+}
+
+.mobile-hire-link {
+    color: var(--metal-text) !important;
+}
+
+.back-to-top {
+    color: var(--metal-text);
+}
+
+/* =========================================================
+   FOOTER PROFILE IMAGE INSTEAD OF JG
+========================================================= */
+
+.footer-profile {
+    position: relative;
+
+    width: 66px;
+    height: 66px;
+
+    flex-shrink: 0;
+
+    display: block;
+
+    overflow: visible;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    transition:
+        transform .35s cubic-bezier(.22,1,.36,1),
+        box-shadow .35s ease;
+}
+
+.footer-profile img {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center center;
+
+    border: 2px solid var(--metal-gold);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 4px rgba(215,181,109,.07),
+        0 12px 30px rgba(0,0,0,.38);
+}
+
+.footer-profile-ring {
+    position: absolute;
+
+    z-index: 1;
+
+    inset: -5px;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            #6E501F,
+            #D7B56D,
+            #FFF2BD,
+            #B4863A,
+            #D7B56D,
+            #FFF2BD,
+            #6E501F
+        );
+
+    opacity: .88;
+
+    animation: footerGoldRing 7s linear infinite;
+}
+
+@keyframes footerGoldRing {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.footer-profile:hover {
+    transform: translateY(-5px) scale(1.055);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.34),
+        0 0 24px rgba(215,181,109,.28);
+}
+
+.footer-brand-text h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.footer-brand-text p {
+    margin-top: 4px;
+
+    font-size: 9px;
+
+    color: #707075;
+}
+
+/* =========================================================
+   RESPONSIVE OVERRIDES FOR NEW HERO ART
+========================================================= */
+
+@media (max-width: 1200px) {
+    .hero-photo-scene {
+        width: min(405px, 94%);
+    }
+
+    .hero-photo-outline {
+        top: 84px;
+        left: 39px;
+
+        width: 300px;
+        height: 314px;
+    }
+
+    .hero-photo-accent {
+        top: 117px;
+        left: 50px;
+
+        width: 254px;
+        height: 275px;
+    }
+
+    .hero-photo-frame {
+        top: 32px;
+        left: 69px;
+
+        width: 275px;
+        height: 378px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-photo-column {
+        grid-column: 1;
+        grid-row: 2;
+
+        min-height: 500px;
+    }
+
+    .hero-photo-scene {
+        width: min(390px, 88vw);
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-photo-column {
+        grid-row: 1;
+
+        min-height: 425px;
+
+        margin-top: 0;
+    }
+
+    .hero-photo-scene {
+        width: min(325px, 90vw);
+        aspect-ratio: 1 / 1.12;
+    }
+
+    .hero-doodle-line {
+        top: 54px;
+        left: 2px;
+
+        width: 72px;
+        height: 72px;
+    }
+
+    .hero-doodle-circles {
+        top: 3px;
+        right: 12px;
+
+        transform: scale(.82);
+        transform-origin: top right;
+    }
+
+    .hero-doodle-plus {
+        right: 3px;
+        bottom: 56px;
+
+        transform: scale(.84);
+    }
+
+    .hero-photo-outline {
+        top: 72px;
+        left: 35px;
+
+        width: 228px;
+        height: 238px;
+
+        border-radius: 21px;
+    }
+
+    .hero-photo-accent {
+        top: 105px;
+        left: 42px;
+
+        width: 192px;
+        height: 216px;
+
+        border-radius: 20px;
+    }
+
+    .hero-photo-frame {
+        top: 35px;
+        left: 55px;
+
+        width: 218px;
+        height: 292px;
+
+        border-radius: 22px;
+    }
+
+    .hero-photo-frame .hero-photo {
+        transform: rotate(-17deg) scale(1.18);
+    }
+
+    .hero-photo-tag {
+        right: 6px;
+        bottom: 34px;
+
+        padding: 8px 11px;
+
+        font-size: 6px;
+    }
+
+    .hero-cv-button,
+    .hero-project-link {
+        width: min(260px, 100%);
+        min-width: 0;
+    }
+
+    .footer-profile {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-photo-column {
+        min-height: 390px;
+    }
+
+    .hero-photo-scene {
+        width: min(295px, 91vw);
+    }
+
+    .hero-photo-outline {
+        top: 70px;
+        left: 32px;
+
+        width: 207px;
+        height: 220px;
+    }
+
+    .hero-photo-accent {
+        top: 99px;
+        left: 38px;
+
+        width: 177px;
+        height: 201px;
+    }
+
+    .hero-photo-frame {
+        top: 34px;
+        left: 50px;
+
+        width: 202px;
+        height: 270px;
+    }
+
+    .hero-photo-tag {
+        bottom: 27px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-photo-accent,
+    .hero-photo-shine,
+    .footer-profile-ring,
+    .nav-hire::before,
+    .hero-cv-button::before,
+    .hero-project-link::before,
+    .contact-btn::before,
+    .social-btn::before,
+    .mobile-hire-link::before,
+    .back-to-top::before {
+        animation: none !important;
+    }
+}
