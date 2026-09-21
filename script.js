@@ -1,6 +1,6 @@
 /* =========================================================
    JHONAIZA GEDE PORTFOLIO
-   COMPLETE RESPONSIVE SCRIPT
+   COMPLETE SCRIPT.JS
 ========================================================= */
 
 document.addEventListener(
@@ -1159,7 +1159,8 @@ projects.forEach(project => {
                     .service-card,
                     .skill-card,
                     .project-card,
-                    .about-stat
+                    .about-stat,
+                    .hero-experience-card
                     `
                 )
                 .forEach(
@@ -1656,10 +1657,6 @@ projects.forEach(project => {
                     );
 
 
-                /*
-                   Ease-out animation.
-                */
-
                 const eased =
                     1 -
                     Math.pow(
@@ -2036,8 +2033,8 @@ projects.forEach(project => {
 
 
         /* =================================================
-           HERO PROFILE DEPTH
-           USES CSS VARIABLES TO PRESERVE RESPONSIVE SCALE
+           HERO PROFILE MOUSE DEPTH
+           FLOATING ANIMATION STAYS INTACT
         ================================================= */
 
         const heroProfileStage =
@@ -2095,7 +2092,7 @@ projects.forEach(project => {
                             .5
                         )
                         *
-                        5;
+                        7;
 
 
                     const moveY =
@@ -2104,7 +2101,7 @@ projects.forEach(project => {
                             .5
                         )
                         *
-                        4;
+                        6;
 
 
                     heroProfileStage
@@ -2180,12 +2177,6 @@ projects.forEach(project => {
 
                             buildHeroCode();
 
-
-                            /*
-                               Prevent custom desktop
-                               parallax values lingering
-                               when switching to mobile.
-                            */
 
                             if (
                                 window.innerWidth <=
