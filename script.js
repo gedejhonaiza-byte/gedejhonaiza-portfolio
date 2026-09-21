@@ -446,7 +446,7 @@ document.addEventListener(
         ================================================= */
 
         const loaderDuration =
-            6500;
+            8000;
 
 
         const loaderStartTime =
