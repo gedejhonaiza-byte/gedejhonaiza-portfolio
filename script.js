@@ -2,11 +2,14 @@
    JHONAIZA GEDE PORTFOLIO
 ========================================================= */
 
-
 document.addEventListener(
     "DOMContentLoaded",
     () => {
 
+
+        /* =================================================
+           ELEMENTS
+        ================================================= */
 
         const body =
             document.body;
@@ -14,7 +17,7 @@ document.addEventListener(
 
         const header =
             document.querySelector(
-                "header"
+                ".desktop-header"
             );
 
 
@@ -32,48 +35,21 @@ document.addEventListener(
 
 
         /* =================================================
-           SLOW COMPUTER CODE LOADER
+           COMPUTER CODE
         ================================================= */
 
-        const loader =
-            document.getElementById(
-                "pageLoader"
-            );
-
-
-        const loaderPercent =
-            document.getElementById(
-                "loaderPercent"
-            );
-
-
-        const loaderProgress =
-            document.getElementById(
-                "loaderProgress"
-            );
-
-
-        const typingText =
-            document.getElementById(
-                "loaderTypingText"
-            );
-
-
-        const codeBackground =
+        const loaderCodeBackground =
             document.getElementById(
                 "loaderCodeBackground"
             );
 
 
-        body.classList.add(
-            "loader-active"
-        );
+        const heroCodeBackground =
+            document.getElementById(
+                "heroCodeBackground"
+            );
 
 
-
-        /* =================================================
-           COMPUTER CODE BACKGROUND
-        ================================================= */
 
         const codeLines = [
 
@@ -91,7 +67,7 @@ document.addEventListener(
 
             'document.querySelector(<span class="code-string">".project"</span>);',
 
-            'background: linear-gradient(135deg, #080808, #c9a84c);',
+            'background: linear-gradient(135deg, #080808, #d0aa31);',
 
             '&lt;div class=<span class="code-string">"creative"</span>&gt;',
 
@@ -109,7 +85,7 @@ document.addEventListener(
 
             '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
 
-            'border: 1px solid rgba(201,168,76,.25);',
+            'border: 1px solid rgba(208,170,49,.25);',
 
             '<span class="code-keyword">return</span> digitalExperience;',
 
@@ -131,7 +107,7 @@ document.addEventListener(
 
             'transition: all .4s ease;',
 
-            'console.log(<span class="code-string">"Loading creative experience..."</span>);',
+            'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
 
             'creativeDeveloper.initialize();',
 
@@ -141,11 +117,14 @@ document.addEventListener(
 
 
 
-        function buildCodeBackground() {
+        function buildCodeBackground(
+            container,
+            options = {}
+        ) {
 
 
             if (
-                !codeBackground
+                !container
             ) {
 
                 return;
@@ -153,7 +132,7 @@ document.addEventListener(
             }
 
 
-            codeBackground.innerHTML =
+            container.innerHTML =
                 "";
 
 
@@ -161,24 +140,29 @@ document.addEventListener(
                 window.innerWidth;
 
 
-            let columnCount =
+            let columns =
+                options.desktopColumns ||
                 15;
 
 
             if (
                 width <=
-                500
+                520
             ) {
 
-                columnCount =
+                columns =
+                    options.mobileColumns ||
                     6;
 
-            } else if (
+            }
+
+            else if (
                 width <=
                 900
             ) {
 
-                columnCount =
+                columns =
+                    options.tabletColumns ||
                     9;
 
             }
@@ -187,7 +171,7 @@ document.addEventListener(
 
             for (
                 let i = 0;
-                i < columnCount;
+                i < columns;
                 i++
             ) {
 
@@ -206,32 +190,46 @@ document.addEventListener(
                     `${
                         (
                             i /
-                            columnCount
+                            columns
                         )
                         *
                         100
                     }%`;
 
 
+                const minimumDuration =
+                    options.minimumDuration ||
+                    18;
+
+
+                const durationRange =
+                    options.durationRange ||
+                    16;
+
+
                 column.style.animationDuration =
                     `${
-                        18 +
+                        minimumDuration +
                         Math.random() *
-                        16
+                        durationRange
                     }s`;
 
 
                 column.style.animationDelay =
                     `-${
                         Math.random() *
-                        18
+                        20
                     }s`;
 
+
+                const lineCount =
+                    options.lineCount ||
+                    16;
 
 
                 for (
                     let lineIndex = 0;
-                    lineIndex < 16;
+                    lineIndex < lineCount;
                     lineIndex++
                 ) {
 
@@ -259,7 +257,7 @@ document.addEventListener(
                 }
 
 
-                codeBackground.appendChild(
+                container.appendChild(
                     column
                 );
 
@@ -271,13 +269,67 @@ document.addEventListener(
 
 
 
-        buildCodeBackground();
+        buildCodeBackground(
+            loaderCodeBackground,
+            {
+                desktopColumns: 15,
+                tabletColumns: 9,
+                mobileColumns: 6,
+                minimumDuration: 18,
+                durationRange: 16,
+                lineCount: 16
+            }
+        );
+
+
+
+        buildCodeBackground(
+            heroCodeBackground,
+            {
+                desktopColumns: 13,
+                tabletColumns: 8,
+                mobileColumns: 6,
+                minimumDuration: 30,
+                durationRange: 22,
+                lineCount: 18
+            }
+        );
 
 
 
         /* =================================================
-           FAST TYPING STATUS
+           LOADER
         ================================================= */
+
+        const loader =
+            document.getElementById(
+                "pageLoader"
+            );
+
+
+        const loaderPercent =
+            document.getElementById(
+                "loaderPercent"
+            );
+
+
+        const loaderProgress =
+            document.getElementById(
+                "loaderProgress"
+            );
+
+
+        const typingText =
+            document.getElementById(
+                "loaderTypingText"
+            );
+
+
+        body.classList.add(
+            "loader-active"
+        );
+
+
 
         const typingMessages = [
 
@@ -379,7 +431,9 @@ document.addEventListener(
                 );
 
 
-            } else {
+            }
+
+            else {
 
 
                 characterIndex--;
@@ -439,22 +493,12 @@ document.addEventListener(
 
 
 
-        /* =================================================
-           SLOW 0–100% LOADER
-           
-           Approx. 6.5 seconds
-        ================================================= */
-
         const loaderDuration =
-            8000;
+            6500;
 
 
         const loaderStartTime =
             performance.now();
-
-
-        let pageLoaded =
-            false;
 
 
         let loaderComplete =
@@ -462,190 +506,7 @@ document.addEventListener(
 
 
 
-        window.addEventListener(
-            "load",
-            () => {
-
-
-                pageLoaded =
-                    true;
-
-
-            }
-        );
-
-
-
-        function updateLoaderProgress(
-            currentTime
-        ) {
-
-
-            if (
-                loaderComplete
-            ) {
-
-                return;
-
-            }
-
-
-            const elapsed =
-                currentTime -
-                loaderStartTime;
-
-
-            let rawProgress =
-                elapsed /
-                loaderDuration;
-
-
-            rawProgress =
-                Math.min(
-                    rawProgress,
-                    1
-                );
-
-
-
-            /*
-             Smooth progress curve.
-
-             Starts steadily,
-             slows slightly around 60–90%,
-             then completes.
-            */
-
-            let progress;
-
-
-            if (
-                rawProgress <
-                0.55
-            ) {
-
-
-                progress =
-                    rawProgress *
-                    1.08;
-
-
-            } else if (
-                rawProgress <
-                0.88
-            ) {
-
-
-                progress =
-                    0.594 +
-                    (
-                        rawProgress -
-                        0.55
-                    )
-                    *
-                    0.82;
-
-
-            } else {
-
-
-                progress =
-                    0.8646 +
-                    (
-                        rawProgress -
-                        0.88
-                    )
-                    *
-                    1.128;
-
-
-            }
-
-
-            progress =
-                Math.min(
-                    progress,
-                    1
-                );
-
-
-            const percent =
-                Math.floor(
-                    progress *
-                    100
-                );
-
-
-
-            if (
-                loaderPercent
-            ) {
-
-
-                loaderPercent.textContent =
-                    `${percent}%`;
-
-
-            }
-
-
-
-            if (
-                loaderProgress
-            ) {
-
-
-                loaderProgress.style.width =
-                    `${percent}%`;
-
-
-            }
-
-
-
-            if (
-                rawProgress >=
-                1
-            ) {
-
-
-                /*
-                If page is loaded, finish.
-
-                Even if a slow asset has an issue,
-                the failsafe below guarantees the
-                visitor isn't trapped.
-                */
-
-                finishPageLoader();
-
-
-                return;
-
-            }
-
-
-
-            requestAnimationFrame(
-                updateLoaderProgress
-            );
-
-
-        }
-
-
-
-        requestAnimationFrame(
-            updateLoaderProgress
-        );
-
-
-
-        /* =================================================
-           FINISH LOADER
-        ================================================= */
-
-        function finishPageLoader() {
+        function finishLoader() {
 
 
             if (
@@ -665,44 +526,34 @@ document.addEventListener(
                 true;
 
 
-
             if (
                 loaderPercent
             ) {
 
-
                 loaderPercent.textContent =
                     "100%";
 
-
             }
-
 
 
             if (
                 loaderProgress
             ) {
 
-
                 loaderProgress.style.width =
                     "100%";
 
-
             }
-
 
 
             if (
                 typingText
             ) {
 
-
                 typingText.textContent =
                     "Experience ready.";
 
-
             }
-
 
 
             setTimeout(
@@ -713,22 +564,15 @@ document.addEventListener(
                         loader
                     ) {
 
-
                         loader.classList.add(
                             "hide"
                         );
-
 
                     }
 
 
                     body.classList.remove(
                         "loader-active"
-                    );
-
-
-                    body.classList.add(
-                        "site-loaded"
                     );
 
 
@@ -741,61 +585,156 @@ document.addEventListener(
 
 
 
-        /*
-        Failsafe:
-        loader always ends even if an asset
-        takes unusually long.
-        */
+        function updateLoader(
+            currentTime
+        ) {
+
+
+            if (
+                loaderComplete
+            ) {
+
+                return;
+
+            }
+
+
+            const elapsed =
+                currentTime -
+                loaderStartTime;
+
+
+            let progress =
+                Math.min(
+                    elapsed /
+                    loaderDuration,
+                    1
+                );
+
+
+            /*
+             Gives progress a more natural
+             loading rhythm instead of
+             a perfectly linear bar.
+            */
+
+            if (
+                progress <
+                .55
+            ) {
+
+                progress =
+                    progress *
+                    1.08;
+
+            }
+
+            else if (
+                progress <
+                .88
+            ) {
+
+                progress =
+                    .594 +
+                    (
+                        progress -
+                        .55
+                    )
+                    *
+                    .82;
+
+            }
+
+            else {
+
+                progress =
+                    .8646 +
+                    (
+                        progress -
+                        .88
+                    )
+                    *
+                    1.128;
+
+            }
+
+
+            progress =
+                Math.min(
+                    progress,
+                    1
+                );
+
+
+            const percent =
+                Math.floor(
+                    progress *
+                    100
+                );
+
+
+            if (
+                loaderPercent
+            ) {
+
+                loaderPercent.textContent =
+                    `${percent}%`;
+
+            }
+
+
+            if (
+                loaderProgress
+            ) {
+
+                loaderProgress.style.width =
+                    `${percent}%`;
+
+            }
+
+
+            if (
+                elapsed >=
+                loaderDuration
+            ) {
+
+                finishLoader();
+
+                return;
+
+            }
+
+
+            requestAnimationFrame(
+                updateLoader
+            );
+
+
+        }
+
+
+
+        requestAnimationFrame(
+            updateLoader
+        );
+
 
         setTimeout(
-            finishPageLoader,
+            finishLoader,
             7800
         );
 
 
 
         /* =================================================
-           MOBILE MENU
+           HEADER SCROLL
         ================================================= */
 
-        const menuToggle =
-            document.getElementById(
-                "menuToggle"
-            );
-
-
-        const mobileMenu =
-            document.getElementById(
-                "mobileMenu"
-            );
-
-
-        const mobileMenuClose =
-            document.getElementById(
-                "mobileMenuClose"
-            );
-
-
-        const menuBackdrop =
-            document.getElementById(
-                "menuBackdrop"
-            );
-
-
-        const mobileNavLinks =
-            document.querySelectorAll(
-                ".mobile-nav-link"
-            );
-
-
-
-        function openMobileMenu() {
+        function updateHeader() {
 
 
             if (
-                !mobileMenu ||
-                !menuBackdrop ||
-                !menuToggle
+                !header
             ) {
 
                 return;
@@ -803,162 +742,31 @@ document.addEventListener(
             }
 
 
-            mobileMenu.classList.add(
-                "open"
-            );
-
-
-            menuBackdrop.classList.add(
-                "show"
-            );
-
-
-            body.classList.add(
-                "menu-open"
-            );
-
-
-            mobileMenu.setAttribute(
-                "aria-hidden",
-                "false"
-            );
-
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "true"
+            header.classList.toggle(
+                "scrolled",
+                window.scrollY >
+                40
             );
 
 
         }
 
 
-
-        function closeMobileMenu() {
-
-
-            if (
-                !mobileMenu ||
-                !menuBackdrop ||
-                !menuToggle
-            ) {
-
-                return;
-
-            }
+        updateHeader();
 
 
-            mobileMenu.classList.remove(
-                "open"
-            );
-
-
-            menuBackdrop.classList.remove(
-                "show"
-            );
-
-
-            body.classList.remove(
-                "menu-open"
-            );
-
-
-            mobileMenu.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-        }
-
-
-
-        if (
-            menuToggle
-        ) {
-
-
-            menuToggle.addEventListener(
-                "click",
-                openMobileMenu
-            );
-
-
-        }
-
-
-        if (
-            mobileMenuClose
-        ) {
-
-
-            mobileMenuClose.addEventListener(
-                "click",
-                closeMobileMenu
-            );
-
-
-        }
-
-
-        if (
-            menuBackdrop
-        ) {
-
-
-            menuBackdrop.addEventListener(
-                "click",
-                closeMobileMenu
-            );
-
-
-        }
-
-
-        mobileNavLinks.forEach(
-            link => {
-
-
-                link.addEventListener(
-                    "click",
-                    closeMobileMenu
-                );
-
-
-            }
-        );
-
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-
-                if (
-                    event.key ===
-                    "Escape"
-                ) {
-
-
-                    closeMobileMenu();
-
-
-                }
-
-
+        window.addEventListener(
+            "scroll",
+            updateHeader,
+            {
+                passive: true
             }
         );
 
 
 
         /* =================================================
-           CURSOR
+           CUSTOM CURSOR
         ================================================= */
 
         if (
@@ -988,10 +796,10 @@ document.addEventListener(
                     "a, button, .service-card, .skill-card, .project-card"
                 )
                 .forEach(
-                    element => {
+                    item => {
 
 
-                        element.addEventListener(
+                        item.addEventListener(
                             "mouseenter",
                             () => {
 
@@ -1005,7 +813,7 @@ document.addEventListener(
                         );
 
 
-                        element.addEventListener(
+                        item.addEventListener(
                             "mouseleave",
                             () => {
 
@@ -1028,37 +836,195 @@ document.addEventListener(
 
 
         /* =================================================
-           HEADER
+           SMOOTH INTERNAL LINKS
         ================================================= */
 
-        function updateHeader() {
+        document
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
+            .forEach(
+                link => {
 
 
-            if (
-                !header
-            ) {
-
-                return;
-
-            }
+                    link.addEventListener(
+                        "click",
+                        event => {
 
 
-            header.classList.toggle(
-                "scrolled",
-                window.scrollY >
-                50
+                            const href =
+                                link.getAttribute(
+                                    "href"
+                                );
+
+
+                            if (
+                                !href ||
+                                href ===
+                                "#"
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            const target =
+                                document.querySelector(
+                                    href
+                                );
+
+
+                            if (
+                                !target
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            event.preventDefault();
+
+
+                            target.scrollIntoView(
+                                {
+
+                                    behavior:
+                                        "smooth",
+
+                                    block:
+                                        "start"
+
+                                }
+                            );
+
+
+                        }
+                    );
+
+
+                }
+            );
+
+
+
+        /* =================================================
+           ACTIVE NAVIGATION
+        ================================================= */
+
+        const sections =
+            document.querySelectorAll(
+                "section[id]"
+            );
+
+
+        const desktopNavLinks =
+            document.querySelectorAll(
+                ".nav-links a"
+            );
+
+
+        const mobileNavLinks =
+            document.querySelectorAll(
+                ".mobile-bottom-link"
+            );
+
+
+
+        function updateNavigation() {
+
+
+            let current =
+                "home";
+
+
+            sections.forEach(
+                section => {
+
+
+                    const sectionTop =
+                        section.offsetTop -
+                        220;
+
+
+                    const sectionHeight =
+                        section.offsetHeight;
+
+
+                    if (
+
+                        window.scrollY >=
+                        sectionTop
+
+                        &&
+
+                        window.scrollY <
+                        sectionTop +
+                        sectionHeight
+
+                    ) {
+
+
+                        current =
+                            section.id;
+
+
+                    }
+
+
+                }
+            );
+
+
+
+            desktopNavLinks.forEach(
+                link => {
+
+
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute(
+                            "href"
+                        )
+                        ===
+                        `#${current}`
+                    );
+
+
+                }
+            );
+
+
+
+            mobileNavLinks.forEach(
+                link => {
+
+
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute(
+                            "href"
+                        )
+                        ===
+                        `#${current}`
+                    );
+
+
+                }
             );
 
 
         }
 
 
-        updateHeader();
+
+        updateNavigation();
 
 
         window.addEventListener(
             "scroll",
-            updateHeader,
+            updateNavigation,
             {
                 passive: true
             }
@@ -1102,83 +1068,6 @@ document.addEventListener(
                 passive: true
             }
         );
-
-
-
-        /* =================================================
-           SMOOTH LINKS
-        ================================================= */
-
-        document
-            .querySelectorAll(
-                'a[href^="#"]'
-            )
-            .forEach(
-                link => {
-
-
-                    link.addEventListener(
-                        "click",
-                        event => {
-
-
-                            const targetId =
-                                link.getAttribute(
-                                    "href"
-                                );
-
-
-                            if (
-                                !targetId ||
-                                targetId ===
-                                "#"
-                            ) {
-
-                                return;
-
-                            }
-
-
-                            const target =
-                                document.querySelector(
-                                    targetId
-                                );
-
-
-                            if (
-                                !target
-                            ) {
-
-                                return;
-
-                            }
-
-
-                            event.preventDefault();
-
-
-                            closeMobileMenu();
-
-
-                            target.scrollIntoView(
-                                {
-
-                                    behavior:
-                                        "smooth",
-
-                                    block:
-                                        "start"
-
-                                }
-                            );
-
-
-                        }
-                    );
-
-
-                }
-            );
 
 
 
@@ -1246,148 +1135,84 @@ document.addEventListener(
 
 
 
-        const observer =
-            new IntersectionObserver(
-                entries => {
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
 
 
-                    entries.forEach(
-                        entry => {
+            const observer =
+                new IntersectionObserver(
+                    entries => {
 
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                        entries.forEach(
+                            entry => {
 
 
-                                entry.target.classList.add(
-                                    "active"
-                                );
+                                if (
+                                    entry.isIntersecting
+                                ) {
 
 
-                                observer.unobserve(
-                                    entry.target
-                                );
+                                    entry.target.classList.add(
+                                        "active"
+                                    );
+
+
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+
+
+                                }
 
 
                             }
+                        );
 
 
-                        }
-                    );
+                    },
+                    {
 
+                        threshold:
+                            .12,
 
-                },
-                {
+                        rootMargin:
+                            "0px 0px -40px 0px"
 
-                    threshold:
-                        0.12,
-
-                    rootMargin:
-                        "0px 0px -40px 0px"
-
-                }
-            );
-
-
-
-        revealElements.forEach(
-            element => {
-
-
-                observer.observe(
-                    element
+                    }
                 );
 
 
-            }
-        );
+
+            revealElements.forEach(
+                element => {
 
 
-
-        /* =================================================
-           ACTIVE NAVIGATION
-        ================================================= */
-
-        const sections =
-            document.querySelectorAll(
-                "section[id]"
-            );
-
-
-        const desktopLinks =
-            document.querySelectorAll(
-                ".nav-links a"
-            );
-
-
-
-        function updateNavigation() {
-
-
-            let current =
-                "";
-
-
-            sections.forEach(
-                section => {
-
-
-                    const top =
-                        section.offsetTop -
-                        180;
-
-
-                    const height =
-                        section.offsetHeight;
-
-
-                    if (
-                        window.scrollY >=
-                        top &&
-                        window.scrollY <
-                        top +
-                        height
-                    ) {
-
-
-                        current =
-                            section.id;
-
-
-                    }
+                    observer.observe(
+                        element
+                    );
 
 
                 }
             );
 
 
-            desktopLinks.forEach(
-                link => {
+        }
+
+        else {
 
 
-                    link.classList.remove(
+            revealElements.forEach(
+                element => {
+
+
+                    element.classList.add(
                         "active"
                     );
 
 
-                    if (
-                        link.getAttribute(
-                            "href"
-                        )
-                        ===
-                        `#${current}`
-                    ) {
-
-
-                        link.classList.add(
-                            "active"
-                        );
-
-
-                    }
-
-
                 }
             );
 
@@ -1395,132 +1220,9 @@ document.addEventListener(
         }
 
 
-        window.addEventListener(
-            "scroll",
-            updateNavigation,
-            {
-                passive: true
-            }
-        );
-
-
-        updateNavigation();
-
-
 
         /* =================================================
-           HERO PARALLAX
-        ================================================= */
-
-        const heroPhoto =
-            document.querySelector(
-                ".hero-photo-wrap"
-            );
-
-
-        const heroContent =
-            document.querySelector(
-                ".hero-content-side"
-            );
-
-
-
-        function heroParallax() {
-
-
-            if (
-                window.innerWidth <=
-                850
-            ) {
-
-
-                if (
-                    heroPhoto
-                ) {
-
-
-                    heroPhoto.style.transform =
-                        "";
-
-
-                }
-
-
-                if (
-                    heroContent
-                ) {
-
-
-                    heroContent.style.transform =
-                        "";
-
-
-                }
-
-
-                return;
-
-            }
-
-
-            const scroll =
-                window.scrollY;
-
-
-            if (
-                scroll <
-                window.innerHeight
-            ) {
-
-
-                if (
-                    heroPhoto
-                ) {
-
-
-                    heroPhoto.style.transform =
-                        `translateY(${
-                            scroll *
-                            0.035
-                        }px)`;
-
-
-                }
-
-
-                if (
-                    heroContent
-                ) {
-
-
-                    heroContent.style.transform =
-                        `translateY(${
-                            scroll *
-                            -0.018
-                        }px)`;
-
-
-                }
-
-
-            }
-
-
-        }
-
-
-        window.addEventListener(
-            "scroll",
-            heroParallax,
-            {
-                passive: true
-            }
-        );
-
-
-
-        /* =================================================
-           PROJECT TILT
+           PROJECT CARD TILT
         ================================================= */
 
         document
@@ -1538,7 +1240,7 @@ document.addEventListener(
 
                             if (
                                 window.innerWidth <=
-                                850
+                                900
                             ) {
 
                                 return;
@@ -1580,7 +1282,7 @@ document.addEventListener(
                                     centerY
                                 )
                                 *
-                                -1.3;
+                                -1.2;
 
 
                             const rotateY =
@@ -1593,7 +1295,7 @@ document.addEventListener(
                                     centerX
                                 )
                                 *
-                                1.3;
+                                1.2;
 
 
                             card.style.transform =
@@ -1626,6 +1328,51 @@ document.addEventListener(
 
 
         /* =================================================
+           REBUILD ANIMATED CODE AFTER RESIZE
+        ================================================= */
+
+        let resizeTimer;
+
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+
+                clearTimeout(
+                    resizeTimer
+                );
+
+
+                resizeTimer =
+                    setTimeout(
+                        () => {
+
+
+                            buildCodeBackground(
+                                heroCodeBackground,
+                                {
+                                    desktopColumns: 13,
+                                    tabletColumns: 8,
+                                    mobileColumns: 6,
+                                    minimumDuration: 30,
+                                    durationRange: 22,
+                                    lineCount: 18
+                                }
+                            );
+
+
+                        },
+                        300
+                    );
+
+
+            }
+        );
+
+
+
+        /* =================================================
            YEAR
         ================================================= */
 
@@ -1640,7 +1387,7 @@ document.addEventListener(
         ) {
 
 
-            copyright.innerHTML =
+            copyright.textContent =
                 `© ${
                     new Date().getFullYear()
                 } Jhonaiza Gede. All Rights Reserved.`;
