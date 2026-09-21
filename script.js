@@ -1,6 +1,6 @@
 /* =========================================================
    JHONAIZA GEDE PORTFOLIO
-   SCRIPT.JS
+   MAIN SCRIPT.JS
 ========================================================= */
 
 
@@ -8,125 +8,192 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       01. PAGE LOADER
+       PAGE LOADER
     ===================================================== */
 
-    const loader = document.querySelector(".loader");
+    const loader =
+        document.querySelector(
+            ".loader"
+        );
 
-    window.addEventListener("load", () => {
 
-        setTimeout(() => {
+    window.addEventListener(
+        "load",
+        () => {
 
-            if (loader) {
-                loader.classList.add("hide");
-            }
+            setTimeout(
+                () => {
 
-        }, 700);
+                    if (loader) {
 
-    });
+                        loader.classList.add(
+                            "hide"
+                        );
+
+                    }
+
+                },
+                700
+            );
+
+        }
+    );
 
 
 
     /* =====================================================
-       02. CUSTOM CURSOR
+       CUSTOM CURSOR
     ===================================================== */
 
-    const cursor = document.querySelector(".cursor");
+    const cursor =
+        document.querySelector(
+            ".cursor"
+        );
+
 
     if (cursor) {
 
-        document.addEventListener("mousemove", (event) => {
 
-            cursor.style.left = event.clientX + "px";
-            cursor.style.top = event.clientY + "px";
+        document.addEventListener(
+            "mousemove",
+            event => {
 
-        });
+                cursor.style.left =
+                    event.clientX + "px";
+
+
+                cursor.style.top =
+                    event.clientY + "px";
+
+            }
+        );
 
 
         const interactiveElements =
             document.querySelectorAll(
+
                 "a, button, .service-card, .skill-card, .project-card"
+
             );
 
 
-        interactiveElements.forEach((element) => {
-
-            element.addEventListener("mouseenter", () => {
-
-                cursor.classList.add("active");
-
-            });
+        interactiveElements.forEach(
+            element => {
 
 
-            element.addEventListener("mouseleave", () => {
+                element.addEventListener(
+                    "mouseenter",
+                    () => {
 
-                cursor.classList.remove("active");
+                        cursor.classList.add(
+                            "active"
+                        );
 
-            });
+                    }
+                );
 
-        });
+
+                element.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        cursor.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+            }
+        );
+
 
     }
 
 
 
     /* =====================================================
-       03. NAVBAR SCROLL EFFECT
+       NAVBAR SCROLL
     ===================================================== */
 
-    const header = document.querySelector("header");
+    const header =
+        document.querySelector(
+            "header"
+        );
 
 
     function updateHeader() {
 
+
         if (!header) return;
 
 
-        if (window.scrollY > 50) {
+        if (
+            window.scrollY > 50
+        ) {
 
-            header.classList.add("scrolled");
+            header.classList.add(
+                "scrolled"
+            );
 
         } else {
 
-            header.classList.remove("scrolled");
+            header.classList.remove(
+                "scrolled"
+            );
 
         }
+
 
     }
 
 
     updateHeader();
 
+
     window.addEventListener(
         "scroll",
         updateHeader,
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
 
     /* =====================================================
-       04. BACK TO TOP BUTTON
+       BACK TO TOP
     ===================================================== */
 
     const backToTop =
-        document.querySelector(".back-to-top");
+        document.querySelector(
+            ".back-to-top"
+        );
 
 
     function updateBackToTop() {
 
+
         if (!backToTop) return;
 
 
-        if (window.scrollY > 500) {
+        if (
+            window.scrollY > 500
+        ) {
 
-            backToTop.classList.add("show");
+            backToTop.classList.add(
+                "show"
+            );
 
         } else {
 
-            backToTop.classList.remove("show");
+            backToTop.classList.remove(
+                "show"
+            );
 
         }
+
 
     }
 
@@ -137,68 +204,82 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener(
         "scroll",
         updateBackToTop,
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
 
     /* =====================================================
-       05. SMOOTH INTERNAL LINKS
+       SMOOTH INTERNAL LINKS
     ===================================================== */
 
     const internalLinks =
-        document.querySelectorAll('a[href^="#"]');
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
 
 
-    internalLinks.forEach((link) => {
-
-        link.addEventListener("click", (event) => {
-
-            const targetId =
-                link.getAttribute("href");
+    internalLinks.forEach(
+        link => {
 
 
-            /*
-            Ignore placeholder links such as:
-            href="#"
-            */
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-
-                return;
-
-            }
+            link.addEventListener(
+                "click",
+                event => {
 
 
-            const target =
-                document.querySelector(targetId);
+                    const targetId =
+                        link.getAttribute(
+                            "href"
+                        );
 
 
-            if (!target) return;
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+
+                        return;
+
+                    }
 
 
-            event.preventDefault();
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
 
 
-            target.scrollIntoView({
+                    if (!target) return;
 
-                behavior: "smooth",
 
-                block: "start"
+                    event.preventDefault();
 
-            });
 
-        });
+                    target.scrollIntoView({
 
-    });
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "start"
+
+                    });
+
+
+                }
+            );
+
+
+        }
+    );
 
 
 
     /* =====================================================
-       06. SCROLL REVEAL
+       SCROLL REVEAL
     ===================================================== */
 
     const revealElements = [
@@ -246,59 +327,79 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
 
-    revealElements.forEach((element) => {
+    revealElements.forEach(
+        element => {
 
-        element.classList.add("reveal");
-
-    });
-
-
-
-    const observer = new IntersectionObserver(
-
-        (entries) => {
-
-            entries.forEach((entry) => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add(
-                        "active"
-                    );
-
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-
-        {
-
-            threshold: 0.12,
-
-            rootMargin:
-                "0px 0px -40px 0px"
+            element.classList.add(
+                "reveal"
+            );
 
         }
-
     );
 
 
-    revealElements.forEach((element) => {
+    const observer =
+        new IntersectionObserver(
 
-        observer.observe(element);
+            entries => {
 
-    });
+
+                entries.forEach(
+                    entry => {
+
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+
+                            entry.target
+                                .classList
+                                .add(
+                                    "active"
+                                );
+
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+
+                        }
+
+
+                    }
+                );
+
+
+            },
+
+            {
+
+                threshold: 0.12,
+
+                rootMargin:
+                    "0px 0px -40px 0px"
+
+            }
+
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            observer.observe(
+                element
+            );
+
+        }
+    );
 
 
 
     /* =====================================================
-       07. STAGGERED SERVICE ANIMATION
+       STAGGER SERVICES
     ===================================================== */
 
     const serviceCards =
@@ -319,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       08. STAGGERED PROJECT ANIMATION
+       STAGGER PROJECTS
     ===================================================== */
 
     const projectCards =
@@ -332,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
         (card, index) => {
 
             card.style.transitionDelay =
-                `${index * 0.08}s`;
+                `${index * 0.07}s`;
 
         }
     );
@@ -340,7 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       09. ACTIVE NAVIGATION
+       ACTIVE NAVIGATION
     ===================================================== */
 
     const sections =
@@ -357,48 +458,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateNavigation() {
 
-        let currentSection = "";
+
+        let currentSection =
+            "";
 
 
-        sections.forEach((section) => {
-
-            const sectionTop =
-                section.offsetTop - 180;
+        sections.forEach(
+            section => {
 
 
-            const sectionHeight =
-                section.offsetHeight;
+                const sectionTop =
+                    section.offsetTop -
+                    180;
 
 
-            if (
-                window.scrollY >= sectionTop &&
-                window.scrollY <
-                    sectionTop + sectionHeight
-            ) {
+                const sectionHeight =
+                    section.offsetHeight;
 
-                currentSection =
-                    section.getAttribute("id");
+
+                if (
+
+                    window.scrollY >=
+                    sectionTop
+
+                    &&
+
+                    window.scrollY <
+                    sectionTop +
+                    sectionHeight
+
+                ) {
+
+                    currentSection =
+                        section.getAttribute(
+                            "id"
+                        );
+
+                }
+
 
             }
-
-        });
-
-
-        navLinks.forEach((link) => {
-
-            link.classList.remove("active");
+        );
 
 
-            if (
-                link.getAttribute("href") ===
-                `#${currentSection}`
-            ) {
+        navLinks.forEach(
+            link => {
 
-                link.classList.add("active");
+
+                link.classList.remove(
+                    "active"
+                );
+
+
+                if (
+
+                    link.getAttribute(
+                        "href"
+                    )
+
+                    ===
+
+                    `#${currentSection}`
+
+                ) {
+
+                    link.classList.add(
+                        "active"
+                    );
+
+                }
+
 
             }
+        );
 
-        });
 
     }
 
@@ -406,7 +539,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener(
         "scroll",
         updateNavigation,
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
@@ -415,7 +550,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       10. HERO SUBTLE PARALLAX
+       HERO PARALLAX
     ===================================================== */
 
     const heroPhoto =
@@ -432,19 +567,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function heroParallax() {
 
-        /*
-        Disable effect on smaller screens.
-        */
 
-        if (window.innerWidth <= 850) {
+        if (
+            window.innerWidth <=
+            850
+        ) {
+
 
             if (heroPhoto) {
-                heroPhoto.style.transform = "";
+
+                heroPhoto.style.transform =
+                    "";
+
             }
 
+
             if (heroContent) {
-                heroContent.style.transform = "";
+
+                heroContent.style.transform =
+                    "";
+
             }
+
 
             return;
 
@@ -455,12 +599,19 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollY;
 
 
-        if (scroll < window.innerHeight) {
+        if (
+            scroll <
+            window.innerHeight
+        ) {
+
 
             if (heroPhoto) {
 
                 heroPhoto.style.transform =
-                    `translateY(${scroll * 0.035}px)`;
+
+                    `translateY(${
+                        scroll * 0.035
+                    }px)`;
 
             }
 
@@ -468,11 +619,16 @@ document.addEventListener("DOMContentLoaded", () => {
             if (heroContent) {
 
                 heroContent.style.transform =
-                    `translateY(${scroll * -0.018}px)`;
+
+                    `translateY(${
+                        scroll * -0.018
+                    }px)`;
 
             }
 
+
         }
+
 
     }
 
@@ -480,13 +636,15 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener(
         "scroll",
         heroParallax,
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
 
     /* =====================================================
-       11. PROJECT IMAGE TILT EFFECT
+       PROJECT CARD TILT
     ===================================================== */
 
     const projectItems =
@@ -495,19 +653,142 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-    projectItems.forEach((card) => {
+    projectItems.forEach(
+        card => {
 
 
-        card.addEventListener(
+            card.addEventListener(
+                "mousemove",
+                event => {
+
+
+                    if (
+                        window.innerWidth <=
+                        850
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+
+                    const x =
+                        event.clientX -
+                        rect.left;
+
+
+                    const y =
+                        event.clientY -
+                        rect.top;
+
+
+                    const centerX =
+                        rect.width / 2;
+
+
+                    const centerY =
+                        rect.height / 2;
+
+
+                    const rotateX =
+
+                        (
+                            (
+                                y -
+                                centerY
+                            )
+                            /
+                            centerY
+                        )
+                        *
+                        -1.5;
+
+
+                    const rotateY =
+
+                        (
+                            (
+                                x -
+                                centerX
+                            )
+                            /
+                            centerX
+                        )
+                        *
+                        1.5;
+
+
+                    card.style.transform = `
+
+                        perspective(1200px)
+
+                        rotateX(
+                            ${rotateX}deg
+                        )
+
+                        rotateY(
+                            ${rotateY}deg
+                        )
+
+                        translateY(-8px)
+
+                    `;
+
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    card.style.transform =
+                        "";
+
+                }
+            );
+
+
+        }
+    );
+
+
+
+    /* =====================================================
+       FILEFLOW PREVIEW SUBTLE MOTION
+    ===================================================== */
+
+    const filePreview =
+        document.querySelector(
+            ".project-dashboard-preview"
+        );
+
+
+    const fileManagerCard =
+        document.querySelector(
+            ".featured-project-card"
+        );
+
+
+    if (
+        filePreview &&
+        fileManagerCard
+    ) {
+
+
+        fileManagerCard.addEventListener(
             "mousemove",
-            (event) => {
+            event => {
 
-                /*
-                Disable tilt on tablets/mobile.
-                */
 
                 if (
-                    window.innerWidth <= 850
+                    window.innerWidth <=
+                    850
                 ) {
 
                     return;
@@ -516,7 +797,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 const rect =
-                    card.getBoundingClientRect();
+                    fileManagerCard
+                        .getBoundingClientRect();
 
 
                 const x =
@@ -529,70 +811,97 @@ document.addEventListener("DOMContentLoaded", () => {
                     rect.top;
 
 
-                const centerX =
-                    rect.width / 2;
+                const moveX =
+
+                    (
+                        x /
+                        rect.width
+                        -
+                        0.5
+                    )
+                    *
+                    7;
 
 
-                const centerY =
-                    rect.height / 2;
+                const moveY =
+
+                    (
+                        y /
+                        rect.height
+                        -
+                        0.5
+                    )
+                    *
+                    5;
 
 
-                const rotateX =
-                    ((y - centerY) /
-                    centerY) * -2;
+                filePreview.style.transform = `
 
+                    perspective(1200px)
 
-                const rotateY =
-                    ((x - centerX) /
-                    centerX) * 2;
+                    rotateX(
+                        ${2 - moveY}deg
+                    )
 
+                    rotateY(
+                        ${-3 + moveX}deg
+                    )
 
-                card.style.transform =
-                    `
-                    perspective(1000px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateY(-8px)
-                    `;
+                    scale(1.015)
+
+                `;
+
 
             }
         );
 
 
-        card.addEventListener(
+        fileManagerCard.addEventListener(
             "mouseleave",
             () => {
 
-                card.style.transform = "";
+                filePreview.style.transform =
+                    "";
 
             }
         );
 
-    });
+
+    }
 
 
 
     /* =====================================================
-       12. REMOVE DELAY AFTER REVEAL
+       REMOVE REVEAL DELAYS
     ===================================================== */
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        document
-            .querySelectorAll(".reveal")
-            .forEach((element) => {
 
-                element.style.transitionDelay =
-                    "0s";
+            document
+                .querySelectorAll(
+                    ".reveal"
+                )
+                .forEach(
+                    element => {
 
-            });
+                        element.style
+                            .transitionDelay =
+                            "0s";
 
-    }, 1800);
+                    }
+                );
+
+
+        },
+        1800
+    );
 
 
 
     /* =====================================================
-       13. CURRENT YEAR
+       CURRENT YEAR
     ===================================================== */
 
     const copyright =
@@ -603,12 +912,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (copyright) {
 
+
         const year =
-            new Date().getFullYear();
+            new Date()
+                .getFullYear();
 
 
         copyright.innerHTML =
+
             `© ${year} Jhonaiza Gede. All Rights Reserved.`;
+
 
     }
 
