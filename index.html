@@ -7,7 +7,7 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     >
 
     <title>
@@ -34,13 +34,37 @@
         content="#050505"
     >
 
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
 
-    <!-- FAVICON -->
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
+
+
+    <!-- =====================================================
+         FAVICON — DESKTOP / TABLET / MOBILE
+    ====================================================== -->
 
     <link
         rel="icon"
         href="Favicon.png.webp"
         type="image/webp"
+        sizes="any"
+    >
+
+    <link
+        rel="shortcut icon"
+        href="Favicon.png.webp"
+        type="image/webp"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="Favicon.png.webp"
     >
 
 
@@ -230,7 +254,7 @@
 
 
 <!-- =====================================================
-     DESKTOP HEADER
+     DESKTOP / TABLET HEADER
 ===================================================== -->
 
 <header class="desktop-header">
@@ -467,6 +491,8 @@
 >
 
 
+    <!-- COMPUTER CODE BACKGROUND -->
+
     <div
         class="hero-code-background"
         id="heroCodeBackground"
@@ -492,7 +518,9 @@
 
 
 
-    <!-- HERO TEXT -->
+    <!-- =================================================
+         HERO LEFT CONTENT
+    ================================================== -->
 
     <div class="hero-content-side">
 
@@ -519,9 +547,7 @@
 
 
             <span class="hero-role-prefix">
-
                 And I do
-
             </span>
 
 
@@ -575,7 +601,10 @@
                 <span class="social-hover-half"></span>
 
 
-                <svg viewBox="0 0 24 24">
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
 
                     <path
                         d="M20.5 3.6A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3ZM12.2 21.7h-.1a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.9 1 1-3.8-.2-.4a9.7 9.7 0 0 1-1.5-5.1c0-5.4 4.4-9.8 9.9-9.8 2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1-6.8 16.8Z"
@@ -606,7 +635,10 @@
                 <span class="social-hover-half"></span>
 
 
-                <svg viewBox="0 0 24 24">
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="2"
@@ -616,7 +648,9 @@
                         rx="2"
                     ></rect>
 
-                    <path d="m3 6 9 7 9-7"></path>
+                    <path
+                        d="m3 6 9 7 9-7"
+                    ></path>
 
                 </svg>
 
@@ -639,7 +673,10 @@
                 <span class="social-hover-half"></span>
 
 
-                <svg viewBox="0 0 24 24">
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="3"
@@ -682,7 +719,10 @@
                 <span class="social-hover-half"></span>
 
 
-                <svg viewBox="0 0 24 24">
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
 
                     <path
                         d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.88c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82c.85 0 1.71.12 2.51.35 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
@@ -710,9 +750,7 @@
                 target="_blank"
                 class="hero-cv-button"
             >
-
                 View CV
-
             </a>
 
 
@@ -733,66 +771,94 @@
         </div>
 
 
-
-        <div class="hero-badge">
-
-
-            <div class="hero-badge-number">
-
-                5+
-
-            </div>
-
-
-            <div>
-
-                <small>
-                    YEARS OF
-                </small>
-
-                <p>
-                    Creative Experience
-                </p>
-
-            </div>
-
-
-        </div>
-
-
     </div>
 
 
 
-    <!-- HERO PROFILE -->
+    <!-- =================================================
+         HERO PROFILE
+    ================================================== -->
 
     <div class="hero-photo-column">
 
 
-        <div class="hero-profile-stage">
+        <!-- FLOATING WRAPPER -->
+
+        <div class="hero-profile-float">
 
 
-            <div class="hero-shape-gold"></div>
+            <!-- MOUSE DEPTH WRAPPER -->
+
+            <div class="hero-profile-stage">
 
 
-            <div class="hero-shape-outline"></div>
+                <!-- GOLD CARD -->
+
+                <div class="hero-shape-gold"></div>
 
 
-            <div class="hero-shape-main"></div>
+                <!-- WHITE OUTLINE -->
+
+                <div class="hero-shape-outline"></div>
 
 
-            <img
-                src="profile.webp.png"
-                alt="Jhonaiza Gede"
-                class="hero-overlap-photo"
-            >
+                <!-- DARK CARD -->
+
+                <div class="hero-shape-main"></div>
 
 
-            <div class="hero-photo-tag">
+                <!-- LARGER PROFILE -->
 
-                <span></span>
+                <img
+                    src="profile.webp.png"
+                    alt="Jhonaiza Gede"
+                    class="hero-overlap-photo"
+                >
 
-                AVAILABLE FOR PROJECTS
+
+
+                <!-- EXPERIENCE CARD MOVED INTO PROFILE -->
+
+                <div class="hero-experience-card">
+
+
+                    <div class="hero-experience-number">
+
+                        5+
+
+                    </div>
+
+
+                    <div class="hero-experience-copy">
+
+
+                        <small>
+                            YEARS OF
+                        </small>
+
+
+                        <strong>
+                            Creative Experience
+                        </strong>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- AVAILABLE TAG -->
+
+                <div class="hero-photo-tag">
+
+                    <span></span>
+
+                    AVAILABLE FOR PROJECTS
+
+                </div>
+
 
             </div>
 
@@ -941,7 +1007,7 @@
 
 
 
-            <!-- ANIMATED SAMPLE STATS -->
+            <!-- ANIMATED STATS -->
 
             <div class="about-stats">
 
@@ -1205,9 +1271,13 @@
 
                 <svg viewBox="0 0 24 24">
 
-                    <path d="M12 3l6 2v5c0 5-3.5 7.8-6 9-2.5-1.2-6-4-6-9V5l6-2z"></path>
+                    <path
+                        d="M12 3l6 2v5c0 5-3.5 7.8-6 9-2.5-1.2-6-4-6-9V5l6-2z"
+                    ></path>
 
-                    <path d="M9.5 10.8l1.7 1.7 3.3-3.3"></path>
+                    <path
+                        d="M9.5 10.8l1.7 1.7 3.3-3.3"
+                    ></path>
 
                 </svg>
 
@@ -1242,11 +1312,17 @@
 
                 <svg viewBox="0 0 24 24">
 
-                    <path d="M4 13v-2l10-4v10L4 13z"></path>
+                    <path
+                        d="M4 13v-2l10-4v10L4 13z"
+                    ></path>
 
-                    <path d="M14 9h2a4 4 0 0 1 0 8h-2"></path>
+                    <path
+                        d="M14 9h2a4 4 0 0 1 0 8h-2"
+                    ></path>
 
-                    <path d="M6 14l1 4"></path>
+                    <path
+                        d="M6 14l1 4"
+                    ></path>
 
                 </svg>
 
@@ -1326,9 +1402,13 @@
                         r="5"
                     ></circle>
 
-                    <path d="M21 21l-6.2-6.2"></path>
+                    <path
+                        d="M21 21l-6.2-6.2"
+                    ></path>
 
-                    <path d="M8 11l1.5-1.5 1.3 1.3 2.2-2.2"></path>
+                    <path
+                        d="M8 11l1.5-1.5 1.3 1.3 2.2-2.2"
+                    ></path>
 
                 </svg>
 
@@ -1395,11 +1475,17 @@
 
                 <svg viewBox="0 0 24 24">
 
-                    <path d="M12 4l7 4-7 4-7-4 7-4z"></path>
+                    <path
+                        d="M12 4l7 4-7 4-7-4 7-4z"
+                    ></path>
 
-                    <path d="M5 12l7 4 7-4"></path>
+                    <path
+                        d="M5 12l7 4 7-4"
+                    ></path>
 
-                    <path d="M5 16l7 4 7-4"></path>
+                    <path
+                        d="M5 16l7 4 7-4"
+                    ></path>
 
                 </svg>
 
@@ -1486,9 +1572,13 @@
 
                     <path d="M5 19h14"></path>
 
-                    <path d="M7 15l3-3 3 2 4-5"></path>
+                    <path
+                        d="M7 15l3-3 3 2 4-5"
+                    ></path>
 
-                    <path d="M17 9h3v3"></path>
+                    <path
+                        d="M17 9h3v3"
+                    ></path>
 
                 </svg>
 
@@ -2124,8 +2214,10 @@
                     </h3>
 
                     <p>
+
                         Fresh ideas shaped around your
                         vision and objectives.
+
                     </p>
 
                 </div>
@@ -2145,8 +2237,10 @@
                     </h3>
 
                     <p>
+
                         Clean, contemporary visuals built
                         for today's digital environment.
+
                     </p>
 
                 </div>
@@ -2166,8 +2260,10 @@
                     </h3>
 
                     <p>
+
                         Designs optimized for desktop,
                         tablet, and mobile devices.
+
                     </p>
 
                 </div>
@@ -2187,9 +2283,11 @@
                     </h3>
 
                     <p>
+
                         Thoughtful typography, spacing,
                         imagery, interactions, and
                         finishing touches.
+
                     </p>
 
                 </div>
@@ -2209,9 +2307,11 @@
                     </h3>
 
                     <p>
+
                         Clear communication and collaborative
                         development from concept through
                         completion.
+
                     </p>
 
                 </div>
@@ -2388,7 +2488,9 @@
                 </h3>
 
                 <p>
+
                     Creative Developer • Graphic Designer • Web Designer
+
                 </p>
 
             </div>
