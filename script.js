@@ -1,6 +1,5 @@
 /* =========================================================
    JHONAIZA GEDE PORTFOLIO
-   MAIN SCRIPT.JS
 ========================================================= */
 
 
@@ -8,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       PAGE LOADER
+       LOADER
     ===================================================== */
 
     const loader =
@@ -114,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       NAVBAR SCROLL
+       HEADER SCROLL
     ===================================================== */
 
     const header =
@@ -279,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       SCROLL REVEAL
+       REVEAL ELEMENTS
     ===================================================== */
 
     const revealElements = [
@@ -336,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     );
+
 
 
     const observer =
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       STAGGER SERVICES
+       SERVICE STAGGER
     ===================================================== */
 
     const serviceCards =
@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       STAGGER PROJECTS
+       PROJECT STAGGER
     ===================================================== */
 
     const projectCards =
@@ -673,7 +673,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     const rect =
-                        card.getBoundingClientRect();
+                        card
+                            .getBoundingClientRect();
 
 
                     const x =
@@ -687,11 +688,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     const centerX =
-                        rect.width / 2;
+                        rect.width /
+                        2;
 
 
                     const centerY =
-                        rect.height / 2;
+                        rect.height /
+                        2;
 
 
                     const rotateX =
@@ -705,7 +708,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             centerY
                         )
                         *
-                        -1.5;
+                        -1.3;
 
 
                     const rotateY =
@@ -719,7 +722,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             centerX
                         )
                         *
-                        1.5;
+                        1.3;
 
 
                     card.style.transform = `
@@ -760,119 +763,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       FILEFLOW PREVIEW SUBTLE MOTION
-    ===================================================== */
-
-    const filePreview =
-        document.querySelector(
-            ".project-dashboard-preview"
-        );
-
-
-    const fileManagerCard =
-        document.querySelector(
-            ".featured-project-card"
-        );
-
-
-    if (
-        filePreview &&
-        fileManagerCard
-    ) {
-
-
-        fileManagerCard.addEventListener(
-            "mousemove",
-            event => {
-
-
-                if (
-                    window.innerWidth <=
-                    850
-                ) {
-
-                    return;
-
-                }
-
-
-                const rect =
-                    fileManagerCard
-                        .getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const moveX =
-
-                    (
-                        x /
-                        rect.width
-                        -
-                        0.5
-                    )
-                    *
-                    7;
-
-
-                const moveY =
-
-                    (
-                        y /
-                        rect.height
-                        -
-                        0.5
-                    )
-                    *
-                    5;
-
-
-                filePreview.style.transform = `
-
-                    perspective(1200px)
-
-                    rotateX(
-                        ${2 - moveY}deg
-                    )
-
-                    rotateY(
-                        ${-3 + moveX}deg
-                    )
-
-                    scale(1.015)
-
-                `;
-
-
-            }
-        );
-
-
-        fileManagerCard.addEventListener(
-            "mouseleave",
-            () => {
-
-                filePreview.style.transform =
-                    "";
-
-            }
-        );
-
-
-    }
-
-
-
-    /* =====================================================
-       REMOVE REVEAL DELAYS
+       REMOVE STAGGER AFTER FIRST LOAD
     ===================================================== */
 
     setTimeout(
