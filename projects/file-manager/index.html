@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        FileFlow | Modern File Manager
+    </title>
+
+    <meta
+        name="description"
+        content="A modern file manager dashboard designed and developed by Jhonaiza Gede."
+    >
+
+    <meta
+        name="author"
+        content="Jhonaiza Gede"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MOBILE OVERLAY
+===================================================== -->
+
+<div
+    class="mobile-overlay"
+    id="mobileOverlay"
+></div>
+
+
+
+<!-- =====================================================
+     APP
+===================================================== -->
+
+<div class="app-shell">
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+
+        <div class="sidebar-top">
+
+
+            <a
+                href="../../index.html"
+                class="brand"
+            >
+
+                <span class="brand-mark">
+                    F
+                </span>
+
+                <div>
+
+                    <strong>
+                        FileFlow
+                    </strong>
+
+                    <small>
+                        FILE MANAGER
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <button
+                class="mobile-close"
+                id="mobileClose"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+
+
+        </div>
+
+
+
+        <button
+            class="upload-main-btn"
+            id="uploadMainBtn"
+        >
+
+            <span>
+                +
+            </span>
+
+            Upload File
+
+        </button>
+
+
+        <input
+            type="file"
+            id="fileInput"
+            multiple
+            hidden
+        >
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <p class="sidebar-label">
+                MANAGE
+            </p>
+
+
+            <button
+                class="nav-item active"
+                data-filter="all"
+            >
+
+                <span class="nav-icon">
+                    ◫
+                </span>
+
+                <span>
+                    My Files
+                </span>
+
+                <span
+                    class="nav-count"
+                    id="allCount"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-filter="recent"
+            >
+
+                <span class="nav-icon">
+                    ◷
+                </span>
+
+                <span>
+                    Recent
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-filter="favorite"
+            >
+
+                <span class="nav-icon">
+                    ☆
+                </span>
+
+                <span>
+                    Favorites
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-filter="document"
+            >
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                <span>
+                    Documents
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-filter="image"
+            >
+
+                <span class="nav-icon">
+                    ◩
+                </span>
+
+                <span>
+                    Images
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-filter="video"
+            >
+
+                <span class="nav-icon">
+                    ▷
+                </span>
+
+                <span>
+                    Videos
+                </span>
+
+            </button>
+
+
+            <p class="sidebar-label second-label">
+                OTHER
+            </p>
+
+
+            <button
+                class="nav-item"
+                data-filter="trash"
+            >
+
+                <span class="nav-icon">
+                    ♲
+                </span>
+
+                <span>
+                    Trash
+                </span>
+
+                <span
+                    class="nav-count"
+                    id="trashCount"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+        </nav>
+
+
+
+        <!-- STORAGE -->
+
+        <div class="storage-card">
+
+
+            <div class="storage-head">
+
+                <span>
+                    Storage
+                </span>
+
+                <strong id="storagePercent">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="storage-track">
+
+                <div
+                    class="storage-fill"
+                    id="storageFill"
+                ></div>
+
+            </div>
+
+
+            <p>
+
+                <strong id="storageUsed">
+                    0 MB
+                </strong>
+
+                of 5 GB used
+
+            </p>
+
+
+        </div>
+
+
+
+        <a
+            href="../../index.html"
+            class="back-portfolio"
+        >
+
+            ← Back to Portfolio
+
+        </a>
+
+
+    </aside>
+
+
+
+    <!-- =================================================
+         MAIN AREA
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+
+                <button
+                    class="mobile-menu"
+                    id="mobileMenu"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <p class="eyebrow">
+                        DIGITAL WORKSPACE
+                    </p>
+
+                    <h1>
+                        My Files
+                    </h1>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="topbar-actions">
+
+
+                <div class="search-box">
+
+                    <span>
+                        ⌕
+                    </span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search files..."
+                        aria-label="Search files"
+                    >
+
+                </div>
+
+
+                <button
+                    class="icon-button"
+                    id="newFolderTop"
+                    title="Create folder"
+                    aria-label="Create folder"
+                >
+                    ＋
+                </button>
+
+
+                <div class="profile-box">
+
+                    <div class="avatar">
+                        JG
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Jhonaiza
+                        </strong>
+
+                        <span>
+                            Designer
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD HERO
+        ================================================== -->
+
+        <section class="dashboard-hero">
+
+
+            <div>
+
+
+                <p class="hero-label">
+                    WELCOME BACK
+                </p>
+
+
+                <h2>
+
+                    Everything you need,
+
+                    <span>
+                        beautifully organized.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Manage documents, images, creative files,
+                    and projects from one clean digital workspace.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+
+                    <button
+                        class="primary-action"
+                        id="heroUploadBtn"
+                    >
+
+                        + Upload Files
+
+                    </button>
+
+
+                    <button
+                        class="secondary-action"
+                        id="newFolderBtn"
+                    >
+
+                        New Folder
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="hero-decoration">
+
+
+                <div class="floating-file file-one">
+
+                    <span>
+                        PSD
+                    </span>
+
+                    <small>
+                        Design
+                    </small>
+
+                </div>
+
+
+                <div class="floating-file file-two">
+
+                    <span>
+                        JPG
+                    </span>
+
+                    <small>
+                        Images
+                    </small>
+
+                </div>
+
+
+                <div class="floating-file file-three">
+
+                    <span>
+                        PDF
+                    </span>
+
+                    <small>
+                        Docs
+                    </small>
+
+                </div>
+
+
+                <div class="hero-circle">
+
+                    <span>
+                        F
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon document-icon">
+                    ▤
+                </div>
+
+                <div>
+
+                    <span>
+                        Documents
+                    </span>
+
+                    <strong id="documentCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon image-icon">
+                    ◩
+                </div>
+
+                <div>
+
+                    <span>
+                        Images
+                    </span>
+
+                    <strong id="imageCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon video-icon">
+                    ▷
+                </div>
+
+                <div>
+
+                    <span>
+                        Videos
+                    </span>
+
+                    <strong id="videoCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon folder-icon">
+                    ◫
+                </div>
+
+                <div>
+
+                    <span>
+                        Folders
+                    </span>
+
+                    <strong id="folderCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK ACCESS
+        ================================================== -->
+
+        <section class="content-section">
+
+
+            <div class="section-title-row">
+
+                <div>
+
+                    <p>
+                        QUICK ACCESS
+                    </p>
+
+                    <h2>
+                        Folders
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="text-button"
+                    id="createFolderQuick"
+                >
+                    + New Folder
+                </button>
+
+
+            </div>
+
+
+
+            <div
+                class="folder-grid"
+                id="folderGrid"
+            >
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILES
+        ================================================== -->
+
+        <section class="content-section file-section">
+
+
+            <div class="section-title-row files-heading">
+
+
+                <div>
+
+                    <p id="currentLabel">
+                        ALL FILES
+                    </p>
+
+                    <h2 id="currentTitle">
+                        Your Files
+                    </h2>
+
+                </div>
+
+
+
+                <div class="file-controls">
+
+
+                    <select
+                        id="sortSelect"
+                        aria-label="Sort files"
+                    >
+
+                        <option value="newest">
+                            Newest
+                        </option>
+
+                        <option value="oldest">
+                            Oldest
+                        </option>
+
+                        <option value="name">
+                            Name A-Z
+                        </option>
+
+                        <option value="size">
+                            Largest
+                        </option>
+
+                    </select>
+
+
+                    <div class="view-switch">
+
+
+                        <button
+                            id="gridViewBtn"
+                            class="active"
+                            aria-label="Grid view"
+                        >
+                            ▦
+                        </button>
+
+
+                        <button
+                            id="listViewBtn"
+                            aria-label="List view"
+                        >
+                            ☷
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div
+                class="files-grid"
+                id="filesContainer"
+            >
+            </div>
+
+
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <div class="empty-icon">
+                    ◫
+                </div>
+
+                <h3>
+                    No files found
+                </h3>
+
+                <p>
+                    Try another search or upload a new file.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     NEW FOLDER MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="folderModal"
+>
+
+
+    <div class="modal-card">
+
+
+        <button
+            class="modal-close"
+            id="modalClose"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <p class="modal-label">
+            NEW FOLDER
+        </p>
+
+
+        <h2>
+            Create a folder
+        </h2>
+
+
+        <p class="modal-description">
+
+            Give your folder a name to keep
+            your projects organized.
+
+        </p>
+
+
+        <form id="folderForm">
+
+
+            <label for="folderName">
+                Folder name
+            </label>
+
+
+            <input
+                type="text"
+                id="folderName"
+                placeholder="Example: Client Projects"
+                maxlength="40"
+                required
+            >
+
+
+            <div class="modal-actions">
+
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelFolder"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="create-btn"
+                >
+                    Create Folder
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <span id="toastIcon">
+        ✓
+    </span>
+
+    <p id="toastText">
+        Action completed
+    </p>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
