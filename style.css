@@ -5615,3 +5615,388 @@ and
         font-size: 6px;
     }
 }
+
+/* =========================================================
+   HERO SOCIAL ICONS — INSPIRATION STYLE
+   White icon + underline, half-reveal gold hover
+========================================================= */
+
+.hero-socials {
+    gap: 20px;
+}
+
+.hero-social-link,
+.hero-social-github {
+    position: relative;
+    width: 60px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(0);
+    transition:
+        transform .32s cubic-bezier(.22,1,.36,1),
+        color .32s ease,
+        filter .32s ease;
+}
+
+/* half-circle reveal behind each social icon */
+.hero-social-link::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    z-index: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background:
+        linear-gradient(
+            135deg,
+            #FFF2BD 0%,
+            #D7B56D 48%,
+            #FFC91B 100%
+        );
+    box-shadow:
+        0 0 14px rgba(215,181,109,.18),
+        0 0 24px rgba(255,201,27,.08);
+    transform: translate(-50%, 62%) scale(.72);
+    opacity: 0;
+    clip-path: inset(0 0 50% 0 round 999px);
+    transition:
+        transform .34s cubic-bezier(.22,1,.36,1),
+        opacity .28s ease,
+        box-shadow .34s ease;
+}
+
+.hero-social-link svg,
+.hero-social-link .github-circle {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-social-link svg {
+    width: 26px;
+    height: 26px;
+    color: inherit;
+    transition:
+        color .3s ease,
+        fill .3s ease,
+        stroke .3s ease,
+        transform .3s ease,
+        filter .3s ease;
+}
+
+/* Keep WhatsApp + GitHub filled, Email + LinkedIn outlined */
+.hero-social-link:first-child svg,
+.hero-social-github svg {
+    fill: currentColor;
+    stroke: none;
+}
+
+.hero-social-link:nth-child(2) svg,
+.hero-social-link:nth-child(3) svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+}
+
+.social-line {
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: 3px;
+    z-index: 1;
+    height: 2px;
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 0 7px rgba(255,255,255,.16);
+    transition:
+        background .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+/* Remove the old permanent circle around GitHub */
+.github-circle {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: none;
+}
+
+.github-circle svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+.hero-social-link:hover {
+    color: #FFC91B;
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 8px rgba(255,201,27,.38));
+}
+
+.hero-social-link:hover::before {
+    opacity: .98;
+    transform: translate(-50%, 50%) scale(1);
+    box-shadow:
+        0 0 18px rgba(215,181,109,.35),
+        0 0 34px rgba(255,201,27,.18);
+}
+
+.hero-social-link:hover .social-line {
+    background: #FFC91B;
+    box-shadow:
+        0 0 8px rgba(255,201,27,.65),
+        0 0 18px rgba(215,181,109,.24);
+    transform: scaleX(1.08);
+}
+
+.hero-social-github:hover .github-circle {
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+.hero-social-github:hover .github-circle svg {
+    fill: #FFC91B;
+}
+
+/* =========================================================
+   ALL BUTTONS — CLEAN GOLDEN YELLOW PILL
+   Inspiration screenshot + glow/lift hover
+========================================================= */
+
+.nav-hire,
+.hero-cv-button,
+.hero-project-link,
+.contact-btn,
+.social-btn,
+.mobile-hire-link,
+.back-to-top {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,242,189,.78);
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFF2BD 0%,
+            #F1CF7E 18%,
+            #D7B56D 40%,
+            #FFC91B 78%,
+            #F2B90E 100%
+        );
+
+    background-size: 160% 100%;
+
+    color: #17130B !important;
+    font-weight: 600;
+    text-decoration: none;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,.82),
+        inset 0 -2px 4px rgba(112,70,8,.20),
+        0 7px 18px rgba(0,0,0,.28),
+        0 0 14px rgba(215,181,109,.16);
+
+    text-shadow: 0 1px 0 rgba(255,255,255,.18);
+
+    transition:
+        transform .32s cubic-bezier(.22,1,.36,1),
+        box-shadow .32s ease,
+        border-color .32s ease,
+        filter .32s ease,
+        background-position .45s ease;
+}
+
+/* softer shimmer than the previous metallic version */
+.nav-hire::before,
+.hero-cv-button::before,
+.hero-project-link::before,
+.contact-btn::before,
+.social-btn::before,
+.mobile-hire-link::before,
+.back-to-top::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -90%;
+    left: -52%;
+    width: 30%;
+    height: 280%;
+    transform: rotate(20deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.18),
+            rgba(255,255,255,.78),
+            rgba(255,242,189,.92),
+            rgba(255,255,255,.14),
+            transparent
+        );
+    filter: blur(1px);
+    animation: inspirationButtonShimmer 4.2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.nav-hire::after,
+.hero-cv-button::after,
+.hero-project-link::after,
+.contact-btn::after,
+.social-btn::after,
+.mobile-hire-link::after,
+.back-to-top::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 2px;
+    left: 8%;
+    width: 84%;
+    height: 42%;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, rgba(255,255,255,.38), transparent);
+    opacity: .72;
+    pointer-events: none;
+}
+
+@keyframes inspirationButtonShimmer {
+    0% {
+        left: -52%;
+        opacity: 0;
+    }
+    14% {
+        opacity: .75;
+    }
+    38% {
+        left: 132%;
+        opacity: .30;
+    }
+    39%,
+    100% {
+        left: 132%;
+        opacity: 0;
+    }
+}
+
+.nav-hire:hover,
+.hero-cv-button:hover,
+.hero-project-link:hover,
+.contact-btn:hover,
+.social-btn:hover,
+.mobile-hire-link:hover,
+.back-to-top:hover {
+    transform: translateY(-5px) scale(1.025);
+    border-color: #FFF2BD;
+    background-position: 100% 0;
+    filter: brightness(1.06) saturate(1.04);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.92),
+        inset 0 -2px 5px rgba(112,70,8,.18),
+        0 14px 30px rgba(0,0,0,.35),
+        0 0 18px rgba(215,181,109,.46),
+        0 0 38px rgba(255,201,27,.22);
+}
+
+.nav-hire:active,
+.hero-cv-button:active,
+.hero-project-link:active,
+.contact-btn:active,
+.social-btn:active,
+.mobile-hire-link:active,
+.back-to-top:active {
+    transform: translateY(-1px) scale(.985);
+}
+
+.hero-cv-button {
+    min-width: 200px;
+    padding: 15px 34px;
+    font-size: 17px;
+}
+
+.hero-project-link {
+    min-width: 200px;
+    padding: 14px 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero-project-link span,
+.hero-project-link:hover span {
+    color: #17130B !important;
+}
+
+.contact-btn,
+.social-btn {
+    min-width: 190px;
+    padding: 14px 28px;
+}
+
+.mobile-hire-link {
+    color: #17130B !important;
+}
+
+.back-to-top {
+    color: #17130B !important;
+}
+
+/* =========================================================
+   SOCIAL ICONS + BUTTONS MOBILE POLISH
+========================================================= */
+
+@media (max-width: 767px) {
+    .hero-socials {
+        gap: 12px;
+    }
+
+    .hero-social-link,
+    .hero-social-github {
+        width: 52px;
+        height: 46px;
+    }
+
+    .hero-social-link svg,
+    .github-circle svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .hero-social-link::before {
+        width: 31px;
+        height: 31px;
+    }
+
+    .hero-cv-button,
+    .hero-project-link {
+        width: min(260px, 100%);
+        min-width: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-hire::before,
+    .hero-cv-button::before,
+    .hero-project-link::before,
+    .contact-btn::before,
+    .social-btn::before,
+    .mobile-hire-link::before,
+    .back-to-top::before {
+        animation: none;
+    }
+}
