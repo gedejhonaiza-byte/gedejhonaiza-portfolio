@@ -5387,3 +5387,231 @@ and
         animation: none !important;
     }
 }
+
+
+/* =========================================================
+   HERO PROFILE FIX — CLEAN TILTED CARD
+   Keeps the existing design, removes the outside circles
+   and plus decoration, and improves profile framing.
+========================================================= */
+
+.hero-doodle-circles,
+.hero-doodle-plus {
+    display: none !important;
+}
+
+.hero-photo-column {
+    min-height: 570px;
+}
+
+.hero-photo-scene {
+    width: min(470px, 95%);
+    aspect-ratio: 1 / 1.14;
+    transform: translateY(0);
+}
+
+.hero-photo-outline {
+    top: 86px;
+    left: 45px;
+    width: 350px;
+    height: 370px;
+    border: 2px solid rgba(255,255,255,.74);
+    border-radius: 30px;
+    transform: rotate(11deg);
+    opacity: .72;
+}
+
+.hero-photo-accent {
+    top: 120px;
+    left: 62px;
+    width: 305px;
+    height: 335px;
+    border-radius: 27px;
+    transform: rotate(11deg);
+}
+
+.hero-photo-frame {
+    top: 28px;
+    left: 72px;
+    width: 320px;
+    height: 445px;
+    border-radius: 30px;
+    transform: rotate(11deg);
+    overflow: hidden;
+}
+
+.hero-photo-frame .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    transform: rotate(-11deg) scale(1.09) translateY(1px);
+    transform-origin: center bottom;
+}
+
+.hero-photo-frame:hover .hero-photo {
+    transform: rotate(-11deg) scale(1.125) translateY(-2px);
+}
+
+.hero-photo-tag {
+    right: 18px;
+    bottom: 34px;
+}
+
+@media (max-width: 1199px) {
+    .hero-photo-scene {
+        width: min(420px, 94%);
+    }
+
+    .hero-photo-outline {
+        top: 82px;
+        left: 41px;
+        width: 315px;
+        height: 345px;
+    }
+
+    .hero-photo-accent {
+        top: 114px;
+        left: 55px;
+        width: 278px;
+        height: 310px;
+    }
+
+    .hero-photo-frame {
+        top: 27px;
+        left: 63px;
+        width: 292px;
+        height: 408px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-photo-column {
+        min-height: 520px;
+    }
+
+    .hero-photo-scene {
+        width: min(390px, 86vw);
+    }
+
+    .hero-photo-outline {
+        top: 76px;
+        left: 40px;
+        width: 295px;
+        height: 320px;
+        transform: rotate(9deg);
+    }
+
+    .hero-photo-accent {
+        top: 107px;
+        left: 53px;
+        width: 257px;
+        height: 288px;
+        transform: rotate(9deg);
+    }
+
+    .hero-photo-frame {
+        top: 27px;
+        left: 58px;
+        width: 276px;
+        height: 382px;
+        transform: rotate(9deg);
+    }
+
+    .hero-photo-frame .hero-photo {
+        transform: rotate(-9deg) scale(1.08);
+    }
+
+    .hero-photo-frame:hover .hero-photo {
+        transform: rotate(-9deg) scale(1.105);
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-photo-column {
+        min-height: 425px;
+    }
+
+    .hero-photo-scene {
+        width: min(325px, 90vw);
+        aspect-ratio: 1 / 1.12;
+    }
+
+    .hero-photo-outline {
+        top: 74px;
+        left: 37px;
+        width: 235px;
+        height: 255px;
+        border-radius: 22px;
+        transform: rotate(8deg);
+    }
+
+    .hero-photo-accent {
+        top: 99px;
+        left: 47px;
+        width: 210px;
+        height: 228px;
+        border-radius: 20px;
+        transform: rotate(8deg);
+    }
+
+    .hero-photo-frame {
+        top: 30px;
+        left: 50px;
+        width: 225px;
+        height: 310px;
+        border-radius: 23px;
+        transform: rotate(8deg);
+    }
+
+    .hero-photo-frame .hero-photo {
+        transform: rotate(-8deg) scale(1.075);
+    }
+
+    .hero-photo-frame:hover .hero-photo {
+        transform: rotate(-8deg) scale(1.095);
+    }
+
+    .hero-photo-tag {
+        right: 12px;
+        bottom: 18px;
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-photo-column {
+        min-height: 390px;
+    }
+
+    .hero-photo-scene {
+        width: min(295px, 88vw);
+    }
+
+    .hero-photo-outline {
+        top: 68px;
+        left: 31px;
+        width: 215px;
+        height: 236px;
+    }
+
+    .hero-photo-accent {
+        top: 91px;
+        left: 41px;
+        width: 192px;
+        height: 210px;
+    }
+
+    .hero-photo-frame {
+        top: 27px;
+        left: 43px;
+        width: 205px;
+        height: 285px;
+    }
+
+    .hero-photo-tag {
+        right: 4px;
+        bottom: 12px;
+        padding: 8px 11px;
+        font-size: 6px;
+    }
+}
