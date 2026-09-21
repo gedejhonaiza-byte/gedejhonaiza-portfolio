@@ -31,7 +31,7 @@
 
     <meta
         name="theme-color"
-        content="#090909"
+        content="#080808"
     >
 
 
@@ -58,7 +58,7 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
         rel="stylesheet"
     >
 
@@ -75,14 +75,200 @@
 
 
 <!-- =====================================================
-     PAGE LOADER
+     PREMIUM DEVELOPER PAGE LOADER
 ===================================================== -->
 
-<div class="loader">
+<div
+    class="loader"
+    id="pageLoader"
+>
 
-    <div class="loader-logo">
-        JG
+
+    <!-- CODE BACKGROUND -->
+
+    <div
+        class="loader-code-background"
+        id="loaderCodeBackground"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- GRID BACKGROUND -->
+
+    <div class="loader-grid"></div>
+
+
+    <!-- GLOW -->
+
+    <div class="loader-glow loader-glow-one"></div>
+
+    <div class="loader-glow loader-glow-two"></div>
+
+
+    <!-- CONTENT -->
+
+    <div class="loader-content">
+
+
+        <!-- TOP -->
+
+        <div class="loader-top">
+
+
+            <div class="loader-monogram">
+
+                <span>
+                    JG
+                </span>
+
+            </div>
+
+
+            <div class="loader-system">
+
+                <span class="system-dot"></span>
+
+                SYSTEM ONLINE
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BRAND -->
+
+        <div class="loader-brand">
+
+
+            <p class="loader-eyebrow">
+
+                CREATIVE DEVELOPER
+
+            </p>
+
+
+            <h1>
+
+                Jhonaiza
+
+                <em>
+                    Gede
+                </em>
+
+            </h1>
+
+
+            <p class="loader-role">
+
+                WEB DESIGNER
+
+                <span>•</span>
+
+                GRAPHIC DESIGNER
+
+                <span>•</span>
+
+                CREATIVE DEVELOPER
+
+            </p>
+
+
+            <div class="loader-code-label">
+
+                <span>
+                    &lt;
+                </span>
+
+                designing digital experiences
+
+                <span>
+                    /&gt;
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="loader-progress-area">
+
+
+            <div class="loader-progress-info">
+
+
+                <span>
+                    INITIALIZING PORTFOLIO
+                </span>
+
+
+                <strong
+                    id="loaderPercent"
+                >
+                    0%
+                </strong>
+
+
+            </div>
+
+
+            <div class="loader-track">
+
+                <div
+                    class="loader-progress"
+                    id="loaderProgress"
+                ></div>
+
+            </div>
+
+
+            <div class="loader-status-row">
+
+                <span>
+                    HTML
+                </span>
+
+                <span>
+                    CSS
+                </span>
+
+                <span>
+                    JAVASCRIPT
+                </span>
+
+                <span>
+                    UI / UX
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="loader-bottom">
+
+
+            <span>
+                PORTFOLIO © 2026
+            </span>
+
+
+            <span>
+                DESIGN • DEVELOP • CREATE
+            </span>
+
+
+        </div>
+
+
     </div>
+
 
 </div>
 
@@ -102,10 +288,9 @@
 
 <header>
 
+
     <nav class="navbar">
 
-
-        <!-- LOGO -->
 
         <a
             href="#home"
@@ -116,52 +301,68 @@
         </a>
 
 
-
         <!-- DESKTOP NAVIGATION -->
 
         <ul class="nav-links">
 
+
             <li>
+
                 <a href="#home">
                     Home
                 </a>
+
             </li>
 
+
             <li>
+
                 <a href="#about">
                     About
                 </a>
+
             </li>
 
+
             <li>
+
                 <a href="#services">
                     Services
                 </a>
+
             </li>
 
+
             <li>
+
                 <a href="#skills">
                     Skills
                 </a>
+
             </li>
 
+
             <li>
+
                 <a href="#projects">
                     Projects
                 </a>
+
             </li>
 
+
             <li>
+
                 <a href="#contact">
                     Contact
                 </a>
+
             </li>
+
 
         </ul>
 
 
-
-        <!-- RIGHT NAVIGATION -->
 
         <div class="nav-actions">
 
@@ -174,8 +375,6 @@
             </a>
 
 
-            <!-- MOBILE MENU BUTTON -->
-
             <button
                 class="menu-toggle"
                 id="menuToggle"
@@ -185,7 +384,9 @@
             >
 
                 <span></span>
+
                 <span></span>
+
                 <span></span>
 
             </button>
@@ -197,8 +398,9 @@
     </nav>
 
 
+
     <!-- =================================================
-         MOBILE / TABLET MENU
+         MOBILE MENU
     ================================================== -->
 
     <div
@@ -236,7 +438,9 @@
 
 
             <p class="mobile-menu-label">
+
                 NAVIGATION
+
             </p>
 
 
@@ -335,14 +539,18 @@
 
 
                 <p>
+
                     READY TO CREATE?
+
                 </p>
 
 
                 <a
                     href="mailto:gedejhonaiza@gmail.com?subject=Project Inquiry"
                 >
+
                     gedejhonaiza@gmail.com
+
                 </a>
 
 
@@ -357,7 +565,9 @@
 
 
             <p>
+
                 Creative Developer • Designer
+
             </p>
 
 
@@ -365,7 +575,9 @@
                 href="#contact"
                 class="mobile-nav-link mobile-menu-cta"
             >
+
                 START A PROJECT →
+
             </a>
 
 
@@ -378,8 +590,6 @@
 </header>
 
 
-
-<!-- MOBILE MENU BACKDROP -->
 
 <div
     class="menu-backdrop"
@@ -401,10 +611,15 @@
     <div class="gold-particles">
 
         <span></span>
+
         <span></span>
+
         <span></span>
+
         <span></span>
+
         <span></span>
+
         <span></span>
 
     </div>
@@ -414,9 +629,8 @@
 
 
 
-    <!-- HERO IMAGE -->
-
     <div class="hero-photo-wrap">
+
 
         <img
             src="profile.jpg.webp"
@@ -424,17 +638,18 @@
             class="hero-photo"
         >
 
+
     </div>
 
 
-
-    <!-- HERO CONTENT -->
 
     <div class="hero-content-side">
 
 
         <p class="hero-mini-title">
+
             CREATIVE DESIGN • WEB • DIGITAL EXPERIENCES
+
         </p>
 
 
@@ -445,7 +660,9 @@
             <br>
 
             <span>
+
                 Jhonaiza Gede
+
             </span>
 
         </h1>
@@ -455,11 +672,15 @@
 
             Graphic Designer
 
-            <span>•</span>
+            <span>
+                •
+            </span>
 
             Web Designer
 
-            <span>•</span>
+            <span>
+                •
+            </span>
 
             Creative Developer
 
@@ -495,7 +716,9 @@
 
                 VIEW MY WORK
 
-                <span>→</span>
+                <span>
+                    →
+                </span>
 
             </a>
 
@@ -518,19 +741,28 @@
 
 
             <div class="hero-badge-number">
+
                 5+
+
             </div>
 
 
             <div>
 
+
                 <small>
+
                     YEARS OF
+
                 </small>
 
+
                 <p>
+
                     Creative Experience
+
                 </p>
+
 
             </div>
 
@@ -549,7 +781,9 @@
     >
 
         <span>
+
             SCROLL
+
         </span>
 
         <div class="scroll-line"></div>
@@ -573,15 +807,24 @@
 
     <div class="section-heading">
 
+
         <p class="section-label">
+
             ABOUT ME
+
         </p>
 
+
         <h2>
+
             Designing With Purpose.
+
             <br>
+
             Creating With Impact.
+
         </h2>
+
 
     </div>
 
@@ -595,10 +838,12 @@
 
             <div class="about-image">
 
+
                 <img
                     src="profile.jpg.webp"
                     alt="Jhonaiza Gede Creative Designer"
                 >
+
 
             </div>
 
@@ -606,17 +851,28 @@
 
             <div class="about-experience">
 
+
                 <strong>
+
                     5+
+
                 </strong>
 
+
                 <span>
+
                     YEARS OF
+
                     <br>
+
                     CREATIVE
+
                     <br>
+
                     EXPERIENCE
+
                 </span>
+
 
             </div>
 
@@ -664,39 +920,51 @@
 
                 <div class="about-value">
 
+
                     <span>
                         01
                     </span>
 
                     <p>
+
                         Creative Thinking
+
                     </p>
+
 
                 </div>
 
 
                 <div class="about-value">
+
 
                     <span>
                         02
                     </span>
 
                     <p>
+
                         Modern Design
+
                     </p>
+
 
                 </div>
 
 
                 <div class="about-value">
 
+
                     <span>
                         03
                     </span>
 
                     <p>
+
                         Purposeful Solutions
+
                     </p>
+
 
                 </div>
 
@@ -726,15 +994,24 @@
 
     <div class="section-heading centered">
 
+
         <p class="section-label">
+
             WHAT I DO
+
         </p>
 
+
         <h2>
+
             Creative Solutions
+
             <br>
+
             for the Digital World
+
         </h2>
+
 
         <p class="section-intro">
 
@@ -742,6 +1019,7 @@
             to help brands communicate, connect, and grow.
 
         </p>
+
 
     </div>
 
@@ -752,17 +1030,21 @@
 
         <article class="service-card">
 
+
             <span class="service-number">
                 01
             </span>
+
 
             <div class="service-icon">
                 ✦
             </div>
 
+
             <h3>
                 Web Design
             </h3>
+
 
             <p>
 
@@ -773,23 +1055,28 @@
 
             </p>
 
+
         </article>
 
 
 
         <article class="service-card">
 
+
             <span class="service-number">
                 02
             </span>
+
 
             <div class="service-icon">
                 ◇
             </div>
 
+
             <h3>
                 UI / UX Design
             </h3>
+
 
             <p>
 
@@ -799,23 +1086,28 @@
 
             </p>
 
+
         </article>
 
 
 
         <article class="service-card">
 
+
             <span class="service-number">
                 03
             </span>
+
 
             <div class="service-icon">
                 ✧
             </div>
 
+
             <h3>
                 Graphic Design
             </h3>
+
 
             <p>
 
@@ -825,23 +1117,28 @@
 
             </p>
 
+
         </article>
 
 
 
         <article class="service-card">
 
+
             <span class="service-number">
                 04
             </span>
+
 
             <div class="service-icon">
                 ◈
             </div>
 
+
             <h3>
                 Branding & Identity
             </h3>
+
 
             <p>
 
@@ -851,23 +1148,28 @@
 
             </p>
 
+
         </article>
 
 
 
         <article class="service-card">
 
+
             <span class="service-number">
                 05
             </span>
+
 
             <div class="service-icon">
                 ✦
             </div>
 
+
             <h3>
                 Social Media Design
             </h3>
+
 
             <p>
 
@@ -877,23 +1179,28 @@
 
             </p>
 
+
         </article>
 
 
 
         <article class="service-card">
 
+
             <span class="service-number">
                 06
             </span>
+
 
             <div class="service-icon">
                 ◇
             </div>
 
+
             <h3>
                 Creative Development
             </h3>
+
 
             <p>
 
@@ -903,23 +1210,28 @@
 
             </p>
 
+
         </article>
 
 
 
         <article class="service-card">
 
+
             <span class="service-number">
                 07
             </span>
+
 
             <div class="service-icon">
                 ↗
             </div>
 
+
             <h3>
                 SEO & Optimization
             </h3>
+
 
             <p>
 
@@ -928,6 +1240,7 @@
                 usability, performance, and online presence.
 
             </p>
+
 
         </article>
 
@@ -951,13 +1264,20 @@
 
     <div class="section-heading centered">
 
+
         <p class="section-label">
+
             TOOLS & CAPABILITIES
+
         </p>
 
+
         <h2>
+
             Bringing Ideas to Life
+
         </h2>
+
 
     </div>
 
@@ -968,17 +1288,21 @@
 
         <div class="skill-card">
 
+
             <div class="skill-icon">
                 ✦
             </div>
+
 
             <p class="skill-category">
                 DESIGN
             </p>
 
+
             <h3>
                 Visual Design
             </h3>
+
 
             <p>
 
@@ -989,23 +1313,28 @@
 
             </p>
 
+
         </div>
 
 
 
         <div class="skill-card">
 
+
             <div class="skill-icon">
                 ◈
             </div>
+
 
             <p class="skill-category">
                 WEB
             </p>
 
+
             <h3>
                 Web Development
             </h3>
+
 
             <p>
 
@@ -1015,23 +1344,28 @@
 
             </p>
 
+
         </div>
 
 
 
         <div class="skill-card">
 
+
             <div class="skill-icon">
                 ✧
             </div>
+
 
             <p class="skill-category">
                 DIGITAL
             </p>
 
+
             <h3>
                 Digital Strategy
             </h3>
+
 
             <p>
 
@@ -1040,6 +1374,7 @@
                 Website Performance
 
             </p>
+
 
         </div>
 
@@ -1063,15 +1398,24 @@
 
     <div class="section-heading">
 
+
         <p class="section-label">
+
             MY APPROACH
+
         </p>
 
+
         <h2>
+
             From Idea to
+
             <br>
+
             Digital Experience
+
         </h2>
+
 
     </div>
 
@@ -1082,13 +1426,16 @@
 
         <div class="process-item">
 
+
             <span class="process-number">
                 01
             </span>
 
+
             <h3>
                 Discover
             </h3>
+
 
             <p>
 
@@ -1098,19 +1445,23 @@
 
             </p>
 
+
         </div>
 
 
 
         <div class="process-item">
 
+
             <span class="process-number">
                 02
             </span>
 
+
             <h3>
                 Create
             </h3>
+
 
             <p>
 
@@ -1120,19 +1471,23 @@
 
             </p>
 
+
         </div>
 
 
 
         <div class="process-item">
 
+
             <span class="process-number">
                 03
             </span>
 
+
             <h3>
                 Develop
             </h3>
+
 
             <p>
 
@@ -1142,19 +1497,23 @@
 
             </p>
 
+
         </div>
 
 
 
         <div class="process-item">
 
+
             <span class="process-number">
                 04
             </span>
 
+
             <h3>
                 Refine
             </h3>
+
 
             <p>
 
@@ -1164,19 +1523,23 @@
 
             </p>
 
+
         </div>
 
 
 
         <div class="process-item">
 
+
             <span class="process-number">
                 05
             </span>
 
+
             <h3>
                 Deliver
             </h3>
+
 
             <p>
 
@@ -1185,6 +1548,7 @@
                 and effectively.
 
             </p>
+
 
         </div>
 
@@ -1208,13 +1572,20 @@
 
     <div class="section-heading">
 
+
         <p class="section-label">
+
             FEATURED WORK
+
         </p>
 
+
         <h2>
+
             Selected Projects
+
         </h2>
+
 
         <p class="section-intro">
 
@@ -1224,6 +1595,7 @@
             functionality, and impact.
 
         </p>
+
 
     </div>
 
@@ -1243,6 +1615,7 @@
                 aria-label="Open FileFlow Modern File Manager"
             >
 
+
                 <img
                     src="assets/projects/fileflow-cover.webp"
                     alt="FileFlow Modern File Manager project preview"
@@ -1252,18 +1625,24 @@
 
                 <div class="project-live-badge">
 
+
                     <span></span>
 
                     LIVE PROJECT
+
 
                 </div>
 
 
                 <div class="project-overlay">
 
+
                     <span>
+
                         OPEN LIVE PROJECT
+
                     </span>
+
 
                 </div>
 
@@ -1274,13 +1653,20 @@
 
             <div class="project-content">
 
+
                 <p class="project-category">
+
                     WEB APP • UI/UX • JAVASCRIPT
+
                 </p>
 
+
                 <h3>
+
                     FileFlow — Modern File Manager
+
                 </h3>
+
 
                 <p>
 
@@ -1294,21 +1680,26 @@
 
                 <div class="project-tech">
 
+
                     <span>
                         HTML
                     </span>
+
 
                     <span>
                         CSS
                     </span>
 
+
                     <span>
                         JavaScript
                     </span>
 
+
                     <span>
                         Responsive
                     </span>
+
 
                 </div>
 
@@ -1320,9 +1711,12 @@
 
                     VIEW LIVE PROJECT
 
-                    <span>→</span>
+                    <span>
+                        →
+                    </span>
 
                 </a>
+
 
             </div>
 
@@ -1337,6 +1731,7 @@
 
 
             <div class="project-image">
+
 
                 <img
                     src="assets/projects/portfolio-cover.webp"
@@ -1360,13 +1755,20 @@
 
             <div class="project-content">
 
+
                 <p class="project-category">
+
                     WEB DESIGN • UI/UX • DEVELOPMENT
+
                 </p>
 
+
                 <h3>
+
                     Premium Portfolio Website
+
                 </h3>
+
 
                 <p>
 
@@ -1380,17 +1782,21 @@
 
                 <div class="project-tech">
 
+
                     <span>
                         Web Design
                     </span>
+
 
                     <span>
                         UI / UX
                     </span>
 
+
                     <span>
                         Responsive
                     </span>
+
 
                 </div>
 
@@ -1402,9 +1808,12 @@
 
                     VIEW PORTFOLIO
 
-                    <span>→</span>
+                    <span>
+                        →
+                    </span>
 
                 </a>
+
 
             </div>
 
@@ -1419,6 +1828,7 @@
 
 
             <div class="project-image">
+
 
                 <img
                     src="assets/projects/branding-cover.webp"
@@ -1442,17 +1852,24 @@
 
             <div class="project-content">
 
+
                 <p class="project-category">
+
                     BRANDING • GRAPHIC DESIGN • IDENTITY
+
                 </p>
 
+
                 <h3>
+
                     Brand Identity & Creative Design
+
                 </h3>
+
 
                 <p>
 
-                    A premium botanical identity concept combining
+                    A premium identity concept combining
                     logo design, typography, color systems,
                     stationery, visual storytelling, and
                     professional brand presentation.
@@ -1462,17 +1879,21 @@
 
                 <div class="project-tech">
 
+
                     <span>
                         Branding
                     </span>
+
 
                     <span>
                         Graphic Design
                     </span>
 
+
                     <span>
                         Visual Identity
                     </span>
+
 
                 </div>
 
@@ -1484,9 +1905,12 @@
 
                     DISCUSS A BRAND PROJECT
 
-                    <span>→</span>
+                    <span>
+                        →
+                    </span>
 
                 </a>
+
 
             </div>
 
@@ -1501,6 +1925,7 @@
 
 
             <div class="project-image">
+
 
                 <img
                     src="assets/projects/web-experience-cover.webp"
@@ -1524,13 +1949,20 @@
 
             <div class="project-content">
 
+
                 <p class="project-category">
+
                     WEB DESIGN • RESPONSIVE • UI/UX
+
                 </p>
 
+
                 <h3>
+
                     Modern Web Experience
+
                 </h3>
+
 
                 <p>
 
@@ -1544,17 +1976,21 @@
 
                 <div class="project-tech">
 
+
                     <span>
                         Web Design
                     </span>
+
 
                     <span>
                         UI / UX
                     </span>
 
+
                     <span>
                         Development
                     </span>
+
 
                 </div>
 
@@ -1566,9 +2002,12 @@
 
                     START A WEB PROJECT
 
-                    <span>→</span>
+                    <span>
+                        →
+                    </span>
 
                 </a>
+
 
             </div>
 
@@ -1598,19 +2037,31 @@
 
         <div class="why-heading">
 
+
             <p class="section-label">
+
                 WHY WORK WITH ME
+
             </p>
+
 
             <h2>
+
                 Creativity
+
                 <br>
+
                 With Purpose.
+
             </h2>
 
+
             <p>
+
                 Every project deserves more than a template.
+
             </p>
+
 
             <p>
 
@@ -1622,6 +2073,7 @@
 
             </p>
 
+
         </div>
 
 
@@ -1631,92 +2083,132 @@
 
             <div class="why-item">
 
+
                 <span>
                     01
                 </span>
 
+
                 <div>
 
+
                     <h3>
+
                         Creative Thinking
+
                     </h3>
 
+
                     <p>
+
                         Fresh ideas shaped around your
                         vision and objectives.
+
                     </p>
 
+
                 </div>
+
 
             </div>
 
 
 
             <div class="why-item">
+
 
                 <span>
                     02
                 </span>
 
+
                 <div>
 
+
                     <h3>
+
                         Modern Design
+
                     </h3>
 
+
                     <p>
+
                         Clean, contemporary visuals built
                         for today's digital environment.
+
                     </p>
 
+
                 </div>
+
 
             </div>
 
 
 
             <div class="why-item">
+
 
                 <span>
                     03
                 </span>
 
+
                 <div>
 
+
                     <h3>
+
                         Responsive Experience
+
                     </h3>
 
+
                     <p>
+
                         Designs optimized for desktop,
                         tablet, and mobile devices.
+
                     </p>
 
+
                 </div>
+
 
             </div>
 
 
 
             <div class="why-item">
+
 
                 <span>
                     04
                 </span>
 
+
                 <div>
 
+
                     <h3>
+
                         Attention to Detail
+
                     </h3>
 
+
                     <p>
+
                         Thoughtful typography, spacing,
                         imagery, interactions, and
                         finishing touches.
+
                     </p>
 
+
                 </div>
+
 
             </div>
 
@@ -1724,23 +2216,33 @@
 
             <div class="why-item">
 
+
                 <span>
                     05
                 </span>
 
+
                 <div>
 
+
                     <h3>
+
                         Client-Focused Process
+
                     </h3>
 
+
                     <p>
+
                         Clear communication and collaborative
                         development from concept through
                         completion.
+
                     </p>
 
+
                 </div>
+
 
             </div>
 
@@ -1769,7 +2271,9 @@
 
 
         <p class="section-label">
+
             LET'S WORK TOGETHER
+
         </p>
 
 
@@ -1780,8 +2284,10 @@
             <br>
 
             <span>
+
                 Let's Turn It Into
                 Something Exceptional.
+
             </span>
 
         </h2>
@@ -1817,7 +2323,9 @@
 
                 START A PROJECT
 
-                <span>→</span>
+                <span>
+                    →
+                </span>
 
             </a>
 
@@ -1840,36 +2348,48 @@
             href="mailto:gedejhonaiza@gmail.com"
             class="contact-email"
         >
+
             gedejhonaiza@gmail.com
+
         </a>
 
 
 
         <div class="social-links">
 
+
             <a
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
             >
+
                 GITHUB
+
             </a>
+
 
             <a
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
             >
+
                 LINKEDIN
+
             </a>
+
 
             <a
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
             >
+
                 FACEBOOK
+
             </a>
+
 
         </div>
 
@@ -1898,19 +2418,28 @@
                 href="#home"
                 class="footer-logo"
             >
+
                 JG
+
             </a>
 
 
             <div>
 
+
                 <h3>
+
                     Jhonaiza Gede
+
                 </h3>
 
+
                 <p>
+
                     Creative Developer • Graphic Designer • Web Designer
+
                 </p>
+
 
             </div>
 
@@ -1921,6 +2450,7 @@
 
         <div class="footer-message">
 
+
             <p>
 
                 Creating thoughtful digital experiences
@@ -1928,6 +2458,7 @@
                 come together.
 
             </p>
+
 
         </div>
 
@@ -1945,31 +2476,39 @@
 
         <div class="footer-nav">
 
+
             <a href="#home">
                 Home
             </a>
+
 
             <a href="#about">
                 About
             </a>
 
+
             <a href="#services">
                 Services
             </a>
+
 
             <a href="#projects">
                 Projects
             </a>
 
+
             <a href="#contact">
                 Contact
             </a>
+
 
         </div>
 
 
         <p class="copyright">
+
             © 2026 Jhonaiza Gede. All Rights Reserved.
+
         </p>
 
 
@@ -1989,7 +2528,9 @@
     class="back-to-top"
     aria-label="Back to top"
 >
+
     ↑
+
 </a>
 
 
