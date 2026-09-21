@@ -1,279 +1,222 @@
 /* =========================================================
    JHONAIZA GEDE PORTFOLIO
+   COMPLETE SCRIPT.JS
 ========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+    /* =====================================================
+       MAIN ELEMENTS
+    ===================================================== */
 
+    const body = document.body;
 
-        /* =================================================
-           ELEMENTS
-        ================================================= */
+    const header =
+        document.querySelector(".desktop-header");
 
-        const body =
-            document.body;
+    const cursor =
+        document.querySelector(".cursor");
 
+    const backToTop =
+        document.querySelector(".back-to-top");
 
-        const header =
-            document.querySelector(
-                ".desktop-header"
-            );
+    const hero =
+        document.querySelector(".hero");
 
 
-        const cursor =
-            document.querySelector(
-                ".cursor"
-            );
+    /* =====================================================
+       LOADER COMPUTER CODE
+    ===================================================== */
 
+    const loaderCodeBackground =
+        document.getElementById(
+            "loaderCodeBackground"
+        );
 
-        const backToTop =
-            document.querySelector(
-                ".back-to-top"
-            );
 
+    const loaderCodeLines = [
 
+        '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
-        /* =================================================
-           LOADER COMPUTER CODE
-        ================================================= */
+        '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
 
-        const loaderCodeBackground =
-            document.getElementById(
-                "loaderCodeBackground"
-            );
+        '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
 
+        'display: grid;',
 
-        const loaderCodeLines = [
+        'grid-template-columns: 1fr 1fr;',
 
-            '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
+        '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
 
-            '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
+        'document.querySelector(<span class="code-string">".project"</span>);',
 
-            '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
+        'background: linear-gradient(135deg, #050505, #D7B56D);',
 
-            'display: grid;',
+        '&lt;div class=<span class="code-string">"creative"</span>&gt;',
 
-            'grid-template-columns: 1fr 1fr;',
+        'transform: translateY(-10px);',
 
-            '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
+        '<span class="code-keyword">let</span> creativity = true;',
 
-            'document.querySelector(<span class="code-string">".project"</span>);',
+        'animation: reveal .8s ease;',
 
-            'background: linear-gradient(135deg, #050505, #ffc91b);',
+        '<span class="code-keyword">if</span> (idea) { createExperience(); }',
 
-            '&lt;div class=<span class="code-string">"creative"</span>&gt;',
+        'font-family: "Poppins", sans-serif;',
 
-            'transform: translateY(-10px);',
+        '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
 
-            '<span class="code-keyword">let</span> creativity = true;',
+        '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
 
-            'animation: reveal .8s ease;',
+        'border: 1px solid rgba(215,181,109,.25);',
 
-            '<span class="code-keyword">if</span> (idea) { createExperience(); }',
+        '<span class="code-keyword">return</span> digitalExperience;',
 
-            'font-family: "Poppins", sans-serif;',
+        'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
 
-            '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
+        'const brand = { creativity: true, purpose: true };',
 
-            '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
+        'backdrop-filter: blur(20px);',
 
-            'border: 1px solid rgba(255,201,27,.25);',
+        '&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
 
-            '<span class="code-keyword">return</span> digitalExperience;',
+        'responsive: true;',
 
-            'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
+        'userExperience.optimize();',
 
-            'const brand = { creativity: true, purpose: true };',
+        '<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
 
-            'backdrop-filter: blur(20px);',
+        'object-fit: cover;',
 
-            '&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
+        'transition: all .4s ease;',
 
-            'responsive: true;',
+        'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
 
-            'userExperience.optimize();',
+        'creativeDeveloper.initialize();',
 
-            '<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
+        '&lt;/portfolio&gt;'
 
-            'object-fit: cover;',
+    ];
 
-            'transition: all .4s ease;',
 
-            'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
+    function buildLoaderCode() {
 
-            'creativeDeveloper.initialize();',
+        if (!loaderCodeBackground) {
+            return;
+        }
 
-            '&lt;/portfolio&gt;'
 
-        ];
+        loaderCodeBackground.innerHTML = "";
 
 
+        const width =
+            window.innerWidth;
 
-        function buildLoaderCode() {
 
+        let columns = 15;
 
-            if (
-                !loaderCodeBackground
-            ) {
 
-                return;
+        if (width <= 520) {
 
-            }
+            columns = 6;
 
+        } else if (width <= 900) {
 
-            loaderCodeBackground.innerHTML =
-                "";
-
-
-            const width =
-                window.innerWidth;
-
-
-            let columns =
-                15;
-
-
-            if (
-                width <=
-                520
-            ) {
-
-                columns =
-                    6;
-
-            }
-
-            else if (
-                width <=
-                900
-            ) {
-
-                columns =
-                    9;
-
-            }
-
-
-
-            for (
-                let i = 0;
-                i < columns;
-                i++
-            ) {
-
-
-                const column =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                column.className =
-                    "code-column";
-
-
-                column.style.left =
-                    `${
-                        (
-                            i /
-                            columns
-                        )
-                        *
-                        100
-                    }%`;
-
-
-                column.style.animationDuration =
-                    `${
-                        18 +
-                        Math.random() *
-                        16
-                    }s`;
-
-
-                column.style.animationDelay =
-                    `-${
-                        Math.random() *
-                        18
-                    }s`;
-
-
-
-                for (
-                    let j = 0;
-                    j < 16;
-                    j++
-                ) {
-
-
-                    const line =
-                        document.createElement(
-                            "span"
-                        );
-
-
-                    line.innerHTML =
-                        loaderCodeLines[
-                            Math.floor(
-                                Math.random() *
-                                loaderCodeLines.length
-                            )
-                        ];
-
-
-                    column.appendChild(
-                        line
-                    );
-
-
-                }
-
-
-                loaderCodeBackground.appendChild(
-                    column
-                );
-
-
-            }
-
+            columns = 9;
 
         }
 
 
+        for (
+            let i = 0;
+            i < columns;
+            i++
+        ) {
 
-        buildLoaderCode();
+            const column =
+                document.createElement("div");
 
 
+            column.className =
+                "code-column";
 
-        /* =================================================
-           HERO COMPUTER CODE
-           LARGE BLURRED CODE FRAGMENTS
-        ================================================= */
 
-        const heroCodeBackground =
-            document.getElementById(
-                "heroCodeBackground"
+            column.style.left =
+                `${(i / columns) * 100}%`;
+
+
+            column.style.animationDuration =
+                `${18 + Math.random() * 16}s`;
+
+
+            column.style.animationDelay =
+                `-${Math.random() * 18}s`;
+
+
+            for (
+                let j = 0;
+                j < 16;
+                j++
+            ) {
+
+                const line =
+                    document.createElement("span");
+
+
+                line.innerHTML =
+                    loaderCodeLines[
+                        Math.floor(
+                            Math.random() *
+                            loaderCodeLines.length
+                        )
+                    ];
+
+
+                column.appendChild(line);
+
+            }
+
+
+            loaderCodeBackground.appendChild(
+                column
             );
 
+        }
 
-        const heroCodeBlocks = [
+    }
 
-`<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width">
-</head>`,
+
+    buildLoaderCode();
+
+
+
+    /* =====================================================
+       HERO COMPUTER CODE BACKGROUND
+    ===================================================== */
+
+    const heroCodeBackground =
+        document.getElementById(
+            "heroCodeBackground"
+        );
+
+
+    const heroCodeBlocks = [
 
 `const portfolio = {
   designer: "Jhonaiza Gede",
-  specialty: "Creative Developer",
-  responsive: true,
-  creative: true
+  role: "Creative Developer",
+  creativity: true,
+  responsive: true
 };`,
+
+`const skills = [
+  "Web Design",
+  "Graphic Design",
+  "UI / UX",
+  "JavaScript",
+  "Branding",
+  "SEO"
+];`,
 
 `function createExperience() {
   const idea = getVision();
@@ -284,9 +227,8 @@ content="width=device-width">
 `.hero {
   position: relative;
   display: grid;
-  grid-template-columns:
-  1.05fr .95fr;
   min-height: 100vh;
+  overflow: hidden;
 }`,
 
 `const projects =
@@ -319,1537 +261,1557 @@ projects.forEach(project => {
   </article>
 </section>`,
 
-`const skills = [
-  "Web Design",
-  "Graphic Design",
-  "UI / UX",
-  "JavaScript",
-  "Branding",
-  "SEO"
-];`,
-
 `userExperience
   .design()
   .develop()
   .optimize()
-  .deliver();`
+  .deliver();`,
 
-        ];
+`const creativeProcess = {
+  discover: true,
+  design: true,
+  develop: true,
+  refine: true,
+  deliver: true
+};`
 
-
-
-        function buildHeroCode() {
-
-
-            if (
-                !heroCodeBackground
-            ) {
-
-                return;
-
-            }
+    ];
 
 
-            heroCodeBackground.innerHTML =
-                "";
+    const heroCodePositions = [
+
+        {
+            left: "2%",
+            top: "10%"
+        },
+
+        {
+            left: "35%",
+            top: "6%"
+        },
+
+        {
+            right: "2%",
+            top: "14%"
+        },
+
+        {
+            left: "4%",
+            bottom: "5%"
+        },
+
+        {
+            left: "38%",
+            bottom: "7%"
+        },
+
+        {
+            right: "1%",
+            bottom: "8%"
+        },
+
+        {
+            left: "25%",
+            top: "42%"
+        },
+
+        {
+            right: "25%",
+            top: "48%"
+        },
+
+        {
+            left: "59%",
+            top: "27%"
+        }
+
+    ];
 
 
-            const width =
-                window.innerWidth;
+    function buildHeroCode() {
+
+        if (!heroCodeBackground) {
+            return;
+        }
 
 
-            let totalBlocks =
-                9;
+        heroCodeBackground.innerHTML = "";
 
 
-            if (
-                width <=
-                767
-            ) {
-
-                totalBlocks =
-                    7;
-
-            }
+        const width =
+            window.innerWidth;
 
 
-            for (
-                let i = 0;
-                i < totalBlocks;
-                i++
-            ) {
+        let totalBlocks = 9;
 
 
-                const block =
-                    document.createElement(
-                        "pre"
-                    );
+        if (width <= 767) {
 
-
-                block.className =
-                    "hero-code-block";
-
-
-                block.textContent =
-                    heroCodeBlocks[
-                        i %
-                        heroCodeBlocks.length
-                    ];
-
-
-                /*
-                 Deliberately spread snippets
-                 around the hero instead of
-                 using a Matrix rain layout.
-                */
-
-                const positions = [
-
-                    {
-                        left: "2%",
-                        top: "15%"
-                    },
-
-                    {
-                        left: "37%",
-                        top: "10%"
-                    },
-
-                    {
-                        right: "2%",
-                        top: "16%"
-                    },
-
-                    {
-                        left: "4%",
-                        bottom: "4%"
-                    },
-
-                    {
-                        left: "40%",
-                        bottom: "8%"
-                    },
-
-                    {
-                        right: "1%",
-                        bottom: "6%"
-                    },
-
-                    {
-                        left: "26%",
-                        top: "43%"
-                    },
-
-                    {
-                        right: "26%",
-                        top: "48%"
-                    },
-
-                    {
-                        left: "58%",
-                        top: "25%"
-                    }
-
-                ];
-
-
-                const position =
-                    positions[
-                        i %
-                        positions.length
-                    ];
-
-
-                Object.keys(
-                    position
-                )
-                .forEach(
-                    property => {
-
-
-                        block.style[
-                            property
-                        ] =
-                            position[
-                                property
-                            ];
-
-
-                    }
-                );
-
-
-                block.style.animationDelay =
-                    `-${
-                        i *
-                        1.7
-                    }s`;
-
-
-                heroCodeBackground.appendChild(
-                    block
-                );
-
-
-            }
-
+            totalBlocks = 7;
 
         }
 
 
+        for (
+            let i = 0;
+            i < totalBlocks;
+            i++
+        ) {
 
-        buildHeroCode();
+            const block =
+                document.createElement("pre");
 
 
+            block.className =
+                "hero-code-block";
 
-        /* =================================================
-           LOADER
-        ================================================= */
 
-        const loader =
-            document.getElementById(
-                "pageLoader"
+            block.textContent =
+                heroCodeBlocks[
+                    i %
+                    heroCodeBlocks.length
+                ];
+
+
+            const position =
+                heroCodePositions[
+                    i %
+                    heroCodePositions.length
+                ];
+
+
+            Object.keys(position)
+                .forEach(property => {
+
+                    block.style[property] =
+                        position[property];
+
+                });
+
+
+            block.style.animationDelay =
+                `-${i * 1.7}s`;
+
+
+            heroCodeBackground.appendChild(
+                block
             );
 
+        }
 
-        const loaderPercent =
-            document.getElementById(
-                "loaderPercent"
-            );
+    }
 
 
-        const loaderProgress =
-            document.getElementById(
-                "loaderProgress"
-            );
+    buildHeroCode();
 
 
-        const typingText =
-            document.getElementById(
-                "loaderTypingText"
-            );
 
+    /* =====================================================
+       PAGE LOADER
+    ===================================================== */
 
-        body.classList.add(
-            "loader-active"
+    const loader =
+        document.getElementById(
+            "pageLoader"
         );
 
 
+    const loaderPercent =
+        document.getElementById(
+            "loaderPercent"
+        );
 
-        const typingMessages = [
 
-            "Initializing interface...",
+    const loaderProgress =
+        document.getElementById(
+            "loaderProgress"
+        );
 
-            "Loading creative assets...",
 
-            "Compiling digital experience...",
+    const loaderTypingText =
+        document.getElementById(
+            "loaderTypingText"
+        );
 
-            "Preparing featured projects...",
 
-            "Optimizing responsive layout...",
+    body.classList.add(
+        "loader-active"
+    );
 
-            "Connecting creative components...",
 
-            "Almost ready...",
+    const loaderMessages = [
 
-            "Launching portfolio..."
+        "Initializing interface...",
 
-        ];
+        "Loading creative assets...",
 
+        "Compiling digital experience...",
 
-        let messageIndex =
-            0;
+        "Preparing featured projects...",
 
+        "Optimizing responsive layout...",
 
-        let characterIndex =
-            0;
+        "Connecting creative components...",
 
+        "Almost ready...",
 
-        let deleting =
-            false;
+        "Launching portfolio..."
 
+    ];
 
-        let typingStopped =
-            false;
 
+    let loaderMessageIndex = 0;
 
+    let loaderCharacterIndex = 0;
 
-        function typeLoaderMessage() {
+    let loaderDeleting = false;
 
+    let loaderTypingStopped = false;
 
-            if (
-                !typingText ||
-                typingStopped
-            ) {
 
-                return;
+    function typeLoaderMessage() {
 
-            }
-
-
-            const message =
-                typingMessages[
-                    messageIndex
-                ];
-
-
-
-            if (
-                !deleting
-            ) {
-
-
-                characterIndex++;
-
-
-                typingText.textContent =
-                    message.substring(
-                        0,
-                        characterIndex
-                    );
-
-
-                if (
-                    characterIndex >=
-                    message.length
-                ) {
-
-
-                    deleting =
-                        true;
-
-
-                    setTimeout(
-                        typeLoaderMessage,
-                        260
-                    );
-
-
-                    return;
-
-                }
-
-
-                setTimeout(
-                    typeLoaderMessage,
-                    25
-                );
-
-
-            }
-
-            else {
-
-
-                characterIndex--;
-
-
-                typingText.textContent =
-                    message.substring(
-                        0,
-                        characterIndex
-                    );
-
-
-                if (
-                    characterIndex <=
-                    0
-                ) {
-
-
-                    deleting =
-                        false;
-
-
-                    messageIndex =
-                        (
-                            messageIndex +
-                            1
-                        )
-                        %
-                        typingMessages.length;
-
-
-                    setTimeout(
-                        typeLoaderMessage,
-                        70
-                    );
-
-
-                    return;
-
-                }
-
-
-                setTimeout(
-                    typeLoaderMessage,
-                    12
-                );
-
-
-            }
-
-
+        if (
+            !loaderTypingText ||
+            loaderTypingStopped
+        ) {
+            return;
         }
 
 
-
-        typeLoaderMessage();
-
-
-
-        const loaderDuration =
-            6500;
+        const currentMessage =
+            loaderMessages[
+                loaderMessageIndex
+            ];
 
 
-        const loaderStartTime =
-            performance.now();
+        if (!loaderDeleting) {
+
+            loaderCharacterIndex++;
 
 
-        let loaderComplete =
-            false;
-
-
-
-        function finishLoader() {
+            loaderTypingText.textContent =
+                currentMessage.substring(
+                    0,
+                    loaderCharacterIndex
+                );
 
 
             if (
-                loaderComplete
+                loaderCharacterIndex >=
+                currentMessage.length
             ) {
+
+                loaderDeleting = true;
+
+
+                setTimeout(
+                    typeLoaderMessage,
+                    260
+                );
+
 
                 return;
-
-            }
-
-
-            loaderComplete =
-                true;
-
-
-            typingStopped =
-                true;
-
-
-            if (
-                loaderPercent
-            ) {
-
-                loaderPercent.textContent =
-                    "100%";
-
-            }
-
-
-            if (
-                loaderProgress
-            ) {
-
-                loaderProgress.style.width =
-                    "100%";
-
-            }
-
-
-            if (
-                typingText
-            ) {
-
-                typingText.textContent =
-                    "Experience ready.";
 
             }
 
 
             setTimeout(
-                () => {
-
-
-                    if (
-                        loader
-                    ) {
-
-                        loader.classList.add(
-                            "hide"
-                        );
-
-                    }
-
-
-                    body.classList.remove(
-                        "loader-active"
-                    );
-
-
-                },
-                650
+                typeLoaderMessage,
+                25
             );
 
+        } else {
 
-        }
-
-
-
-        function updateLoader(
-            currentTime
-        ) {
+            loaderCharacterIndex--;
 
 
-            if (
-                loaderComplete
-            ) {
-
-                return;
-
-            }
-
-
-            const elapsed =
-                currentTime -
-                loaderStartTime;
-
-
-            let progress =
-                Math.min(
-                    elapsed /
-                    loaderDuration,
-                    1
+            loaderTypingText.textContent =
+                currentMessage.substring(
+                    0,
+                    loaderCharacterIndex
                 );
 
 
             if (
-                progress <
-                .55
+                loaderCharacterIndex <= 0
             ) {
 
-                progress =
-                    progress *
-                    1.08;
+                loaderDeleting = false;
 
-            }
 
-            else if (
-                progress <
-                .88
-            ) {
-
-                progress =
-                    .594 +
+                loaderMessageIndex =
                     (
-                        progress -
-                        .55
-                    )
-                    *
-                    .82;
-
-            }
-
-            else {
-
-                progress =
-                    .8646 +
-                    (
-                        progress -
-                        .88
-                    )
-                    *
-                    1.128;
-
-            }
-
-
-            progress =
-                Math.min(
-                    progress,
-                    1
-                );
-
-
-            const percent =
-                Math.floor(
-                    progress *
-                    100
-                );
-
-
-            if (
-                loaderPercent
-            ) {
-
-                loaderPercent.textContent =
-                    `${percent}%`;
-
-            }
-
-
-            if (
-                loaderProgress
-            ) {
-
-                loaderProgress.style.width =
-                    `${percent}%`;
-
-            }
-
-
-            if (
-                elapsed >=
-                loaderDuration
-            ) {
-
-                finishLoader();
-
-                return;
-
-            }
-
-
-            requestAnimationFrame(
-                updateLoader
-            );
-
-
-        }
-
-
-
-        requestAnimationFrame(
-            updateLoader
-        );
-
-
-        setTimeout(
-            finishLoader,
-            7800
-        );
-
-
-
-        /* =================================================
-           HERO ROLE TYPEWRITER
-        ================================================= */
-
-        const heroRoleTyping =
-            document.getElementById(
-                "heroRoleTyping"
-            );
-
-
-        const heroRoles = [
-
-            "Web Design",
-
-            "Graphic Design",
-
-            "UI / UX Design",
-
-            "Creative Development",
-
-            "Branding",
-
-            "SEO Optimization"
-
-        ];
-
-
-        let heroRoleIndex =
-            0;
-
-
-        let heroCharIndex =
-            0;
-
-
-        let heroDeleting =
-            false;
-
-
-
-        function typeHeroRole() {
-
-
-            if (
-                !heroRoleTyping
-            ) {
-
-                return;
-
-            }
-
-
-            const currentRole =
-                heroRoles[
-                    heroRoleIndex
-                ];
-
-
-
-            if (
-                !heroDeleting
-            ) {
-
-
-                heroCharIndex++;
-
-
-                heroRoleTyping.textContent =
-                    currentRole.substring(
-                        0,
-                        heroCharIndex
-                    );
-
-
-                if (
-                    heroCharIndex >=
-                    currentRole.length
-                ) {
-
-
-                    heroDeleting =
-                        true;
-
-
-                    setTimeout(
-                        typeHeroRole,
-                        1250
-                    );
-
-
-                    return;
-
-                }
+                        loaderMessageIndex +
+                        1
+                    ) %
+                    loaderMessages.length;
 
 
                 setTimeout(
-                    typeHeroRole,
+                    typeLoaderMessage,
                     70
                 );
 
 
+                return;
+
             }
 
-            else {
+
+            setTimeout(
+                typeLoaderMessage,
+                12
+            );
+
+        }
+
+    }
 
 
-                heroCharIndex--;
+    typeLoaderMessage();
 
 
-                heroRoleTyping.textContent =
-                    currentRole.substring(
-                        0,
-                        heroCharIndex
-                    );
+
+    /* =====================================================
+       LOADER PROGRESS
+       ABOUT 6.5 SECONDS
+    ===================================================== */
+
+    const loaderDuration =
+        6500;
 
 
-                if (
-                    heroCharIndex <=
-                    0
-                ) {
+    const loaderStartTime =
+        performance.now();
 
 
-                    heroDeleting =
-                        false;
+    let loaderComplete =
+        false;
 
 
-                    heroRoleIndex =
-                        (
-                            heroRoleIndex +
-                            1
-                        )
-                        %
-                        heroRoles.length;
+    function finishLoader() {
+
+        if (loaderComplete) {
+            return;
+        }
 
 
-                    setTimeout(
-                        typeHeroRole,
-                        220
-                    );
+        loaderComplete = true;
+
+        loaderTypingStopped = true;
 
 
-                    return;
+        if (loaderPercent) {
 
-                }
+            loaderPercent.textContent =
+                "100%";
+
+        }
+
+
+        if (loaderProgress) {
+
+            loaderProgress.style.width =
+                "100%";
+
+        }
+
+
+        if (loaderTypingText) {
+
+            loaderTypingText.textContent =
+                "Experience ready.";
+
+        }
+
+
+        setTimeout(() => {
+
+            if (loader) {
+
+                loader.classList.add(
+                    "hide"
+                );
+
+            }
+
+
+            body.classList.remove(
+                "loader-active"
+            );
+
+        }, 650);
+
+    }
+
+
+    function updateLoaderProgress(
+        currentTime
+    ) {
+
+        if (loaderComplete) {
+            return;
+        }
+
+
+        const elapsed =
+            currentTime -
+            loaderStartTime;
+
+
+        let progress =
+            Math.min(
+                elapsed /
+                loaderDuration,
+                1
+            );
+
+
+        /*
+           Natural progress movement:
+           quicker first half,
+           slightly slower near completion.
+        */
+
+        if (progress < 0.55) {
+
+            progress =
+                progress * 1.08;
+
+        } else if (
+            progress < 0.88
+        ) {
+
+            progress =
+                0.594 +
+                (
+                    progress -
+                    0.55
+                ) *
+                0.82;
+
+        } else {
+
+            progress =
+                0.8646 +
+                (
+                    progress -
+                    0.88
+                ) *
+                1.128;
+
+        }
+
+
+        progress =
+            Math.min(
+                progress,
+                1
+            );
+
+
+        const percent =
+            Math.floor(
+                progress *
+                100
+            );
+
+
+        if (loaderPercent) {
+
+            loaderPercent.textContent =
+                `${percent}%`;
+
+        }
+
+
+        if (loaderProgress) {
+
+            loaderProgress.style.width =
+                `${percent}%`;
+
+        }
+
+
+        if (
+            elapsed >=
+            loaderDuration
+        ) {
+
+            finishLoader();
+
+            return;
+
+        }
+
+
+        requestAnimationFrame(
+            updateLoaderProgress
+        );
+
+    }
+
+
+    requestAnimationFrame(
+        updateLoaderProgress
+    );
+
+
+    /*
+       Failsafe so the visitor
+       can never become stuck
+       on the loader.
+    */
+
+    setTimeout(
+        finishLoader,
+        7800
+    );
+
+
+
+    /* =====================================================
+       HERO ROLE TYPEWRITER
+    ===================================================== */
+
+    const heroRoleTyping =
+        document.getElementById(
+            "heroRoleTyping"
+        );
+
+
+    const heroRoles = [
+
+        "Web Design",
+
+        "Graphic Design",
+
+        "UI / UX Design",
+
+        "Creative Development",
+
+        "Branding",
+
+        "SEO Optimization"
+
+    ];
+
+
+    let heroRoleIndex = 0;
+
+    let heroCharacterIndex = 0;
+
+    let heroDeleting = false;
+
+
+    function typeHeroRole() {
+
+        if (!heroRoleTyping) {
+            return;
+        }
+
+
+        const currentRole =
+            heroRoles[
+                heroRoleIndex
+            ];
+
+
+        if (!heroDeleting) {
+
+            heroCharacterIndex++;
+
+
+            heroRoleTyping.textContent =
+                currentRole.substring(
+                    0,
+                    heroCharacterIndex
+                );
+
+
+            if (
+                heroCharacterIndex >=
+                currentRole.length
+            ) {
+
+                heroDeleting = true;
 
 
                 setTimeout(
                     typeHeroRole,
-                    35
+                    1250
                 );
 
-
-            }
-
-
-        }
-
-
-
-        setTimeout(
-            typeHeroRole,
-            900
-        );
-
-
-
-        /* =================================================
-           HEADER SCROLL
-        ================================================= */
-
-        function updateHeader() {
-
-
-            if (
-                !header
-            ) {
 
                 return;
 
             }
 
 
-            header.classList.toggle(
-                "scrolled",
-                window.scrollY >
-                40
+            setTimeout(
+                typeHeroRole,
+                70
             );
 
+        } else {
+
+            heroCharacterIndex--;
+
+
+            heroRoleTyping.textContent =
+                currentRole.substring(
+                    0,
+                    heroCharacterIndex
+                );
+
+
+            if (
+                heroCharacterIndex <= 0
+            ) {
+
+                heroDeleting = false;
+
+
+                heroRoleIndex =
+                    (
+                        heroRoleIndex +
+                        1
+                    ) %
+                    heroRoles.length;
+
+
+                setTimeout(
+                    typeHeroRole,
+                    220
+                );
+
+
+                return;
+
+            }
+
+
+            setTimeout(
+                typeHeroRole,
+                35
+            );
 
         }
 
+    }
 
-        updateHeader();
+
+    setTimeout(
+        typeHeroRole,
+        900
+    );
 
 
-        window.addEventListener(
-            "scroll",
-            updateHeader,
-            {
-                passive: true
+
+    /* =====================================================
+       DESKTOP HEADER SCROLL EFFECT
+    ===================================================== */
+
+    function updateHeader() {
+
+        if (!header) {
+            return;
+        }
+
+
+        header.classList.toggle(
+            "scrolled",
+            window.scrollY > 40
+        );
+
+    }
+
+
+    updateHeader();
+
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        {
+            passive: true
+        }
+    );
+
+
+
+    /* =====================================================
+       CUSTOM CURSOR
+    ===================================================== */
+
+    if (cursor) {
+
+        document.addEventListener(
+            "mousemove",
+            event => {
+
+                cursor.style.left =
+                    `${event.clientX}px`;
+
+
+                cursor.style.top =
+                    `${event.clientY}px`;
+
             }
         );
 
 
+        document
+            .querySelectorAll(
+                `
+                a,
+                button,
+                .service-card,
+                .skill-card,
+                .project-card,
+                .about-stat
+                `
+            )
+            .forEach(item => {
 
-        /* =================================================
-           CUSTOM CURSOR
-        ================================================= */
+                item.addEventListener(
+                    "mouseenter",
+                    () => {
 
-        if (
-            cursor
-        ) {
-
-
-            document.addEventListener(
-                "mousemove",
-                event => {
-
-
-                    cursor.style.left =
-                        `${event.clientX}px`;
-
-
-                    cursor.style.top =
-                        `${event.clientY}px`;
-
-
-                }
-            );
-
-
-            document
-                .querySelectorAll(
-                    "a, button, .service-card, .skill-card, .project-card"
-                )
-                .forEach(
-                    item => {
-
-
-                        item.addEventListener(
-                            "mouseenter",
-                            () => {
-
-
-                                cursor.classList.add(
-                                    "active"
-                                );
-
-
-                            }
+                        cursor.classList.add(
+                            "active"
                         );
-
-
-                        item.addEventListener(
-                            "mouseleave",
-                            () => {
-
-
-                                cursor.classList.remove(
-                                    "active"
-                                );
-
-
-                            }
-                        );
-
 
                     }
                 );
 
 
+                item.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        cursor.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            });
+
+    }
+
+
+
+    /* =====================================================
+       SMOOTH INTERNAL LINKS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const href =
+                        link.getAttribute(
+                            "href"
+                        );
+
+
+                    if (
+                        !href ||
+                        href === "#"
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            href
+                        );
+
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    target.scrollIntoView({
+
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "start"
+
+                    });
+
+                }
+            );
+
+        });
+
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
+
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+
+    const desktopNavLinks =
+        document.querySelectorAll(
+            ".nav-links a"
+        );
+
+
+    const mobileNavLinks =
+        document.querySelectorAll(
+            ".mobile-bottom-link"
+        );
+
+
+    function updateNavigation() {
+
+        let current =
+            "home";
+
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop -
+                220;
+
+
+            const sectionHeight =
+                section.offsetHeight;
+
+
+            if (
+                window.scrollY >=
+                    sectionTop &&
+                window.scrollY <
+                    sectionTop +
+                    sectionHeight
+            ) {
+
+                current =
+                    section.id;
+
+            }
+
+        });
+
+
+        desktopNavLinks.forEach(
+            link => {
+
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute(
+                        "href"
+                    ) ===
+                    `#${current}`
+                );
+
+            }
+        );
+
+
+        mobileNavLinks.forEach(
+            link => {
+
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute(
+                        "href"
+                    ) ===
+                    `#${current}`
+                );
+
+            }
+        );
+
+    }
+
+
+    updateNavigation();
+
+
+    window.addEventListener(
+        "scroll",
+        updateNavigation,
+        {
+            passive: true
+        }
+    );
+
+
+
+    /* =====================================================
+       BACK TO TOP BUTTON
+    ===================================================== */
+
+    function updateBackToTop() {
+
+        if (!backToTop) {
+            return;
         }
 
 
+        backToTop.classList.toggle(
+            "show",
+            window.scrollY > 500
+        );
 
-        /* =================================================
-           SMOOTH INTERNAL LINKS
-        ================================================= */
-
-        document
-            .querySelectorAll(
-                'a[href^="#"]'
-            )
-            .forEach(
-                link => {
+    }
 
 
-                    link.addEventListener(
-                        "click",
-                        event => {
+    updateBackToTop();
 
 
-                            const href =
-                                link.getAttribute(
-                                    "href"
-                                );
+    window.addEventListener(
+        "scroll",
+        updateBackToTop,
+        {
+            passive: true
+        }
+    );
 
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements = [
+
+        ...document.querySelectorAll(
+            ".section-heading"
+        ),
+
+        ...document.querySelectorAll(
+            ".about-image-wrap"
+        ),
+
+        ...document.querySelectorAll(
+            ".about-visual"
+        ),
+
+        ...document.querySelectorAll(
+            ".about-portrait-wrap"
+        ),
+
+        ...document.querySelectorAll(
+            ".about-content"
+        ),
+
+        ...document.querySelectorAll(
+            ".about-stat"
+        ),
+
+        ...document.querySelectorAll(
+            ".service-card"
+        ),
+
+        ...document.querySelectorAll(
+            ".skill-card"
+        ),
+
+        ...document.querySelectorAll(
+            ".process-item"
+        ),
+
+        ...document.querySelectorAll(
+            ".project-card"
+        ),
+
+        ...document.querySelectorAll(
+            ".why-heading"
+        ),
+
+        ...document.querySelectorAll(
+            ".why-item"
+        ),
+
+        ...document.querySelectorAll(
+            ".contact-container"
+        )
+
+    ];
+
+
+    revealElements.forEach(
+        element => {
+
+            element.classList.add(
+                "reveal"
+            );
+
+        }
+    );
+
+
+    if (
+        "IntersectionObserver" in
+        window
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
 
                             if (
-                                !href ||
-                                href ===
-                                "#"
+                                entry.isIntersecting
                             ) {
 
-                                return;
+                                entry.target
+                                    .classList
+                                    .add(
+                                        "active"
+                                    );
 
-                            }
 
-
-                            const target =
-                                document.querySelector(
-                                    href
+                                observer.unobserve(
+                                    entry.target
                                 );
 
-
-                            if (
-                                !target
-                            ) {
-
-                                return;
-
                             }
-
-
-                            event.preventDefault();
-
-
-                            target.scrollIntoView(
-                                {
-
-                                    behavior:
-                                        "smooth",
-
-                                    block:
-                                        "start"
-
-                                }
-                            );
-
 
                         }
                     );
 
+                },
+                {
+
+                    threshold: 0.12,
+
+                    rootMargin:
+                        "0px 0px -40px 0px"
 
                 }
             );
-
-
-
-        /* =================================================
-           ACTIVE NAVIGATION
-        ================================================= */
-
-        const sections =
-            document.querySelectorAll(
-                "section[id]"
-            );
-
-
-        const desktopNavLinks =
-            document.querySelectorAll(
-                ".nav-links a"
-            );
-
-
-        const mobileNavLinks =
-            document.querySelectorAll(
-                ".mobile-bottom-link"
-            );
-
-
-
-        function updateNavigation() {
-
-
-            let current =
-                "home";
-
-
-            sections.forEach(
-                section => {
-
-
-                    const sectionTop =
-                        section.offsetTop -
-                        220;
-
-
-                    const sectionHeight =
-                        section.offsetHeight;
-
-
-                    if (
-
-                        window.scrollY >=
-                        sectionTop
-
-                        &&
-
-                        window.scrollY <
-                        sectionTop +
-                        sectionHeight
-
-                    ) {
-
-
-                        current =
-                            section.id;
-
-
-                    }
-
-
-                }
-            );
-
-
-
-            desktopNavLinks.forEach(
-                link => {
-
-
-                    link.classList.toggle(
-                        "active",
-                        link.getAttribute(
-                            "href"
-                        )
-                        ===
-                        `#${current}`
-                    );
-
-
-                }
-            );
-
-
-
-            mobileNavLinks.forEach(
-                link => {
-
-
-                    link.classList.toggle(
-                        "active",
-                        link.getAttribute(
-                            "href"
-                        )
-                        ===
-                        `#${current}`
-                    );
-
-
-                }
-            );
-
-
-        }
-
-
-
-        updateNavigation();
-
-
-        window.addEventListener(
-            "scroll",
-            updateNavigation,
-            {
-                passive: true
-            }
-        );
-
-
-
-        /* =================================================
-           BACK TO TOP
-        ================================================= */
-
-        function updateBackToTop() {
-
-
-            if (
-                !backToTop
-            ) {
-
-                return;
-
-            }
-
-
-            backToTop.classList.toggle(
-                "show",
-                window.scrollY >
-                500
-            );
-
-
-        }
-
-
-        updateBackToTop();
-
-
-        window.addEventListener(
-            "scroll",
-            updateBackToTop,
-            {
-                passive: true
-            }
-        );
-
-
-
-        /* =================================================
-           REVEAL
-        ================================================= */
-
-        const revealElements = [
-
-            ...document.querySelectorAll(
-                ".section-heading"
-            ),
-
-            ...document.querySelectorAll(
-                ".about-image-wrap"
-            ),
-
-            ...document.querySelectorAll(
-                ".about-content"
-            ),
-
-            ...document.querySelectorAll(
-                ".service-card"
-            ),
-
-            ...document.querySelectorAll(
-                ".skill-card"
-            ),
-
-            ...document.querySelectorAll(
-                ".process-item"
-            ),
-
-            ...document.querySelectorAll(
-                ".project-card"
-            ),
-
-            ...document.querySelectorAll(
-                ".why-heading"
-            ),
-
-            ...document.querySelectorAll(
-                ".why-item"
-            ),
-
-            ...document.querySelectorAll(
-                ".contact-container"
-            )
-
-        ];
-
 
 
         revealElements.forEach(
             element => {
 
-
-                element.classList.add(
-                    "reveal"
+                observer.observe(
+                    element
                 );
-
 
             }
         );
 
+    } else {
 
+        revealElements.forEach(
+            element => {
 
-        if (
-            "IntersectionObserver"
-            in window
-        ) {
-
-
-            const observer =
-                new IntersectionObserver(
-                    entries => {
-
-
-                        entries.forEach(
-                            entry => {
-
-
-                                if (
-                                    entry.isIntersecting
-                                ) {
-
-
-                                    entry.target.classList.add(
-                                        "active"
-                                    );
-
-
-                                    observer.unobserve(
-                                        entry.target
-                                    );
-
-
-                                }
-
-
-                            }
-                        );
-
-
-                    },
-                    {
-
-                        threshold:
-                            .12,
-
-                        rootMargin:
-                            "0px 0px -40px 0px"
-
-                    }
+                element.classList.add(
+                    "active"
                 );
 
+            }
+        );
 
-
-            revealElements.forEach(
-                element => {
-
-
-                    observer.observe(
-                        element
-                    );
-
-
-                }
-            );
-
-
-        }
-
-        else {
-
-
-            revealElements.forEach(
-                element => {
-
-
-                    element.classList.add(
-                        "active"
-                    );
-
-
-                }
-            );
-
-
-        }
+    }
 
 
 
-        /* =================================================
-           PROJECT CARD TILT
-        ================================================= */
+    /* =====================================================
+       PROJECT CARD TILT
+    ===================================================== */
 
-        document
-            .querySelectorAll(
-                ".project-card"
-            )
-            .forEach(
-                card => {
+    document
+        .querySelectorAll(
+            ".project-card"
+        )
+        .forEach(card => {
 
-
-                    card.addEventListener(
-                        "mousemove",
-                        event => {
-
-
-                            if (
-                                window.innerWidth <=
-                                900
-                            ) {
-
-                                return;
-
-                            }
-
-
-                            const rect =
-                                card.getBoundingClientRect();
-
-
-                            const x =
-                                event.clientX -
-                                rect.left;
-
-
-                            const y =
-                                event.clientY -
-                                rect.top;
-
-
-                            const centerX =
-                                rect.width /
-                                2;
-
-
-                            const centerY =
-                                rect.height /
-                                2;
-
-
-                            const rotateX =
-                                (
-                                    (
-                                        y -
-                                        centerY
-                                    )
-                                    /
-                                    centerY
-                                )
-                                *
-                                -1.2;
-
-
-                            const rotateY =
-                                (
-                                    (
-                                        x -
-                                        centerX
-                                    )
-                                    /
-                                    centerX
-                                )
-                                *
-                                1.2;
-
-
-                            card.style.transform =
-                                `perspective(1200px)
-                                rotateX(${rotateX}deg)
-                                rotateY(${rotateY}deg)
-                                translateY(-8px)`;
-
-
-                        }
-                    );
-
-
-                    card.addEventListener(
-                        "mouseleave",
-                        () => {
-
-
-                            card.style.transform =
-                                "";
-
-
-                        }
-                    );
-
-
-                }
-            );
-
-
-
-        /* =================================================
-           HERO CODE MOUSE DEPTH
-        ================================================= */
-
-        const hero =
-            document.querySelector(
-                ".hero"
-            );
-
-
-        if (
-            hero &&
-            heroCodeBackground
-        ) {
-
-
-            hero.addEventListener(
+            card.addEventListener(
                 "mousemove",
                 event => {
-
 
                     if (
                         window.innerWidth <=
                         900
                     ) {
-
                         return;
-
                     }
 
 
                     const rect =
-                        hero.getBoundingClientRect();
+                        card.getBoundingClientRect();
 
 
                     const x =
-                        (
-                            event.clientX -
-                            rect.left
-                        )
-                        /
-                        rect.width;
+                        event.clientX -
+                        rect.left;
 
 
                     const y =
+                        event.clientY -
+                        rect.top;
+
+
+                    const centerX =
+                        rect.width / 2;
+
+
+                    const centerY =
+                        rect.height / 2;
+
+
+                    const rotateX =
                         (
-                            event.clientY -
-                            rect.top
-                        )
-                        /
-                        rect.height;
+                            (
+                                y -
+                                centerY
+                            ) /
+                            centerY
+                        ) *
+                        -1.2;
 
 
-                    const moveX =
+                    const rotateY =
                         (
-                            x -
-                            .5
-                        )
-                        *
-                        -12;
+                            (
+                                x -
+                                centerX
+                            ) /
+                            centerX
+                        ) *
+                        1.2;
 
 
-                    const moveY =
-                        (
-                            y -
-                            .5
-                        )
-                        *
-                        -8;
-
-
-                    heroCodeBackground.style.transform =
-                        `translate3d(
-                            ${moveX}px,
-                            ${moveY}px,
-                            0
-                        )`;
-
+                    card.style.transform =
+                        `
+                        perspective(1200px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        translateY(-8px)
+                        `;
 
                 }
             );
 
 
-            hero.addEventListener(
+            card.addEventListener(
                 "mouseleave",
                 () => {
 
-
-                    heroCodeBackground.style.transform =
-                        "translate3d(0,0,0)";
-
+                    card.style.transform =
+                        "";
 
                 }
             );
 
-
-        }
-
+        });
 
 
-        /* =================================================
-           RESIZE
-        ================================================= */
 
-        let resizeTimer;
+    /* =====================================================
+       HERO CODE MOUSE DEPTH
+    ===================================================== */
 
+    if (
+        hero &&
+        heroCodeBackground
+    ) {
 
-        window.addEventListener(
-            "resize",
-            () => {
+        hero.addEventListener(
+            "mousemove",
+            event => {
 
-
-                clearTimeout(
-                    resizeTimer
-                );
-
-
-                resizeTimer =
-                    setTimeout(
-                        () => {
-
-
-                            buildHeroCode();
+                if (
+                    window.innerWidth <=
+                    900
+                ) {
+                    return;
+                }
 
 
-                        },
-                        280
-                    );
+                const rect =
+                    hero.getBoundingClientRect();
 
+
+                const x =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) /
+                    rect.width;
+
+
+                const y =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) /
+                    rect.height;
+
+
+                const moveX =
+                    (
+                        x -
+                        0.5
+                    ) *
+                    -12;
+
+
+                const moveY =
+                    (
+                        y -
+                        0.5
+                    ) *
+                    -8;
+
+
+                heroCodeBackground
+                    .style
+                    .transform =
+                    `
+                    translate3d(
+                        ${moveX}px,
+                        ${moveY}px,
+                        0
+                    )
+                    `;
 
             }
         );
 
 
+        hero.addEventListener(
+            "mouseleave",
+            () => {
 
-        /* =================================================
-           CURRENT YEAR
-        ================================================= */
+                heroCodeBackground
+                    .style
+                    .transform =
+                    "translate3d(0,0,0)";
 
-        const copyright =
-            document.querySelector(
-                ".copyright"
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       OPTIONAL HERO PROFILE DEPTH
+    ===================================================== */
+
+    const heroProfileScene =
+        document.querySelector(
+            ".hero-photo-scene"
+        );
+
+
+    if (
+        hero &&
+        heroProfileScene
+    ) {
+
+        hero.addEventListener(
+            "mousemove",
+            event => {
+
+                if (
+                    window.innerWidth <=
+                    900
+                ) {
+                    return;
+                }
+
+
+                const rect =
+                    hero.getBoundingClientRect();
+
+
+                const x =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) /
+                    rect.width;
+
+
+                const y =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) /
+                    rect.height;
+
+
+                const moveX =
+                    (
+                        x -
+                        0.5
+                    ) *
+                    5;
+
+
+                const moveY =
+                    (
+                        y -
+                        0.5
+                    ) *
+                    4;
+
+
+                heroProfileScene
+                    .style
+                    .transform =
+                    `
+                    translate3d(
+                        ${moveX}px,
+                        ${moveY}px,
+                        0
+                    )
+                    `;
+
+            }
+        );
+
+
+        hero.addEventListener(
+            "mouseleave",
+            () => {
+
+                heroProfileScene
+                    .style
+                    .transform =
+                    "";
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       ABOUT STATS NUMBER ANIMATION
+    ===================================================== */
+
+    const aboutStats =
+        document.querySelectorAll(
+            ".about-stat strong"
+        );
+
+
+    function animateNumber(
+        element
+    ) {
+
+        const originalText =
+            element.textContent.trim();
+
+
+        const numberMatch =
+            originalText.match(
+                /\d+/
             );
 
 
-        if (
-            copyright
-        ) {
-
-
-            copyright.textContent =
-                `© ${
-                    new Date().getFullYear()
-                } Jhonaiza Gede. All Rights Reserved.`;
-
-
+        if (!numberMatch) {
+            return;
         }
 
 
+        const finalNumber =
+            parseInt(
+                numberMatch[0],
+                10
+            );
+
+
+        const suffix =
+            originalText.replace(
+                numberMatch[0],
+                ""
+            );
+
+
+        let currentNumber = 0;
+
+
+        const duration =
+            1200;
+
+
+        const frameRate =
+            30;
+
+
+        const totalFrames =
+            Math.round(
+                duration /
+                frameRate
+            );
+
+
+        const increment =
+            finalNumber /
+            totalFrames;
+
+
+        const timer =
+            setInterval(() => {
+
+                currentNumber +=
+                    increment;
+
+
+                if (
+                    currentNumber >=
+                    finalNumber
+                ) {
+
+                    element.textContent =
+                        finalNumber +
+                        suffix;
+
+
+                    clearInterval(
+                        timer
+                    );
+
+
+                    return;
+
+                }
+
+
+                element.textContent =
+                    Math.floor(
+                        currentNumber
+                    ) +
+                    suffix;
+
+            }, frameRate);
+
     }
-);
+
+
+    if (
+        aboutStats.length &&
+        "IntersectionObserver" in window
+    ) {
+
+        const statsObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                animateNumber(
+                                    entry.target
+                                );
+
+
+                                statsObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.7
+                }
+            );
+
+
+        aboutStats.forEach(
+            stat => {
+
+                statsObserver.observe(
+                    stat
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       REBUILD HERO CODE ON RESIZE
+    ===================================================== */
+
+    let resizeTimer;
+
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            clearTimeout(
+                resizeTimer
+            );
+
+
+            resizeTimer =
+                setTimeout(
+                    () => {
+
+                        buildHeroCode();
+
+                    },
+                    280
+                );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       CURRENT YEAR
+    ===================================================== */
+
+    const copyright =
+        document.querySelector(
+            ".copyright"
+        );
+
+
+    if (copyright) {
+
+        copyright.textContent =
+            `© ${new Date().getFullYear()} Jhonaiza Gede. All Rights Reserved.`;
+
+    }
+
+});
