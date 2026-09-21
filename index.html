@@ -1,2471 +1,2145 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =========================================================
+   JHONAIZA GEDE PORTFOLIO
+   COMPLETE SCRIPT.JS
+========================================================= */
 
-<head>
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        /* =================================================
+           MAIN ELEMENTS
+        ================================================= */
 
-    <title>
-        Jhonaiza Gede | Creative Developer Portfolio
-    </title>
+        const body =
+            document.body;
 
-    <meta
-        name="description"
-        content="Jhonaiza Gede is a Creative Developer, Web Designer, and Graphic Designer creating modern websites, digital designs, branding, and creative experiences."
-    >
 
-    <meta
-        name="keywords"
-        content="Jhonaiza Gede, Creative Developer, Web Designer, Graphic Designer, Portfolio, UI UX Designer, Branding, Digital Design"
-    >
+        const header =
+            document.querySelector(
+                ".desktop-header"
+            );
 
-    <meta
-        name="author"
-        content="Jhonaiza Gede"
-    >
 
-    <meta
-        name="theme-color"
-        content="#050505"
-    >
+        const cursor =
+            document.querySelector(
+                ".cursor"
+            );
 
 
-    <!-- FAVICON -->
+        const backToTop =
+            document.querySelector(
+                ".back-to-top"
+            );
 
-    <link
-        rel="icon"
-        href="Favicon.png.webp"
-        type="image/webp"
-    >
 
+        const hero =
+            document.querySelector(
+                ".hero"
+            );
 
-    <!-- GOOGLE FONTS -->
 
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+        /* =================================================
+           LOADER COMPUTER CODE
+        ================================================= */
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+        const loaderCodeBackground =
+            document.getElementById(
+                "loaderCodeBackground"
+            );
 
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+        const loaderCodeLines = [
 
-</head>
+            '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
+            '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
 
-<body>
+            '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
 
+            'display: grid;',
 
-<!-- =====================================================
-     PAGE LOADER
-===================================================== -->
+            'grid-template-columns: 1fr 1fr;',
 
-<div
-    class="loader"
-    id="pageLoader"
->
+            '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
 
-    <div
-        class="loader-code-background"
-        id="loaderCodeBackground"
-        aria-hidden="true"
-    ></div>
+            'document.querySelector(<span class="code-string">".project"</span>);',
 
-    <div class="loader-grid"></div>
+            'background: linear-gradient(135deg, #050505, #D7B56D);',
 
-    <div class="loader-glow loader-glow-one"></div>
+            '&lt;div class=<span class="code-string">"creative"</span>&gt;',
 
-    <div class="loader-glow loader-glow-two"></div>
+            'transform: translateY(-10px);',
 
+            '<span class="code-keyword">let</span> creativity = true;',
 
-    <div class="loader-center">
+            'animation: reveal .8s ease;',
 
+            '<span class="code-keyword">if</span> (idea) { createExperience(); }',
 
-        <div class="loader-logo-shell">
+            'font-family: "Poppins", sans-serif;',
 
-            <div class="loader-logo-ring"></div>
+            '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
 
-            <div class="loader-logo">
+            '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
 
-                <img
-                    src="profile.jpg.webp"
-                    alt="Jhonaiza Gede"
-                >
+            'border: 1px solid rgba(215,181,109,.25);',
 
-            </div>
+            '<span class="code-keyword">return</span> digitalExperience;',
 
-        </div>
+            'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
 
+            'const brand = { creativity: true, purpose: true };',
 
-        <h1 class="loader-name">
+            'backdrop-filter: blur(20px);',
 
-            Jhonaiza
+            '&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
 
-            <span>
-                Gede
-            </span>
+            'responsive: true;',
 
-        </h1>
+            'userExperience.optimize();',
 
+            '<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
 
-        <p class="loader-title">
+            'object-fit: cover;',
 
-            CREATIVE DEVELOPER
+            'transition: all .4s ease;',
 
-            <span>•</span>
+            'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
 
-            WEB DESIGNER
+            'creativeDeveloper.initialize();',
 
-            <span>•</span>
+            '&lt;/portfolio&gt;'
 
-            GRAPHIC DESIGNER
+        ];
 
-        </p>
 
 
-        <div class="loader-progress-wrapper">
+        function buildLoaderCode() {
 
 
-            <div class="loader-track">
+            if (
+                !loaderCodeBackground
+            ) {
 
-                <div
-                    class="loader-progress"
-                    id="loaderProgress"
-                >
+                return;
 
-                    <span class="progress-glow"></span>
+            }
 
-                </div>
 
-            </div>
+            loaderCodeBackground.innerHTML =
+                "";
 
 
-            <strong
-                class="loader-percent"
-                id="loaderPercent"
-            >
-                0%
-            </strong>
+            const width =
+                window.innerWidth;
 
 
-        </div>
+            let columns =
+                15;
 
 
-        <div class="loader-typing-row">
+            if (
+                width <=
+                520
+            ) {
 
-            <span
-                id="loaderTypingText"
-                class="loader-typing-text"
-            ></span>
+                columns =
+                    6;
 
-            <span class="loader-caret"></span>
+            }
 
-        </div>
+            else if (
+                width <=
+                900
+            ) {
 
+                columns =
+                    9;
 
-    </div>
+            }
 
 
-    <div class="loader-top-info">
 
-        <span>
-            JG / PORTFOLIO
-        </span>
+            for (
+                let i = 0;
+                i < columns;
+                i++
+            ) {
 
-        <span class="loader-online">
 
-            <i></i>
+                const column =
+                    document.createElement(
+                        "div"
+                    );
 
-            SYSTEM ONLINE
 
-        </span>
+                column.className =
+                    "code-column";
 
-    </div>
 
+                column.style.left =
+                    `${
+                        (
+                            i /
+                            columns
+                        )
+                        *
+                        100
+                    }%`;
 
-    <div class="loader-bottom-info">
 
-        <span>
-            PORTFOLIO © 2026
-        </span>
+                column.style.animationDuration =
+                    `${
+                        18 +
+                        Math.random() *
+                        16
+                    }s`;
 
-        <span>
-            DESIGN • DEVELOP • CREATE
-        </span>
 
-    </div>
+                column.style.animationDelay =
+                    `-${
+                        Math.random() *
+                        18
+                    }s`;
 
 
-</div>
 
+                for (
+                    let j = 0;
+                    j < 16;
+                    j++
+                ) {
 
 
-<!-- =====================================================
-     CUSTOM CURSOR
-===================================================== -->
+                    const line =
+                        document.createElement(
+                            "span"
+                        );
 
-<div class="cursor"></div>
 
+                    line.innerHTML =
+                        loaderCodeLines[
+                            Math.floor(
+                                Math.random() *
+                                loaderCodeLines.length
+                            )
+                        ];
 
 
-<!-- =====================================================
-     DESKTOP / TABLET HEADER
-===================================================== -->
+                    column.appendChild(
+                        line
+                    );
 
-<header class="desktop-header">
 
+                }
 
-    <nav class="navbar">
 
+                loaderCodeBackground.appendChild(
+                    column
+                );
 
-        <a
-            href="#home"
-            class="logo"
-            aria-label="Jhonaiza Gede Home"
-        >
-            JG
-        </a>
 
+            }
 
-        <ul class="nav-links">
 
+        }
 
-            <li>
-                <a href="#home">
-                    Home
-                </a>
-            </li>
 
 
-            <li>
-                <a href="#about">
-                    About
-                </a>
-            </li>
+        buildLoaderCode();
 
 
-            <li>
-                <a href="#services">
-                    Services
-                </a>
-            </li>
 
+        /* =================================================
+           HERO COMPUTER CODE
+        ================================================= */
 
-            <li>
-                <a href="#skills">
-                    Skills
-                </a>
-            </li>
+        const heroCodeBackground =
+            document.getElementById(
+                "heroCodeBackground"
+            );
 
 
-            <li>
-                <a href="#projects">
-                    Projects
-                </a>
-            </li>
+        const heroCodeBlocks = [
 
+`const portfolio = {
+  designer: "Jhonaiza Gede",
+  role: "Creative Developer",
+  creativity: true,
+  responsive: true
+};`,
 
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
+`const skills = [
+  "Web Design",
+  "Graphic Design",
+  "UI / UX",
+  "JavaScript",
+  "Branding",
+  "SEO"
+];`,
 
+`function createExperience() {
+  const idea = getVision();
+  const design = buildInterface(idea);
+  return optimize(design);
+}`,
 
-        </ul>
+`.hero {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+}`,
 
+`const projects =
+document.querySelectorAll(
+  ".project-card"
+);
 
-        <a
-            href="#contact"
-            class="nav-hire"
-        >
+projects.forEach(project => {
+  project.classList.add("active");
+});`,
 
-            HIRE ME
+`@media (max-width: 767px) {
+  .portfolio {
+    grid-template-columns: 1fr;
+    padding: 70px 20px;
+  }
+}`,
 
-            <span>
-                →
-            </span>
+`function updateNavigation() {
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+  });
+}`,
 
-        </a>
+`<section id="projects">
+  <article class="project">
+    <h2>Creative Experience</h2>
+    <p>Design • Develop • Create</p>
+  </article>
+</section>`,
 
+`userExperience
+  .design()
+  .develop()
+  .optimize()
+  .deliver();`
 
-    </nav>
+        ];
 
 
-</header>
 
+        const heroCodePositions = [
 
+            {
+                left: "2%",
+                top: "10%"
+            },
 
-<!-- =====================================================
-     MOBILE BOTTOM NAVIGATION
-===================================================== -->
+            {
+                left: "35%",
+                top: "6%"
+            },
 
-<nav
-    class="mobile-bottom-nav"
-    aria-label="Mobile Navigation"
->
+            {
+                right: "2%",
+                top: "14%"
+            },
 
+            {
+                left: "4%",
+                bottom: "5%"
+            },
 
-    <a
-        href="#about"
-        class="mobile-bottom-link"
-    >
+            {
+                left: "38%",
+                bottom: "7%"
+            },
 
-        <span class="mobile-nav-icon">
+            {
+                right: "1%",
+                bottom: "8%"
+            },
 
-            <svg viewBox="0 0 24 24">
+            {
+                left: "25%",
+                top: "42%"
+            },
 
-                <circle
-                    cx="12"
-                    cy="8"
-                    r="4"
-                ></circle>
+            {
+                right: "25%",
+                top: "48%"
+            },
 
-                <path
-                    d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"
-                ></path>
+            {
+                left: "59%",
+                top: "27%"
+            }
 
-            </svg>
+        ];
 
-        </span>
 
-        <span>
-            About
-        </span>
 
-    </a>
+        function buildHeroCode() {
 
 
-    <a
-        href="#services"
-        class="mobile-bottom-link"
-    >
+            if (
+                !heroCodeBackground
+            ) {
 
-        <span class="mobile-nav-icon">
+                return;
 
-            <svg viewBox="0 0 24 24">
+            }
 
-                <path
-                    d="M6 3h9l3 3v15H6z"
-                ></path>
 
-                <path
-                    d="M14 3v4h4"
-                ></path>
+            heroCodeBackground.innerHTML =
+                "";
 
-                <path
-                    d="M9 11h6M9 15h6"
-                ></path>
 
-            </svg>
+            const width =
+                window.innerWidth;
 
-        </span>
 
-        <span>
-            Services
-        </span>
+            let totalBlocks =
+                9;
 
-    </a>
 
+            if (
+                width <=
+                767
+            ) {
 
-    <a
-        href="#projects"
-        class="mobile-bottom-link"
-    >
+                totalBlocks =
+                    7;
 
-        <span class="mobile-nav-icon">
+            }
 
-            <svg viewBox="0 0 24 24">
 
-                <rect
-                    x="3"
-                    y="7"
-                    width="18"
-                    height="13"
-                    rx="2"
-                ></rect>
 
-                <path
-                    d="M9 7V5h6v2"
-                ></path>
+            for (
+                let i = 0;
+                i < totalBlocks;
+                i++
+            ) {
 
-                <path
-                    d="M3 12h18"
-                ></path>
 
-            </svg>
+                const block =
+                    document.createElement(
+                        "pre"
+                    );
 
-        </span>
 
-        <span>
-            Portfolio
-        </span>
+                block.className =
+                    "hero-code-block";
 
-    </a>
 
+                block.textContent =
+                    heroCodeBlocks[
+                        i %
+                        heroCodeBlocks.length
+                    ];
 
-    <a
-        href="#contact"
-        class="mobile-bottom-link mobile-hire-link"
-    >
 
-        <span class="mobile-nav-icon">
+                const position =
+                    heroCodePositions[
+                        i %
+                        heroCodePositions.length
+                    ];
 
-            <svg viewBox="0 0 24 24">
 
-                <rect
-                    x="3"
-                    y="5"
-                    width="18"
-                    height="14"
-                    rx="2"
-                ></rect>
+                Object.keys(
+                    position
+                )
+                .forEach(
+                    property => {
 
-                <path
-                    d="m4 7 8 6 8-6"
-                ></path>
 
-            </svg>
+                        block.style[
+                            property
+                        ] =
+                            position[
+                                property
+                            ];
 
-        </span>
 
-        <span>
-            Hire
-        </span>
+                    }
+                );
 
-    </a>
 
+                block.style.animationDelay =
+                    `-${
+                        i *
+                        1.7
+                    }s`;
 
-</nav>
 
+                heroCodeBackground.appendChild(
+                    block
+                );
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+            }
 
-<section
-    class="hero"
-    id="home"
->
 
+        }
 
-    <!-- COMPUTER CODE BACKGROUND -->
 
-    <div
-        class="hero-code-background"
-        id="heroCodeBackground"
-        aria-hidden="true"
-    ></div>
 
+        buildHeroCode();
 
-    <div class="hero-code-vignette"></div>
 
-    <div class="hero-gold-glow"></div>
 
+        /* =================================================
+           LOADER
+        ================================================= */
 
-    <div class="gold-particles">
+        const loader =
+            document.getElementById(
+                "pageLoader"
+            );
 
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
 
-    </div>
+        const loaderPercent =
+            document.getElementById(
+                "loaderPercent"
+            );
 
 
+        const loaderProgress =
+            document.getElementById(
+                "loaderProgress"
+            );
 
-    <!-- =================================================
-         HERO LEFT
-    ================================================== -->
 
-    <div class="hero-content-side">
+        const loaderTypingText =
+            document.getElementById(
+                "loaderTypingText"
+            );
 
 
-        <p class="hero-intro">
-            Hello, It's Me
-        </p>
+        body.classList.add(
+            "loader-active"
+        );
 
 
-        <h1>
 
-            Jhonaiza
+        const loaderMessages = [
 
-            <br>
+            "Initializing interface...",
 
-            <span>
-                Gede
-            </span>
+            "Loading creative assets...",
 
-        </h1>
+            "Compiling digital experience...",
 
+            "Preparing featured projects...",
 
-        <div class="hero-role-line">
+            "Optimizing responsive layout...",
 
+            "Connecting creative components...",
 
-            <span class="hero-role-prefix">
-                And I do
-            </span>
+            "Almost ready...",
 
+            "Launching portfolio..."
 
-            <span
-                class="hero-role-typing"
-                id="heroRoleTyping"
-            >
-                Creative Development
-            </span>
+        ];
 
 
-            <span class="hero-role-caret"></span>
+        let loaderMessageIndex =
+            0;
 
 
-        </div>
+        let loaderCharacterIndex =
+            0;
 
 
-        <p class="hero-text">
+        let loaderDeleting =
+            false;
 
-            I transform ideas into polished digital experiences
-            through modern web design, compelling visuals,
-            thoughtful branding, and user-focused solutions.
 
-        </p>
+        let loaderTypingStopped =
+            false;
 
 
-        <p class="hero-text hero-secondary-text">
 
-            I combine creativity, strategy, and technology
-            to help brands and businesses build a stronger
-            and more memorable presence online.
+        function typeLoaderMessage() {
 
-        </p>
 
+            if (
+                !loaderTypingText ||
+                loaderTypingStopped
+            ) {
 
+                return;
 
-        <!-- SOCIAL ICONS -->
+            }
 
-        <div class="hero-socials">
 
+            const currentMessage =
+                loaderMessages[
+                    loaderMessageIndex
+                ];
 
-            <!-- WHATSAPP -->
 
-            <a
-                href="#"
-                class="hero-social-link"
-                aria-label="WhatsApp"
-                title="WhatsApp"
-            >
 
-                <span class="social-hover-half"></span>
+            if (
+                !loaderDeleting
+            ) {
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
 
-                    <path
-                        d="M20.5 3.6A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.3ZM12.2 21.7h-.1a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.9 1 1-3.8-.2-.4a9.7 9.7 0 0 1-1.5-5.1c0-5.4 4.4-9.8 9.9-9.8 2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1-6.8 16.8Z"
-                    ></path>
+                loaderCharacterIndex++;
 
-                    <path
-                        d="M17.6 14.3c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2l-1 1.2c-.2.2-.4.3-.7.1a8 8 0 0 1-2.4-1.5 9.1 9.1 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6-.1-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.8 5.1.8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4Z"
-                    ></path>
 
-                </svg>
+                loaderTypingText.textContent =
+                    currentMessage.substring(
+                        0,
+                        loaderCharacterIndex
+                    );
 
-                <span class="social-line"></span>
 
-            </a>
+                if (
+                    loaderCharacterIndex >=
+                    currentMessage.length
+                ) {
 
 
+                    loaderDeleting =
+                        true;
 
-            <!-- EMAIL -->
 
-            <a
-                href="mailto:gedejhonaiza@gmail.com"
-                class="hero-social-link"
-                aria-label="Email"
-                title="Email"
-            >
+                    setTimeout(
+                        typeLoaderMessage,
+                        260
+                    );
 
-                <span class="social-hover-half"></span>
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
+                    return;
 
-                    <rect
-                        x="2"
-                        y="4"
-                        width="20"
-                        height="16"
-                        rx="2"
-                    ></rect>
+                }
 
-                    <path
-                        d="m3 6 9 7 9-7"
-                    ></path>
 
-                </svg>
+                setTimeout(
+                    typeLoaderMessage,
+                    25
+                );
 
-                <span class="social-line"></span>
 
-            </a>
+            }
 
+            else {
 
 
-            <!-- LINKEDIN -->
+                loaderCharacterIndex--;
 
-            <a
-                href="#"
-                class="hero-social-link"
-                aria-label="LinkedIn"
-                title="LinkedIn"
-            >
 
-                <span class="social-hover-half"></span>
+                loaderTypingText.textContent =
+                    currentMessage.substring(
+                        0,
+                        loaderCharacterIndex
+                    );
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
 
-                    <rect
-                        x="3"
-                        y="3"
-                        width="18"
-                        height="18"
-                        rx="2"
-                    ></rect>
+                if (
+                    loaderCharacterIndex <=
+                    0
+                ) {
 
-                    <path
-                        d="M7 10v7"
-                    ></path>
 
-                    <path
-                        d="M7 7.2v.1"
-                    ></path>
+                    loaderDeleting =
+                        false;
 
-                    <path
-                        d="M11 17v-4c0-2 1-3 2.7-3 1.8 0 3.3 1.1 3.3 3.5V17"
-                    ></path>
 
-                    <path
-                        d="M11 10v7"
-                    ></path>
+                    loaderMessageIndex =
+                        (
+                            loaderMessageIndex +
+                            1
+                        )
+                        %
+                        loaderMessages.length;
 
-                </svg>
 
-                <span class="social-line"></span>
+                    setTimeout(
+                        typeLoaderMessage,
+                        70
+                    );
 
-            </a>
 
+                    return;
 
+                }
 
-            <!-- GITHUB -->
 
-            <a
-                href="https://github.com/gedejhonaiza-byte"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hero-social-link"
-                aria-label="GitHub"
-                title="GitHub"
-            >
+                setTimeout(
+                    typeLoaderMessage,
+                    12
+                );
 
-                <span class="social-hover-half"></span>
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
+            }
 
-                    <path
-                        d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.88c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82c.85 0 1.71.12 2.51.35 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
-                    ></path>
 
-                </svg>
+        }
 
-                <span class="social-line"></span>
 
-            </a>
 
+        typeLoaderMessage();
 
-        </div>
 
 
+        const loaderDuration =
+            6500;
 
-        <!-- HERO BUTTONS -->
 
-        <div class="hero-actions">
+        const loaderStartTime =
+            performance.now();
 
 
-            <a
-                href="resume.pdf"
-                target="_blank"
-                class="hero-cv-button"
-            >
-                View CV
-            </a>
+        let loaderComplete =
+            false;
 
 
-            <a
-                href="#projects"
-                class="hero-project-link"
-            >
 
-                View Portfolio
+        function finishLoader() {
 
-                <span>
-                    →
-                </span>
 
-            </a>
+            if (
+                loaderComplete
+            ) {
 
+                return;
 
-        </div>
+            }
 
 
-        <div class="hero-badge">
+            loaderComplete =
+                true;
 
 
-            <div class="hero-badge-number">
-                5+
-            </div>
+            loaderTypingStopped =
+                true;
 
 
-            <div>
+            if (
+                loaderPercent
+            ) {
 
-                <small>
-                    YEARS OF
-                </small>
+                loaderPercent.textContent =
+                    "100%";
 
-                <p>
-                    Creative Experience
-                </p>
+            }
 
-            </div>
 
+            if (
+                loaderProgress
+            ) {
 
-        </div>
+                loaderProgress.style.width =
+                    "100%";
 
+            }
 
-    </div>
 
+            if (
+                loaderTypingText
+            ) {
 
+                loaderTypingText.textContent =
+                    "Experience ready.";
 
-    <!-- =================================================
-         HERO PROFILE
-         IMAGE OVERLAPS ABOVE THE SHAPE
-    ================================================== -->
+            }
 
-    <div class="hero-photo-column">
 
+            setTimeout(
+                () => {
 
-        <div class="hero-profile-stage">
 
+                    if (
+                        loader
+                    ) {
 
-            <!-- BACK GOLD CARD -->
+                        loader.classList.add(
+                            "hide"
+                        );
 
-            <div class="hero-shape-gold"></div>
+                    }
 
 
-            <!-- WHITE OUTLINE CARD -->
+                    body.classList.remove(
+                        "loader-active"
+                    );
 
-            <div class="hero-shape-outline"></div>
 
+                },
+                650
+            );
 
-            <!-- MAIN SHAPE -->
 
-            <div class="hero-shape-main"></div>
+        }
 
 
-            <!-- TRANSPARENT PROFILE IMAGE -->
 
-            <img
-                src="profile.webp.png"
-                alt="Jhonaiza Gede"
-                class="hero-overlap-photo"
-            >
+        function updateLoaderProgress(
+            currentTime
+        ) {
 
 
-            <div class="hero-photo-tag">
+            if (
+                loaderComplete
+            ) {
 
-                <span></span>
+                return;
 
-                AVAILABLE FOR PROJECTS
+            }
 
-            </div>
 
+            const elapsed =
+                currentTime -
+                loaderStartTime;
 
-        </div>
 
+            let progress =
+                Math.min(
+                    elapsed /
+                    loaderDuration,
+                    1
+                );
 
-    </div>
 
+            if (
+                progress <
+                .55
+            ) {
 
-</section>
+                progress =
+                    progress *
+                    1.08;
 
+            }
 
+            else if (
+                progress <
+                .88
+            ) {
 
-<!-- =====================================================
-     ABOUT
-===================================================== -->
+                progress =
+                    .594 +
+                    (
+                        progress -
+                        .55
+                    )
+                    *
+                    .82;
 
-<section
-    class="section about-section"
-    id="about"
->
+            }
 
+            else {
 
-    <div class="about-container">
+                progress =
+                    .8646 +
+                    (
+                        progress -
+                        .88
+                    )
+                    *
+                    1.128;
 
+            }
 
-        <!-- =================================================
-             ABOUT IMAGE
-             IMAGE OVERLAPS ABOVE THE TRIANGLE
-        ================================================== -->
 
-        <div class="about-visual">
+            progress =
+                Math.min(
+                    progress,
+                    1
+                );
 
 
-            <div class="about-glow"></div>
+            const percent =
+                Math.floor(
+                    progress *
+                    100
+                );
 
 
-            <svg
-                class="about-triangle"
-                viewBox="0 0 460 540"
-                aria-hidden="true"
-            >
+            if (
+                loaderPercent
+            ) {
 
-                <defs>
+                loaderPercent.textContent =
+                    `${percent}%`;
 
-                    <linearGradient
-                        id="triangleGold"
-                        x1="0"
-                        y1="0"
-                        x2="1"
-                        y2="1"
-                    >
+            }
 
-                        <stop
-                            offset="0%"
-                            stop-color="#A67C38"
-                        />
 
-                        <stop
-                            offset="45%"
-                            stop-color="#D7B56D"
-                        />
+            if (
+                loaderProgress
+            ) {
 
-                        <stop
-                            offset="70%"
-                            stop-color="#FFF2BD"
-                        />
+                loaderProgress.style.width =
+                    `${percent}%`;
 
-                        <stop
-                            offset="100%"
-                            stop-color="#B48B46"
-                        />
+            }
 
-                    </linearGradient>
 
-                </defs>
+            if (
+                elapsed >=
+                loaderDuration
+            ) {
 
+                finishLoader();
 
-                <polygon
-                    points="28,35 432,35 230,510"
-                    fill="none"
-                    stroke="url(#triangleGold)"
-                    stroke-width="4"
-                />
+                return;
 
-            </svg>
+            }
 
 
-            <img
-                src="profile.webp.png"
-                alt="Jhonaiza Gede"
-                class="about-overlap-photo"
-            >
+            requestAnimationFrame(
+                updateLoaderProgress
+            );
 
 
-        </div>
+        }
 
 
 
-        <!-- =================================================
-             ABOUT CONTENT
-        ================================================== -->
+        requestAnimationFrame(
+            updateLoaderProgress
+        );
 
-        <div class="about-content">
 
+        setTimeout(
+            finishLoader,
+            7800
+        );
 
-            <h2>
-                About Me
-            </h2>
 
 
-            <h3 class="about-introduction">
-                Introduction
-            </h3>
+        /* =================================================
+           HERO ROLE TYPEWRITER
+        ================================================= */
 
+        const heroRoleTyping =
+            document.getElementById(
+                "heroRoleTyping"
+            );
 
-            <p class="about-small-label">
-                ABOUT
-            </p>
 
+        const heroRoles = [
 
-            <p class="about-lead">
+            "Web Design",
 
-                I'm <strong>Jhonaiza Gede</strong>, a multidisciplinary
-                creative specializing in Graphic Design, Web Design,
-                and Creative Development.
+            "Graphic Design",
 
-            </p>
+            "UI / UX Design",
 
+            "Creative Development",
 
-            <p>
+            "Branding",
 
-                I focus on creating digital solutions that balance
-                aesthetics with functionality. I believe great design
-                should do more than look beautiful—it should communicate
-                clearly, create memorable experiences, and help businesses
-                connect with the people they serve.
+            "SEO Optimization"
 
-            </p>
+        ];
 
 
-            <p>
+        let heroRoleIndex =
+            0;
 
-                My approach combines modern design principles,
-                creativity, attention to detail, and practical
-                digital solutions to turn ideas into experiences
-                that feel intentional, professional, and distinctly yours.
 
-            </p>
+        let heroCharacterIndex =
+            0;
 
 
+        let heroDeleting =
+            false;
 
-            <!-- STATS -->
 
-            <div class="about-stats">
 
+        function typeHeroRole() {
 
-                <div class="about-stat">
 
-                    <strong>
-                        5+
-                    </strong>
+            if (
+                !heroRoleTyping
+            ) {
 
-                    <span>
-                        Years
-                        <br>
-                        Experience
-                    </span>
+                return;
 
-                </div>
+            }
 
 
-                <div class="about-stat">
+            const currentRole =
+                heroRoles[
+                    heroRoleIndex
+                ];
 
-                    <!-- CHANGE XX+ TO YOUR REAL NUMBER -->
 
-                    <strong>
-                        XX+
-                    </strong>
 
-                    <span>
-                        Completed
-                        <br>
-                        Projects
-                    </span>
+            if (
+                !heroDeleting
+            ) {
 
-                </div>
 
+                heroCharacterIndex++;
 
-                <div class="about-stat">
 
-                    <!-- CHANGE XX+ TO YOUR REAL NUMBER -->
+                heroRoleTyping.textContent =
+                    currentRole.substring(
+                        0,
+                        heroCharacterIndex
+                    );
 
-                    <strong>
-                        XX+
-                    </strong>
 
-                    <span>
-                        Companies
-                        <br>
-                        Worked With
-                    </span>
+                if (
+                    heroCharacterIndex >=
+                    currentRole.length
+                ) {
 
-                </div>
 
+                    heroDeleting =
+                        true;
 
-            </div>
 
+                    setTimeout(
+                        typeHeroRole,
+                        1250
+                    );
 
-        </div>
 
+                    return;
 
-    </div>
+                }
 
 
-</section>
+                setTimeout(
+                    typeHeroRole,
+                    70
+                );
 
 
+            }
 
-<!-- =====================================================
-     SERVICES
-===================================================== -->
+            else {
 
-<section
-    class="section services-section"
-    id="services"
->
 
+                heroCharacterIndex--;
 
-    <div class="section-heading centered">
 
+                heroRoleTyping.textContent =
+                    currentRole.substring(
+                        0,
+                        heroCharacterIndex
+                    );
 
-        <p class="section-label">
-            WHAT I DO
-        </p>
 
+                if (
+                    heroCharacterIndex <=
+                    0
+                ) {
 
-        <h2>
 
-            Creative Solutions
+                    heroDeleting =
+                        false;
 
-            <br>
 
-            for the Digital World
+                    heroRoleIndex =
+                        (
+                            heroRoleIndex +
+                            1
+                        )
+                        %
+                        heroRoles.length;
 
-        </h2>
 
+                    setTimeout(
+                        typeHeroRole,
+                        220
+                    );
 
-        <p class="section-intro">
 
-            Thoughtful design and digital solutions created
-            to help brands communicate, connect, and grow.
+                    return;
 
-        </p>
+                }
 
 
-    </div>
+                setTimeout(
+                    typeHeroRole,
+                    35
+                );
 
 
+            }
 
-    <div class="services-grid">
 
+        }
 
-        <article class="service-card">
 
-            <span class="service-number">
-                01
-            </span>
 
-            <div class="service-icon">
+        setTimeout(
+            typeHeroRole,
+            900
+        );
 
-                <svg viewBox="0 0 24 24">
 
-                    <rect
-                        x="3.5"
-                        y="5"
-                        width="17"
-                        height="12"
-                        rx="2"
-                    ></rect>
 
-                    <path d="M3.5 9.5h17"></path>
+        /* =================================================
+           HEADER SCROLL
+        ================================================= */
 
-                    <path d="M9 19h6"></path>
+        function updateHeader() {
 
-                    <path d="M10.5 17v2"></path>
 
-                    <path d="M13.5 17v2"></path>
+            if (
+                !header
+            ) {
 
-                </svg>
+                return;
 
-            </div>
+            }
 
-            <h3>
-                Web Design
-            </h3>
 
-            <p>
+            header.classList.toggle(
+                "scrolled",
+                window.scrollY >
+                40
+            );
 
-                Modern, responsive, and visually engaging
-                websites designed to create a professional
-                online presence across desktop, tablet,
-                and mobile.
 
-            </p>
+        }
 
-        </article>
 
 
+        updateHeader();
 
-        <article class="service-card">
 
-            <span class="service-number">
-                02
-            </span>
+        window.addEventListener(
+            "scroll",
+            updateHeader,
+            {
+                passive: true
+            }
+        );
 
-            <div class="service-icon">
 
-                <svg viewBox="0 0 24 24">
 
-                    <rect
-                        x="3"
-                        y="4"
-                        width="18"
-                        height="14"
-                        rx="2"
-                    ></rect>
+        /* =================================================
+           CUSTOM CURSOR
+        ================================================= */
 
-                    <path d="M7 8h6"></path>
+        if (
+            cursor
+        ) {
 
-                    <path d="M7 12h4"></path>
 
-                    <path d="M15 10l4 7-3-1-1 3-4-9z"></path>
+            document.addEventListener(
+                "mousemove",
+                event => {
 
-                </svg>
 
-            </div>
+                    cursor.style.left =
+                        `${event.clientX}px`;
 
-            <h3>
-                UI / UX Design
-            </h3>
 
-            <p>
+                    cursor.style.top =
+                        `${event.clientY}px`;
 
-                Clean and intuitive digital interfaces focused
-                on usability, visual hierarchy, accessibility,
-                and enjoyable user experiences.
 
-            </p>
+                }
+            );
 
-        </article>
 
+            document
+                .querySelectorAll(
+                    `
+                    a,
+                    button,
+                    .service-card,
+                    .skill-card,
+                    .project-card,
+                    .about-stat
+                    `
+                )
+                .forEach(
+                    item => {
 
 
-        <article class="service-card">
+                        item.addEventListener(
+                            "mouseenter",
+                            () => {
 
-            <span class="service-number">
-                03
-            </span>
 
-            <div class="service-icon">
+                                cursor.classList.add(
+                                    "active"
+                                );
 
-                <svg viewBox="0 0 24 24">
 
-                    <path d="M12 3l6 6-7.5 7.5-4 1 1-4L12 3z"></path>
+                            }
+                        );
 
-                    <path d="M14 5l5 5"></path>
 
-                </svg>
+                        item.addEventListener(
+                            "mouseleave",
+                            () => {
 
-            </div>
 
-            <h3>
-                Graphic Design
-            </h3>
+                                cursor.classList.remove(
+                                    "active"
+                                );
 
-            <p>
 
-                Professional visual materials for brands,
-                businesses, organizations, events, campaigns,
-                and digital platforms.
+                            }
+                        );
 
-            </p>
 
-        </article>
+                    }
+                );
 
 
+        }
 
-        <article class="service-card">
 
-            <span class="service-number">
-                04
-            </span>
 
-            <div class="service-icon">
+        /* =================================================
+           SMOOTH INTERNAL LINKS
+        ================================================= */
 
-                <svg viewBox="0 0 24 24">
+        document
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
+            .forEach(
+                link => {
 
-                    <path d="M12 3l6 2v5c0 5-3.5 7.8-6 9-2.5-1.2-6-4-6-9V5l6-2z"></path>
 
-                    <path d="M9.5 10.8l1.7 1.7 3.3-3.3"></path>
+                    link.addEventListener(
+                        "click",
+                        event => {
 
-                </svg>
 
-            </div>
+                            const href =
+                                link.getAttribute(
+                                    "href"
+                                );
 
-            <h3>
-                Branding & Identity
-            </h3>
 
-            <p>
+                            if (
+                                !href ||
+                                href ===
+                                "#"
+                            ) {
 
-                Consistent visual systems that communicate
-                your identity through typography, color,
-                imagery, graphics, and branded materials.
+                                return;
 
-            </p>
+                            }
 
-        </article>
 
+                            const target =
+                                document.querySelector(
+                                    href
+                                );
 
 
-        <article class="service-card">
+                            if (
+                                !target
+                            ) {
 
-            <span class="service-number">
-                05
-            </span>
+                                return;
 
-            <div class="service-icon">
+                            }
 
-                <svg viewBox="0 0 24 24">
 
-                    <path d="M4 13v-2l10-4v10L4 13z"></path>
+                            event.preventDefault();
 
-                    <path d="M14 9h2a4 4 0 0 1 0 8h-2"></path>
 
-                    <path d="M6 14l1 4"></path>
+                            target.scrollIntoView(
+                                {
 
-                </svg>
+                                    behavior:
+                                        "smooth",
 
-            </div>
+                                    block:
+                                        "start"
 
-            <h3>
-                Social Media Design
-            </h3>
+                                }
+                            );
 
-            <p>
 
-                Scroll-stopping graphics and promotional
-                content designed to strengthen your brand
-                presence across social platforms.
+                        }
+                    );
 
-            </p>
 
-        </article>
+                }
+            );
 
 
 
-        <article class="service-card">
+        /* =================================================
+           ACTIVE NAVIGATION
+        ================================================= */
 
-            <span class="service-number">
-                06
-            </span>
+        const sections =
+            document.querySelectorAll(
+                "section[id]"
+            );
 
-            <div class="service-icon">
 
-                <svg viewBox="0 0 24 24">
+        const desktopNavLinks =
+            document.querySelectorAll(
+                ".nav-links a"
+            );
 
-                    <path d="M8 7L4 12l4 5"></path>
 
-                    <path d="M16 7l4 5-4 5"></path>
+        const mobileNavLinks =
+            document.querySelectorAll(
+                ".mobile-bottom-link"
+            );
 
-                    <path d="M13 5l-2 14"></path>
 
-                </svg>
 
-            </div>
+        function updateNavigation() {
 
-            <h3>
-                Creative Development
-            </h3>
 
-            <p>
+            let current =
+                "home";
 
-                Interactive web experiences combining
-                thoughtful design, responsive components,
-                animations, and modern visual effects.
 
-            </p>
+            sections.forEach(
+                section => {
 
-        </article>
 
+                    const sectionTop =
+                        section.offsetTop -
+                        220;
 
 
-        <article class="service-card">
+                    const sectionHeight =
+                        section.offsetHeight;
 
-            <span class="service-number">
-                07
-            </span>
 
-            <div class="service-icon">
+                    if (
+                        window.scrollY >=
+                        sectionTop
+                        &&
+                        window.scrollY <
+                        sectionTop +
+                        sectionHeight
+                    ) {
 
-                <svg viewBox="0 0 24 24">
 
-                    <circle
-                        cx="10"
-                        cy="10"
-                        r="5"
-                    ></circle>
+                        current =
+                            section.id;
 
-                    <path d="M21 21l-6.2-6.2"></path>
 
-                    <path d="M8 11l1.5-1.5 1.3 1.3 2.2-2.2"></path>
+                    }
 
-                </svg>
 
-            </div>
+                }
+            );
 
-            <h3>
-                SEO & Optimization
-            </h3>
 
-            <p>
+            desktopNavLinks.forEach(
+                link => {
 
-                Website structure and content optimization
-                designed to improve discoverability,
-                usability, performance, and online presence.
 
-            </p>
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute(
+                            "href"
+                        )
+                        ===
+                        `#${current}`
+                    );
 
-        </article>
 
+                }
+            );
 
-    </div>
 
+            mobileNavLinks.forEach(
+                link => {
 
-</section>
 
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute(
+                            "href"
+                        )
+                        ===
+                        `#${current}`
+                    );
 
 
-<!-- =====================================================
-     SKILLS
-===================================================== -->
+                }
+            );
 
-<section
-    class="section skills-section"
-    id="skills"
->
 
+        }
 
-    <div class="section-heading centered">
 
 
-        <p class="section-label">
-            TOOLS & CAPABILITIES
-        </p>
+        updateNavigation();
 
 
-        <h2>
-            Bringing Ideas to Life
-        </h2>
+        window.addEventListener(
+            "scroll",
+            updateNavigation,
+            {
+                passive: true
+            }
+        );
 
 
-    </div>
 
+        /* =================================================
+           BACK TO TOP
+        ================================================= */
 
+        function updateBackToTop() {
 
-    <div class="skills-grid">
 
+            if (
+                !backToTop
+            ) {
 
-        <div class="skill-card">
+                return;
 
+            }
 
-            <div class="skill-icon">
 
-                <svg viewBox="0 0 24 24">
+            backToTop.classList.toggle(
+                "show",
+                window.scrollY >
+                500
+            );
 
-                    <path d="M12 4l7 4-7 4-7-4 7-4z"></path>
 
-                    <path d="M5 12l7 4 7-4"></path>
+        }
 
-                    <path d="M5 16l7 4 7-4"></path>
 
-                </svg>
 
-            </div>
+        updateBackToTop();
 
 
-            <p class="skill-category">
-                DESIGN
-            </p>
+        window.addEventListener(
+            "scroll",
+            updateBackToTop,
+            {
+                passive: true
+            }
+        );
 
-            <h3>
-                Visual Design
-            </h3>
 
-            <p>
 
-                Graphic Design • Branding •
-                Social Media Graphics •
-                Visual Identity • Layout Design •
-                UI / UX
+        /* =================================================
+           SCROLL REVEAL
+        ================================================= */
 
-            </p>
+        const revealElements = [
 
-        </div>
+            ...document.querySelectorAll(
+                ".section-heading"
+            ),
 
+            ...document.querySelectorAll(
+                ".about-visual"
+            ),
 
+            ...document.querySelectorAll(
+                ".about-content"
+            ),
 
-        <div class="skill-card">
+            ...document.querySelectorAll(
+                ".about-stat"
+            ),
 
+            ...document.querySelectorAll(
+                ".service-card"
+            ),
 
-            <div class="skill-icon">
+            ...document.querySelectorAll(
+                ".skill-card"
+            ),
 
-                <svg viewBox="0 0 24 24">
+            ...document.querySelectorAll(
+                ".process-item"
+            ),
 
-                    <rect
-                        x="3.5"
-                        y="5"
-                        width="17"
-                        height="12"
-                        rx="2"
-                    ></rect>
+            ...document.querySelectorAll(
+                ".project-card"
+            ),
 
-                    <path d="M8 10l-2 2 2 2"></path>
+            ...document.querySelectorAll(
+                ".why-heading"
+            ),
 
-                    <path d="M16 10l2 2-2 2"></path>
+            ...document.querySelectorAll(
+                ".why-item"
+            ),
 
-                    <path d="M11 16l2-8"></path>
+            ...document.querySelectorAll(
+                ".contact-container"
+            )
 
-                </svg>
+        ];
 
-            </div>
 
 
-            <p class="skill-category">
-                WEB
-            </p>
+        revealElements.forEach(
+            element => {
 
-            <h3>
-                Web Development
-            </h3>
 
-            <p>
+                element.classList.add(
+                    "reveal"
+                );
 
-                Web Design • Responsive Design •
-                HTML • CSS • JavaScript •
-                Website Development
 
-            </p>
+            }
+        );
 
-        </div>
 
 
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
 
-        <div class="skill-card">
 
+            const observer =
+                new IntersectionObserver(
+                    entries => {
 
-            <div class="skill-icon">
 
-                <svg viewBox="0 0 24 24">
+                        entries.forEach(
+                            entry => {
 
-                    <path d="M5 19h14"></path>
 
-                    <path d="M7 15l3-3 3 2 4-5"></path>
+                                if (
+                                    entry.isIntersecting
+                                ) {
 
-                    <path d="M17 9h3v3"></path>
 
-                </svg>
+                                    entry.target
+                                        .classList
+                                        .add(
+                                            "active"
+                                        );
 
-            </div>
 
+                                    observer.unobserve(
+                                        entry.target
+                                    );
 
-            <p class="skill-category">
-                DIGITAL
-            </p>
 
-            <h3>
-                Digital Strategy
-            </h3>
+                                }
 
-            <p>
 
-                SEO Optimization • Content Presentation •
-                Digital Branding • User Experience •
-                Website Performance
+                            }
+                        );
 
-            </p>
 
-        </div>
+                    },
+                    {
 
+                        threshold:
+                            .12,
 
-    </div>
+                        rootMargin:
+                            "0px 0px -40px 0px"
 
+                    }
+                );
 
-</section>
 
+            revealElements.forEach(
+                element => {
 
 
-<!-- =====================================================
-     PROCESS
-===================================================== -->
+                    observer.observe(
+                        element
+                    );
 
-<section
-    class="section process-section"
-    id="process"
->
 
+                }
+            );
 
-    <div class="section-heading">
 
+        }
 
-        <p class="section-label">
-            MY APPROACH
-        </p>
+        else {
 
 
-        <h2>
+            revealElements.forEach(
+                element => {
 
-            From Idea to
 
-            <br>
+                    element.classList.add(
+                        "active"
+                    );
 
-            Digital Experience
 
-        </h2>
+                }
+            );
 
 
-    </div>
+        }
 
 
 
-    <div class="process-list">
+        /* =================================================
+           PROJECT CARD TILT
+        ================================================= */
 
+        document
+            .querySelectorAll(
+                ".project-card"
+            )
+            .forEach(
+                card => {
 
-        <div class="process-item">
 
-            <span class="process-number">
-                01
-            </span>
+                    card.addEventListener(
+                        "mousemove",
+                        event => {
 
-            <h3>
-                Discover
-            </h3>
 
-            <p>
+                            if (
+                                window.innerWidth <=
+                                900
+                            ) {
 
-                Understanding your vision, goals,
-                audience, and what your project
-                needs to accomplish.
+                                return;
 
-            </p>
+                            }
 
-        </div>
 
+                            const rect =
+                                card.getBoundingClientRect();
 
 
-        <div class="process-item">
+                            const x =
+                                event.clientX -
+                                rect.left;
 
-            <span class="process-number">
-                02
-            </span>
 
-            <h3>
-                Create
-            </h3>
+                            const y =
+                                event.clientY -
+                                rect.top;
 
-            <p>
 
-                Transforming ideas into a clear
-                creative direction with thoughtful
-                layouts, visuals, and experiences.
+                            const centerX =
+                                rect.width /
+                                2;
 
-            </p>
 
-        </div>
+                            const centerY =
+                                rect.height /
+                                2;
 
 
+                            const rotateX =
+                                (
+                                    (
+                                        y -
+                                        centerY
+                                    )
+                                    /
+                                    centerY
+                                )
+                                *
+                                -1.2;
 
-        <div class="process-item">
 
-            <span class="process-number">
-                03
-            </span>
+                            const rotateY =
+                                (
+                                    (
+                                        x -
+                                        centerX
+                                    )
+                                    /
+                                    centerX
+                                )
+                                *
+                                1.2;
 
-            <h3>
-                Develop
-            </h3>
 
-            <p>
+                            card.style.transform =
+                                `
+                                perspective(1200px)
+                                rotateX(${rotateX}deg)
+                                rotateY(${rotateY}deg)
+                                translateY(-8px)
+                                `;
 
-                Building responsive and functional
-                digital experiences with attention
-                to performance and detail.
 
-            </p>
+                        }
+                    );
 
-        </div>
 
+                    card.addEventListener(
+                        "mouseleave",
+                        () => {
 
 
-        <div class="process-item">
+                            card.style.transform =
+                                "";
 
-            <span class="process-number">
-                04
-            </span>
 
-            <h3>
-                Refine
-            </h3>
+                        }
+                    );
 
-            <p>
 
-                Testing, improving, and polishing
-                every element to create a professional
-                final result.
+                }
+            );
 
-            </p>
 
-        </div>
 
+        /* =================================================
+           HERO CODE MOUSE DEPTH
+        ================================================= */
 
+        if (
+            hero &&
+            heroCodeBackground
+        ) {
 
-        <div class="process-item">
 
-            <span class="process-number">
-                05
-            </span>
+            hero.addEventListener(
+                "mousemove",
+                event => {
 
-            <h3>
-                Deliver
-            </h3>
 
-            <p>
+                    if (
+                        window.innerWidth <=
+                        900
+                    ) {
 
-                Providing a finished solution designed
-                to represent your brand confidently
-                and effectively.
+                        return;
 
-            </p>
+                    }
 
-        </div>
 
+                    const rect =
+                        hero.getBoundingClientRect();
 
-    </div>
 
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        )
+                        /
+                        rect.width;
 
-</section>
 
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        )
+                        /
+                        rect.height;
 
 
-<!-- =====================================================
-     FEATURED PROJECTS
-===================================================== -->
+                    const moveX =
+                        (
+                            x -
+                            .5
+                        )
+                        *
+                        -12;
 
-<section
-    class="section projects-section"
-    id="projects"
->
 
+                    const moveY =
+                        (
+                            y -
+                            .5
+                        )
+                        *
+                        -8;
 
-    <div class="section-heading">
 
+                    heroCodeBackground
+                        .style
+                        .transform =
+                        `translate3d(
+                            ${moveX}px,
+                            ${moveY}px,
+                            0
+                        )`;
 
-        <p class="section-label">
-            FEATURED WORK
-        </p>
 
+                }
+            );
 
-        <h2>
-            Selected Projects
-        </h2>
 
+            hero.addEventListener(
+                "mouseleave",
+                () => {
 
-        <p class="section-intro">
 
-            A collection of websites, interactive experiences,
-            visual designs, branding concepts, and digital
-            solutions created with clarity, creativity,
-            functionality, and impact.
+                    heroCodeBackground
+                        .style
+                        .transform =
+                        "translate3d(0,0,0)";
 
-        </p>
 
+                }
+            );
 
-    </div>
 
+        }
 
 
-    <div class="project-grid">
 
+        /* =================================================
+           HERO PROFILE DEPTH
+        ================================================= */
 
-        <!-- FILEFLOW -->
+        const heroProfileStage =
+            document.querySelector(
+                ".hero-profile-stage"
+            );
 
-        <article class="project-card featured-project-card">
 
+        if (
+            hero &&
+            heroProfileStage
+        ) {
 
-            <a
-                href="projects/file-manager/"
-                class="project-image project-image-link"
-                aria-label="Open FileFlow Modern File Manager"
-            >
 
+            hero.addEventListener(
+                "mousemove",
+                event => {
 
-                <img
-                    src="assets/projects/fileflow-cover.webp"
-                    alt="FileFlow Modern File Manager project preview"
-                    loading="lazy"
-                >
 
+                    if (
+                        window.innerWidth <=
+                        900
+                    ) {
 
-                <div class="project-live-badge">
+                        return;
 
-                    <span></span>
+                    }
 
-                    LIVE PROJECT
 
-                </div>
+                    const rect =
+                        hero.getBoundingClientRect();
 
 
-                <div class="project-overlay">
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        )
+                        /
+                        rect.width;
 
-                    <span>
-                        OPEN LIVE PROJECT
-                    </span>
 
-                </div>
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        )
+                        /
+                        rect.height;
 
 
-            </a>
+                    const moveX =
+                        (
+                            x -
+                            .5
+                        )
+                        *
+                        5;
 
 
-            <div class="project-content">
+                    const moveY =
+                        (
+                            y -
+                            .5
+                        )
+                        *
+                        4;
 
 
-                <p class="project-category">
-                    WEB APP • UI/UX • JAVASCRIPT
-                </p>
+                    heroProfileStage
+                        .style
+                        .transform =
+                        `translate3d(
+                            ${moveX}px,
+                            ${moveY}px,
+                            0
+                        )`;
 
 
-                <h3>
-                    FileFlow — Modern File Manager
-                </h3>
+                }
+            );
 
 
-                <p>
+            hero.addEventListener(
+                "mouseleave",
+                () => {
 
-                    A responsive file management dashboard featuring
-                    file search, grid and list views, folders,
-                    favorites, sorting, uploads, storage tracking,
-                    local persistence, and interactive controls.
 
-                </p>
+                    heroProfileStage
+                        .style
+                        .transform =
+                        "";
 
 
-                <div class="project-tech">
+                }
+            );
 
-                    <span>HTML</span>
 
-                    <span>CSS</span>
+        }
 
-                    <span>JavaScript</span>
 
-                    <span>Responsive</span>
 
-                </div>
+        /* =================================================
+           ABOUT STATS NUMBER ANIMATION
+           ONLY NUMERIC VALUES ARE ANIMATED.
+           XX+ PLACEHOLDERS REMAIN UNCHANGED.
+        ================================================= */
 
+        const aboutStats =
+            document.querySelectorAll(
+                ".about-stat strong"
+            );
 
-                <a
-                    href="projects/file-manager/"
-                    class="project-link"
-                >
 
-                    VIEW LIVE PROJECT
 
-                    <span>→</span>
+        function animateNumber(
+            element
+        ) {
 
-                </a>
 
+            const originalText =
+                element.textContent.trim();
 
-            </div>
 
+            const numberMatch =
+                originalText.match(
+                    /\d+/
+                );
 
-        </article>
 
+            if (
+                !numberMatch
+            ) {
 
+                return;
 
-        <!-- PORTFOLIO -->
+            }
 
-        <article class="project-card">
 
+            const finalNumber =
+                parseInt(
+                    numberMatch[0],
+                    10
+                );
 
-            <div class="project-image">
 
+            const suffix =
+                originalText.replace(
+                    numberMatch[0],
+                    ""
+                );
 
-                <img
-                    src="assets/projects/portfolio-cover.webp"
-                    alt="Premium Creative Developer Portfolio"
-                    loading="lazy"
-                >
 
+            let currentNumber =
+                0;
 
-                <div class="project-overlay">
 
-                    <span>
-                        PORTFOLIO DESIGN
-                    </span>
+            const duration =
+                1200;
 
-                </div>
 
+            const frameRate =
+                30;
 
-            </div>
 
+            const totalFrames =
+                Math.round(
+                    duration /
+                    frameRate
+                );
 
-            <div class="project-content">
 
+            const increment =
+                finalNumber /
+                totalFrames;
 
-                <p class="project-category">
-                    WEB DESIGN • UI/UX • DEVELOPMENT
-                </p>
 
+            const timer =
+                setInterval(
+                    () => {
 
-                <h3>
-                    Premium Portfolio Website
-                </h3>
 
+                        currentNumber +=
+                            increment;
 
-                <p>
 
-                    A sophisticated personal portfolio experience
-                    combining modern typography, elegant layouts,
-                    responsive design, premium visuals, and
-                    interactive front-end development.
+                        if (
+                            currentNumber >=
+                            finalNumber
+                        ) {
 
-                </p>
 
+                            element.textContent =
+                                finalNumber +
+                                suffix;
 
-                <div class="project-tech">
 
-                    <span>Web Design</span>
+                            clearInterval(
+                                timer
+                            );
 
-                    <span>UI / UX</span>
 
-                    <span>Responsive</span>
+                            return;
 
-                </div>
+                        }
 
 
-                <a
-                    href="#home"
-                    class="project-link"
-                >
+                        element.textContent =
+                            Math.floor(
+                                currentNumber
+                            )
+                            +
+                            suffix;
 
-                    VIEW PORTFOLIO
 
-                    <span>→</span>
+                    },
+                    frameRate
+                );
 
-                </a>
 
+        }
 
-            </div>
 
 
-        </article>
+        if (
+            aboutStats.length
+            &&
+            "IntersectionObserver"
+            in window
+        ) {
 
 
+            const statsObserver =
+                new IntersectionObserver(
+                    entries => {
 
-        <!-- BRANDING -->
 
-        <article class="project-card">
+                        entries.forEach(
+                            entry => {
 
 
-            <div class="project-image">
+                                if (
+                                    entry.isIntersecting
+                                ) {
 
 
-                <img
-                    src="assets/projects/branding-cover.webp"
-                    alt="Brand Identity and Creative Design project"
-                    loading="lazy"
-                >
+                                    animateNumber(
+                                        entry.target
+                                    );
 
 
-                <div class="project-overlay">
+                                    statsObserver.unobserve(
+                                        entry.target
+                                    );
 
-                    <span>
-                        BRAND IDENTITY
-                    </span>
 
-                </div>
+                                }
 
 
-            </div>
+                            }
+                        );
 
 
-            <div class="project-content">
+                    },
+                    {
+                        threshold:
+                            .7
+                    }
+                );
 
 
-                <p class="project-category">
-                    BRANDING • GRAPHIC DESIGN • IDENTITY
-                </p>
+            aboutStats.forEach(
+                stat => {
 
 
-                <h3>
-                    Brand Identity & Creative Design
-                </h3>
+                    statsObserver.observe(
+                        stat
+                    );
 
 
-                <p>
+                }
+            );
 
-                    A premium identity concept combining
-                    logo design, typography, color systems,
-                    stationery, visual storytelling, and
-                    professional brand presentation.
 
-                </p>
+        }
 
 
-                <div class="project-tech">
 
-                    <span>Branding</span>
+        /* =================================================
+           RESIZE
+        ================================================= */
 
-                    <span>Graphic Design</span>
+        let resizeTimer;
 
-                    <span>Visual Identity</span>
 
-                </div>
+        window.addEventListener(
+            "resize",
+            () => {
 
 
-                <a
-                    href="#contact"
-                    class="project-link"
-                >
+                clearTimeout(
+                    resizeTimer
+                );
 
-                    DISCUSS A BRAND PROJECT
 
-                    <span>→</span>
+                resizeTimer =
+                    setTimeout(
+                        () => {
 
-                </a>
 
+                            buildHeroCode();
 
-            </div>
 
+                        },
+                        280
+                    );
 
-        </article>
 
+            }
+        );
 
 
-        <!-- WEB EXPERIENCE -->
 
-        <article class="project-card">
+        /* =================================================
+           CURRENT YEAR
+        ================================================= */
 
+        const copyright =
+            document.querySelector(
+                ".copyright"
+            );
 
-            <div class="project-image">
 
+        if (
+            copyright
+        ) {
 
-                <img
-                    src="assets/projects/web-experience-cover.webp"
-                    alt="Modern Responsive Web Experience project"
-                    loading="lazy"
-                >
 
+            copyright.textContent =
+                `© ${
+                    new Date().getFullYear()
+                } Jhonaiza Gede. All Rights Reserved.`;
 
-                <div class="project-overlay">
 
-                    <span>
-                        WEB EXPERIENCE
-                    </span>
+        }
 
-                </div>
 
-
-            </div>
-
-
-            <div class="project-content">
-
-
-                <p class="project-category">
-                    WEB DESIGN • RESPONSIVE • UI/UX
-                </p>
-
-
-                <h3>
-                    Modern Web Experience
-                </h3>
-
-
-                <p>
-
-                    A high-impact responsive website concept
-                    focused on modern aesthetics, strong visual
-                    hierarchy, optimized performance, and
-                    seamless desktop and mobile experiences.
-
-                </p>
-
-
-                <div class="project-tech">
-
-                    <span>Web Design</span>
-
-                    <span>UI / UX</span>
-
-                    <span>Development</span>
-
-                </div>
-
-
-                <a
-                    href="#contact"
-                    class="project-link"
-                >
-
-                    START A WEB PROJECT
-
-                    <span>→</span>
-
-                </a>
-
-
-            </div>
-
-
-        </article>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     WHY WORK WITH ME
-===================================================== -->
-
-<section
-    class="section why-section"
-    id="why-me"
->
-
-
-    <div class="why-container">
-
-
-        <div class="why-heading">
-
-
-            <p class="section-label">
-                WHY WORK WITH ME
-            </p>
-
-
-            <h2>
-
-                Creativity
-
-                <br>
-
-                With Purpose.
-
-            </h2>
-
-
-            <p>
-                Every project deserves more than a template.
-            </p>
-
-
-            <p>
-
-                I approach each project with attention to
-                its unique goals, audience, and personality.
-                My aim is to create work that feels intentional
-                rather than generic—combining strong visual
-                design with practical functionality.
-
-            </p>
-
-
-        </div>
-
-
-
-        <div class="why-list">
-
-
-            <div class="why-item">
-
-                <span>01</span>
-
-                <div>
-
-                    <h3>
-                        Creative Thinking
-                    </h3>
-
-                    <p>
-                        Fresh ideas shaped around your
-                        vision and objectives.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="why-item">
-
-                <span>02</span>
-
-                <div>
-
-                    <h3>
-                        Modern Design
-                    </h3>
-
-                    <p>
-                        Clean, contemporary visuals built
-                        for today's digital environment.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="why-item">
-
-                <span>03</span>
-
-                <div>
-
-                    <h3>
-                        Responsive Experience
-                    </h3>
-
-                    <p>
-                        Designs optimized for desktop,
-                        tablet, and mobile devices.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="why-item">
-
-                <span>04</span>
-
-                <div>
-
-                    <h3>
-                        Attention to Detail
-                    </h3>
-
-                    <p>
-                        Thoughtful typography, spacing,
-                        imagery, interactions, and
-                        finishing touches.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="why-item">
-
-                <span>05</span>
-
-                <div>
-
-                    <h3>
-                        Client-Focused Process
-                    </h3>
-
-                    <p>
-                        Clear communication and collaborative
-                        development from concept through
-                        completion.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section
-    class="section contact-section"
-    id="contact"
->
-
-
-    <div class="contact-container">
-
-
-        <p class="section-label">
-            LET'S WORK TOGETHER
-        </p>
-
-
-        <h2>
-
-            Have an Idea?
-
-            <br>
-
-            <span>
-
-                Let's Turn It Into
-                Something Exceptional.
-
-            </span>
-
-        </h2>
-
-
-        <p class="contact-description">
-
-            Whether you need a professional website,
-            a stronger visual identity, creative graphics,
-            or a complete digital experience, I'd love
-            to hear about your project.
-
-        </p>
-
-
-        <p class="contact-subtext">
-
-            Tell me what you're building, what you want
-            to improve, and what you want your audience
-            to experience.
-
-        </p>
-
-
-        <div class="contact-actions">
-
-
-            <a
-                href="mailto:gedejhonaiza@gmail.com?subject=Project Inquiry"
-                class="contact-btn"
-            >
-
-                START A PROJECT
-
-                <span>→</span>
-
-            </a>
-
-
-            <a
-                href="mailto:gedejhonaiza@gmail.com"
-                class="social-btn"
-            >
-
-                EMAIL ME
-
-            </a>
-
-
-        </div>
-
-
-        <a
-            href="mailto:gedejhonaiza@gmail.com"
-            class="contact-email"
-        >
-            gedejhonaiza@gmail.com
-        </a>
-
-
-        <div class="social-links">
-
-
-            <a
-                href="https://github.com/gedejhonaiza-byte"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GITHUB
-            </a>
-
-
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                LINKEDIN
-            </a>
-
-
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                FACEBOOK
-            </a>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="luxury-footer">
-
-
-    <div class="footer-top">
-
-
-        <div class="footer-brand">
-
-
-            <a
-                href="#home"
-                class="footer-profile"
-                aria-label="Jhonaiza Gede Home"
-            >
-
-                <img
-                    src="profile.jpg.webp"
-                    alt="Jhonaiza Gede"
-                >
-
-                <span class="footer-profile-ring"></span>
-
-            </a>
-
-
-            <div class="footer-brand-text">
-
-                <h3>
-                    Jhonaiza Gede
-                </h3>
-
-                <p>
-                    Creative Developer • Graphic Designer • Web Designer
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="footer-message">
-
-            <p>
-
-                Creating thoughtful digital experiences
-                where creativity, design, and technology
-                come together.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="footer-line"></div>
-
-
-    <div class="footer-bottom">
-
-
-        <div class="footer-nav">
-
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#services">
-                Services
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
-
-
-        <p class="copyright">
-
-            © 2026 Jhonaiza Gede. All Rights Reserved.
-
-        </p>
-
-
-    </div>
-
-
-</footer>
-
-
-
-<a
-    href="#home"
-    class="back-to-top"
-    aria-label="Back to top"
->
-    ↑
-</a>
-
-
-
-<script src="script.js"></script>
-
-
-</body>
-
-</html>
+    }
+);
