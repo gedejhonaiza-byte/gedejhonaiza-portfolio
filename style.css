@@ -4323,3 +4323,818 @@ and
     }
 
 }
+/* =========================================================
+   LUXURY METALLIC GOLD SYSTEM
+========================================================= */
+
+:root {
+
+    /* PRIMARY */
+    --metal-gold: #D7B56D;
+
+    /* CHAMPAGNE HIGHLIGHT */
+    --metal-highlight: #FFF2BD;
+
+    /* DEEPER METALLIC SHADES */
+    --metal-dark: #8B672B;
+    --metal-mid: #C89E4B;
+
+    --metal-text: #17130B;
+
+}
+
+
+/* =========================================================
+   ALL PREMIUM BUTTONS
+========================================================= */
+
+.nav-hire,
+.hero-cv-button,
+.hero-project-link,
+.contact-btn,
+.social-btn,
+.mobile-hire-link,
+.back-to-top {
+
+    position: relative;
+
+    isolation: isolate;
+
+    overflow: hidden;
+
+    border: 1px solid
+        rgba(255, 242, 189, 0.72);
+
+    border-radius: 999px;
+
+    background:
+
+        linear-gradient(
+            115deg,
+
+            #80602A 0%,
+
+            #B98B3D 12%,
+
+            #D7B56D 28%,
+
+            #FFF2BD 46%,
+
+            #E8CC8B 56%,
+
+            #D7B56D 70%,
+
+            #A77B35 87%,
+
+            #755521 100%
+        );
+
+    background-size:
+        220% 100%;
+
+    color:
+        var(--metal-text);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    box-shadow:
+
+        inset 0 1px 1px
+        rgba(255,255,255,0.80),
+
+        inset 0 -2px 4px
+        rgba(90,57,10,0.35),
+
+        0 5px 12px
+        rgba(0,0,0,0.30),
+
+        0 0 16px
+        rgba(215,181,109,0.16);
+
+    text-shadow:
+
+        0 1px 0
+        rgba(255,255,255,0.24);
+
+    transition:
+
+        transform 0.32s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+
+        box-shadow 0.32s ease,
+
+        border-color 0.32s ease,
+
+        filter 0.32s ease;
+
+}
+
+
+/* =========================================================
+   SHIMMER LIGHT
+========================================================= */
+
+.nav-hire::before,
+.hero-cv-button::before,
+.hero-project-link::before,
+.contact-btn::before,
+.social-btn::before,
+.mobile-hire-link::before,
+.back-to-top::before {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    top: -80%;
+
+    left: -55%;
+
+    width: 34%;
+
+    height: 260%;
+
+    pointer-events: none;
+
+    transform:
+        rotate(22deg);
+
+    background:
+
+        linear-gradient(
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,0.16),
+
+            rgba(255,255,255,0.82),
+
+            rgba(255,242,189,0.90),
+
+            rgba(255,255,255,0.18),
+
+            transparent
+        );
+
+    filter:
+        blur(1px);
+
+    animation:
+        luxuryGoldShimmer
+        3.8s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* TOP METALLIC REFLECTION */
+
+.nav-hire::after,
+.hero-cv-button::after,
+.hero-project-link::after,
+.contact-btn::after,
+.social-btn::after,
+.mobile-hire-link::after,
+.back-to-top::after {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    top: 2px;
+
+    left: 8%;
+
+    width: 84%;
+
+    height: 43%;
+
+    border-radius: 999px;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+
+            rgba(255,255,255,0.48),
+
+            rgba(255,242,189,0.12),
+
+            transparent
+        );
+
+    opacity: 0.76;
+
+}
+
+
+/* =========================================================
+   SHIMMER ANIMATION
+========================================================= */
+
+@keyframes luxuryGoldShimmer {
+
+    0% {
+
+        left: -55%;
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 0.9;
+
+    }
+
+    40% {
+
+        left: 130%;
+
+        opacity: 0.45;
+
+    }
+
+    41%,
+    100% {
+
+        left: 130%;
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   LIFT + GOLD GLOW ON HOVER
+========================================================= */
+
+.nav-hire:hover,
+.hero-cv-button:hover,
+.hero-project-link:hover,
+.contact-btn:hover,
+.social-btn:hover,
+.mobile-hire-link:hover,
+.back-to-top:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.025);
+
+    border-color:
+        #FFF2BD;
+
+    filter:
+        brightness(1.08)
+        saturate(1.04);
+
+    box-shadow:
+
+        inset 0 1px 2px
+        rgba(255,255,255,0.95),
+
+        inset 0 -2px 5px
+        rgba(102,64,11,0.33),
+
+        0 12px 26px
+        rgba(0,0,0,0.38),
+
+        0 0 18px
+        rgba(215,181,109,0.48),
+
+        0 0 38px
+        rgba(255,242,189,0.22);
+
+}
+
+
+/* CLICK EFFECT */
+
+.nav-hire:active,
+.hero-cv-button:active,
+.hero-project-link:active,
+.contact-btn:active,
+.social-btn:active,
+.mobile-hire-link:active,
+.back-to-top:active {
+
+    transform:
+        translateY(-1px)
+        scale(0.985);
+
+    box-shadow:
+
+        inset 0 2px 5px
+        rgba(90,55,8,0.30),
+
+        0 5px 13px
+        rgba(0,0,0,0.30),
+
+        0 0 12px
+        rgba(215,181,109,0.25);
+
+}
+
+
+/* =========================================================
+   NAV HIRE BUTTON
+========================================================= */
+
+.nav-hire {
+
+    min-width: 138px;
+
+    min-height: 48px;
+
+    padding:
+        11px 23px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+
+    letter-spacing: 0.2px;
+
+}
+
+
+.nav-hire span {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 19px;
+
+}
+
+
+/* =========================================================
+   HERO VIEW CV
+========================================================= */
+
+.hero-cv-button {
+
+    min-width: 195px;
+
+    padding:
+        15px 33px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 17px;
+
+    color:
+        #17130B;
+
+}
+
+
+/* =========================================================
+   HERO VIEW PORTFOLIO
+   NOW ALSO A GOLD PILL
+========================================================= */
+
+.hero-project-link {
+
+    min-width: 195px;
+
+    padding:
+        14px 27px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+
+    color:
+        #17130B;
+
+}
+
+
+.hero-project-link span {
+
+    position: relative;
+
+    z-index: 3;
+
+    color:
+        #17130B;
+
+    font-size: 18px;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.hero-project-link:hover span {
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   CONTACT BUTTONS
+========================================================= */
+
+.contact-btn,
+.social-btn {
+
+    min-width: 190px;
+
+    padding:
+        14px 27px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    color:
+        #17130B;
+
+}
+
+
+/* =========================================================
+   MOBILE HIRE BUTTON
+========================================================= */
+
+.mobile-hire-link {
+
+    color:
+        #17130B !important;
+
+    border: 1px solid
+        rgba(255,242,189,0.80);
+
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-to-top {
+
+    width: 48px;
+
+    height: 48px;
+
+    padding: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color:
+        #17130B;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   OPTIONAL GLOW FOR OTHER CTA TEXT
+========================================================= */
+
+.nav-hire,
+.hero-cv-button,
+.hero-project-link,
+.contact-btn,
+.social-btn {
+
+    letter-spacing: 0.15px;
+
+}
+
+
+/* =========================================================
+   FOOTER PROFILE IMAGE
+========================================================= */
+
+.footer-profile {
+
+    position: relative;
+
+    width: 68px;
+
+    height: 68px;
+
+    flex-shrink: 0;
+
+    display: block;
+
+    overflow: visible;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    box-shadow:
+
+        0 0 0 1px
+        rgba(215,181,109,0.40),
+
+        0 0 22px
+        rgba(215,181,109,0.13);
+
+    transition:
+
+        transform 0.35s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+
+        box-shadow 0.35s ease;
+
+}
+
+
+.footer-profile img {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position:
+        center center;
+
+    border-radius: 50%;
+
+    border:
+        2px solid
+        #D7B56D;
+
+}
+
+
+/* METALLIC PROFILE RING */
+
+.footer-profile-ring {
+
+    position: absolute;
+
+    z-index: 1;
+
+    inset: -5px;
+
+    border-radius: 50%;
+
+    background:
+
+        conic-gradient(
+
+            from 0deg,
+
+            #7E5B23,
+
+            #D7B56D,
+
+            #FFF2BD,
+
+            #C99542,
+
+            #D7B56D,
+
+            #FFF2BD,
+
+            #7E5B23
+
+        );
+
+    opacity: 0.82;
+
+    animation:
+        footerGoldRing
+        7s
+        linear
+        infinite;
+
+}
+
+
+.footer-profile::after {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: 3;
+
+    top: 7px;
+
+    left: 13px;
+
+    width: 30%;
+
+    height: 17%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.42);
+
+    filter:
+        blur(4px);
+
+    transform:
+        rotate(-25deg);
+
+    pointer-events: none;
+
+}
+
+
+@keyframes footerGoldRing {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+.footer-profile:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.055);
+
+    box-shadow:
+
+        0 10px 28px
+        rgba(0,0,0,0.35),
+
+        0 0 20px
+        rgba(215,181,109,0.35),
+
+        0 0 42px
+        rgba(255,242,189,0.14);
+
+}
+
+
+/* FOOTER TEXT */
+
+.footer-brand-text h3 {
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color:
+        #ffffff;
+
+}
+
+
+.footer-brand-text p {
+
+    margin-top: 4px;
+
+    font-size: 9px;
+
+    color:
+        #77777B;
+
+}
+
+
+/* =========================================================
+   MOBILE BUTTON POLISH
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .hero-cv-button,
+    .hero-project-link {
+
+        width: min(
+            260px,
+            100%
+        );
+
+        min-width: 0;
+
+    }
+
+
+    .hero-actions {
+
+        align-items: center;
+
+    }
+
+
+    .contact-btn,
+    .social-btn {
+
+        width: 100%;
+
+    }
+
+
+    .footer-profile {
+
+        width: 62px;
+
+        height: 62px;
+
+    }
+
+
+    /*
+       Keep bottom Hire button integrated
+       with your existing mobile navigation.
+    */
+
+    .mobile-hire-link {
+
+        padding:
+            7px 4px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    .nav-hire::before,
+    .hero-cv-button::before,
+    .hero-project-link::before,
+    .contact-btn::before,
+    .social-btn::before,
+    .mobile-hire-link::before,
+    .back-to-top::before,
+    .footer-profile-ring {
+
+        animation: none;
+
+    }
+
+}
