@@ -6000,3 +6000,511 @@ and
         animation: none;
     }
 }
+
+/* =========================================================
+   2026-09 HERO PROFILE FIT + ABOUT SECTION REFINEMENT
+   Final overrides — keep previous portfolio styles intact
+========================================================= */
+
+/* =========================================================
+   HERO — REMOVE OUTER PROFILE OUTLINE + SHOW MORE IMAGE
+========================================================= */
+
+.hero-photo-outline,
+.hero-doodle-line,
+.hero-doodle-circles,
+.hero-doodle-plus {
+    display: none !important;
+}
+
+.hero-photo-column {
+    min-height: 560px;
+}
+
+.hero-photo-scene {
+    width: min(455px, 94%);
+    aspect-ratio: 1 / 1.15;
+}
+
+/* Gold metallic card stays behind the portrait */
+.hero-photo-accent {
+    top: 105px;
+    left: 58px;
+    width: 300px;
+    height: 320px;
+    border-radius: 30px;
+    transform: rotate(14deg);
+}
+
+/* Main white tilted portrait frame */
+.hero-photo-frame {
+    top: 24px;
+    left: 67px;
+    width: 325px;
+    height: 435px;
+    border-radius: 30px;
+    transform: rotate(14deg);
+}
+
+/* Important: smaller image scale so the portrait is not oversized/cropped */
+.hero-photo-frame .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    transform: rotate(-14deg) scale(1.025) translateY(3px);
+    transform-origin: center bottom;
+}
+
+.hero-photo-frame:hover .hero-photo {
+    transform: rotate(-14deg) scale(1.055) translateY(0);
+}
+
+.hero-photo-tag {
+    right: 0;
+    bottom: 42px;
+}
+
+/* =========================================================
+   ABOUT — INSPIRATION LAYOUT WITH OWN CONTENT
+========================================================= */
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+    padding: 105px 7% 110px;
+    background:
+        radial-gradient(circle at 23% 52%, rgba(215,181,109,.08), transparent 34%),
+        linear-gradient(135deg, #070707 0%, #0b0a08 52%, #090909 100%);
+}
+
+.about-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .055;
+    background-image:
+        linear-gradient(rgba(215,181,109,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(215,181,109,.12) 1px, transparent 1px);
+    background-size: 72px 72px;
+}
+
+.about-inspiration-layout {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(360px,.92fr) minmax(520px,1.08fr);
+    align-items: center;
+    gap: clamp(70px, 8vw, 135px);
+}
+
+/* LEFT TRIANGLE PROFILE */
+.about-profile-side {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-triangle-scene {
+    position: relative;
+    width: min(540px, 100%);
+    height: 610px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.about-triangle-glow {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    width: 470px;
+    height: 470px;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background: rgba(215,181,109,.105);
+    filter: blur(85px);
+}
+
+/* Inverted gold triangle from the inspiration */
+.about-triangle-frame {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 455px;
+    height: 525px;
+    transform: translate(-50%,-45%);
+    clip-path: polygon(5% 4%, 95% 4%, 50% 98%);
+    background: linear-gradient(135deg, #8D6828 0%, #D7B56D 30%, #FFF2BD 48%, #D7B56D 67%, #8A6424 100%);
+    filter: drop-shadow(0 0 11px rgba(215,181,109,.35));
+}
+
+.about-triangle-frame::after {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    clip-path: polygon(5% 4%, 95% 4%, 50% 98%);
+    background: #090908;
+}
+
+.about-profile-image {
+    position: relative;
+    z-index: 3;
+    width: min(415px, 84%);
+    max-height: 555px;
+    object-fit: contain;
+    object-position: center bottom;
+    filter:
+        drop-shadow(0 22px 30px rgba(0,0,0,.46))
+        drop-shadow(0 0 18px rgba(215,181,109,.08));
+}
+
+/* RIGHT CONTENT */
+.about-content-side {
+    max-width: 720px;
+}
+
+.about-main-title {
+    margin: 0 0 24px;
+    font-family: var(--font, "Poppins", sans-serif) !important;
+    font-size: clamp(58px, 6.4vw, 95px) !important;
+    line-height: .95 !important;
+    font-weight: 700 !important;
+    letter-spacing: -4px !important;
+    color: #fff;
+}
+
+.about-introduction-title {
+    margin-bottom: 27px;
+    font-size: clamp(22px, 2vw, 31px);
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--metal-gold, #D7B56D);
+}
+
+.about-small-label {
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #b7b4ad;
+}
+
+.about-content-side .about-lead {
+    margin-bottom: 20px;
+    font-family: var(--font, "Poppins", sans-serif);
+    font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.78;
+    font-weight: 400;
+    color: #c2c0ba;
+}
+
+.about-content-side .about-lead strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.about-description {
+    margin-bottom: 18px;
+    max-width: 700px;
+    font-size: clamp(14px, 1.05vw, 17px);
+    line-height: 1.9;
+    color: #92949d;
+}
+
+/* STATS */
+.about-stats {
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.about-stat {
+    position: relative;
+    min-height: 135px;
+    padding: 0 8px 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.about-stat strong {
+    display: block;
+    margin-bottom: 12px;
+    font-size: clamp(52px, 5vw, 78px);
+    line-height: .92;
+    font-weight: 700;
+    letter-spacing: -3px;
+    color: var(--metal-gold, #D7B56D);
+    text-shadow: 0 0 18px rgba(215,181,109,.14);
+}
+
+.about-stat span {
+    display: block;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #9698a1;
+}
+
+/* =========================================================
+   RESPONSIVE — HERO + ABOUT
+========================================================= */
+
+@media (max-width: 1200px) {
+    .hero-photo-scene {
+        width: min(405px, 94%);
+    }
+
+    .hero-photo-accent {
+        top: 104px;
+        left: 50px;
+        width: 270px;
+        height: 292px;
+    }
+
+    .hero-photo-frame {
+        top: 29px;
+        left: 60px;
+        width: 292px;
+        height: 395px;
+    }
+
+    .hero-photo-frame .hero-photo {
+        transform: rotate(-14deg) scale(1.02) translateY(3px);
+    }
+
+    .about-inspiration-layout {
+        grid-template-columns: minmax(330px,.88fr) minmax(460px,1.12fr);
+        gap: 65px;
+    }
+
+    .about-triangle-scene {
+        height: 560px;
+    }
+
+    .about-triangle-frame {
+        width: 410px;
+        height: 480px;
+    }
+
+    .about-profile-image {
+        width: min(380px, 86%);
+        max-height: 510px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-photo-column {
+        min-height: 500px;
+    }
+
+    .about-section {
+        padding: 90px 7%;
+    }
+
+    .about-inspiration-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-profile-side {
+        min-height: 540px;
+        order: 1;
+    }
+
+    .about-content-side {
+        order: 2;
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .about-triangle-scene {
+        width: min(500px, 90vw);
+        height: 530px;
+    }
+
+    .about-triangle-frame {
+        width: 390px;
+        height: 450px;
+    }
+
+    .about-profile-image {
+        width: min(355px, 78vw);
+        max-height: 490px;
+    }
+
+    .about-stats {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-photo-column {
+        min-height: 415px;
+    }
+
+    .hero-photo-scene {
+        width: min(315px, 90vw);
+    }
+
+    .hero-photo-accent {
+        top: 92px;
+        left: 40px;
+        width: 205px;
+        height: 230px;
+        border-radius: 22px;
+    }
+
+    .hero-photo-frame {
+        top: 29px;
+        left: 47px;
+        width: 230px;
+        height: 315px;
+        border-radius: 24px;
+    }
+
+    .hero-photo-frame .hero-photo,
+    .hero-photo-frame:hover .hero-photo {
+        transform: rotate(-14deg) scale(1.015) translateY(2px);
+    }
+
+    .hero-photo-tag {
+        right: 2px;
+        bottom: 29px;
+    }
+
+    .about-section {
+        padding: 75px 20px 88px;
+    }
+
+    .about-profile-side {
+        min-height: 445px;
+    }
+
+    .about-triangle-scene {
+        width: min(360px, 92vw);
+        height: 430px;
+    }
+
+    .about-triangle-frame {
+        width: 305px;
+        height: 360px;
+    }
+
+    .about-profile-image {
+        width: min(290px, 80vw);
+        max-height: 400px;
+    }
+
+    .about-main-title {
+        font-size: clamp(48px, 15vw, 67px) !important;
+        letter-spacing: -3px !important;
+    }
+
+    .about-introduction-title {
+        margin-bottom: 22px;
+        font-size: 22px;
+    }
+
+    .about-content-side .about-lead {
+        font-size: 15px;
+    }
+
+    .about-description {
+        font-size: 13px;
+        line-height: 1.85;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 34px;
+    }
+
+    .about-stat {
+        min-height: 120px;
+        padding-right: 3px;
+    }
+
+    .about-stat strong {
+        font-size: clamp(38px, 12vw, 55px);
+        letter-spacing: -2px;
+    }
+
+    .about-stat span {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-photo-column {
+        min-height: 385px;
+    }
+
+    .hero-photo-scene {
+        width: min(290px, 92vw);
+    }
+
+    .hero-photo-accent {
+        top: 87px;
+        left: 37px;
+        width: 188px;
+        height: 210px;
+    }
+
+    .hero-photo-frame {
+        top: 30px;
+        left: 44px;
+        width: 210px;
+        height: 288px;
+    }
+
+    .about-profile-side {
+        min-height: 400px;
+    }
+
+    .about-triangle-scene {
+        height: 390px;
+    }
+
+    .about-triangle-frame {
+        width: 278px;
+        height: 328px;
+    }
+
+    .about-profile-image {
+        width: min(265px, 82vw);
+        max-height: 365px;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 290px;
+    }
+
+    .about-stat {
+        min-height: auto;
+        padding: 0 0 15px;
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        align-items: end;
+        gap: 15px;
+    }
+
+    .about-stat strong {
+        margin: 0;
+    }
+
+    .about-stat span {
+        padding-bottom: 5px;
+        font-size: 11px;
+    }
+}
