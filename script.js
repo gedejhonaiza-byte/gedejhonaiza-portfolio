@@ -89,7 +89,7 @@ const loaderCodeLines = [
 
     '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
 
-    '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
+    '&lt;article class=<span class="code-string">"portfolio-card"</span>&gt;',
 
     'border: 1px solid rgba(215,181,109,.25);',
 
@@ -151,7 +151,8 @@ if (
     width <= 520
 ) {
 
-    columns = 6;
+    columns =
+        6;
 
 }
 
@@ -159,7 +160,8 @@ else if (
     width <= 900
 ) {
 
-    columns = 9;
+    columns =
+        9;
 
 }
 
@@ -297,13 +299,13 @@ min-height: 100vh;
 overflow: hidden;
 }`,
 
-`const projects =
+`const portfolioItems =
 document.querySelectorAll(
 ".project-card"
 );
 
-projects.forEach(project => {
-project.classList.add("active");
+portfolioItems.forEach(item => {
+item.classList.add("active");
 });`,
 
 `@media (max-width: 767px) {
@@ -321,7 +323,7 @@ const height = section.offsetHeight;
 }`,
 
 `<section id="projects">
-<article class="project">
+<article class="portfolio">
 <h2>Creative Experience</h2>
 <p>Design • Develop • Create</p>
 </article>
@@ -415,7 +417,8 @@ if (
     width <= 767
 ) {
 
-    totalBlocks = 8;
+    totalBlocks =
+        8;
 
 }
 
@@ -536,7 +539,7 @@ const loaderMessages = [
 
     "Compiling digital experience...",
 
-    "Preparing featured projects...",
+    "Preparing featured portfolio...",
 
     "Optimizing responsive layout...",
 
@@ -549,13 +552,20 @@ const loaderMessages = [
 ];
 
 
-let loaderMessageIndex = 0;
+let loaderMessageIndex =
+    0;
 
-let loaderCharacterIndex = 0;
 
-let loaderDeleting = false;
+let loaderCharacterIndex =
+    0;
 
-let loaderTypingStopped = false;
+
+let loaderDeleting =
+    false;
+
+
+let loaderTypingStopped =
+    false;
 
 
 
@@ -600,7 +610,8 @@ if (
     ) {
 
 
-        loaderDeleting = true;
+        loaderDeleting =
+            true;
 
 
         setTimeout(
@@ -636,11 +647,13 @@ else {
 
 
     if (
-        loaderCharacterIndex <= 0
+        loaderCharacterIndex <=
+        0
     ) {
 
 
-        loaderDeleting = false;
+        loaderDeleting =
+            false;
 
 
         loaderMessageIndex =
@@ -680,14 +693,16 @@ typeLoaderMessage();
 
 
 
-const loaderDuration = 6500;
+const loaderDuration =
+    6500;
 
 
 const loaderStartTime =
     performance.now();
 
 
-let loaderComplete = false;
+let loaderComplete =
+    false;
 
 
 
@@ -703,9 +718,12 @@ if (
 }
 
 
-loaderComplete = true;
+loaderComplete =
+    true;
 
-loaderTypingStopped = true;
+
+loaderTypingStopped =
+    true;
 
 
 if (
@@ -799,7 +817,8 @@ if (
 ) {
 
     progress =
-        progress * 1.08;
+        progress *
+        1.08;
 
 }
 
@@ -926,11 +945,16 @@ const heroRoles = [
 ];
 
 
-let heroRoleIndex = 0;
+let heroRoleIndex =
+    0;
 
-let heroCharacterIndex = 0;
 
-let heroDeleting = false;
+let heroCharacterIndex =
+    0;
+
+
+let heroDeleting =
+    false;
 
 
 
@@ -974,7 +998,8 @@ if (
     ) {
 
 
-        heroDeleting = true;
+        heroDeleting =
+            true;
 
 
         setTimeout(
@@ -1010,11 +1035,13 @@ else {
 
 
     if (
-        heroCharacterIndex <= 0
+        heroCharacterIndex <=
+        0
     ) {
 
 
-        heroDeleting = false;
+        heroDeleting =
+            false;
 
 
         heroRoleIndex =
@@ -1300,7 +1327,8 @@ const difference =
 
 
 if (
-    currentScrollY <= 35
+    currentScrollY <=
+    35
 ) {
 
 
@@ -1310,7 +1338,8 @@ if (
 }
 
 else if (
-    difference > 7
+    difference >
+    7
 ) {
 
 
@@ -1320,7 +1349,8 @@ else if (
 }
 
 else if (
-    difference < -5
+    difference <
+    -5
 ) {
 
 
@@ -1355,14 +1385,16 @@ window.addEventListener(
                     updateMobileNavigationVisibility();
 
 
-                    mobileScrollTicking = false;
+                    mobileScrollTicking =
+                        false;
 
 
                 }
             );
 
 
-            mobileScrollTicking = true;
+            mobileScrollTicking =
+                true;
 
 
         }
@@ -1382,7 +1414,8 @@ document.addEventListener(
 
 
         if (
-            window.innerWidth <= 767
+            window.innerWidth <=
+            767
         ) {
 
 
@@ -1406,7 +1439,8 @@ document.addEventListener(
 
 
         if (
-            window.innerWidth <= 767
+            window.innerWidth <=
+            767
         ) {
 
 
@@ -1455,7 +1489,6 @@ document
     `
     a,
     button,
-    .skill-card,
     .project-card,
     .about-stat,
     .hero-experience-card,
@@ -1530,7 +1563,8 @@ document
 
                 if (
                     !href ||
-                    href === "#"
+                    href ===
+                    "#"
                 ) {
 
                     return;
@@ -1736,7 +1770,7 @@ window.addEventListener(
 
 
 /* =========================================================
-SCROLL REVEAL
+REVEAL
 ========================================================= */
 
 const revealElements = [
@@ -1763,10 +1797,6 @@ const revealElements = [
 
     ...document.querySelectorAll(
         ".hire-content-window"
-    ),
-
-    ...document.querySelectorAll(
-        ".skill-card"
     ),
 
     ...document.querySelectorAll(
@@ -1848,8 +1878,7 @@ const observer =
         },
         {
 
-            threshold:
-                .12,
+            threshold: .12,
 
             rootMargin:
                 "0px 0px -40px 0px"
@@ -1894,7 +1923,7 @@ revealElements.forEach(
 
 
 /* =========================================================
-ANIMATED ABOUT NUMBERS
+ABOUT NUMBERS
 ========================================================= */
 
 const statNumbers =
@@ -1982,7 +2011,8 @@ element.textContent =
 
 
 if (
-    progress < 1
+    progress <
+    1
 ) {
 
 
@@ -2028,7 +2058,8 @@ if (
 }
 
 
-statsStarted = true;
+statsStarted =
+    true;
 
 
 statNumbers.forEach(
@@ -2103,9 +2134,7 @@ const statsObserver =
 
         },
         {
-
             threshold: .35
-
         }
     );
 
@@ -2128,7 +2157,7 @@ startStats();
 
 
 /* =========================================================
-PROJECT CARD TILT
+PORTFOLIO CARD TILT
 ========================================================= */
 
 document
@@ -2145,7 +2174,8 @@ document
 
 
                 if (
-                    window.innerWidth <= 900
+                    window.innerWidth <=
+                    900
                 ) {
 
                     return;
@@ -2250,7 +2280,8 @@ hero.addEventListener(
 
 
         if (
-            window.innerWidth <= 900
+            window.innerWidth <=
+            900
         ) {
 
             return;
@@ -2353,7 +2384,8 @@ hero.addEventListener(
 
 
         if (
-            window.innerWidth <= 900
+            window.innerWidth <=
+            900
         ) {
 
             return;
@@ -2476,7 +2508,8 @@ window.addEventListener(
 
 
                     if (
-                        window.innerWidth <= 900 &&
+                        window.innerWidth <=
+                        900 &&
                         heroProfileStage
                     ) {
 
@@ -2501,7 +2534,8 @@ window.addEventListener(
 
 
                     if (
-                        window.innerWidth > 767
+                        window.innerWidth >
+                        767
                     ) {
 
 
