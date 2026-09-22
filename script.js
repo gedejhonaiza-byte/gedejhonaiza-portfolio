@@ -343,48 +343,48 @@ const height = section.offsetHeight;
 const heroCodePositions = [
 
     {
-        left: "2%",
-        top: "10%"
+        left:"2%",
+        top:"10%"
     },
 
     {
-        left: "35%",
-        top: "6%"
+        left:"35%",
+        top:"6%"
     },
 
     {
-        right: "2%",
-        top: "14%"
+        right:"2%",
+        top:"14%"
     },
 
     {
-        left: "4%",
-        bottom: "5%"
+        left:"4%",
+        bottom:"5%"
     },
 
     {
-        left: "38%",
-        bottom: "7%"
+        left:"38%",
+        bottom:"7%"
     },
 
     {
-        right: "1%",
-        bottom: "8%"
+        right:"1%",
+        bottom:"8%"
     },
 
     {
-        left: "25%",
-        top: "42%"
+        left:"25%",
+        top:"42%"
     },
 
     {
-        right: "25%",
-        top: "48%"
+        right:"25%",
+        top:"48%"
     },
 
     {
-        left: "59%",
-        top: "27%"
+        left:"59%",
+        top:"27%"
     }
 
 ];
@@ -1090,7 +1090,7 @@ setTimeout(
 
 
 /* =========================================================
-WHY HIRE ME TABS
+SERVICES TABS
 ========================================================= */
 
 const hireTabs =
@@ -1170,8 +1170,8 @@ hireTabs.forEach(
 
                     hireContentScroll.scrollTo(
                         {
-                            top: 0,
-                            behavior: "smooth"
+                            top:0,
+                            behavior:"smooth"
                         }
                     );
 
@@ -1222,7 +1222,7 @@ window.addEventListener(
     "scroll",
     updateHeader,
     {
-        passive: true
+        passive:true
     }
 );
 
@@ -1402,7 +1402,7 @@ window.addEventListener(
 
     },
     {
-        passive: true
+        passive:true
     }
 );
 
@@ -1427,7 +1427,7 @@ document.addEventListener(
 
     },
     {
-        passive: true
+        passive:true
     }
 );
 
@@ -1452,7 +1452,7 @@ document.addEventListener(
 
     },
     {
-        passive: true
+        passive:true
     }
 );
 
@@ -1590,8 +1590,8 @@ document.querySelectorAll(
 
                 target.scrollIntoView(
                     {
-                        behavior: "smooth",
-                        block: "start"
+                        behavior:"smooth",
+                        block:"start"
                     }
                 );
 
@@ -1716,7 +1716,7 @@ window.addEventListener(
     "scroll",
     updateNavigation,
     {
-        passive: true
+        passive:true
     }
 );
 
@@ -1756,7 +1756,7 @@ window.addEventListener(
     "scroll",
     updateBackToTop,
     {
-        passive: true
+        passive:true
     }
 );
 
@@ -1857,7 +1857,7 @@ if (
             },
             {
 
-                threshold: .12,
+                threshold:.12,
 
                 rootMargin:
                     "0px 0px -40px 0px"
@@ -2113,7 +2113,7 @@ if (
 
             },
             {
-                threshold: .35
+                threshold:.35
             }
         );
 
