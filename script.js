@@ -1,4098 +1,2624 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =========================================================
+JHONAIZA GEDE PORTFOLIO
+COMPLETE SCRIPT.JS
+========================================================= */
 
-<head>
+document.addEventListener(
+"DOMContentLoaded",
+() => {
 
-<meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+/* =========================================================
+ELEMENTS
+========================================================= */
 
-<title>Jhonaiza Gede | Creative Developer Portfolio</title>
+const body =
+    document.body;
 
-<meta
-    name="description"
-    content="Jhonaiza Gede is a Creative Developer, Web Designer, and Graphic Designer creating modern websites, digital designs, branding, and creative experiences."
->
 
-<meta
-    name="keywords"
-    content="Jhonaiza Gede, Creative Developer, Web Designer, Graphic Designer, Portfolio, UI UX Designer, Branding, Digital Design"
->
+const header =
+    document.querySelector(
+        ".desktop-header"
+    );
 
-<meta
-    name="author"
-    content="Jhonaiza Gede"
->
 
-<meta
-    name="theme-color"
-    content="#050505"
->
+const cursor =
+    document.querySelector(
+        ".cursor"
+    );
 
-<meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
->
 
-<meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent"
->
+const backToTop =
+    document.querySelector(
+        ".back-to-top"
+    );
 
-<meta
-    name="apple-mobile-web-app-title"
-    content="Jhonaiza Gede"
->
 
+const hero =
+    document.querySelector(
+        ".hero"
+    );
 
-<!-- =====================================================
-FAVICON
-===================================================== -->
 
-<link
-    rel="icon"
-    type="image/x-icon"
-    href="/favicon.ico"
->
+const mobileBottomNav =
+    document.getElementById(
+        "mobileBottomNav"
+    );
 
-<link
-    rel="shortcut icon"
-    type="image/x-icon"
-    href="/favicon.ico"
->
 
-<link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="/favicon-32x32.png"
->
 
-<link
-    rel="icon"
-    type="image/png"
-    sizes="192x192"
-    href="/favicon-192x192.png"
->
+/* =========================================================
+LOADER COMPUTER CODE
+========================================================= */
 
-<link
-    rel="icon"
-    type="image/png"
-    sizes="512x512"
-    href="/favicon-512x512.png"
->
+const loaderCodeBackground =
+    document.getElementById(
+        "loaderCodeBackground"
+    );
 
-<link
-    rel="apple-touch-icon"
-    sizes="180x180"
-    href="/apple-touch-icon.png"
->
 
+const loaderCodeLines = [
 
-<!-- GOOGLE FONTS -->
+    '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
+    '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
 
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
+    '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
 
-<link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
->
+    'display: grid;',
 
-<link
-    rel="stylesheet"
-    href="style.css"
->
+    'grid-template-columns: 1fr 1fr;',
 
-</head>
+    '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
 
+    'document.querySelector(<span class="code-string">".project"</span>);',
 
-<body>
+    'background: linear-gradient(135deg, #050505, #D7B56D);',
 
+    'transform: translateY(-10px);',
 
-<!-- =====================================================
-PAGE LOADER
-===================================================== -->
+    '<span class="code-keyword">let</span> creativity = true;',
 
-<div
-    class="loader"
-    id="pageLoader"
->
+    'animation: reveal .8s ease;',
 
-<div
-    class="loader-code-background"
-    id="loaderCodeBackground"
-    aria-hidden="true"
-></div>
+    '<span class="code-keyword">if</span> (idea) { createExperience(); }',
 
-<div class="loader-grid"></div>
+    'font-family: "Poppins", sans-serif;',
 
-<div class="loader-glow loader-glow-one"></div>
+    '<span class="code-keyword">return</span> digitalExperience;',
 
-<div class="loader-glow loader-glow-two"></div>
+    'responsive: true;',
 
+    'userExperience.optimize();',
 
-<div class="loader-center">
+    'transition: all .4s ease;',
 
+    'creativeDeveloper.initialize();'
 
-<div class="loader-logo-shell">
+];
 
-<div class="loader-logo-ring"></div>
 
 
-<div class="loader-logo">
+function buildLoaderCode(){
 
-<img
-    src="profile.jpg.webp"
-    alt="Jhonaiza Gede"
->
-
-</div>
-
-</div>
-
-
-<h1 class="loader-name">
-
-Jhonaiza
-
-<span>
-Gede
-</span>
-
-</h1>
-
-
-<p class="loader-title">
-
-CREATIVE DEVELOPER
-
-<span>•</span>
-
-WEB DESIGNER
-
-<span>•</span>
-
-GRAPHIC DESIGNER
-
-</p>
-
-
-<div class="loader-progress-wrapper">
-
-<div class="loader-track">
-
-<div
-    class="loader-progress"
-    id="loaderProgress"
->
-
-<span class="progress-glow"></span>
-
-</div>
-
-</div>
-
-
-<strong
-    class="loader-percent"
-    id="loaderPercent"
->
-0%
-</strong>
-
-</div>
-
-
-<div class="loader-typing-row">
-
-<span
-    id="loaderTypingText"
-    class="loader-typing-text"
-></span>
-
-<span class="loader-caret"></span>
-
-</div>
-
-
-</div>
-
-
-<div class="loader-top-info">
-
-<span>
-JG / PORTFOLIO
-</span>
-
-<span class="loader-online">
-
-<i></i>
-
-SYSTEM ONLINE
-
-</span>
-
-</div>
-
-
-<div class="loader-bottom-info">
-
-<span>
-PORTFOLIO © 2026
-</span>
-
-<span>
-DESIGN • DEVELOP • CREATE
-</span>
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-CUSTOM CURSOR
-===================================================== -->
-
-<div class="cursor"></div>
-
-
-
-<!-- =====================================================
-DESKTOP HEADER
-===================================================== -->
-
-<header class="desktop-header">
-
-<nav class="navbar">
-
-
-<a
-    href="#MyPortfolio"
-    class="logo"
-    aria-label="Jhonaiza Gede Home"
->
-JG
-</a>
-
-
-<ul class="nav-links">
-
-<li>
-<a href="#MyPortfolio">
-Home
-</a>
-</li>
-
-<li>
-<a href="#about">
-About
-</a>
-</li>
-
-<li>
-<a href="#services">
-Services
-</a>
-</li>
-
-<li>
-<a href="#projects">
-Portfolio
-</a>
-</li>
-
-<li>
-<a href="#contact">
-Contact
-</a>
-</li>
-
-</ul>
-
-
-<a
-    href="#contact"
-    class="nav-hire"
->
-
-HIRE ME
-
-<span>
-→
-</span>
-
-</a>
-
-
-</nav>
-
-</header>
-
-
-
-<!-- =====================================================
-MOBILE BOTTOM NAVIGATION
-===================================================== -->
-
-<nav
-    class="mobile-bottom-nav"
-    id="mobileBottomNav"
-    aria-label="Mobile Navigation"
->
-
-
-<a
-    href="#about"
-    class="mobile-bottom-link"
->
-
-<span class="mobile-nav-icon">
-
-<svg viewBox="0 0 24 24">
-
-<circle cx="12" cy="8" r="4"></circle>
-
-<path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"></path>
-
-</svg>
-
-</span>
-
-<span>
-About
-</span>
-
-</a>
-
-
-<a
-    href="#services"
-    class="mobile-bottom-link"
->
-
-<span class="mobile-nav-icon">
-
-<svg viewBox="0 0 24 24">
-
-<path d="M6 3h9l3 3v15H6z"></path>
-
-<path d="M14 3v4h4"></path>
-
-<path d="M9 11h6M9 15h6"></path>
-
-</svg>
-
-</span>
-
-<span>
-Services
-</span>
-
-</a>
-
-
-<a
-    href="#projects"
-    class="mobile-bottom-link"
->
-
-<span class="mobile-nav-icon">
-
-<svg viewBox="0 0 24 24">
-
-<rect
-    x="3"
-    y="7"
-    width="18"
-    height="13"
-    rx="2"
-></rect>
-
-<path d="M9 7V5h6v2"></path>
-
-<path d="M3 12h18"></path>
-
-</svg>
-
-</span>
-
-<span>
-Portfolio
-</span>
-
-</a>
-
-
-<a
-    href="#contact"
-    class="mobile-bottom-link mobile-hire-link"
->
-
-<span class="mobile-nav-icon">
-
-<svg viewBox="0 0 24 24">
-
-<rect
-    x="3"
-    y="5"
-    width="18"
-    height="14"
-    rx="2"
-></rect>
-
-<path d="m4 7 8 6 8-6"></path>
-
-</svg>
-
-</span>
-
-<span>
-Hire
-</span>
-
-</a>
-
-
-</nav>
-
-
-
-<!-- =====================================================
-HERO
-===================================================== -->
-
-<section
-    class="hero"
-    id="MyPortfolio"
->
-
-
-<div
-    class="hero-code-background"
-    id="heroCodeBackground"
-    aria-hidden="true"
-></div>
-
-
-<div class="hero-code-vignette"></div>
-
-<div class="hero-gold-glow"></div>
-
-
-<div class="gold-particles">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-
-
-<div class="hero-content-side">
-
-
-<p class="hero-intro">
-Hello, It's Me
-</p>
-
-
-<h1>
-
-Jhonaiza
-
-<br>
-
-<span>
-Gede
-</span>
-
-</h1>
-
-
-<div class="hero-role-line">
-
-<span class="hero-role-prefix">
-And I do
-</span>
-
-
-<span
-    class="hero-role-typing"
-    id="heroRoleTyping"
->
-Creative Development
-</span>
-
-
-<span class="hero-role-caret"></span>
-
-</div>
-
-
-<p class="hero-text">
-
-I transform ideas into polished digital experiences
-through modern web design, compelling visuals,
-thoughtful branding, and user-focused solutions.
-
-</p>
-
-
-<p class="hero-text hero-secondary-text">
-
-I combine creativity, strategy, and technology
-to help brands and businesses build a stronger
-and more memorable presence online.
-
-</p>
-
-
-
-<!-- =====================================================
-HERO SOCIAL ICONS
-===================================================== -->
-
-<div class="hero-socials">
-
-
-<!-- WHATSAPP THIN OUTLINE -->
-
-<a
-    href="#"
-    class="hero-social-link"
-    aria-label="WhatsApp"
-    title="WhatsApp"
->
-
-<svg
-    class="whatsapp-thin-icon"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
->
-
-<path
-    d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.7Z"
-></path>
-
-<path
-    d="M8.3 7.4c.2-.5.4-.5.8-.5h.5c.2 0 .4 0 .6.5l.7 1.7c.1.3.1.5-.1.7l-.7.8c-.2.2-.2.4-.1.6.7 1.2 1.6 2.1 2.8 2.8.2.1.4.1.6-.1l.9-1c.2-.2.4-.3.7-.1l1.8.8c.3.1.5.3.5.6 0 .4-.2 1.3-.8 1.8-.6.6-1.5.9-2.5.7-1.4-.3-3.3-1.1-5-2.8-1.3-1.3-2.3-3-2.7-4.3-.3-.9-.1-1.7.4-2.2.2-.2.4-.4.6-.5Z"
-></path>
-
-</svg>
-
-<span class="social-line"></span>
-
-</a>
-
-
-
-<a
-    href="mailto:gedejhonaiza@gmail.com"
-    class="hero-social-link"
-    aria-label="Email"
->
-
-<svg viewBox="0 0 24 24">
-
-<rect
-    x="2"
-    y="4"
-    width="20"
-    height="16"
-    rx="2"
-></rect>
-
-<path d="m3 6 9 7 9-7"></path>
-
-</svg>
-
-<span class="social-line"></span>
-
-</a>
-
-
-
-<a
-    href="#"
-    class="hero-social-link"
-    aria-label="LinkedIn"
->
-
-<svg viewBox="0 0 24 24">
-
-<rect
-    x="3"
-    y="3"
-    width="18"
-    height="18"
-    rx="2"
-></rect>
-
-<path d="M7 10v7"></path>
-
-<path d="M7 7.2v.1"></path>
-
-<path
-    d="M11 17v-4c0-2 1-3 2.7-3 1.8 0 3.3 1.1 3.3 3.5V17"
-></path>
-
-<path d="M11 10v7"></path>
-
-</svg>
-
-<span class="social-line"></span>
-
-</a>
-
-
-
-<a
-    href="https://github.com/gedejhonaiza-byte"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="hero-social-link"
-    aria-label="GitHub"
->
-
-<svg viewBox="0 0 24 24">
-
-<path
-d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.88c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82c.85 0 1.71.12 2.51.35 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
-></path>
-
-</svg>
-
-<span class="social-line"></span>
-
-</a>
-
-
-</div>
-
-
-
-<!-- HERO BUTTONS -->
-
-<div class="hero-actions">
-
-
-<a
-    href="resume.pdf"
-    target="_blank"
-    class="hero-cv-button hero-icon-button"
->
-
-<span class="hero-button-text">
-View CV
-</span>
-
-
-<span
-    class="hero-button-icon hero-cv-icon"
-    aria-hidden="true"
->
-
-<svg viewBox="0 0 64 64">
-
-<path d="M14 5h27l9 9v45H14z"></path>
-
-<path d="M41 5v10h9"></path>
-
-<rect
-    x="31"
-    y="13"
-    width="12"
-    height="13"
-    rx="1"
-></rect>
-
-<circle
-    cx="37"
-    cy="18"
-    r="3"
-></circle>
-
-<path
-    d="M32.5 24c.8-3 2.5-4.5 4.5-4.5s3.7 1.5 4.5 4.5"
-></path>
-
-<path d="M20 35h24"></path>
-
-<path d="M20 42h24"></path>
-
-<path d="M20 49h20"></path>
-
-</svg>
-
-</span>
-
-</a>
-
-
-
-<a
-    href="#projects"
-    class="hero-project-link hero-icon-button"
->
-
-<span class="hero-button-text">
-View Portfolio
-</span>
-
-
-<span
-    class="hero-button-icon hero-portfolio-icon"
-    aria-hidden="true"
->
-
-<svg viewBox="0 0 64 64">
-
-<path d="M8 24h48v32H8z"></path>
-
-<path d="M13 24V15h11v4h25v5"></path>
-
-<path d="M18 15V9h29v10"></path>
-
-<circle
-    cx="32"
-    cy="36"
-    r="7"
-></circle>
-
-<circle
-    cx="32"
-    cy="33"
-    r="2.5"
-></circle>
-
-<path
-    d="M27 41c1-3 2.7-4.5 5-4.5s4 1.5 5 4.5"
-></path>
-
-<path d="M15 49h34"></path>
-
-</svg>
-
-</span>
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-HERO PROFILE
-===================================================== -->
-
-<div class="hero-photo-column">
-
-
-<div class="hero-profile-float">
-
-
-<div class="hero-profile-stage">
-
-
-<div class="hero-shape-gold"></div>
-
-<div class="hero-shape-outline"></div>
-
-<div class="hero-shape-main"></div>
-
-
-<img
-    src="profile.png.png"
-    alt="Jhonaiza Gede"
-    class="hero-overlap-photo"
->
-
-
-<div class="hero-experience-card">
-
-
-<div class="hero-experience-number">
-5+
-</div>
-
-
-<div class="hero-experience-copy">
-
-<small>
-YEARS OF
-</small>
-
-<strong>
-Creative Experience
-</strong>
-
-</div>
-
-
-</div>
-
-
-<div class="hero-photo-tag">
-
-<span></span>
-
-AVAILABLE FOR PROJECTS
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-ABOUT
-===================================================== -->
-
-<section
-    class="section about-section"
-    id="about"
->
-
-
-<div class="about-container">
-
-
-<div class="about-visual">
-
-
-<div class="about-glow"></div>
-
-
-<svg
-    class="about-triangle"
-    viewBox="0 0 460 540"
-    aria-hidden="true"
->
-
-<defs>
-
-<linearGradient
-    id="triangleGold"
-    x1="0"
-    y1="0"
-    x2="1"
-    y2="1"
->
-
-<stop
-    offset="0%"
-    stop-color="#A67C38"
-></stop>
-
-<stop
-    offset="45%"
-    stop-color="#D7B56D"
-></stop>
-
-<stop
-    offset="70%"
-    stop-color="#FFF2BD"
-></stop>
-
-<stop
-    offset="100%"
-    stop-color="#B48B46"
-></stop>
-
-</linearGradient>
-
-</defs>
-
-
-<polygon
-    points="28,35 432,35 230,510"
-    fill="none"
-    stroke="url(#triangleGold)"
-    stroke-width="4"
-></polygon>
-
-</svg>
-
-
-<img
-    src="profile.png.png"
-    alt="Jhonaiza Gede"
-    class="about-overlap-photo"
->
-
-
-</div>
-
-
-
-<div class="about-content">
-
-
-<h2>
-About Me
-</h2>
-
-
-<h3 class="about-introduction">
-Introduction
-</h3>
-
-
-<p class="about-small-label">
-ABOUT
-</p>
-
-
-<p class="about-lead">
-
-I'm <strong>Jhonaiza Gede</strong>, a multidisciplinary
-creative specializing in Graphic Design, Web Design,
-and Creative Development.
-
-</p>
-
-
-<p>
-
-I focus on creating digital solutions that balance
-aesthetics with functionality. I believe great design
-should do more than look beautiful—it should communicate
-clearly, create memorable experiences, and help businesses
-connect with the people they serve.
-
-</p>
-
-
-<p>
-
-My approach combines modern design principles,
-creativity, attention to detail, and practical
-digital solutions to turn ideas into experiences
-that feel intentional, professional, and distinctly yours.
-
-</p>
-
-
-
-<div class="about-stats">
-
-
-<div class="about-stat">
-
-<strong
-    class="stat-number"
-    data-number="5"
-    data-suffix="+"
->
-0+
-</strong>
-
-<span>
-Years
-<br>
-Experience
-</span>
-
-</div>
-
-
-<div class="about-stat">
-
-<strong
-    class="stat-number"
-    data-number="24"
-    data-suffix="+"
->
-0+
-</strong>
-
-<span>
-Completed
-<br>
-Projects
-</span>
-
-</div>
-
-
-<div class="about-stat">
-
-<strong
-    class="stat-number"
-    data-number="8"
-    data-suffix="+"
->
-0+
-</strong>
-
-<span>
-Companies
-<br>
-Worked With
-</span>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-SERVICES / WHY HIRE ME
-===================================================== -->
-
-<section
-    class="section hire-section"
-    id="services"
->
-
-
-<div class="hire-layout">
-
-
-<div class="hire-sidebar">
-
-
-<p class="section-label">
-WHY WORK WITH ME
-</p>
-
-
-<h2>
-Why Hire Me?
-</h2>
-
-
-<p class="hire-description">
-
-I combine creativity, design, and modern digital
-technology to create professional experiences that
-help businesses present themselves clearly, build
-stronger brands, and connect with their audience.
-
-</p>
-
-
-<div
-    class="hire-tabs"
-    role="tablist"
-    aria-label="Professional profile information"
->
-
-
-<button
-    class="hire-tab active"
-    type="button"
-    data-hire-tab="skills"
->
-
-<span>
-01
-</span>
-
-Skills
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5l7 7-7 7"></path>
-</svg>
-
-</button>
-
-
-<button
-    class="hire-tab"
-    type="button"
-    data-hire-tab="experience"
->
-
-<span>
-02
-</span>
-
-Experience
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5l7 7-7 7"></path>
-</svg>
-
-</button>
-
-
-<button
-    class="hire-tab"
-    type="button"
-    data-hire-tab="education"
->
-
-<span>
-03
-</span>
-
-Education
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5l7 7-7 7"></path>
-</svg>
-
-</button>
-
-
-<button
-    class="hire-tab"
-    type="button"
-    data-hire-tab="achievements"
->
-
-<span>
-04
-</span>
-
-Achievements
-
-<svg viewBox="0 0 24 24">
-<path d="M8 5l7 7-7 7"></path>
-</svg>
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-RIGHT SIDE TAB WINDOW
-===================================================== -->
-
-<div class="hire-content-window">
-
-
-<div class="hire-content-scroll">
-
-
-<!-- =====================================================
-SKILLS TAB
-===================================================== -->
-
-<div
-    class="hire-tab-panel active"
-    data-hire-panel="skills"
->
-
-
-<div class="hire-panel-heading">
-
-<p class="section-label">
-PROFESSIONAL CAPABILITIES
-</p>
-
-<h3>
-My Skills
-</h3>
-
-<p>
-Here's a look at my skills, tools, platforms, and technologies.
-</p>
-
-</div>
-
-
-
-<!-- =====================================================
-FRONTEND DEVELOPMENT
-===================================================== -->
-
-<div class="hire-skill-group">
-
-
-<div class="hire-group-heading">
-
-<span></span>
-
-
-<h4>
-
-<svg
-    class="group-heading-icon"
-    viewBox="0 0 24 24"
->
-
-<rect
-    x="3"
-    y="4"
-    width="18"
-    height="14"
-    rx="2"
-></rect>
-
-<path d="M8 21h8"></path>
-
-<path d="M12 18v3"></path>
-
-<path d="m8 9 2 2-2 2"></path>
-
-<path d="M13 13h3"></path>
-
-</svg>
-
-FRONTEND DEVELOPMENT
-
-</h4>
-
-
-<span></span>
-
-</div>
-
-
-
-<div class="hire-tool-grid">
-
-
-<!-- HTML -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M8 5h32l-3 34-13 4-13-4L8 5Z"
-></path>
-
-<path
-    d="M15 13h19l-.5 5H20l.4 4h12.7l-1 11-8.1 2.3-8.1-2.3-.5-6h5l.2 2.2 3.4.9 3.5-.9.3-3H15.9L15 13Z"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-HTML
-</strong>
-
-</div>
-
-
-
-<!-- CSS -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M8 5h32l-3 34-13 4-13-4L8 5Z"
-></path>
-
-<path
-    d="M14.5 13h20L34 18H21l.4 4h12l-1 11L24 35.4 15.7 33l-.6-6h5l.3 2.3 3.6 1 3.7-1 .3-3H14.8L14.5 13Z"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-CSS
-</strong>
-
-</div>
-
-
-
-<!-- JAVASCRIPT -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<rect
-    x="7"
-    y="7"
-    width="34"
-    height="34"
-    rx="3"
-></rect>
-
-<path
-    d="M22 16v16c0 4-2 6-6 6-2 0-4-1-5-3"
-></path>
-
-<path
-    d="M28 34c1.4 1.4 3 2 5 2 2.6 0 4-1.2 4-3 0-2-1.3-2.7-4.2-3.8-3.5-1.3-5.5-3-5.5-6.4 0-3.3 2.7-5.8 6.7-5.8 2.5 0 4.3.7 5.7 1.8"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-JavaScript
-</strong>
-
-</div>
-
-
-
-<!-- REACT -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle cx="24" cy="24" r="3"></circle>
-
-<ellipse
-    cx="24"
-    cy="24"
-    rx="19"
-    ry="7"
-></ellipse>
-
-<ellipse
-    cx="24"
-    cy="24"
-    rx="19"
-    ry="7"
-    transform="rotate(60 24 24)"
-></ellipse>
-
-<ellipse
-    cx="24"
-    cy="24"
-    rx="19"
-    ry="7"
-    transform="rotate(120 24 24)"
-></ellipse>
-
-</svg>
-
-</div>
-
-<strong>
-React
-</strong>
-
-</div>
-
-
-
-<!-- NEXT -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle
-    cx="24"
-    cy="24"
-    r="18"
-></circle>
-
-<path d="M16 32V16l16 20V16"></path>
-
-<path d="m29 31 7 8"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Next.js
-</strong>
-
-</div>
-
-
-
-<!-- TAILWIND -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M8 19c4-6 8-8 13-8 7 0 8 5 12 5 3 0 5-1 7-4-4 7-8 9-13 9-7 0-8-5-12-5-3 0-5 1-7 3Z"
-></path>
-
-<path
-    d="M8 30c4-6 8-8 13-8 7 0 8 5 12 5 3 0 5-1 7-4-4 7-8 9-13 9-7 0-8-5-12-5-3 0-5 1-7 3Z"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Tailwind
-</strong>
-
-</div>
-
-
-
-<!-- LIQUID -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M24 5c7 9 13 17 13 25a13 13 0 0 1-26 0c0-8 6-16 13-25Z"
-></path>
-
-<path
-    d="M18 29c1 5 4 7 9 7"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Liquid
-</strong>
-
-</div>
-
-
-
-<!-- ELEMENTOR -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle
-    cx="24"
-    cy="24"
-    r="18"
-></circle>
-
-<path d="M16 15v18"></path>
-
-<path d="M22 15h11"></path>
-
-<path d="M22 24h11"></path>
-
-<path d="M22 33h11"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Elementor
-</strong>
-
-</div>
-
-
-
-<!-- WOOCOMMERCE -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M6 13h36v18H28l-5 5v-5H6V13Z"
-></path>
-
-<path
-    d="M12 19l3 7 3-7 3 7 3-7"
-></path>
-
-<path
-    d="M29 20c-4 0-4 6 0 6s4-6 0-6Z"
-></path>
-
-<path
-    d="M34 20c-4 0-4 6 0 6s4-6 0-6Z"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-WooCommerce
-</strong>
-
-</div>
-
-
-
-<!-- DIVI -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle
-    cx="24"
-    cy="24"
-    r="18"
-></circle>
-
-<path
-    d="M17 14h7c8 0 12 4 12 10s-4 10-12 10h-7V14Z"
-></path>
-
-<path d="M22 19v10h3c4 0 6-2 6-5s-2-5-6-5h-3Z"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Divi
-</strong>
-
-</div>
-
-
-
-<!-- GUTENBERG -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<rect
-    x="7"
-    y="7"
-    width="34"
-    height="34"
-    rx="2"
-></rect>
-
-<rect
-    x="12"
-    y="12"
-    width="10"
-    height="10"
-></rect>
-
-<rect
-    x="26"
-    y="12"
-    width="10"
-    height="10"
-></rect>
-
-<rect
-    x="12"
-    y="26"
-    width="10"
-    height="10"
-></rect>
-
-<rect
-    x="26"
-    y="26"
-    width="10"
-    height="10"
-></rect>
-
-</svg>
-
-</div>
-
-<strong>
-Gutenberg
-</strong>
-
-</div>
-
-
-
-<!-- WPBAKERY -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle
-    cx="17"
-    cy="24"
-    r="8"
-></circle>
-
-<circle
-    cx="31"
-    cy="24"
-    r="8"
-></circle>
-
-<path d="M20 18h8"></path>
-
-<path d="M20 30h8"></path>
-
-</svg>
-
-</div>
-
-<strong>
-WPBakery
-</strong>
-
-</div>
-
-
-
-<!-- SHOGUN -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M7 24h7l4-8 5 16 5-16 4 8h9"></path>
-
-<path d="M10 14h28"></path>
-
-<path d="M10 34h28"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Shogun
-</strong>
-
-</div>
-
-
-
-<!-- FOXIFY -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="m9 14 8 5 7-10 7 10 8-5-4 19-11 6-11-6-4-19Z"
-></path>
-
-<path
-    d="m17 25 7 5 7-5"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Foxify
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-BACKEND DEVELOPMENT
-===================================================== -->
-
-<div class="hire-skill-group">
-
-
-<div class="hire-group-heading">
-
-<span></span>
-
-
-<h4>
-
-<svg
-    class="group-heading-icon"
-    viewBox="0 0 24 24"
->
-
-<rect
-    x="4"
-    y="4"
-    width="16"
-    height="5"
-    rx="1"
-></rect>
-
-<rect
-    x="4"
-    y="10"
-    width="16"
-    height="5"
-    rx="1"
-></rect>
-
-<rect
-    x="4"
-    y="16"
-    width="16"
-    height="4"
-    rx="1"
-></rect>
-
-<circle cx="7" cy="6.5" r=".7"></circle>
-
-<circle cx="7" cy="12.5" r=".7"></circle>
-
-<circle cx="7" cy="18" r=".7"></circle>
-
-</svg>
-
-BACKEND DEVELOPMENT
-
-</h4>
-
-
-<span></span>
-
-</div>
-
-
-
-<div class="hire-tool-grid">
-
-
-<!-- PHP -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<ellipse
-    cx="24"
-    cy="24"
-    rx="20"
-    ry="12"
-></ellipse>
-
-<path
-    d="M12 28l3-9h5c4 0 5 2 4 5-1 3-3 4-7 4h-2"
-></path>
-
-<path
-    d="M23 28l3-12"
-></path>
-
-<path
-    d="M25 21h6c3 0 4 2 3 5l-.5 2"
-></path>
-
-<path
-    d="M34 28l3-9h4"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-PHP
-</strong>
-
-</div>
-
-
-
-<!-- MYSQL -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<ellipse
-    cx="20"
-    cy="12"
-    rx="12"
-    ry="5"
-></ellipse>
-
-<path
-    d="M8 12v20c0 3 5 5 12 5s12-2 12-5V12"
-></path>
-
-<path d="M8 21c0 3 5 5 12 5s12-2 12-5"></path>
-
-<path d="M8 30c0 3 5 5 12 5"></path>
-
-<path d="M30 29c4-5 7-7 11-7"></path>
-
-<path d="M35 18c4 2 6 5 6 9"></path>
-
-</svg>
-
-</div>
-
-<strong>
-MySQL
-</strong>
-
-</div>
-
-
-
-<!-- YOAST SEO -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M11 12h7l6 17 6-17h7L26 39h-6l4-9"
-></path>
-
-<path d="M33 8v26"></path>
-
-<path d="M29 30h11"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Yoast SEO
-</strong>
-
-</div>
-
-
-
-<!-- GOOGLE ANALYTICS -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<rect
-    x="8"
-    y="29"
-    width="6"
-    height="11"
-    rx="3"
-></rect>
-
-<rect
-    x="20"
-    y="19"
-    width="6"
-    height="21"
-    rx="3"
-></rect>
-
-<rect
-    x="32"
-    y="8"
-    width="6"
-    height="32"
-    rx="3"
-></rect>
-
-</svg>
-
-</div>
-
-<strong>
-Google Analytics
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-AI TOOLS
-===================================================== -->
-
-<div class="hire-skill-group">
-
-
-<div class="hire-group-heading">
-
-<span></span>
-
-
-<h4>
-
-<svg
-    class="group-heading-icon"
-    viewBox="0 0 24 24"
->
-
-<rect
-    x="3"
-    y="4"
-    width="18"
-    height="16"
-    rx="2"
-></rect>
-
-<path d="m7 9 3 3-3 3"></path>
-
-<path d="M13 15h4"></path>
-
-</svg>
-
-AI TOOLS USED IN CODING
-
-</h4>
-
-
-<span></span>
-
-</div>
-
-
-
-<div class="hire-tool-grid">
-
-
-<!-- CLAUDE -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M24 5v12"></path>
-
-<path d="M24 31v12"></path>
-
-<path d="M5 24h12"></path>
-
-<path d="M31 24h12"></path>
-
-<path d="m10 10 9 9"></path>
-
-<path d="m29 29 9 9"></path>
-
-<path d="m38 10-9 9"></path>
-
-<path d="m19 29-9 9"></path>
-
-<circle cx="24" cy="24" r="5"></circle>
-
-</svg>
-
-</div>
-
-<strong>
-Claude
-</strong>
-
-</div>
-
-
-
-<!-- CURSOR -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M8 8 39 25 27 28 22 40 8 8Z"
-></path>
-
-<path d="m26 28 9 9"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Cursor
-</strong>
-
-</div>
-
-
-
-<!-- CODEX -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M24 5 39 13v22L24 43 9 35V13L24 5Z"
-></path>
-
-<path d="m20 17-7 7 7 7"></path>
-
-<path d="m28 17 7 7-7 7"></path>
-
-<path d="m26 14-4 20"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Codex
-</strong>
-
-</div>
-
-
-
-<!-- LOVABLE -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M24 39 9 24C2 17 12 7 19 14l5 5 5-5c7-7 17 3 10 10L24 39Z"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Lovable
-</strong>
-
-</div>
-
-
-
-<!-- COPILOT -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M12 17c2-7 22-7 24 0l3 11c2 7-6 11-11 6-2 3-6 3-8 0-5 5-13 1-11-6l3-11Z"
-></path>
-
-<circle cx="18" cy="24" r="2"></circle>
-
-<circle cx="30" cy="24" r="2"></circle>
-
-<path d="M20 31h8"></path>
-
-</svg>
-
-</div>
-
-<strong>
-GitHub Copilot
-</strong>
-
-</div>
-
-
-
-<!-- CHATGPT -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M24 7c5-4 12 0 12 6 6 0 9 7 5 12 4 5 0 12-6 12-2 6-10 7-14 3-5 3-11-1-11-7-6-2-7-10-2-14-1-6 5-11 11-9 1-1 2-2 3-3Z"
-></path>
-
-<path
-    d="m17 17 14 8-14 8V17Z"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-ChatGPT
-</strong>
-
-</div>
-
-
-
-<!-- GROK -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle
-    cx="24"
-    cy="24"
-    r="16"
-></circle>
-
-<path
-    d="M15 31 33 15"
-></path>
-
-<path
-    d="M17 17h11v11"
-></path>
-
-<path
-    d="M20 31h11V20"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Grok
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-CMS BUILDERS
-===================================================== -->
-
-<div class="hire-skill-group">
-
-
-<div class="hire-group-heading">
-
-<span></span>
-
-
-<h4>
-
-<svg
-    class="group-heading-icon"
-    viewBox="0 0 24 24"
->
-
-<path d="m12 3 8 4-8 4-8-4 8-4Z"></path>
-
-<path d="m4 12 8 4 8-4"></path>
-
-<path d="m4 17 8 4 8-4"></path>
-
-</svg>
-
-CMS BUILDERS
-
-</h4>
-
-
-<span></span>
-
-</div>
-
-
-
-<div class="hire-tool-grid">
-
-
-<!-- WORDPRESS -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle
-    cx="24"
-    cy="24"
-    r="19"
-></circle>
-
-<path
-    d="M11 16h8"
-></path>
-
-<path
-    d="M15 16 22 35"
-></path>
-
-<path
-    d="M19 16 26 35"
-></path>
-
-<path
-    d="M27 16c6 0 10 4 8 10l-4 10"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-WordPress
-</strong>
-
-</div>
-
-
-
-<!-- SHOPIFY -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M13 15h24l-3 27-22-4 1-23Z"
-></path>
-
-<path
-    d="M18 16c0-8 10-11 14-3"
-></path>
-
-<path
-    d="M29 21c-2-2-8-2-8 2 0 4 8 2 8 7 0 5-7 6-10 2"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Shopify
-</strong>
-
-</div>
-
-
-
-<!-- WIX -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle
-    cx="24"
-    cy="24"
-    r="18"
-></circle>
-
-<path
-    d="m10 18 5 12 5-12 5 12 5-12"
-></path>
-
-<path d="M34 18v12"></path>
-
-<path d="m34 24 5-6"></path>
-
-<path d="m34 24 5 6"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Wix
-</strong>
-
-</div>
-
-
-
-<!-- SQUARESPACE -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="m11 27 11-11c3-3 8-3 11 0l4 4"
-></path>
-
-<path
-    d="m8 33 14-14c3-3 8-3 11 0l7 7"
-></path>
-
-<path
-    d="m14 36 11-11c3-3 8-3 11 0l4 4"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Squarespace
-</strong>
-
-</div>
-
-
-
-<!-- WEBFLOW -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M5 31 14 14h8l-4 8 8-8h8l-4 8 13-8-13 20H18l5-9-9 9H5l6-12"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Webflow
-</strong>
-
-</div>
-
-
-
-<!-- GOHIGHLEVEL -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M12 39V12"></path>
-
-<path d="m7 17 5-5 5 5"></path>
-
-<path d="M24 39V7"></path>
-
-<path d="m19 12 5-5 5 5"></path>
-
-<path d="M36 39V18"></path>
-
-<path d="m31 23 5-5 5 5"></path>
-
-<path d="M6 39h36"></path>
-
-</svg>
-
-</div>
-
-<strong>
-GoHighLevel
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-DEPLOYMENT & HOSTING
-===================================================== -->
-
-<div class="hire-skill-group">
-
-
-<div class="hire-group-heading">
-
-<span></span>
-
-
-<h4>
-
-<svg
-    class="group-heading-icon"
-    viewBox="0 0 24 24"
->
-
-<path
-    d="M6 18h12a4 4 0 0 0 0-8 6 6 0 0 0-11.5-2A5 5 0 0 0 6 18Z"
-></path>
-
-<path d="M12 9v7"></path>
-
-<path d="m9 13 3 3 3-3"></path>
-
-</svg>
-
-DEPLOYMENT & HOSTING
-
-</h4>
-
-
-<span></span>
-
-</div>
-
-
-
-<div class="hire-tool-grid">
-
-
-<!-- GITHUB -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M24 5a18 18 0 0 0-6 35c1 .2 1.4-.4 1.4-1v-3.5c-5.6 1.2-6.8-2.3-6.8-2.3-.9-2.3-2.2-2.9-2.2-2.9-1.8-1.2.1-1.2.1-1.2 2 .2 3.1 2.1 3.1 2.1 1.8 3.1 4.7 2.2 5.9 1.7.2-1.3.7-2.2 1.3-2.7-4.5-.5-9.2-2.2-9.2-9.9 0-2.2.8-4 2-5.4-.2-.5-.9-2.6.2-5.3 0 0 1.7-.5 5.5 2a19 19 0 0 1 10 0c3.8-2.5 5.5-2 5.5-2 1.1 2.7.4 4.8.2 5.3 1.3 1.4 2 3.2 2 5.4 0 7.7-4.7 9.4-9.2 9.9.7.6 1.4 1.8 1.4 3.7V39c0 .6.4 1.2 1.4 1A18 18 0 0 0 24 5Z"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-GitHub
-</strong>
-
-</div>
-
-
-
-<!-- CPANEL -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M33 16c-2-4-5-6-10-6-8 0-14 6-14 14s6 14 14 14c5 0 9-2 11-6"
-></path>
-
-<path
-    d="M23 18h11c4 0 7 3 7 7s-3 7-7 7H23"
-></path>
-
-<path
-    d="M23 18v21"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-cPanel
-</strong>
-
-</div>
-
-
-
-<!-- HOSTINGER -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M9 9 23 16v11L9 20V9Z"></path>
-
-<path d="M25 21 39 28v11l-14-7V21Z"></path>
-
-<path d="M25 9h14v11l-14 7V9Z"></path>
-
-<path d="M9 28h14v11H9V28Z"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Hostinger
-</strong>
-
-</div>
-
-
-
-<!-- VERCEL -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M24 8 43 39H5L24 8Z"></path>
-
-</svg>
-
-</div>
-
-<strong>
-Vercel
-</strong>
-
-</div>
-
-
-
-<!-- CLOUDFLARE -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M8 31h30c4 0 6-3 4-6-2-3-5-4-8-3-2-6-11-8-15-2-5-2-10 2-9 7-2 0-4 2-2 4H8Z"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Cloudflare
-</strong>
-
-</div>
-
-
-
-<!-- GODADDY -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path
-    d="M23 11c-7-8-18-2-14 7 2 4 6 6 10 7-4 3-6 7-4 11 4 8 15 5 20-1 4-5 5-12 2-17-2-4-7-7-12-4"
-></path>
-
-<path
-    d="M24 18c5-5 12-5 15 0"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-GoDaddy
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-DESIGN & CREATIVE TOOLS
-===================================================== -->
-
-<div class="hire-skill-group">
-
-
-<div class="hire-group-heading">
-
-<span></span>
-
-
-<h4>
-
-<svg
-    class="group-heading-icon"
-    viewBox="0 0 24 24"
->
-
-<path
-    d="m14 4 6 6L9 21H3v-6L14 4Z"
-></path>
-
-<path d="m12 6 6 6"></path>
-
-</svg>
-
-DESIGN & CREATIVE TOOLS
-
-</h4>
-
-
-<span></span>
-
-</div>
-
-
-
-<div class="hire-tool-grid">
-
-
-<!-- FIGMA -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle cx="17" cy="12" r="7"></circle>
-
-<circle cx="31" cy="12" r="7"></circle>
-
-<circle cx="17" cy="24" r="7"></circle>
-
-<circle cx="31" cy="24" r="7"></circle>
-
-<circle cx="17" cy="36" r="7"></circle>
-
-</svg>
-
-</div>
-
-<strong>
-Figma
-</strong>
-
-</div>
-
-
-
-<!-- CANVA -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle
-    cx="24"
-    cy="24"
-    r="18"
-></circle>
-
-<path
-    d="M31 17c-2-2-4-3-7-3-6 0-10 4-10 10s4 10 10 10c3 0 6-1 8-3"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Canva
-</strong>
-
-</div>
-
-
-
-<!-- PHOTOSHOP -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<rect
-    x="6"
-    y="6"
-    width="36"
-    height="36"
-    rx="4"
-></rect>
-
-<path
-    d="M14 32V16h7c5 0 8 2 8 7s-3 7-8 7h-3"
-></path>
-
-<path
-    d="M31 29c1.4 1.1 3 1.7 4.8 1.7 2 0 3.2-.7 3.2-2 0-3-7-1.5-7-6 0-3 2.4-5 5.5-5 1.5 0 3 .4 4.2 1.2"
-></path>
-
-</svg>
-
-</div>
-
-<strong>
-Photoshop
-</strong>
-
-</div>
-
-
-
-<!-- AFTER EFFECTS -->
-
-<div class="hire-tool-card">
-
-<div class="hire-tool-icon">
-
-<svg viewBox="0 0 48 48">
-
-<rect
-    x="6"
-    y="6"
-    width="36"
-    height="36"
-    rx="4"
-></rect>
-
-<path d="m13 32 6-16 6 16"></path>
-
-<path d="M16 25h6"></path>
-
-<path d="M29 17v15"></path>
-
-<path d="M29 17h10"></path>
-
-<path d="M29 24h8"></path>
-
-<path d="M29 32h10"></path>
-
-</svg>
-
-</div>
-
-<strong>
-After Effects
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-EXPERIENCE TAB
-===================================================== -->
-
-<div
-    class="hire-tab-panel"
-    data-hire-panel="experience"
->
-
-
-<div class="hire-panel-heading">
-
-<p class="section-label">
-PROFESSIONAL JOURNEY
-</p>
-
-<h3>
-My Experience
-</h3>
-
-<p>
-A look at the creative and digital work I provide.
-</p>
-
-</div>
-
-
-<div class="experience-grid">
-
-
-<article class="experience-card">
-
-<div class="experience-year">
-
-<span>✦</span>
-
-5+ YEARS
-
-</div>
-
-<h4>
-Creative Developer
-</h4>
-
-<p>
-
-Creating interactive, responsive, and visually
-engaging digital experiences that combine
-design with modern front-end development.
-
-</p>
-
-</article>
-
-
-<article class="experience-card">
-
-<div class="experience-year">
-
-<span>✦</span>
-
-CREATIVE
-
-</div>
-
-<h4>
-Graphic Designer
-</h4>
-
-<p>
-
-Creating brand visuals, digital graphics,
-social media materials, promotional designs,
-and creative assets for businesses and projects.
-
-</p>
-
-</article>
-
-
-<article class="experience-card">
-
-<div class="experience-year">
-
-<span>✦</span>
-
-WEB
-
-</div>
-
-<h4>
-Web Designer
-</h4>
-
-<p>
-
-Designing modern, responsive websites focused
-on clear visual hierarchy, professional presentation,
-and user-friendly experiences.
-
-</p>
-
-</article>
-
-
-<article class="experience-card">
-
-<div class="experience-year">
-
-<span>✦</span>
-
-DIGITAL
-
-</div>
-
-<h4>
-SEO & Digital Optimization
-</h4>
-
-<p>
-
-Improving website structure, presentation,
-discoverability, usability, and overall
-digital performance.
-
-</p>
-
-</article>
-
-
-<article class="experience-card">
-
-<div class="experience-year">
-
-<span>✦</span>
-
-BRANDING
-
-</div>
-
-<h4>
-Brand Support
-</h4>
-
-<p>
-
-Developing consistent visual identities,
-marketing materials, creative direction,
-and digital presentation for brands.
-
-</p>
-
-</article>
-
-
-<article class="experience-card">
-
-<div class="experience-year">
-
-<span>✦</span>
-
-CLIENT WORK
-
-</div>
-
-<h4>
-Digital Project Support
-</h4>
-
-<p>
-
-Helping clients transform ideas into polished,
-functional, professional, and memorable
-digital solutions.
-
-</p>
-
-</article>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-EDUCATION TAB
-===================================================== -->
-
-<div
-    class="hire-tab-panel"
-    data-hire-panel="education"
->
-
-
-<div class="hire-panel-heading">
-
-<p class="section-label">
-LEARNING & DEVELOPMENT
-</p>
-
-<h3>
-My Education
-</h3>
-
-<p>
-Education and professional learning.
-</p>
-
-</div>
-
-
-<div class="education-list">
-
-
-<article class="education-card">
-
-<div class="education-icon">
-
-<svg viewBox="0 0 24 24">
-
-<path d="M3 10l9-5 9 5-9 5-9-5z"></path>
-
-<path d="M7 12v5c3 2 7 2 10 0v-5"></path>
-
-</svg>
-
-</div>
-
-
-<div>
-
-<p class="education-date">
-YOUR YEAR
-</p>
-
-<h4>
-Your Degree / Program
-</h4>
-
-<p>
-
-Add your school, university,
-course, or academic information here.
-
-</p>
-
-</div>
-
-</article>
-
-
-<article class="education-card">
-
-<div class="education-icon">
-
-<svg viewBox="0 0 24 24">
-
-<path d="M4 4h16v16H4z"></path>
-
-<path d="M8 9h8"></path>
-
-<path d="M8 13h8"></path>
-
-<path d="M8 17h5"></path>
-
-</svg>
-
-</div>
-
-
-<div>
-
-<p class="education-date">
-TRAINING
-</p>
-
-<h4>
-Professional Training
-</h4>
-
-<p>
-
-Add relevant professional courses,
-workshops, or training programs here.
-
-</p>
-
-</div>
-
-</article>
-
-
-<article class="education-card">
-
-<div class="education-icon">
-
-<svg viewBox="0 0 24 24">
-
-<circle
-    cx="12"
-    cy="8"
-    r="4"
-></circle>
-
-<path
-    d="M6 21c0-4 2.7-7 6-7s6 3 6 7"
-></path>
-
-</svg>
-
-</div>
-
-
-<div>
-
-<p class="education-date">
-CONTINUOUS LEARNING
-</p>
-
-<h4>
-Creative & Digital Development
-</h4>
-
-<p>
-
-Continuous learning in modern design,
-web development, branding, SEO,
-and emerging digital tools.
-
-</p>
-
-</div>
-
-</article>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-ACHIEVEMENTS TAB
-===================================================== -->
-
-<div
-    class="hire-tab-panel"
-    data-hire-panel="achievements"
->
-
-
-<div class="hire-panel-heading">
-
-<p class="section-label">
-MILESTONES
-</p>
-
-<h3>
-My Achievements
-</h3>
-
-<p>
-A few milestones from my creative journey.
-</p>
-
-</div>
-
-
-<div class="achievement-grid">
-
-
-<article class="achievement-card">
-
-<div class="achievement-number">
-5+
-</div>
-
-<div>
-
-<p class="achievement-label">
-CREATIVE EXPERIENCE
-</p>
-
-<h4>
-Years of Experience
-</h4>
-
-<p>
-
-Years of developing creative,
-web, branding, and digital solutions.
-
-</p>
-
-</div>
-
-</article>
-
-
-<article class="achievement-card">
-
-<div class="achievement-number">
-24+
-</div>
-
-<div>
-
-<p class="achievement-label">
-PROJECTS
-</p>
-
-<h4>
-Completed Projects
-</h4>
-
-<p>
-
-Creative and digital projects developed
-across web, design, branding,
-and visual communication.
-
-</p>
-
-</div>
-
-</article>
-
-
-<article class="achievement-card">
-
-<div class="achievement-number">
-8+
-</div>
-
-<div>
-
-<p class="achievement-label">
-COLLABORATION
-</p>
-
-<h4>
-Companies Worked With
-</h4>
-
-<p>
-
-Professional collaboration and creative
-support across different business needs.
-
-</p>
-
-</div>
-
-</article>
-
-
-<article class="achievement-card">
-
-
-<div class="achievement-medal">
-
-<svg viewBox="0 0 24 24">
-
-<circle
-    cx="12"
-    cy="9"
-    r="5"
-></circle>
-
-<path
-    d="M9 14l-2 7 5-3 5 3-2-7"
-></path>
-
-</svg>
-
-</div>
-
-
-<div>
-
-<p class="achievement-label">
-CREATIVE GROWTH
-</p>
-
-<h4>
-Continuous Development
-</h4>
-
-<p>
-
-Continuously developing skills in design,
-development, branding, digital tools,
-and modern creative technology.
-
-</p>
-
-</div>
-
-
-</article>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-PORTFOLIO
-===================================================== -->
-
-<section
-    class="section projects-section"
-    id="projects"
->
-
-
-<div class="section-heading">
-
-
-<p class="section-label">
-FEATURED WORK
-</p>
-
-
-<h2>
-Selected Portfolio
-</h2>
-
-
-<p class="section-intro">
-
-A collection of websites, interactive experiences,
-visual designs, branding concepts, and digital
-solutions created with clarity, creativity,
-functionality, and impact.
-
-</p>
-
-
-</div>
-
-
-
-<div class="project-grid">
-
-
-<article class="project-card featured-project-card">
-
-
-<a
-    href="projects/file-manager/"
-    class="project-image project-image-link"
-    aria-label="Open FileFlow Modern File Manager"
->
-
-
-<img
-    src="assets/projects/fileflow-cover.webp"
-    alt="FileFlow Modern File Manager project preview"
-    loading="lazy"
->
-
-
-<div class="project-live-badge">
-
-<span></span>
-
-LIVE PROJECT
-
-</div>
-
-
-<div class="project-overlay">
-
-<span>
-OPEN LIVE PROJECT
-</span>
-
-</div>
-
-
-</a>
-
-
-<div class="project-content">
-
-
-<p class="project-category">
-WEB APP • UI/UX • JAVASCRIPT
-</p>
-
-
-<h3>
-FileFlow — Modern File Manager
-</h3>
-
-
-<p>
-
-A responsive file management dashboard featuring
-file search, grid and list views, folders,
-favorites, sorting, uploads, storage tracking,
-local persistence, and interactive controls.
-
-</p>
-
-
-<div class="project-tech">
-
-<span>HTML</span>
-
-<span>CSS</span>
-
-<span>JavaScript</span>
-
-<span>Responsive</span>
-
-</div>
-
-
-<a
-    href="projects/file-manager/"
-    class="project-link"
->
-
-VIEW LIVE PROJECT
-
-<span>→</span>
-
-</a>
-
-
-</div>
-
-
-</article>
-
-
-
-<article class="project-card">
-
-
-<div class="project-image">
-
-
-<img
-    src="assets/projects/portfolio-cover.webp"
-    alt="Premium Creative Developer Portfolio"
-    loading="lazy"
->
-
-
-<div class="project-overlay">
-
-<span>
-PORTFOLIO DESIGN
-</span>
-
-</div>
-
-
-</div>
-
-
-<div class="project-content">
-
-
-<p class="project-category">
-WEB DESIGN • UI/UX • DEVELOPMENT
-</p>
-
-
-<h3>
-Premium Portfolio Website
-</h3>
-
-
-<p>
-
-A sophisticated personal portfolio experience
-combining modern typography, elegant layouts,
-responsive design, premium visuals, and
-interactive front-end development.
-
-</p>
-
-
-<div class="project-tech">
-
-<span>Web Design</span>
-
-<span>UI / UX</span>
-
-<span>Responsive</span>
-
-</div>
-
-
-<a
-   href="#MyPortfolio"
-    class="project-link"
->
-
-VIEW PORTFOLIO
-
-<span>→</span>
-
-</a>
-
-
-</div>
-
-
-</article>
-
-
-
-<article class="project-card">
-
-
-<div class="project-image">
-
-
-<img
-    src="assets/projects/branding-cover.webp"
-    alt="Brand Identity and Creative Design project"
-    loading="lazy"
->
-
-
-<div class="project-overlay">
-
-<span>
-BRAND IDENTITY
-</span>
-
-</div>
-
-
-</div>
-
-
-<div class="project-content">
-
-
-<p class="project-category">
-BRANDING • GRAPHIC DESIGN • IDENTITY
-</p>
-
-
-<h3>
-Brand Identity & Creative Design
-</h3>
-
-
-<p>
-
-A premium identity concept combining
-logo design, typography, color systems,
-stationery, visual storytelling, and
-professional brand presentation.
-
-</p>
-
-
-<div class="project-tech">
-
-<span>Branding</span>
-
-<span>Graphic Design</span>
-
-<span>Visual Identity</span>
-
-</div>
-
-
-<a
-    href="#contact"
-    class="project-link"
->
-
-DISCUSS A BRAND PROJECT
-
-<span>→</span>
-
-</a>
-
-
-</div>
-
-
-</article>
-
-
-
-<article class="project-card">
-
-
-<div class="project-image">
-
-
-<img
-    src="assets/projects/web-experience-cover.webp"
-    alt="Modern Responsive Web Experience project"
-    loading="lazy"
->
-
-
-<div class="project-overlay">
-
-<span>
-WEB EXPERIENCE
-</span>
-
-</div>
-
-
-</div>
-
-
-<div class="project-content">
-
-
-<p class="project-category">
-WEB DESIGN • RESPONSIVE • UI/UX
-</p>
-
-
-<h3>
-Modern Web Experience
-</h3>
-
-
-<p>
-
-A high-impact responsive website concept
-focused on modern aesthetics, strong visual
-hierarchy, optimized performance, and
-seamless desktop and mobile experiences.
-
-</p>
-
-
-<div class="project-tech">
-
-<span>Web Design</span>
-
-<span>UI / UX</span>
-
-<span>Development</span>
-
-</div>
-
-
-<a
-    href="#contact"
-    class="project-link"
->
-
-START A WEB PROJECT
-
-<span>→</span>
-
-</a>
-
-
-</div>
-
-
-</article>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-CONTACT
-===================================================== -->
-
-<section
-    class="section contact-section"
-    id="contact"
->
-
-
-<div class="contact-container">
-
-
-<p class="section-label">
-LET'S WORK TOGETHER
-</p>
-
-
-<h2>
-
-Have an Idea?
-
-<br>
-
-<span>
-
-Let's Turn It Into
-Something Exceptional.
-
-</span>
-
-</h2>
-
-
-<p class="contact-description">
-
-Whether you need a professional website,
-a stronger visual identity, creative graphics,
-or a complete digital experience, I'd love
-to hear about your project.
-
-</p>
-
-
-<p class="contact-subtext">
-
-Tell me what you're building, what you want
-to improve, and what you want your audience
-to experience.
-
-</p>
-
-
-<div class="contact-actions">
-
-
-<a
-    href="mailto:gedejhonaiza@gmail.com?subject=Project Inquiry"
-    class="contact-btn"
->
-
-START A PROJECT
-
-<span>
-→
-</span>
-
-</a>
-
-
-<a
-    href="mailto:gedejhonaiza@gmail.com"
-    class="social-btn"
->
-
-EMAIL ME
-
-</a>
-
-
-</div>
-
-
-<a
-    href="mailto:gedejhonaiza@gmail.com"
-    class="contact-email"
->
-
-gedejhonaiza@gmail.com
-
-</a>
-
-
-<div class="social-links">
-
-
-<a
-    href="https://github.com/gedejhonaiza-byte"
-    target="_blank"
-    rel="noopener noreferrer"
->
-GITHUB
-</a>
-
-
-<a href="#">
-LINKEDIN
-</a>
-
-
-<a href="#">
-FACEBOOK
-</a>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-FOOTER
-===================================================== -->
-
-<footer class="luxury-footer">
-
-
-<div class="footer-top">
-
-
-<div class="footer-brand">
-
-
-<a
-    href="#MyPortfolio"
-    class="footer-profile"
-    aria-label="Jhonaiza Gede Home"
->
-
-
-<img
-    src="profile.jpg.webp"
-    alt="Jhonaiza Gede"
->
-
-
-<span class="footer-profile-ring"></span>
-
-
-</a>
-
-
-<div class="footer-brand-text">
-
-
-<h3 class="footer-name">
-Jhonaiza Gede
-</h3>
-
-
-<p class="footer-role">
-
-Creative Developer • Graphic Designer • Web Designer
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-<div class="footer-message">
-
-
-<p>
-
-Creating thoughtful digital experiences
-where creativity, design, and technology
-come together.
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-<div class="footer-line"></div>
-
-
-
-<div class="footer-bottom">
-
-
-<div class="footer-quick-links">
-
-
-<p class="footer-links-title">
-Quick Links
-</p>
-
-
-<div class="footer-nav">
-
-
-<a href="#MyPortfolio">
-Home
-</a>
-
-
-<a href="#about">
-About
-</a>
-
-
-<a href="#services">
-Services
-</a>
-
-
-<a href="#projects">
-Portfolio
-</a>
-
-
-<a href="#contact">
-Contact
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-<p class="copyright">
-
-©
-
-<span id="copyrightYear">
-2026
-</span>
-
-<span class="copyright-name">
-Jhonaiza Gede
-</span>.
-
-All Rights Reserved.
-
-</p>
-
-
-</div>
-
-
-</footer>
-
-
-
-<a
-   href="#MyPortfolio"
-    class="back-to-top"
-    aria-label="Back to top"
->
-↑
-</a>
-
-
-<script src="script.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    if (
-        window.location.pathname === "/index.html" ||
-        window.location.pathname === "/"
-    ) {
-        history.replaceState(null, "", "/#MyPortfolio");
+    if(
+        !loaderCodeBackground
+    ){
+        return;
     }
-});
-</script>
-
-</body>
-</html>
 
 
-</body>
+    loaderCodeBackground.innerHTML =
+        "";
 
-</html>
+
+    const width =
+        window.innerWidth;
+
+
+    let columns =
+        15;
+
+
+    if(
+        width <=
+        520
+    ){
+
+        columns =
+            6;
+
+    }
+
+    else if(
+        width <=
+        900
+    ){
+
+        columns =
+            9;
+
+    }
+
+
+    for(
+        let i = 0;
+        i < columns;
+        i++
+    ){
+
+        const column =
+            document.createElement(
+                "div"
+            );
+
+
+        column.className =
+            "code-column";
+
+
+        column.style.left =
+            `${
+                (
+                    i /
+                    columns
+                )
+                *
+                100
+            }%`;
+
+
+        column.style.animationDuration =
+            `${
+                18 +
+                Math.random()
+                *
+                16
+            }s`;
+
+
+        column.style.animationDelay =
+            `-${
+                Math.random()
+                *
+                18
+            }s`;
+
+
+        for(
+            let j = 0;
+            j < 16;
+            j++
+        ){
+
+            const line =
+                document.createElement(
+                    "span"
+                );
+
+
+            line.innerHTML =
+                loaderCodeLines[
+                    Math.floor(
+                        Math.random()
+                        *
+                        loaderCodeLines.length
+                    )
+                ];
+
+
+            column.appendChild(
+                line
+            );
+
+        }
+
+
+        loaderCodeBackground.appendChild(
+            column
+        );
+
+    }
+
+}
+
+
+buildLoaderCode();
+
+
+
+/* =========================================================
+HERO CODE BACKGROUND
+========================================================= */
+
+const heroCodeBackground =
+    document.getElementById(
+        "heroCodeBackground"
+    );
+
+
+const heroCodeBlocks = [
+
+`const portfolio = {
+designer: "Jhonaiza Gede",
+role: "Creative Developer",
+creativity: true,
+responsive: true
+};`,
+
+`const skills = [
+"Web Design",
+"Graphic Design",
+"UI / UX",
+"JavaScript",
+"Branding",
+"SEO"
+];`,
+
+`function createExperience() {
+const idea = getVision();
+const design = buildInterface(idea);
+return optimize(design);
+}`,
+
+`.hero {
+position: relative;
+display: grid;
+min-height: 100vh;
+overflow: hidden;
+}`,
+
+`const portfolioItems =
+document.querySelectorAll(
+".project-card"
+);`,
+
+`@media (max-width: 767px) {
+.portfolio {
+grid-template-columns: 1fr;
+}
+}`,
+
+`userExperience
+.design()
+.develop()
+.optimize()
+.deliver();`
+
+];
+
+
+const heroCodePositions = [
+
+    {
+        left:"2%",
+        top:"10%"
+    },
+
+    {
+        left:"35%",
+        top:"6%"
+    },
+
+    {
+        right:"2%",
+        top:"14%"
+    },
+
+    {
+        left:"4%",
+        bottom:"5%"
+    },
+
+    {
+        left:"38%",
+        bottom:"7%"
+    },
+
+    {
+        right:"1%",
+        bottom:"8%"
+    },
+
+    {
+        left:"25%",
+        top:"42%"
+    }
+
+];
+
+
+
+function buildHeroCode(){
+
+    if(
+        !heroCodeBackground
+    ){
+        return;
+    }
+
+
+    heroCodeBackground.innerHTML =
+        "";
+
+
+    let totalBlocks =
+        9;
+
+
+    if(
+        window.innerWidth <=
+        767
+    ){
+
+        totalBlocks =
+            8;
+
+    }
+
+
+    for(
+        let i = 0;
+        i < totalBlocks;
+        i++
+    ){
+
+        const block =
+            document.createElement(
+                "pre"
+            );
+
+
+        block.className =
+            "hero-code-block";
+
+
+        block.textContent =
+            heroCodeBlocks[
+                i
+                %
+                heroCodeBlocks.length
+            ];
+
+
+        const position =
+            heroCodePositions[
+                i
+                %
+                heroCodePositions.length
+            ];
+
+
+        Object.keys(
+            position
+        )
+        .forEach(
+            property => {
+
+                block.style[
+                    property
+                ] =
+                    position[
+                        property
+                    ];
+
+            }
+        );
+
+
+        heroCodeBackground.appendChild(
+            block
+        );
+
+    }
+
+}
+
+
+buildHeroCode();
+
+
+
+/* =========================================================
+LOADER
+========================================================= */
+
+const loader =
+    document.getElementById(
+        "pageLoader"
+    );
+
+
+const loaderPercent =
+    document.getElementById(
+        "loaderPercent"
+    );
+
+
+const loaderProgress =
+    document.getElementById(
+        "loaderProgress"
+    );
+
+
+const loaderTypingText =
+    document.getElementById(
+        "loaderTypingText"
+    );
+
+
+body.classList.add(
+    "loader-active"
+);
+
+
+const loaderMessages = [
+
+    "Initializing interface...",
+
+    "Loading creative assets...",
+
+    "Compiling digital experience...",
+
+    "Preparing featured portfolio...",
+
+    "Optimizing responsive layout...",
+
+    "Almost ready...",
+
+    "Launching portfolio..."
+
+];
+
+
+let loaderMessageIndex =
+    0;
+
+
+let loaderCharacterIndex =
+    0;
+
+
+let loaderDeleting =
+    false;
+
+
+let loaderTypingStopped =
+    false;
+
+
+
+function typeLoaderMessage(){
+
+    if(
+        !loaderTypingText
+        ||
+        loaderTypingStopped
+    ){
+        return;
+    }
+
+
+    const currentMessage =
+        loaderMessages[
+            loaderMessageIndex
+        ];
+
+
+    if(
+        !loaderDeleting
+    ){
+
+        loaderCharacterIndex++;
+
+
+        loaderTypingText.textContent =
+            currentMessage.substring(
+                0,
+                loaderCharacterIndex
+            );
+
+
+        if(
+            loaderCharacterIndex
+            >=
+            currentMessage.length
+        ){
+
+            loaderDeleting =
+                true;
+
+
+            setTimeout(
+                typeLoaderMessage,
+                260
+            );
+
+
+            return;
+        }
+
+
+        setTimeout(
+            typeLoaderMessage,
+            25
+        );
+
+    }
+
+    else{
+
+        loaderCharacterIndex--;
+
+
+        loaderTypingText.textContent =
+            currentMessage.substring(
+                0,
+                loaderCharacterIndex
+            );
+
+
+        if(
+            loaderCharacterIndex
+            <=
+            0
+        ){
+
+            loaderDeleting =
+                false;
+
+
+            loaderMessageIndex =
+                (
+                    loaderMessageIndex
+                    +
+                    1
+                )
+                %
+                loaderMessages.length;
+
+
+            setTimeout(
+                typeLoaderMessage,
+                70
+            );
+
+
+            return;
+        }
+
+
+        setTimeout(
+            typeLoaderMessage,
+            12
+        );
+
+    }
+
+}
+
+
+typeLoaderMessage();
+
+
+
+const loaderDuration =
+    6500;
+
+
+const loaderStartTime =
+    performance.now();
+
+
+let loaderComplete =
+    false;
+
+
+
+function finishLoader(){
+
+    if(
+        loaderComplete
+    ){
+        return;
+    }
+
+
+    loaderComplete =
+        true;
+
+
+    loaderTypingStopped =
+        true;
+
+
+    if(
+        loaderPercent
+    ){
+
+        loaderPercent.textContent =
+            "100%";
+
+    }
+
+
+    if(
+        loaderProgress
+    ){
+
+        loaderProgress.style.width =
+            "100%";
+
+    }
+
+
+    if(
+        loaderTypingText
+    ){
+
+        loaderTypingText.textContent =
+            "Experience ready.";
+
+    }
+
+
+    setTimeout(
+        () => {
+
+            if(
+                loader
+            ){
+
+                loader.classList.add(
+                    "hide"
+                );
+
+            }
+
+
+            body.classList.remove(
+                "loader-active"
+            );
+
+        },
+        650
+    );
+
+}
+
+
+
+function updateLoaderProgress(
+    currentTime
+){
+
+    if(
+        loaderComplete
+    ){
+        return;
+    }
+
+
+    const elapsed =
+        currentTime
+        -
+        loaderStartTime;
+
+
+    const progress =
+        Math.min(
+            elapsed
+            /
+            loaderDuration,
+            1
+        );
+
+
+    const percent =
+        Math.floor(
+            progress
+            *
+            100
+        );
+
+
+    if(
+        loaderPercent
+    ){
+
+        loaderPercent.textContent =
+            `${percent}%`;
+
+    }
+
+
+    if(
+        loaderProgress
+    ){
+
+        loaderProgress.style.width =
+            `${percent}%`;
+
+    }
+
+
+    if(
+        elapsed
+        >=
+        loaderDuration
+    ){
+
+        finishLoader();
+
+        return;
+    }
+
+
+    requestAnimationFrame(
+        updateLoaderProgress
+    );
+
+}
+
+
+requestAnimationFrame(
+    updateLoaderProgress
+);
+
+
+setTimeout(
+    finishLoader,
+    7800
+);
+
+
+
+/* =========================================================
+HERO TYPEWRITER
+========================================================= */
+
+const heroRoleTyping =
+    document.getElementById(
+        "heroRoleTyping"
+    );
+
+
+const heroRoles = [
+
+    "Web Design",
+
+    "Graphic Design",
+
+    "UI / UX Design",
+
+    "Creative Development",
+
+    "Branding",
+
+    "SEO Optimization"
+
+];
+
+
+let heroRoleIndex =
+    0;
+
+
+let heroCharacterIndex =
+    0;
+
+
+let heroDeleting =
+    false;
+
+
+
+function typeHeroRole(){
+
+    if(
+        !heroRoleTyping
+    ){
+        return;
+    }
+
+
+    const currentRole =
+        heroRoles[
+            heroRoleIndex
+        ];
+
+
+    if(
+        !heroDeleting
+    ){
+
+        heroCharacterIndex++;
+
+
+        heroRoleTyping.textContent =
+            currentRole.substring(
+                0,
+                heroCharacterIndex
+            );
+
+
+        if(
+            heroCharacterIndex
+            >=
+            currentRole.length
+        ){
+
+            heroDeleting =
+                true;
+
+
+            setTimeout(
+                typeHeroRole,
+                1250
+            );
+
+
+            return;
+        }
+
+
+        setTimeout(
+            typeHeroRole,
+            70
+        );
+
+    }
+
+    else{
+
+        heroCharacterIndex--;
+
+
+        heroRoleTyping.textContent =
+            currentRole.substring(
+                0,
+                heroCharacterIndex
+            );
+
+
+        if(
+            heroCharacterIndex
+            <=
+            0
+        ){
+
+            heroDeleting =
+                false;
+
+
+            heroRoleIndex =
+                (
+                    heroRoleIndex
+                    +
+                    1
+                )
+                %
+                heroRoles.length;
+
+
+            setTimeout(
+                typeHeroRole,
+                220
+            );
+
+
+            return;
+        }
+
+
+        setTimeout(
+            typeHeroRole,
+            35
+        );
+
+    }
+
+}
+
+
+setTimeout(
+    typeHeroRole,
+    900
+);
+
+
+
+/* =========================================================
+SERVICES TABS
+========================================================= */
+
+const hireTabs =
+    document.querySelectorAll(
+        ".hire-tab"
+    );
+
+
+const hirePanels =
+    document.querySelectorAll(
+        ".hire-tab-panel"
+    );
+
+
+const hireContentScroll =
+    document.querySelector(
+        ".hire-content-scroll"
+    );
+
+
+hireTabs.forEach(
+    tab => {
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                const selectedTab =
+                    tab.dataset.hireTab;
+
+
+                hireTabs.forEach(
+                    button => {
+
+                        button.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                hirePanels.forEach(
+                    panel => {
+
+                        panel.classList.toggle(
+                            "active",
+                            panel.dataset.hirePanel
+                            ===
+                            selectedTab
+                        );
+
+                    }
+                );
+
+
+                if(
+                    hireContentScroll
+                ){
+
+                    hireContentScroll.scrollTo(
+                        {
+                            top:0,
+                            behavior:"smooth"
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+PORTFOLIO FILTER + PAGINATION
+========================================================= */
+
+const portfolioFilters =
+    document.querySelectorAll(
+        ".portfolio-filter"
+    );
+
+
+const portfolioItems =
+    Array.from(
+        document.querySelectorAll(
+            ".portfolio-sample-card"
+        )
+    );
+
+
+const portfolioResultCount =
+    document.getElementById(
+        "portfolioResultCount"
+    );
+
+
+const portfolioPageNumbers =
+    document.getElementById(
+        "portfolioPageNumbers"
+    );
+
+
+const portfolioFirst =
+    document.getElementById(
+        "portfolioFirst"
+    );
+
+
+const portfolioPrev =
+    document.getElementById(
+        "portfolioPrev"
+    );
+
+
+const portfolioNext =
+    document.getElementById(
+        "portfolioNext"
+    );
+
+
+const portfolioLast =
+    document.getElementById(
+        "portfolioLast"
+    );
+
+
+const portfolioGallery =
+    document.getElementById(
+        "portfolioGallery"
+    );
+
+
+const portfolioPerPage =
+    6;
+
+
+let portfolioFilter =
+    "all";
+
+
+let portfolioCurrentPage =
+    1;
+
+
+
+function getFilteredPortfolio(){
+
+    if(
+        portfolioFilter
+        ===
+        "all"
+    ){
+
+        return portfolioItems;
+
+    }
+
+
+    return portfolioItems.filter(
+        item => {
+
+            return (
+                item.dataset.category
+                ===
+                portfolioFilter
+            );
+
+        }
+    );
+
+}
+
+
+
+function buildPortfolioPageNumbers(
+    totalPages
+){
+
+    if(
+        !portfolioPageNumbers
+    ){
+        return;
+    }
+
+
+    portfolioPageNumbers.innerHTML =
+        "";
+
+
+    for(
+        let page = 1;
+        page <= totalPages;
+        page++
+    ){
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+
+        button.type =
+            "button";
+
+
+        button.className =
+            "pagination-number";
+
+
+        if(
+            page
+            ===
+            portfolioCurrentPage
+        ){
+
+            button.classList.add(
+                "active"
+            );
+
+        }
+
+
+        button.textContent =
+            page;
+
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                portfolioCurrentPage =
+                    page;
+
+
+                renderPortfolio();
+
+
+                if(
+                    portfolioGallery
+                ){
+
+                    portfolioGallery.scrollIntoView(
+                        {
+                            behavior:"smooth",
+                            block:"start"
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+        portfolioPageNumbers.appendChild(
+            button
+        );
+
+    }
+
+}
+
+
+
+function renderPortfolio(){
+
+    if(
+        portfolioItems.length
+        ===
+        0
+    ){
+        return;
+    }
+
+
+    const filtered =
+        getFilteredPortfolio();
+
+
+    const totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                filtered.length
+                /
+                portfolioPerPage
+            )
+        );
+
+
+    if(
+        portfolioCurrentPage
+        >
+        totalPages
+    ){
+
+        portfolioCurrentPage =
+            totalPages;
+
+    }
+
+
+    const start =
+        (
+            portfolioCurrentPage
+            -
+            1
+        )
+        *
+        portfolioPerPage;
+
+
+    const end =
+        Math.min(
+            start
+            +
+            portfolioPerPage,
+            filtered.length
+        );
+
+
+    portfolioItems.forEach(
+        item => {
+
+            item.classList.add(
+                "is-hidden"
+            );
+
+        }
+    );
+
+
+    filtered
+    .slice(
+        start,
+        end
+    )
+    .forEach(
+        item => {
+
+            item.classList.remove(
+                "is-hidden"
+            );
+
+        }
+    );
+
+
+    if(
+        portfolioResultCount
+    ){
+
+        if(
+            filtered.length
+            ===
+            0
+        ){
+
+            portfolioResultCount.textContent =
+                "No projects found";
+
+        }
+
+        else{
+
+            portfolioResultCount.textContent =
+                `Showing ${
+                    start + 1
+                }–${
+                    end
+                } of ${
+                    filtered.length
+                } projects`;
+
+        }
+
+    }
+
+
+    buildPortfolioPageNumbers(
+        totalPages
+    );
+
+
+    if(
+        portfolioFirst
+    ){
+
+        portfolioFirst.disabled =
+            portfolioCurrentPage
+            ===
+            1;
+
+    }
+
+
+    if(
+        portfolioPrev
+    ){
+
+        portfolioPrev.disabled =
+            portfolioCurrentPage
+            ===
+            1;
+
+    }
+
+
+    if(
+        portfolioNext
+    ){
+
+        portfolioNext.disabled =
+            portfolioCurrentPage
+            ===
+            totalPages;
+
+    }
+
+
+    if(
+        portfolioLast
+    ){
+
+        portfolioLast.disabled =
+            portfolioCurrentPage
+            ===
+            totalPages;
+
+    }
+
+}
+
+
+
+portfolioFilters.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                portfolioFilters.forEach(
+                    filterButton => {
+
+                        filterButton.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                portfolioFilter =
+                    button.dataset.filter;
+
+
+                portfolioCurrentPage =
+                    1;
+
+
+                renderPortfolio();
+
+            }
+        );
+
+    }
+);
+
+
+
+if(
+    portfolioFirst
+){
+
+    portfolioFirst.addEventListener(
+        "click",
+        () => {
+
+            portfolioCurrentPage =
+                1;
+
+
+            renderPortfolio();
+
+        }
+    );
+
+}
+
+
+
+if(
+    portfolioPrev
+){
+
+    portfolioPrev.addEventListener(
+        "click",
+        () => {
+
+            portfolioCurrentPage =
+                Math.max(
+                    1,
+                    portfolioCurrentPage
+                    -
+                    1
+                );
+
+
+            renderPortfolio();
+
+        }
+    );
+
+}
+
+
+
+if(
+    portfolioNext
+){
+
+    portfolioNext.addEventListener(
+        "click",
+        () => {
+
+            const totalPages =
+                Math.max(
+                    1,
+                    Math.ceil(
+                        getFilteredPortfolio()
+                            .length
+                        /
+                        portfolioPerPage
+                    )
+                );
+
+
+            portfolioCurrentPage =
+                Math.min(
+                    totalPages,
+                    portfolioCurrentPage
+                    +
+                    1
+                );
+
+
+            renderPortfolio();
+
+        }
+    );
+
+}
+
+
+
+if(
+    portfolioLast
+){
+
+    portfolioLast.addEventListener(
+        "click",
+        () => {
+
+            portfolioCurrentPage =
+                Math.max(
+                    1,
+                    Math.ceil(
+                        getFilteredPortfolio()
+                            .length
+                        /
+                        portfolioPerPage
+                    )
+                );
+
+
+            renderPortfolio();
+
+        }
+    );
+
+}
+
+
+renderPortfolio();
+
+
+
+/* =========================================================
+HEADER
+========================================================= */
+
+function updateHeader(){
+
+    if(
+        !header
+    ){
+        return;
+    }
+
+
+    header.classList.toggle(
+        "scrolled",
+        window.scrollY
+        >
+        40
+    );
+
+}
+
+
+updateHeader();
+
+
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+MOBILE NAVIGATION
+========================================================= */
+
+let previousScrollY =
+    window.scrollY;
+
+
+let mobileScrollTicking =
+    false;
+
+
+
+function showMobileNavigation(){
+
+    if(
+        !mobileBottomNav
+    ){
+        return;
+    }
+
+
+    mobileBottomNav.classList.remove(
+        "nav-hidden"
+    );
+
+}
+
+
+
+function hideMobileNavigation(){
+
+    if(
+        !mobileBottomNav
+    ){
+        return;
+    }
+
+
+    mobileBottomNav.classList.add(
+        "nav-hidden"
+    );
+
+}
+
+
+
+function updateMobileNavigationVisibility(){
+
+    if(
+        !mobileBottomNav
+    ){
+        return;
+    }
+
+
+    if(
+        window.innerWidth
+        >
+        767
+    ){
+
+        showMobileNavigation();
+
+        previousScrollY =
+            window.scrollY;
+
+        return;
+    }
+
+
+    const currentScrollY =
+        Math.max(
+            window.scrollY,
+            0
+        );
+
+
+    const difference =
+        currentScrollY
+        -
+        previousScrollY;
+
+
+    if(
+        currentScrollY
+        <=
+        35
+    ){
+
+        showMobileNavigation();
+
+    }
+
+    else if(
+        difference
+        >
+        7
+    ){
+
+        hideMobileNavigation();
+
+    }
+
+    else if(
+        difference
+        <
+        -5
+    ){
+
+        showMobileNavigation();
+
+    }
+
+
+    previousScrollY =
+        currentScrollY;
+
+}
+
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(
+            !mobileScrollTicking
+        ){
+
+            requestAnimationFrame(
+                () => {
+
+                    updateMobileNavigationVisibility();
+
+
+                    mobileScrollTicking =
+                        false;
+
+                }
+            );
+
+
+            mobileScrollTicking =
+                true;
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+document.addEventListener(
+    "pointerdown",
+    () => {
+
+        if(
+            window.innerWidth
+            <=
+            767
+        ){
+
+            showMobileNavigation();
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+document.addEventListener(
+    "touchstart",
+    () => {
+
+        if(
+            window.innerWidth
+            <=
+            767
+        ){
+
+            showMobileNavigation();
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+CUSTOM CURSOR
+========================================================= */
+
+if(
+    cursor
+){
+
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            cursor.style.left =
+                `${event.clientX}px`;
+
+
+            cursor.style.top =
+                `${event.clientY}px`;
+
+        }
+    );
+
+
+    document.querySelectorAll(
+        `
+        a,
+        button,
+        .project-card,
+        .portfolio-sample-card,
+        .about-stat,
+        .hire-tool-card,
+        .experience-card,
+        .education-card,
+        .achievement-card
+        `
+    )
+    .forEach(
+        item => {
+
+            item.addEventListener(
+                "mouseenter",
+                () => {
+
+                    cursor.classList.add(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            item.addEventListener(
+                "mouseleave",
+                () => {
+
+                    cursor.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+SMOOTH ANCHOR LINKS
+========================================================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+)
+.forEach(
+    link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if(
+                    !href
+                    ||
+                    href
+                    ===
+                    "#"
+                ){
+                    return;
+                }
+
+
+                const target =
+                    document.querySelector(
+                        href
+                    );
+
+
+                if(
+                    !target
+                ){
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                /*
+                Keep the exact URL hash.
+                Example:
+                #MyPortfolio
+                */
+
+                if(
+                    window.location.hash
+                    !==
+                    href
+                ){
+
+                    history.pushState(
+                        null,
+                        "",
+                        href
+                    );
+
+                }
+
+
+                target.scrollIntoView(
+                    {
+                        behavior:"smooth",
+                        block:"start"
+                    }
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+OPEN DIRECT HASH CORRECTLY
+========================================================= */
+
+function scrollToCurrentHash(){
+
+    const hash =
+        window.location.hash;
+
+
+    if(
+        !hash
+    ){
+        return;
+    }
+
+
+    const target =
+        document.querySelector(
+            hash
+        );
+
+
+    if(
+        !target
+    ){
+        return;
+    }
+
+
+    setTimeout(
+        () => {
+
+            target.scrollIntoView(
+                {
+                    behavior:"smooth",
+                    block:"start"
+                }
+            );
+
+        },
+        850
+    );
+
+}
+
+
+window.addEventListener(
+    "hashchange",
+    scrollToCurrentHash
+);
+
+
+
+/* =========================================================
+ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
+
+
+const desktopNavLinks =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
+
+const mobileNavLinks =
+    document.querySelectorAll(
+        ".mobile-bottom-link"
+    );
+
+
+
+function updateNavigation(){
+
+    let current =
+        "home";
+
+
+    sections.forEach(
+        section => {
+
+            const sectionTop =
+                section.offsetTop
+                -
+                220;
+
+
+            const sectionBottom =
+                sectionTop
+                +
+                section.offsetHeight;
+
+
+            if(
+                window.scrollY
+                >=
+                sectionTop
+                &&
+                window.scrollY
+                <
+                sectionBottom
+            ){
+
+                current =
+                    section.id;
+
+            }
+
+        }
+    );
+
+
+    /*
+    THE EXTRA PORTFOLIO GALLERY
+    BELONGS TO #MyPortfolio
+    */
+
+    if(
+        current
+        ===
+        "portfolio-gallery"
+    ){
+
+        current =
+            "MyPortfolio";
+
+    }
+
+
+    desktopNavLinks.forEach(
+        link => {
+
+            link.classList.toggle(
+                "active",
+                link.getAttribute(
+                    "href"
+                )
+                ===
+                `#${current}`
+            );
+
+        }
+    );
+
+
+    mobileNavLinks.forEach(
+        link => {
+
+            link.classList.toggle(
+                "active",
+                link.getAttribute(
+                    "href"
+                )
+                ===
+                `#${current}`
+            );
+
+        }
+    );
+
+}
+
+
+updateNavigation();
+
+
+window.addEventListener(
+    "scroll",
+    updateNavigation,
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+BACK TO TOP
+========================================================= */
+
+function updateBackToTop(){
+
+    if(
+        !backToTop
+    ){
+        return;
+    }
+
+
+    backToTop.classList.toggle(
+        "show",
+        window.scrollY
+        >
+        500
+    );
+
+}
+
+
+updateBackToTop();
+
+
+window.addEventListener(
+    "scroll",
+    updateBackToTop,
+    {
+        passive:true
+    }
+);
+
+
+
+/* =========================================================
+REVEAL ANIMATION
+========================================================= */
+
+const revealElements = [
+
+    ...document.querySelectorAll(
+        ".section-heading"
+    ),
+
+    ...document.querySelectorAll(
+        ".about-visual"
+    ),
+
+    ...document.querySelectorAll(
+        ".about-content"
+    ),
+
+    ...document.querySelectorAll(
+        ".hire-sidebar"
+    ),
+
+    ...document.querySelectorAll(
+        ".hire-content-window"
+    ),
+
+    ...document.querySelectorAll(
+        ".project-card"
+    ),
+
+    ...document.querySelectorAll(
+        ".portfolio-showcase-heading"
+    ),
+
+    ...document.querySelectorAll(
+        ".contact-container"
+    )
+
+];
+
+
+revealElements.forEach(
+    element => {
+
+        element.classList.add(
+            "reveal"
+        );
+
+    }
+);
+
+
+
+if(
+    "IntersectionObserver"
+    in window
+){
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if(
+                            entry.isIntersecting
+                        ){
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold:.12,
+                rootMargin:
+                    "0px 0px -40px 0px"
+            }
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            observer.observe(
+                element
+            );
+
+        }
+    );
+
+}
+
+else{
+
+    revealElements.forEach(
+        element => {
+
+            element.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+ABOUT ANIMATED NUMBERS
+========================================================= */
+
+const statNumbers =
+    document.querySelectorAll(
+        ".stat-number"
+    );
+
+
+let statsStarted =
+    false;
+
+
+
+function animateStat(
+    element
+){
+
+    const finalNumber =
+        Number(
+            element.dataset.number
+        );
+
+
+    const suffix =
+        element.dataset.suffix
+        ||
+        "";
+
+
+    if(
+        Number.isNaN(
+            finalNumber
+        )
+    ){
+        return;
+    }
+
+
+    const duration =
+        1400;
+
+
+    const startTime =
+        performance.now();
+
+
+    function update(
+        currentTime
+    ){
+
+        const progress =
+            Math.min(
+                (
+                    currentTime
+                    -
+                    startTime
+                )
+                /
+                duration,
+                1
+            );
+
+
+        const eased =
+            1
+            -
+            Math.pow(
+                1
+                -
+                progress,
+                3
+            );
+
+
+        const currentValue =
+            Math.round(
+                finalNumber
+                *
+                eased
+            );
+
+
+        element.textContent =
+            `${currentValue}${suffix}`;
+
+
+        if(
+            progress
+            <
+            1
+        ){
+
+            requestAnimationFrame(
+                update
+            );
+
+        }
+
+        else{
+
+            element.textContent =
+                `${finalNumber}${suffix}`;
+
+        }
+
+    }
+
+
+    requestAnimationFrame(
+        update
+    );
+
+}
+
+
+
+const aboutStats =
+    document.querySelector(
+        ".about-stats"
+    );
+
+
+if(
+    aboutStats
+    &&
+    "IntersectionObserver"
+    in window
+){
+
+    const statsObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if(
+                            entry.isIntersecting
+                            &&
+                            !statsStarted
+                        ){
+
+                            statsStarted =
+                                true;
+
+
+                            statNumbers.forEach(
+                                (
+                                    number,
+                                    index
+                                ) => {
+
+                                    setTimeout(
+                                        () => {
+
+                                            animateStat(
+                                                number
+                                            );
+
+                                        },
+                                        index
+                                        *
+                                        140
+                                    );
+
+                                }
+                            );
+
+
+                            statsObserver.disconnect();
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold:.3
+            }
+        );
+
+
+    statsObserver.observe(
+        aboutStats
+    );
+
+}
+
+
+
+/* =========================================================
+HERO PROFILE PARALLAX
+========================================================= */
+
+const heroProfileStage =
+    document.querySelector(
+        ".hero-profile-stage"
+    );
+
+
+if(
+    hero
+    &&
+    heroProfileStage
+){
+
+    hero.addEventListener(
+        "mousemove",
+        event => {
+
+            if(
+                window.innerWidth
+                <=
+                900
+            ){
+                return;
+            }
+
+
+            const rect =
+                hero.getBoundingClientRect();
+
+
+            const x =
+                (
+                    event.clientX
+                    -
+                    rect.left
+                )
+                /
+                rect.width;
+
+
+            const y =
+                (
+                    event.clientY
+                    -
+                    rect.top
+                )
+                /
+                rect.height;
+
+
+            heroProfileStage.style.setProperty(
+                "--hero-move-x",
+                `${
+                    (
+                        x
+                        -
+                        .5
+                    )
+                    *
+                    7
+                }px`
+            );
+
+
+            heroProfileStage.style.setProperty(
+                "--hero-move-y",
+                `${
+                    (
+                        y
+                        -
+                        .5
+                    )
+                    *
+                    6
+                }px`
+            );
+
+        }
+    );
+
+
+    hero.addEventListener(
+        "mouseleave",
+        () => {
+
+            heroProfileStage.style.setProperty(
+                "--hero-move-x",
+                "0px"
+            );
+
+
+            heroProfileStage.style.setProperty(
+                "--hero-move-y",
+                "0px"
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+RESPONSIVE RESIZE
+========================================================= */
+
+let resizeTimer;
+
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        clearTimeout(
+            resizeTimer
+        );
+
+
+        resizeTimer =
+            setTimeout(
+                () => {
+
+                    buildHeroCode();
+
+
+                    if(
+                        window.innerWidth
+                        >
+                        767
+                    ){
+
+                        showMobileNavigation();
+
+                    }
+
+                },
+                280
+            );
+
+    }
+);
+
+
+
+/* =========================================================
+CURRENT YEAR
+========================================================= */
+
+const copyrightYear =
+    document.getElementById(
+        "copyrightYear"
+    );
+
+
+if(
+    copyrightYear
+){
+
+    copyrightYear.textContent =
+        new Date()
+            .getFullYear();
+
+}
+
+
+}
+);
