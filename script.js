@@ -7,43 +7,37 @@ document.addEventListener(
 "DOMContentLoaded",
 () => {
 
-
 /* =========================================================
 MAIN ELEMENTS
 ========================================================= */
 
 const body =
-    document.body;
-
+document.body;
 
 const header =
-    document.querySelector(
-        ".desktop-header"
-    );
-
+document.querySelector(
+".desktop-header"
+);
 
 const cursor =
-    document.querySelector(
-        ".cursor"
-    );
-
+document.querySelector(
+".cursor"
+);
 
 const backToTop =
-    document.querySelector(
-        ".back-to-top"
-    );
-
+document.querySelector(
+".back-to-top"
+);
 
 const hero =
-    document.querySelector(
-        ".hero"
-    );
-
+document.querySelector(
+".hero"
+);
 
 const mobileBottomNav =
-    document.getElementById(
-        "mobileBottomNav"
-    );
+document.getElementById(
+"mobileBottomNav"
+);
 
 
 
@@ -52,72 +46,71 @@ LOADER COMPUTER CODE
 ========================================================= */
 
 const loaderCodeBackground =
-    document.getElementById(
-        "loaderCodeBackground"
-    );
-
+document.getElementById(
+"loaderCodeBackground"
+);
 
 const loaderCodeLines = [
 
-    '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
+'<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
-    '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
+'<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
 
-    '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
+'&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
 
-    'display: grid;',
+'display: grid;',
 
-    'grid-template-columns: 1fr 1fr;',
+'grid-template-columns: 1fr 1fr;',
 
-    '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
+'<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
 
-    'document.querySelector(<span class="code-string">".project"</span>);',
+'document.querySelector(<span class="code-string">".project"</span>);',
 
-    'background: linear-gradient(135deg, #050505, #D7B56D);',
+'background: linear-gradient(135deg, #050505, #D7B56D);',
 
-    '&lt;div class=<span class="code-string">"creative"</span>&gt;',
+'&lt;div class=<span class="code-string">"creative"</span>&gt;',
 
-    'transform: translateY(-10px);',
+'transform: translateY(-10px);',
 
-    '<span class="code-keyword">let</span> creativity = true;',
+'<span class="code-keyword">let</span> creativity = true;',
 
-    'animation: reveal .8s ease;',
+'animation: reveal .8s ease;',
 
-    '<span class="code-keyword">if</span> (idea) { createExperience(); }',
+'<span class="code-keyword">if</span> (idea) { createExperience(); }',
 
-    'font-family: "Poppins", sans-serif;',
+'font-family: "Poppins", sans-serif;',
 
-    '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
+'<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
 
-    '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
+'&lt;article class=<span class="code-string">"project-card"</span>&gt;',
 
-    'border: 1px solid rgba(215,181,109,.25);',
+'border: 1px solid rgba(215,181,109,.25);',
 
-    '<span class="code-keyword">return</span> digitalExperience;',
+'<span class="code-keyword">return</span> digitalExperience;',
 
-    'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
+'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
 
-    'const brand = { creativity: true, purpose: true };',
+'const brand = { creativity: true, purpose: true };',
 
-    'backdrop-filter: blur(20px);',
+'backdrop-filter: blur(20px);',
 
-    '&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
+'&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
 
-    'responsive: true;',
+'responsive: true;',
 
-    'userExperience.optimize();',
+'userExperience.optimize();',
 
-    '<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
+'<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
 
-    'object-fit: cover;',
+'object-fit: cover;',
 
-    'transition: all .4s ease;',
+'transition: all .4s ease;',
 
-    'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
+'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
 
-    'creativeDeveloper.initialize();',
+'creativeDeveloper.initialize();',
 
-    '&lt;/portfolio&gt;'
+'&lt;/portfolio&gt;'
 
 ];
 
@@ -125,132 +118,122 @@ const loaderCodeLines = [
 
 function buildLoaderCode() {
 
+if (
+!loaderCodeBackground
+) {
 
-    if (
-        !loaderCodeBackground
-    ) {
+return;
 
-        return;
+}
 
-    }
+loaderCodeBackground.innerHTML =
+"";
 
+const width =
+window.innerWidth;
 
-    loaderCodeBackground.innerHTML =
-        "";
+let columns =
+15;
 
+if (
+width <= 520
+) {
 
-    const width =
-        window.innerWidth;
+columns =
+    6;
 
+}
 
-    let columns =
-        15;
+else if (
+width <= 900
+) {
 
+columns =
+    9;
 
-    if (
-        width <=
-        520
-    ) {
-
-        columns =
-            6;
-
-    }
-
-    else if (
-        width <=
-        900
-    ) {
-
-        columns =
-            9;
-
-    }
+}
 
 
 
-    for (
-        let i = 0;
-        i < columns;
-        i++
-    ) {
+for (
+let i = 0;
+i < columns;
+i++
+) {
+
+const column =
+    document.createElement(
+        "div"
+    );
 
 
-        const column =
-            document.createElement(
-                "div"
-            );
+column.className =
+    "code-column";
 
 
-        column.className =
-            "code-column";
+column.style.left =
+    `${
+        (
+            i /
+            columns
+        )
+        *
+        100
+    }%`;
 
 
-        column.style.left =
-            `${
-                (
-                    i /
-                    columns
-                )
-                *
-                100
-            }%`;
+column.style.animationDuration =
+    `${
+        18 +
+        Math.random() *
+        16
+    }s`;
 
 
-        column.style.animationDuration =
-            `${
-                18 +
+column.style.animationDelay =
+    `-${
+        Math.random() *
+        18
+    }s`;
+
+
+
+for (
+    let j = 0;
+    j < 16;
+    j++
+) {
+
+
+    const line =
+        document.createElement(
+            "span"
+        );
+
+
+    line.innerHTML =
+        loaderCodeLines[
+            Math.floor(
                 Math.random() *
-                16
-            }s`;
+                loaderCodeLines.length
+            )
+        ];
 
 
-        column.style.animationDelay =
-            `-${
-                Math.random() *
-                18
-            }s`;
+    column.appendChild(
+        line
+    );
 
 
-
-        for (
-            let j = 0;
-            j < 16;
-            j++
-        ) {
+}
 
 
-            const line =
-                document.createElement(
-                    "span"
-                );
+loaderCodeBackground
+    .appendChild(
+        column
+    );
 
-
-            line.innerHTML =
-                loaderCodeLines[
-                    Math.floor(
-                        Math.random() *
-                        loaderCodeLines.length
-                    )
-                ];
-
-
-            column.appendChild(
-                line
-            );
-
-
-        }
-
-
-        loaderCodeBackground
-            .appendChild(
-                column
-            );
-
-
-    }
-
+}
 
 }
 
@@ -265,41 +248,40 @@ HERO COMPUTER CODE
 ========================================================= */
 
 const heroCodeBackground =
-    document.getElementById(
-        "heroCodeBackground"
-    );
-
+document.getElementById(
+"heroCodeBackground"
+);
 
 const heroCodeBlocks = [
 
-`const portfolio = {
+const portfolio = {
 designer: "Jhonaiza Gede",
 role: "Creative Developer",
 creativity: true,
 responsive: true
-};`,
+};,
 
-`const skills = [
+const skills = [
 "Web Design",
 "Graphic Design",
 "UI / UX",
 "JavaScript",
 "Branding",
 "SEO"
-];`,
+];,
 
-`function createExperience() {
+function createExperience() {
 const idea = getVision();
 const design = buildInterface(idea);
 return optimize(design);
-}`,
+},
 
-`.hero {
+.hero {
 position: relative;
 display: grid;
 min-height: 100vh;
 overflow: hidden;
-}`,
+},
 
 `const projects =
 document.querySelectorAll(
@@ -310,82 +292,82 @@ projects.forEach(project => {
 project.classList.add("active");
 });`,
 
-`@media (max-width: 767px) {
+@media (max-width: 767px) {
 .portfolio {
 grid-template-columns: 1fr;
 padding: 70px 20px;
 }
-}`,
+},
 
-`function updateNavigation() {
+function updateNavigation() {
 sections.forEach(section => {
 const top = section.offsetTop;
 const height = section.offsetHeight;
 });
-}`,
+},
 
 `<section id="projects">
+
 <article class="project">
 <h2>Creative Experience</h2>
 <p>Design • Develop • Create</p>
 </article>
 </section>`,
 
-`userExperience
+userExperience
 .design()
 .develop()
 .optimize()
-.deliver();`
+.deliver();
 
 ];
 
-
 const heroCodePositions = [
 
-    {
-        left: "2%",
-        top: "10%"
-    },
+{
+    left: "2%",
+    top: "10%"
+},
 
-    {
-        left: "35%",
-        top: "6%"
-    },
+{
+    left: "35%",
+    top: "6%"
+},
 
-    {
-        right: "2%",
-        top: "14%"
-    },
+{
+    right: "2%",
+    top: "14%"
+},
 
-    {
-        left: "4%",
-        bottom: "5%"
-    },
+{
+    left: "4%",
+    bottom: "5%"
+},
 
-    {
-        left: "38%",
-        bottom: "7%"
-    },
+{
+    left: "38%",
+    bottom: "7%"
+},
 
-    {
-        right: "1%",
-        bottom: "8%"
-    },
+{
+    right: "1%",
+    bottom: "8%"
+},
 
-    {
-        left: "25%",
-        top: "42%"
-    },
+{
+    left: "25%",
+    top: "42%"
+},
 
-    {
-        right: "25%",
-        top: "48%"
-    },
+{
+    right: "25%",
+    top: "48%"
+},
 
-    {
-        left: "59%",
-        top: "27%"
-    }
+{
+    left: "59%",
+    top: "27%"
+}
 
 ];
 
@@ -393,105 +375,96 @@ const heroCodePositions = [
 
 function buildHeroCode() {
 
+if (
+!heroCodeBackground
+) {
 
-    if (
-        !heroCodeBackground
-    ) {
+return;
 
-        return;
+}
 
-    }
+heroCodeBackground.innerHTML =
+"";
 
+const width =
+window.innerWidth;
 
-    heroCodeBackground.innerHTML =
-        "";
+let totalBlocks =
+9;
 
+if (
+width <= 767
+) {
 
-    const width =
-        window.innerWidth;
+totalBlocks =
+    7;
 
-
-    let totalBlocks =
-        9;
-
-
-    if (
-        width <=
-        767
-    ) {
-
-        totalBlocks =
-            8;
-
-    }
+}
 
 
 
-    for (
-        let i = 0;
-        i < totalBlocks;
-        i++
-    ) {
+for (
+let i = 0;
+i < totalBlocks;
+i++
+) {
+
+const block =
+    document.createElement(
+        "pre"
+    );
 
 
-        const block =
-            document.createElement(
-                "pre"
-            );
+block.className =
+    "hero-code-block";
 
 
-        block.className =
-            "hero-code-block";
+block.textContent =
+    heroCodeBlocks[
+        i %
+        heroCodeBlocks.length
+    ];
 
 
-        block.textContent =
-            heroCodeBlocks[
-                i %
-                heroCodeBlocks.length
+const position =
+    heroCodePositions[
+        i %
+        heroCodePositions.length
+    ];
+
+
+Object.keys(
+    position
+)
+.forEach(
+    property => {
+
+
+        block.style[
+            property
+        ] =
+            position[
+                property
             ];
 
 
-        const position =
-            heroCodePositions[
-                i %
-                heroCodePositions.length
-            ];
-
-
-        Object.keys(
-            position
-        )
-        .forEach(
-            property => {
-
-
-                block.style[
-                    property
-                ] =
-                    position[
-                        property
-                    ];
-
-
-            }
-        );
-
-
-        block.style.animationDelay =
-            `-${
-                i *
-                1.7
-            }s`;
-
-
-        heroCodeBackground
-            .appendChild(
-                block
-            );
-
-
     }
+);
 
+
+block.style.animationDelay =
+    `-${
+        i *
+        1.7
+    }s`;
+
+
+heroCodeBackground
+    .appendChild(
+        block
+    );
+
+}
 
 }
 
@@ -506,187 +479,171 @@ LOADER
 ========================================================= */
 
 const loader =
-    document.getElementById(
-        "pageLoader"
-    );
-
-
-const loaderPercent =
-    document.getElementById(
-        "loaderPercent"
-    );
-
-
-const loaderProgress =
-    document.getElementById(
-        "loaderProgress"
-    );
-
-
-const loaderTypingText =
-    document.getElementById(
-        "loaderTypingText"
-    );
-
-
-body.classList.add(
-    "loader-active"
+document.getElementById(
+"pageLoader"
 );
 
+const loaderPercent =
+document.getElementById(
+"loaderPercent"
+);
+
+const loaderProgress =
+document.getElementById(
+"loaderProgress"
+);
+
+const loaderTypingText =
+document.getElementById(
+"loaderTypingText"
+);
+
+body.classList.add(
+"loader-active"
+);
 
 const loaderMessages = [
 
-    "Initializing interface...",
+"Initializing interface...",
 
-    "Loading creative assets...",
+"Loading creative assets...",
 
-    "Compiling digital experience...",
+"Compiling digital experience...",
 
-    "Preparing featured projects...",
+"Preparing featured projects...",
 
-    "Optimizing responsive layout...",
+"Optimizing responsive layout...",
 
-    "Connecting creative components...",
+"Connecting creative components...",
 
-    "Almost ready...",
+"Almost ready...",
 
-    "Launching portfolio..."
+"Launching portfolio..."
 
 ];
 
-
 let loaderMessageIndex =
-    0;
-
+0;
 
 let loaderCharacterIndex =
-    0;
-
+0;
 
 let loaderDeleting =
-    false;
-
+false;
 
 let loaderTypingStopped =
-    false;
+false;
 
 
 
 function typeLoaderMessage() {
 
+if (
+!loaderTypingText ||
+loaderTypingStopped
+) {
 
-    if (
-        !loaderTypingText ||
-        loaderTypingStopped
-    ) {
+return;
 
-        return;
+}
 
-    }
-
-
-    const currentMessage =
-        loaderMessages[
-            loaderMessageIndex
-        ];
+const currentMessage =
+loaderMessages[
+loaderMessageIndex
+];
 
 
 
-    if (
-        !loaderDeleting
-    ) {
+if (
+!loaderDeleting
+) {
+
+loaderCharacterIndex++;
 
 
-        loaderCharacterIndex++;
+loaderTypingText.textContent =
+    currentMessage.substring(
+        0,
+        loaderCharacterIndex
+    );
 
 
-        loaderTypingText.textContent =
-            currentMessage.substring(
-                0,
-                loaderCharacterIndex
-            );
+if (
+    loaderCharacterIndex >=
+    currentMessage.length
+) {
 
 
-        if (
-            loaderCharacterIndex >=
-            currentMessage.length
-        ) {
+    loaderDeleting =
+        true;
 
 
-            loaderDeleting =
-                true;
+    setTimeout(
+        typeLoaderMessage,
+        260
+    );
 
 
-            setTimeout(
-                typeLoaderMessage,
-                260
-            );
+    return;
+
+}
 
 
-            return;
+setTimeout(
+    typeLoaderMessage,
+    25
+);
 
-        }
+}
 
+else {
 
-        setTimeout(
-            typeLoaderMessage,
-            25
-        );
-
-
-    }
-
-    else {
+loaderCharacterIndex--;
 
 
-        loaderCharacterIndex--;
+loaderTypingText.textContent =
+    currentMessage.substring(
+        0,
+        loaderCharacterIndex
+    );
 
 
-        loaderTypingText.textContent =
-            currentMessage.substring(
-                0,
-                loaderCharacterIndex
-            );
+if (
+    loaderCharacterIndex <=
+    0
+) {
 
 
-        if (
-            loaderCharacterIndex <=
-            0
-        ) {
+    loaderDeleting =
+        false;
 
 
-            loaderDeleting =
-                false;
+    loaderMessageIndex =
+        (
+            loaderMessageIndex +
+            1
+        )
+        %
+        loaderMessages.length;
 
 
-            loaderMessageIndex =
-                (
-                    loaderMessageIndex +
-                    1
-                )
-                %
-                loaderMessages.length;
+    setTimeout(
+        typeLoaderMessage,
+        70
+    );
 
 
-            setTimeout(
-                typeLoaderMessage,
-                70
-            );
+    return;
+
+}
 
 
-            return;
+setTimeout(
+    typeLoaderMessage,
+    12
+);
 
-        }
-
-
-        setTimeout(
-            typeLoaderMessage,
-            12
-        );
-
-
-    }
-
+}
 
 }
 
@@ -697,515 +654,361 @@ typeLoaderMessage();
 
 
 const loaderDuration =
-    6500;
-
+6500;
 
 const loaderStartTime =
-    performance.now();
-
+performance.now();
 
 let loaderComplete =
-    false;
+false;
 
 
 
 function finishLoader() {
 
+if (
+loaderComplete
+) {
+
+return;
+
+}
+
+loaderComplete =
+true;
+
+loaderTypingStopped =
+true;
+
+if (
+loaderPercent
+) {
+
+loaderPercent.textContent =
+    "100%";
+
+}
+
+if (
+loaderProgress
+) {
+
+loaderProgress.style.width =
+    "100%";
+
+}
+
+if (
+loaderTypingText
+) {
+
+loaderTypingText.textContent =
+    "Experience ready.";
+
+}
+
+setTimeout(
+() => {
 
     if (
-        loaderComplete
+        loader
     ) {
 
-        return;
+        loader.classList.add(
+            "hide"
+        );
 
     }
 
 
-    loaderComplete =
-        true;
-
-
-    loaderTypingStopped =
-        true;
-
-
-    if (
-        loaderPercent
-    ) {
-
-        loaderPercent.textContent =
-            "100%";
-
-    }
-
-
-    if (
-        loaderProgress
-    ) {
-
-        loaderProgress.style.width =
-            "100%";
-
-    }
-
-
-    if (
-        loaderTypingText
-    ) {
-
-        loaderTypingText.textContent =
-            "Experience ready.";
-
-    }
-
-
-    setTimeout(
-        () => {
-
-
-            if (
-                loader
-            ) {
-
-                loader.classList.add(
-                    "hide"
-                );
-
-            }
-
-
-            body.classList.remove(
-                "loader-active"
-            );
-
-
-        },
-        650
+    body.classList.remove(
+        "loader-active"
     );
 
+
+},
+650
+
+);
 
 }
 
 
 
 function updateLoaderProgress(
-    currentTime
+currentTime
 ) {
 
+if (
+loaderComplete
+) {
 
-    if (
-        loaderComplete
-    ) {
+return;
 
-        return;
+}
 
-    }
+const elapsed =
+currentTime -
+loaderStartTime;
 
+let progress =
+Math.min(
+elapsed /
+loaderDuration,
+1
+);
 
-    const elapsed =
-        currentTime -
-        loaderStartTime;
+if (
+progress <
+.55
+) {
 
+progress =
+    progress *
+    1.08;
 
-    let progress =
-        Math.min(
-            elapsed /
-            loaderDuration,
-            1
-        );
+}
 
+else if (
+progress <
+.88
+) {
 
-    if (
-        progress <
+progress =
+    .594 +
+    (
+        progress -
         .55
-    ) {
+    )
+    *
+    .82;
 
-        progress =
-            progress *
-            1.08;
+}
 
-    }
+else {
 
-    else if (
-        progress <
+progress =
+    .8646 +
+    (
+        progress -
         .88
-    ) {
+    )
+    *
+    1.128;
 
-        progress =
-            .594 +
-            (
-                progress -
-                .55
-            )
-            *
-            .82;
+}
 
-    }
+progress =
+Math.min(
+progress,
+1
+);
 
-    else {
+const percent =
+Math.floor(
+progress *
+100
+);
 
-        progress =
-            .8646 +
-            (
-                progress -
-                .88
-            )
-            *
-            1.128;
+if (
+loaderPercent
+) {
 
-    }
+loaderPercent.textContent =
+    `${percent}%`;
 
+}
 
-    progress =
-        Math.min(
-            progress,
-            1
-        );
+if (
+loaderProgress
+) {
 
+loaderProgress.style.width =
+    `${percent}%`;
 
-    const percent =
-        Math.floor(
-            progress *
-            100
-        );
+}
 
+if (
+elapsed >=
+loaderDuration
+) {
 
-    if (
-        loaderPercent
-    ) {
+finishLoader();
 
-        loaderPercent.textContent =
-            `${percent}%`;
+return;
 
-    }
+}
 
-
-    if (
-        loaderProgress
-    ) {
-
-        loaderProgress.style.width =
-            `${percent}%`;
-
-    }
-
-
-    if (
-        elapsed >=
-        loaderDuration
-    ) {
-
-        finishLoader();
-
-        return;
-
-    }
-
-
-    requestAnimationFrame(
-        updateLoaderProgress
-    );
-
+requestAnimationFrame(
+updateLoaderProgress
+);
 
 }
 
 
 
 requestAnimationFrame(
-    updateLoaderProgress
+updateLoaderProgress
 );
 
-
 setTimeout(
-    finishLoader,
-    7800
+finishLoader,
+7800
 );
 
 
 
 /* =========================================================
-HERO TYPEWRITER
+HERO ROLE TYPEWRITER
 ========================================================= */
 
 const heroRoleTyping =
-    document.getElementById(
-        "heroRoleTyping"
-    );
-
+document.getElementById(
+"heroRoleTyping"
+);
 
 const heroRoles = [
 
-    "Web Design",
+"Web Design",
 
-    "Graphic Design",
+"Graphic Design",
 
-    "UI / UX Design",
+"UI / UX Design",
 
-    "Creative Development",
+"Creative Development",
 
-    "Branding",
+"Branding",
 
-    "SEO Optimization"
+"SEO Optimization"
 
 ];
 
-
 let heroRoleIndex =
-    0;
-
+0;
 
 let heroCharacterIndex =
-    0;
-
+0;
 
 let heroDeleting =
-    false;
+false;
 
 
 
 function typeHeroRole() {
 
+if (
+!heroRoleTyping
+) {
 
-    if (
-        !heroRoleTyping
-    ) {
+return;
 
-        return;
+}
 
-    }
-
-
-    const currentRole =
-        heroRoles[
-            heroRoleIndex
-        ];
+const currentRole =
+heroRoles[
+heroRoleIndex
+];
 
 
 
-    if (
-        !heroDeleting
-    ) {
+if (
+!heroDeleting
+) {
+
+heroCharacterIndex++;
 
 
-        heroCharacterIndex++;
+heroRoleTyping.textContent =
+    currentRole.substring(
+        0,
+        heroCharacterIndex
+    );
 
 
-        heroRoleTyping.textContent =
-            currentRole.substring(
-                0,
-                heroCharacterIndex
-            );
+if (
+    heroCharacterIndex >=
+    currentRole.length
+) {
 
 
-        if (
-            heroCharacterIndex >=
-            currentRole.length
-        ) {
+    heroDeleting =
+        true;
 
 
-            heroDeleting =
-                true;
+    setTimeout(
+        typeHeroRole,
+        1250
+    );
 
 
-            setTimeout(
-                typeHeroRole,
-                1250
-            );
+    return;
+
+}
 
 
-            return;
+setTimeout(
+    typeHeroRole,
+    70
+);
 
-        }
+}
 
+else {
 
-        setTimeout(
-            typeHeroRole,
-            70
-        );
-
-
-    }
-
-    else {
+heroCharacterIndex--;
 
 
-        heroCharacterIndex--;
+heroRoleTyping.textContent =
+    currentRole.substring(
+        0,
+        heroCharacterIndex
+    );
 
 
-        heroRoleTyping.textContent =
-            currentRole.substring(
-                0,
-                heroCharacterIndex
-            );
+if (
+    heroCharacterIndex <=
+    0
+) {
 
 
-        if (
-            heroCharacterIndex <=
-            0
-        ) {
+    heroDeleting =
+        false;
 
 
-            heroDeleting =
-                false;
+    heroRoleIndex =
+        (
+            heroRoleIndex +
+            1
+        )
+        %
+        heroRoles.length;
 
 
-            heroRoleIndex =
-                (
-                    heroRoleIndex +
-                    1
-                )
-                %
-                heroRoles.length;
+    setTimeout(
+        typeHeroRole,
+        220
+    );
 
 
-            setTimeout(
-                typeHeroRole,
-                220
-            );
+    return;
+
+}
 
 
-            return;
+setTimeout(
+    typeHeroRole,
+    35
+);
 
-        }
-
-
-        setTimeout(
-            typeHeroRole,
-            35
-        );
-
-
-    }
-
+}
 
 }
 
 
 
 setTimeout(
-    typeHeroRole,
-    900
-);
-
-
-
-/* =========================================================
-NEW WHY HIRE ME TABS
-========================================================= */
-
-const hireTabs =
-    document.querySelectorAll(
-        ".hire-tab"
-    );
-
-
-const hirePanels =
-    document.querySelectorAll(
-        ".hire-tab-panel"
-    );
-
-
-const hireContentScroll =
-    document.querySelector(
-        ".hire-content-scroll"
-    );
-
-
-
-hireTabs.forEach(
-    tab => {
-
-
-        tab.addEventListener(
-            "click",
-            () => {
-
-
-                const selectedTab =
-                    tab.dataset.hireTab;
-
-
-                /*
-                REMOVE ACTIVE BUTTON
-                */
-
-                hireTabs.forEach(
-                    button => {
-
-
-                        button
-                            .classList
-                            .remove(
-                                "active"
-                            );
-
-
-                    }
-                );
-
-
-                /*
-                ACTIVATE CLICKED BUTTON
-                */
-
-                tab.classList.add(
-                    "active"
-                );
-
-
-                /*
-                CHANGE PANEL
-                */
-
-                hirePanels.forEach(
-                    panel => {
-
-
-                        const isActive =
-                            panel.dataset.hirePanel
-                            ===
-                            selectedTab;
-
-
-                        panel
-                            .classList
-                            .toggle(
-                                "active",
-                                isActive
-                            );
-
-
-                    }
-                );
-
-
-                /*
-                RESET INTERNAL SCROLL
-                WHEN NEW BUTTON IS CLICKED
-                */
-
-                if (
-                    hireContentScroll
-                ) {
-
-
-                    hireContentScroll
-                        .scrollTo(
-                            {
-                                top: 0,
-                                behavior: "smooth"
-                            }
-                        );
-
-
-                }
-
-
-            }
-        );
-
-
-    }
+typeHeroRole,
+900
 );
 
 
@@ -1216,22 +1019,19 @@ HEADER
 
 function updateHeader() {
 
+if (
+!header
+) {
 
-    if (
-        !header
-    ) {
+return;
 
-        return;
+}
 
-    }
-
-
-    header.classList.toggle(
-        "scrolled",
-        window.scrollY >
-        40
-    );
-
+header.classList.toggle(
+"scrolled",
+window.scrollY >
+40
+);
 
 }
 
@@ -1239,46 +1039,45 @@ function updateHeader() {
 
 updateHeader();
 
-
 window.addEventListener(
-    "scroll",
-    updateHeader,
-    {
-        passive: true
-    }
+"scroll",
+updateHeader,
+{
+passive: true
+}
 );
 
 
 
 /* =========================================================
 MOBILE NAV AUTO HIDE
+
+SCROLL DOWN = HIDE
+SCROLL UP = SHOW
+TAP SCREEN = SHOW
 ========================================================= */
 
 let previousScrollY =
-    window.scrollY;
-
+window.scrollY;
 
 let mobileScrollTicking =
-    false;
+false;
 
 
 
 function showMobileNavigation() {
 
+if (
+!mobileBottomNav
+) {
 
-    if (
-        !mobileBottomNav
-    ) {
+return;
 
-        return;
+}
 
-    }
-
-
-    mobileBottomNav.classList.remove(
-        "nav-hidden"
-    );
-
+mobileBottomNav.classList.remove(
+"nav-hidden"
+);
 
 }
 
@@ -1286,20 +1085,17 @@ function showMobileNavigation() {
 
 function hideMobileNavigation() {
 
+if (
+!mobileBottomNav
+) {
 
-    if (
-        !mobileBottomNav
-    ) {
+return;
 
-        return;
+}
 
-    }
-
-
-    mobileBottomNav.classList.add(
-        "nav-hidden"
-    );
-
+mobileBottomNav.classList.add(
+"nav-hidden"
+);
 
 }
 
@@ -1307,18 +1103,138 @@ function hideMobileNavigation() {
 
 function updateMobileNavigationVisibility() {
 
+if (
+!mobileBottomNav
+) {
+
+return;
+
+}
+
+if (
+window.innerWidth >
+767
+) {
+
+showMobileNavigation();
+
+
+previousScrollY =
+    window.scrollY;
+
+
+return;
+
+}
+
+const currentScrollY =
+Math.max(
+window.scrollY,
+0
+);
+
+const difference =
+currentScrollY -
+previousScrollY;
+
+/*
+Always show navigation
+near the top of page.
+*/
+
+if (
+currentScrollY <=
+35
+) {
+
+showMobileNavigation();
+
+}
+
+/*
+Scrolling down.
+*/
+
+else if (
+difference >
+7
+) {
+
+hideMobileNavigation();
+
+}
+
+/*
+Scrolling up.
+*/
+
+else if (
+difference <
+-5
+) {
+
+showMobileNavigation();
+
+}
+
+previousScrollY =
+currentScrollY;
+
+}
+
+
+
+window.addEventListener(
+"scroll",
+() => {
 
     if (
-        !mobileBottomNav
+        !mobileScrollTicking
     ) {
 
-        return;
+
+        window.requestAnimationFrame(
+            () => {
+
+
+                updateMobileNavigationVisibility();
+
+
+                mobileScrollTicking =
+                    false;
+
+
+            }
+        );
+
+
+        mobileScrollTicking =
+            true;
+
 
     }
 
 
+},
+{
+    passive: true
+}
+
+);
+
+
+
+/*
+Tap anywhere on screen
+to show navigation again.
+*/
+
+document.addEventListener(
+"pointerdown",
+() => {
+
     if (
-        window.innerWidth >
+        window.innerWidth <=
         767
     ) {
 
@@ -1326,131 +1242,44 @@ function updateMobileNavigationVisibility() {
         showMobileNavigation();
 
 
-        previousScrollY =
-            window.scrollY;
-
-
-        return;
-
-
     }
 
 
-    const currentScrollY =
-        Math.max(
-            window.scrollY,
-            0
-        );
-
-
-    const difference =
-        currentScrollY -
-        previousScrollY;
-
-
-    if (
-        currentScrollY <=
-        35
-    ) {
-
-
-        showMobileNavigation();
-
-
-    }
-
-    else if (
-        difference >
-        7
-    ) {
-
-
-        hideMobileNavigation();
-
-
-    }
-
-    else if (
-        difference <
-        -5
-    ) {
-
-
-        showMobileNavigation();
-
-
-    }
-
-
-    previousScrollY =
-        currentScrollY;
-
-
+},
+{
+    passive: true
 }
 
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-
-        if (
-            !mobileScrollTicking
-        ) {
-
-
-            window.requestAnimationFrame(
-                () => {
-
-
-                    updateMobileNavigationVisibility();
-
-
-                    mobileScrollTicking =
-                        false;
-
-
-                }
-            );
-
-
-            mobileScrollTicking =
-                true;
-
-
-        }
-
-
-    },
-    {
-        passive: true
-    }
 );
 
 
 
+/*
+Also show nav when user
+starts touching screen.
+*/
+
 document.addEventListener(
-    "pointerdown",
-    () => {
+"touchstart",
+() => {
+
+    if (
+        window.innerWidth <=
+        767
+    ) {
 
 
-        if (
-            window.innerWidth <=
-            767
-        ) {
+        showMobileNavigation();
 
 
-            showMobileNavigation();
-
-
-        }
-
-
-    },
-    {
-        passive: true
     }
+
+
+},
+{
+    passive: true
+}
+
 );
 
 
@@ -1460,231 +1289,46 @@ CUSTOM CURSOR
 ========================================================= */
 
 if (
-    cursor
+cursor
 ) {
 
+document.addEventListener(
+"mousemove",
+event => {
 
-    document.addEventListener(
-        "mousemove",
-        event => {
-
-
-            cursor.style.left =
-                `${event.clientX}px`;
+    cursor.style.left =
+        `${event.clientX}px`;
 
 
-            cursor.style.top =
-                `${event.clientY}px`;
-
-
-        }
-    );
-
-
-    document
-    .querySelectorAll(
-        `
-        a,
-        button,
-        .skill-card,
-        .project-card,
-        .about-stat,
-        .hero-experience-card,
-        .hire-tool-card,
-        .experience-card,
-        .education-card,
-        .achievement-card
-        `
-    )
-    .forEach(
-        item => {
-
-
-            item.addEventListener(
-                "mouseenter",
-                () => {
-
-
-                    cursor.classList.add(
-                        "active"
-                    );
-
-
-                }
-            );
-
-
-            item.addEventListener(
-                "mouseleave",
-                () => {
-
-
-                    cursor.classList.remove(
-                        "active"
-                    );
-
-
-                }
-            );
-
-
-        }
-    );
+    cursor.style.top =
+        `${event.clientY}px`;
 
 
 }
 
-
-
-/* =========================================================
-SMOOTH LINKS
-========================================================= */
+);
 
 document
 .querySelectorAll(
-    'a[href^="#"]'
+    a,
+    button,
+    .service-card,
+    .skill-card,
+    .project-card,
+    .about-stat,
+    .hero-experience-card
+   
 )
 .forEach(
-    link => {
+item => {
+
+    item.addEventListener(
+        "mouseenter",
+        () => {
 
 
-        link.addEventListener(
-            "click",
-            event => {
-
-
-                const href =
-                    link.getAttribute(
-                        "href"
-                    );
-
-
-                if (
-                    !href ||
-                    href ===
-                    "#"
-                ) {
-
-                    return;
-
-                }
-
-
-                const target =
-                    document.querySelector(
-                        href
-                    );
-
-
-                if (
-                    !target
-                ) {
-
-                    return;
-
-                }
-
-
-                event.preventDefault();
-
-
-                target.scrollIntoView(
-                    {
-
-                        behavior:
-                            "smooth",
-
-                        block:
-                            "start"
-
-                    }
-                );
-
-
-            }
-        );
-
-
-    }
-);
-
-
-
-/* =========================================================
-ACTIVE NAV
-========================================================= */
-
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
-
-const desktopNavLinks =
-    document.querySelectorAll(
-        ".nav-links a"
-    );
-
-
-const mobileNavLinks =
-    document.querySelectorAll(
-        ".mobile-bottom-link"
-    );
-
-
-
-function updateNavigation() {
-
-
-    let current =
-        "home";
-
-
-    sections.forEach(
-        section => {
-
-
-            const sectionTop =
-                section.offsetTop -
-                220;
-
-
-            const sectionHeight =
-                section.offsetHeight;
-
-
-            if (
-                window.scrollY >=
-                sectionTop
-                &&
-                window.scrollY <
-                sectionTop +
-                sectionHeight
-            ) {
-
-
-                current =
-                    section.id;
-
-
-            }
-
-
-        }
-    );
-
-
-    desktopNavLinks.forEach(
-        link => {
-
-
-            link.classList.toggle(
-                "active",
-                link.getAttribute(
-                    "href"
-                )
-                ===
-                `#${current}`
+            cursor.classList.add(
+                "active"
             );
 
 
@@ -1692,227 +1336,12 @@ function updateNavigation() {
     );
 
 
-    mobileNavLinks.forEach(
-        link => {
+    item.addEventListener(
+        "mouseleave",
+        () => {
 
 
-            link.classList.toggle(
-                "active",
-                link.getAttribute(
-                    "href"
-                )
-                ===
-                `#${current}`
-            );
-
-
-        }
-    );
-
-
-}
-
-
-
-updateNavigation();
-
-
-window.addEventListener(
-    "scroll",
-    updateNavigation,
-    {
-        passive: true
-    }
-);
-
-
-
-/* =========================================================
-BACK TO TOP
-========================================================= */
-
-function updateBackToTop() {
-
-
-    if (
-        !backToTop
-    ) {
-
-        return;
-
-    }
-
-
-    backToTop.classList.toggle(
-        "show",
-        window.scrollY >
-        500
-    );
-
-
-}
-
-
-
-updateBackToTop();
-
-
-window.addEventListener(
-    "scroll",
-    updateBackToTop,
-    {
-        passive: true
-    }
-);
-
-
-
-/* =========================================================
-REVEAL
-========================================================= */
-
-const revealElements = [
-
-    ...document.querySelectorAll(
-        ".section-heading"
-    ),
-
-    ...document.querySelectorAll(
-        ".about-visual"
-    ),
-
-    ...document.querySelectorAll(
-        ".about-content"
-    ),
-
-    ...document.querySelectorAll(
-        ".about-stat"
-    ),
-
-    ...document.querySelectorAll(
-        ".hire-sidebar"
-    ),
-
-    ...document.querySelectorAll(
-        ".hire-content-window"
-    ),
-
-    ...document.querySelectorAll(
-        ".skill-card"
-    ),
-
-    ...document.querySelectorAll(
-        ".process-item"
-    ),
-
-    ...document.querySelectorAll(
-        ".project-card"
-    ),
-
-    ...document.querySelectorAll(
-        ".why-heading"
-    ),
-
-    ...document.querySelectorAll(
-        ".why-item"
-    ),
-
-    ...document.querySelectorAll(
-        ".contact-container"
-    )
-
-];
-
-
-revealElements.forEach(
-    element => {
-
-
-        element.classList.add(
-            "reveal"
-        );
-
-
-    }
-);
-
-
-
-if (
-    "IntersectionObserver"
-    in window
-) {
-
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-
-                entries.forEach(
-                    entry => {
-
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-
-                            entry.target
-                                .classList
-                                .add(
-                                    "active"
-                                );
-
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-
-                        }
-
-
-                    }
-                );
-
-
-            },
-            {
-
-                threshold:
-                    .12,
-
-                rootMargin:
-                    "0px 0px -40px 0px"
-
-            }
-        );
-
-
-    revealElements.forEach(
-        element => {
-
-
-            observer.observe(
-                element
-            );
-
-
-        }
-    );
-
-
-}
-
-else {
-
-
-    revealElements.forEach(
-        element => {
-
-
-            element.classList.add(
+            cursor.classList.remove(
                 "active"
             );
 
@@ -1923,6 +1352,376 @@ else {
 
 }
 
+);
+
+}
+
+
+
+/* =========================================================
+SMOOTH INTERNAL LINKS
+========================================================= */
+
+document
+.querySelectorAll(
+'a[href^="#"]'
+)
+.forEach(
+link => {
+
+    link.addEventListener(
+        "click",
+        event => {
+
+
+            const href =
+                link.getAttribute(
+                    "href"
+                );
+
+
+            if (
+                !href ||
+                href ===
+                "#"
+            ) {
+
+                return;
+
+            }
+
+
+            const target =
+                document.querySelector(
+                    href
+                );
+
+
+            if (
+                !target
+            ) {
+
+                return;
+
+            }
+
+
+            event.preventDefault();
+
+
+            target.scrollIntoView(
+                {
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "start"
+
+                }
+            );
+
+
+        }
+    );
+
+
+}
+
+);
+
+
+
+/* =========================================================
+ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+document.querySelectorAll(
+"section[id]"
+);
+
+const desktopNavLinks =
+document.querySelectorAll(
+".nav-links a"
+);
+
+const mobileNavLinks =
+document.querySelectorAll(
+".mobile-bottom-link"
+);
+
+
+
+function updateNavigation() {
+
+let current =
+"home";
+
+sections.forEach(
+section => {
+
+    const sectionTop =
+        section.offsetTop -
+        220;
+
+
+    const sectionHeight =
+        section.offsetHeight;
+
+
+    if (
+        window.scrollY >=
+        sectionTop
+        &&
+        window.scrollY <
+        sectionTop +
+        sectionHeight
+    ) {
+
+
+        current =
+            section.id;
+
+
+    }
+
+
+}
+
+);
+
+desktopNavLinks.forEach(
+link => {
+
+    link.classList.toggle(
+        "active",
+        link.getAttribute(
+            "href"
+        )
+        ===
+        `#${current}`
+    );
+
+
+}
+
+);
+
+mobileNavLinks.forEach(
+link => {
+
+    link.classList.toggle(
+        "active",
+        link.getAttribute(
+            "href"
+        )
+        ===
+        `#${current}`
+    );
+
+
+}
+
+);
+
+}
+
+
+
+updateNavigation();
+
+window.addEventListener(
+"scroll",
+updateNavigation,
+{
+passive: true
+}
+);
+
+
+
+/* =========================================================
+BACK TO TOP
+========================================================= */
+
+function updateBackToTop() {
+
+if (
+!backToTop
+) {
+
+return;
+
+}
+
+backToTop.classList.toggle(
+"show",
+window.scrollY >
+500
+);
+
+}
+
+
+
+updateBackToTop();
+
+window.addEventListener(
+"scroll",
+updateBackToTop,
+{
+passive: true
+}
+);
+
+
+
+/* =========================================================
+SCROLL REVEAL
+========================================================= */
+
+const revealElements = [
+
+...document.querySelectorAll(
+    ".section-heading"
+),
+
+...document.querySelectorAll(
+    ".about-visual"
+),
+
+...document.querySelectorAll(
+    ".about-content"
+),
+
+...document.querySelectorAll(
+    ".about-stat"
+),
+
+...document.querySelectorAll(
+    ".service-card"
+),
+
+...document.querySelectorAll(
+    ".skill-card"
+),
+
+...document.querySelectorAll(
+    ".process-item"
+),
+
+...document.querySelectorAll(
+    ".project-card"
+),
+
+...document.querySelectorAll(
+    ".why-heading"
+),
+
+...document.querySelectorAll(
+    ".why-item"
+),
+
+...document.querySelectorAll(
+    ".contact-container"
+)
+
+];
+
+revealElements.forEach(
+element => {
+
+    element.classList.add(
+        "reveal"
+    );
+
+
+}
+
+);
+
+
+
+if (
+"IntersectionObserver"
+in window
+) {
+
+const observer =
+new IntersectionObserver(
+entries => {
+
+        entries.forEach(
+            entry => {
+
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+
+                    entry.target
+                        .classList
+                        .add(
+                            "active"
+                        );
+
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+
+                }
+
+
+            }
+        );
+
+
+    },
+    {
+
+        threshold:
+            .12,
+
+        rootMargin:
+            "0px 0px -40px 0px"
+
+    }
+);
+
+revealElements.forEach(
+element => {
+
+    observer.observe(
+        element
+    );
+
+
+}
+
+);
+
+}
+
+else {
+
+revealElements.forEach(
+element => {
+
+    element.classList.add(
+        "active"
+    );
+
+
+}
+
+);
+
+}
+
 
 
 /* =========================================================
@@ -1930,120 +1729,103 @@ ANIMATED ABOUT NUMBERS
 ========================================================= */
 
 const statNumbers =
-    document.querySelectorAll(
-        ".stat-number"
-    );
-
+document.querySelectorAll(
+".stat-number"
+);
 
 let statsStarted =
-    false;
+false;
 
 
 
 function animateStat(
-    element
+element
 ) {
 
+const finalNumber =
+Number(
+element.dataset.number
+);
 
-    const finalNumber =
-        Number(
-            element.dataset.number
-        );
+const suffix =
+element.dataset.suffix ||
+"";
 
+if (
+Number.isNaN(
+finalNumber
+)
+) {
 
-    const suffix =
-        element.dataset.suffix ||
-        "";
+return;
 
+}
 
-    if (
-        Number.isNaN(
-            finalNumber
-        )
-    ) {
+const duration =
+1400;
 
-        return;
-
-    }
-
-
-    const duration =
-        1400;
-
-
-    const startTime =
-        performance.now();
+const startTime =
+performance.now();
 
 
 
-    function update(
-        currentTime
-    ) {
+function update(
+currentTime
+) {
 
+const progress =
+Math.min(
+(
+currentTime -
+startTime
+)
+/
+duration,
+1
+);
 
-        const progress =
-            Math.min(
-                (
-                    currentTime -
-                    startTime
-                )
-                /
-                duration,
-                1
-            );
+const eased =
+1 -
+Math.pow(
+1 -
+progress,
+3
+);
 
+const currentValue =
+Math.round(
+finalNumber *
+eased
+);
 
-        const eased =
-            1 -
-            Math.pow(
-                1 -
-                progress,
-                3
-            );
+element.textContent =
+${currentValue}${suffix};
 
+if (
+progress <
+1
+) {
 
-        const currentValue =
-            Math.round(
-                finalNumber *
-                eased
-            );
+requestAnimationFrame(
+    update
+);
 
+}
 
-        element.textContent =
-            `${currentValue}${suffix}`;
+else {
 
+element.textContent =
+    `${finalNumber}${suffix}`;
 
-        if (
-            progress <
-            1
-        ) {
+}
 
-
-            requestAnimationFrame(
-                update
-            );
-
-
-        }
-
-        else {
-
-
-            element.textContent =
-                `${finalNumber}${suffix}`;
-
-
-        }
-
-
-    }
+}
 
 
 
-    requestAnimationFrame(
-        update
-    );
-
+requestAnimationFrame(
+update
+);
 
 }
 
@@ -2051,9 +1833,230 @@ function animateStat(
 
 function startStats() {
 
+if (
+statsStarted
+) {
+
+return;
+
+}
+
+statsStarted =
+true;
+
+statNumbers.forEach(
+(
+element,
+index
+) => {
+
+    setTimeout(
+        () => {
+
+
+            animateStat(
+                element
+            );
+
+
+        },
+        index *
+        140
+    );
+
+
+}
+
+);
+
+}
+
+
+
+const aboutStats =
+document.querySelector(
+".about-stats"
+);
+
+if (
+aboutStats &&
+"IntersectionObserver"
+in window
+) {
+
+const statsObserver =
+new IntersectionObserver(
+entries => {
+
+        entries.forEach(
+            entry => {
+
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+
+                    startStats();
+
+
+                    statsObserver.disconnect();
+
+
+                }
+
+
+            }
+        );
+
+
+    },
+    {
+
+        threshold:
+            .35
+
+    }
+);
+
+statsObserver.observe(
+aboutStats
+);
+
+}
+
+else {
+
+startStats();
+
+}
+
+
+
+/* =========================================================
+PROJECT CARD TILT
+========================================================= */
+
+document
+.querySelectorAll(
+".project-card"
+)
+.forEach(
+card => {
+
+    card.addEventListener(
+        "mousemove",
+        event => {
+
+
+            if (
+                window.innerWidth <=
+                900
+            ) {
+
+                return;
+
+            }
+
+
+            const rect =
+                card.getBoundingClientRect();
+
+
+            const x =
+                event.clientX -
+                rect.left;
+
+
+            const y =
+                event.clientY -
+                rect.top;
+
+
+            const centerX =
+                rect.width /
+                2;
+
+
+            const centerY =
+                rect.height /
+                2;
+
+
+            const rotateX =
+                (
+                    (
+                        y -
+                        centerY
+                    )
+                    /
+                    centerY
+                )
+                *
+                -1.2;
+
+
+            const rotateY =
+                (
+                    (
+                        x -
+                        centerX
+                    )
+                    /
+                    centerX
+                )
+                *
+                1.2;
+
+
+            card.style.transform =
+                `
+                perspective(1200px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                translateY(-8px)
+                `;
+
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        () => {
+
+
+            card.style.transform =
+                "";
+
+
+        }
+    );
+
+
+}
+
+);
+
+
+
+/* =========================================================
+HERO CODE MOUSE DEPTH
+========================================================= */
+
+if (
+hero &&
+heroCodeBackground
+) {
+
+hero.addEventListener(
+"mousemove",
+event => {
 
     if (
-        statsStarted
+        window.innerWidth <=
+        900
     ) {
 
         return;
@@ -2061,428 +2064,189 @@ function startStats() {
     }
 
 
-    statsStarted =
-        true;
+    const rect =
+        hero.getBoundingClientRect();
 
 
-    statNumbers.forEach(
+    const x =
         (
-            element,
-            index
-        ) => {
+            event.clientX -
+            rect.left
+        )
+        /
+        rect.width;
 
 
-            setTimeout(
-                () => {
+    const y =
+        (
+            event.clientY -
+            rect.top
+        )
+        /
+        rect.height;
 
 
-                    animateStat(
-                        element
-                    );
+    const moveX =
+        (
+            x -
+            .5
+        )
+        *
+        -12;
 
 
-                },
-                index *
-                140
-            );
+    const moveY =
+        (
+            y -
+            .5
+        )
+        *
+        -8;
 
 
-        }
-    );
-
-
-}
-
-
-
-const aboutStats =
-    document.querySelector(
-        ".about-stats"
-    );
-
-
-if (
-    aboutStats &&
-    "IntersectionObserver"
-    in window
-) {
-
-
-    const statsObserver =
-        new IntersectionObserver(
-            entries => {
-
-
-                entries.forEach(
-                    entry => {
-
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-
-                            startStats();
-
-
-                            statsObserver.disconnect();
-
-
-                        }
-
-
-                    }
-                );
-
-
-            },
-            {
-
-                threshold:
-                    .35
-
-            }
-        );
-
-
-    statsObserver.observe(
-        aboutStats
-    );
+    heroCodeBackground
+        .style
+        .transform =
+        `translate3d(
+            ${moveX}px,
+            ${moveY}px,
+            0
+        )`;
 
 
 }
 
-else {
-
-
-    startStats();
-
-
-}
-
-
-
-/* =========================================================
-PROJECT TILT
-========================================================= */
-
-document
-.querySelectorAll(
-    ".project-card"
-)
-.forEach(
-    card => {
-
-
-        card.addEventListener(
-            "mousemove",
-            event => {
-
-
-                if (
-                    window.innerWidth <=
-                    900
-                ) {
-
-                    return;
-
-                }
-
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const centerX =
-                    rect.width /
-                    2;
-
-
-                const centerY =
-                    rect.height /
-                    2;
-
-
-                const rotateX =
-                    (
-                        (
-                            y -
-                            centerY
-                        )
-                        /
-                        centerY
-                    )
-                    *
-                    -1.2;
-
-
-                const rotateY =
-                    (
-                        (
-                            x -
-                            centerX
-                        )
-                        /
-                        centerX
-                    )
-                    *
-                    1.2;
-
-
-                card.style.transform =
-                    `
-                    perspective(1200px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateY(-8px)
-                    `;
-
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-
-                card.style.transform =
-                    "";
-
-
-            }
-        );
-
-
-    }
 );
 
+hero.addEventListener(
+"mouseleave",
+() => {
 
-
-/* =========================================================
-HERO CODE PARALLAX
-========================================================= */
-
-if (
-    hero &&
     heroCodeBackground
-) {
+        .style
+        .transform =
+        "translate3d(0,0,0)";
 
 
-    hero.addEventListener(
-        "mousemove",
-        event => {
+}
 
-
-            if (
-                window.innerWidth <=
-                900
-            ) {
-
-                return;
-
-            }
-
-
-            const rect =
-                hero.getBoundingClientRect();
-
-
-            const x =
-                (
-                    event.clientX -
-                    rect.left
-                )
-                /
-                rect.width;
-
-
-            const y =
-                (
-                    event.clientY -
-                    rect.top
-                )
-                /
-                rect.height;
-
-
-            const moveX =
-                (
-                    x -
-                    .5
-                )
-                *
-                -12;
-
-
-            const moveY =
-                (
-                    y -
-                    .5
-                )
-                *
-                -8;
-
-
-            heroCodeBackground
-                .style
-                .transform =
-                `translate3d(
-                    ${moveX}px,
-                    ${moveY}px,
-                    0
-                )`;
-
-
-        }
-    );
-
-
-    hero.addEventListener(
-        "mouseleave",
-        () => {
-
-
-            heroCodeBackground
-                .style
-                .transform =
-                "translate3d(0,0,0)";
-
-
-        }
-    );
-
+);
 
 }
 
 
 
 /* =========================================================
-HERO PROFILE PARALLAX
+HERO PROFILE DEPTH
 ========================================================= */
 
 const heroProfileStage =
-    document.querySelector(
-        ".hero-profile-stage"
-    );
-
+document.querySelector(
+".hero-profile-stage"
+);
 
 if (
-    hero &&
-    heroProfileStage
+hero &&
+heroProfileStage
 ) {
 
+hero.addEventListener(
+"mousemove",
+event => {
 
-    hero.addEventListener(
-        "mousemove",
-        event => {
+    if (
+        window.innerWidth <=
+        900
+    ) {
 
+        return;
 
-            if (
-                window.innerWidth <=
-                900
-            ) {
-
-                return;
-
-            }
+    }
 
 
-            const rect =
-                hero.getBoundingClientRect();
+    const rect =
+        hero.getBoundingClientRect();
 
 
-            const x =
-                (
-                    event.clientX -
-                    rect.left
-                )
-                /
-                rect.width;
+    const x =
+        (
+            event.clientX -
+            rect.left
+        )
+        /
+        rect.width;
 
 
-            const y =
-                (
-                    event.clientY -
-                    rect.top
-                )
-                /
-                rect.height;
+    const y =
+        (
+            event.clientY -
+            rect.top
+        )
+        /
+        rect.height;
 
 
-            const moveX =
-                (
-                    x -
-                    .5
-                )
-                *
-                7;
+    const moveX =
+        (
+            x -
+            .5
+        )
+        *
+        7;
 
 
-            const moveY =
-                (
-                    y -
-                    .5
-                )
-                *
-                6;
+    const moveY =
+        (
+            y -
+            .5
+        )
+        *
+        6;
 
 
-            heroProfileStage
-                .style
-                .setProperty(
-                    "--hero-move-x",
-                    `${moveX}px`
-                );
+    heroProfileStage
+        .style
+        .setProperty(
+            "--hero-move-x",
+            `${moveX}px`
+        );
 
 
-            heroProfileStage
-                .style
-                .setProperty(
-                    "--hero-move-y",
-                    `${moveY}px`
-                );
+    heroProfileStage
+        .style
+        .setProperty(
+            "--hero-move-y",
+            `${moveY}px`
+        );
 
 
-        }
-    );
+}
+
+);
+
+hero.addEventListener(
+"mouseleave",
+() => {
+
+    heroProfileStage
+        .style
+        .setProperty(
+            "--hero-move-x",
+            "0px"
+        );
 
 
-    hero.addEventListener(
-        "mouseleave",
-        () => {
+    heroProfileStage
+        .style
+        .setProperty(
+            "--hero-move-y",
+            "0px"
+        );
 
 
-            heroProfileStage
-                .style
-                .setProperty(
-                    "--hero-move-x",
-                    "0px"
-                );
+}
 
-
-            heroProfileStage
-                .style
-                .setProperty(
-                    "--hero-move-y",
-                    "0px"
-                );
-
-
-        }
-    );
-
+);
 
 }
 
@@ -2494,69 +2258,68 @@ RESPONSIVE RESIZE
 
 let resizeTimer;
 
-
 window.addEventListener(
-    "resize",
-    () => {
+"resize",
+() => {
+
+    clearTimeout(
+        resizeTimer
+    );
 
 
-        clearTimeout(
-            resizeTimer
+    resizeTimer =
+        setTimeout(
+            () => {
+
+
+                buildHeroCode();
+
+
+                if (
+                    window.innerWidth <=
+                    900 &&
+                    heroProfileStage
+                ) {
+
+
+                    heroProfileStage
+                        .style
+                        .setProperty(
+                            "--hero-move-x",
+                            "0px"
+                        );
+
+
+                    heroProfileStage
+                        .style
+                        .setProperty(
+                            "--hero-move-y",
+                            "0px"
+                        );
+
+
+                }
+
+
+                if (
+                    window.innerWidth >
+                    767
+                ) {
+
+
+                    showMobileNavigation();
+
+
+                }
+
+
+            },
+            280
         );
 
 
-        resizeTimer =
-            setTimeout(
-                () => {
+}
 
-
-                    buildHeroCode();
-
-
-                    if (
-                        window.innerWidth <=
-                        900 &&
-                        heroProfileStage
-                    ) {
-
-
-                        heroProfileStage
-                            .style
-                            .setProperty(
-                                "--hero-move-x",
-                                "0px"
-                            );
-
-
-                        heroProfileStage
-                            .style
-                            .setProperty(
-                                "--hero-move-y",
-                                "0px"
-                            );
-
-
-                    }
-
-
-                    if (
-                        window.innerWidth >
-                        767
-                    ) {
-
-
-                        showMobileNavigation();
-
-
-                    }
-
-
-                },
-                280
-            );
-
-
-    }
 );
 
 
@@ -2566,24 +2329,20 @@ CURRENT YEAR
 ========================================================= */
 
 const copyright =
-    document.querySelector(
-        ".copyright"
-    );
-
+document.querySelector(
+".copyright"
+);
 
 if (
-    copyright
+copyright
 ) {
 
-
-    copyright.textContent =
-        `© ${
-            new Date().getFullYear()
-        } Jhonaiza Gede. All Rights Reserved.`;
-
+copyright.textContent =
+© ${
+        new Date().getFullYear()
+    } Jhonaiza Gede. All Rights Reserved.;
 
 }
-
 
 }
 );
