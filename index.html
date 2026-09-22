@@ -4078,6 +4078,20 @@ All Rights Reserved.
 
 <script src="script.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    if (
+        window.location.pathname === "/index.html" ||
+        window.location.pathname === "/"
+    ) {
+        history.replaceState(null, "", "/#MyPortfolio");
+    }
+});
+</script>
+
+</body>
+</html>
+
 
 </body>
 
