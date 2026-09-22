@@ -7,37 +7,43 @@ document.addEventListener(
 "DOMContentLoaded",
 () => {
 
+
 /* =========================================================
 MAIN ELEMENTS
 ========================================================= */
 
 const body =
-document.body;
+    document.body;
+
 
 const header =
-document.querySelector(
-".desktop-header"
-);
+    document.querySelector(
+        ".desktop-header"
+    );
+
 
 const cursor =
-document.querySelector(
-".cursor"
-);
+    document.querySelector(
+        ".cursor"
+    );
+
 
 const backToTop =
-document.querySelector(
-".back-to-top"
-);
+    document.querySelector(
+        ".back-to-top"
+    );
+
 
 const hero =
-document.querySelector(
-".hero"
-);
+    document.querySelector(
+        ".hero"
+    );
+
 
 const mobileBottomNav =
-document.getElementById(
-"mobileBottomNav"
-);
+    document.getElementById(
+        "mobileBottomNav"
+    );
 
 
 
@@ -46,71 +52,72 @@ LOADER COMPUTER CODE
 ========================================================= */
 
 const loaderCodeBackground =
-document.getElementById(
-"loaderCodeBackground"
-);
+    document.getElementById(
+        "loaderCodeBackground"
+    );
+
 
 const loaderCodeLines = [
 
-'<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
+    '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
 
-'<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
+    '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
 
-'&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
+    '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
 
-'display: grid;',
+    'display: grid;',
 
-'grid-template-columns: 1fr 1fr;',
+    'grid-template-columns: 1fr 1fr;',
 
-'<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
+    '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
 
-'document.querySelector(<span class="code-string">".project"</span>);',
+    'document.querySelector(<span class="code-string">".project"</span>);',
 
-'background: linear-gradient(135deg, #050505, #D7B56D);',
+    'background: linear-gradient(135deg, #050505, #D7B56D);',
 
-'&lt;div class=<span class="code-string">"creative"</span>&gt;',
+    '&lt;div class=<span class="code-string">"creative"</span>&gt;',
 
-'transform: translateY(-10px);',
+    'transform: translateY(-10px);',
 
-'<span class="code-keyword">let</span> creativity = true;',
+    '<span class="code-keyword">let</span> creativity = true;',
 
-'animation: reveal .8s ease;',
+    'animation: reveal .8s ease;',
 
-'<span class="code-keyword">if</span> (idea) { createExperience(); }',
+    '<span class="code-keyword">if</span> (idea) { createExperience(); }',
 
-'font-family: "Poppins", sans-serif;',
+    'font-family: "Poppins", sans-serif;',
 
-'<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
+    '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
 
-'&lt;article class=<span class="code-string">"project-card"</span>&gt;',
+    '&lt;article class=<span class="code-string">"project-card"</span>&gt;',
 
-'border: 1px solid rgba(215,181,109,.25);',
+    'border: 1px solid rgba(215,181,109,.25);',
 
-'<span class="code-keyword">return</span> digitalExperience;',
+    '<span class="code-keyword">return</span> digitalExperience;',
 
-'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
+    'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
 
-'const brand = { creativity: true, purpose: true };',
+    'const brand = { creativity: true, purpose: true };',
 
-'backdrop-filter: blur(20px);',
+    'backdrop-filter: blur(20px);',
 
-'&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
+    '&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
 
-'responsive: true;',
+    'responsive: true;',
 
-'userExperience.optimize();',
+    'userExperience.optimize();',
 
-'<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
+    '<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
 
-'object-fit: cover;',
+    'object-fit: cover;',
 
-'transition: all .4s ease;',
+    'transition: all .4s ease;',
 
-'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
+    'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
 
-'creativeDeveloper.initialize();',
+    'creativeDeveloper.initialize();',
 
-'&lt;/portfolio&gt;'
+    '&lt;/portfolio&gt;'
 
 ];
 
@@ -118,122 +125,130 @@ const loaderCodeLines = [
 
 function buildLoaderCode() {
 
+
 if (
-!loaderCodeBackground
+    !loaderCodeBackground
 ) {
 
-return;
+    return;
 
 }
 
+
 loaderCodeBackground.innerHTML =
-"";
+    "";
+
 
 const width =
-window.innerWidth;
+    window.innerWidth;
+
 
 let columns =
-15;
+    15;
+
 
 if (
-width <= 520
+    width <= 520
 ) {
 
-columns =
-    6;
+    columns =
+        6;
 
 }
 
 else if (
-width <= 900
+    width <= 900
 ) {
 
-columns =
-    9;
+    columns =
+        9;
 
 }
 
 
 
 for (
-let i = 0;
-i < columns;
-i++
-) {
-
-const column =
-    document.createElement(
-        "div"
-    );
-
-
-column.className =
-    "code-column";
-
-
-column.style.left =
-    `${
-        (
-            i /
-            columns
-        )
-        *
-        100
-    }%`;
-
-
-column.style.animationDuration =
-    `${
-        18 +
-        Math.random() *
-        16
-    }s`;
-
-
-column.style.animationDelay =
-    `-${
-        Math.random() *
-        18
-    }s`;
-
-
-
-for (
-    let j = 0;
-    j < 16;
-    j++
+    let i = 0;
+    i < columns;
+    i++
 ) {
 
 
-    const line =
+    const column =
         document.createElement(
-            "span"
+            "div"
         );
 
 
-    line.innerHTML =
-        loaderCodeLines[
-            Math.floor(
-                Math.random() *
-                loaderCodeLines.length
+    column.className =
+        "code-column";
+
+
+    column.style.left =
+        `${
+            (
+                i /
+                columns
             )
-        ];
+            *
+            100
+        }%`;
 
 
-    column.appendChild(
-        line
-    );
+    column.style.animationDuration =
+        `${
+            18 +
+            Math.random() *
+            16
+        }s`;
+
+
+    column.style.animationDelay =
+        `-${
+            Math.random() *
+            18
+        }s`;
+
+
+
+    for (
+        let j = 0;
+        j < 16;
+        j++
+    ) {
+
+
+        const line =
+            document.createElement(
+                "span"
+            );
+
+
+        line.innerHTML =
+            loaderCodeLines[
+                Math.floor(
+                    Math.random() *
+                    loaderCodeLines.length
+                )
+            ];
+
+
+        column.appendChild(
+            line
+        );
+
+
+    }
+
+
+    loaderCodeBackground
+        .appendChild(
+            column
+        );
 
 
 }
 
-
-loaderCodeBackground
-    .appendChild(
-        column
-    );
-
-}
 
 }
 
@@ -248,40 +263,41 @@ HERO COMPUTER CODE
 ========================================================= */
 
 const heroCodeBackground =
-document.getElementById(
-"heroCodeBackground"
-);
+    document.getElementById(
+        "heroCodeBackground"
+    );
+
 
 const heroCodeBlocks = [
 
-const portfolio = {
+`const portfolio = {
 designer: "Jhonaiza Gede",
 role: "Creative Developer",
 creativity: true,
 responsive: true
-};,
+};`,
 
-const skills = [
+`const skills = [
 "Web Design",
 "Graphic Design",
 "UI / UX",
 "JavaScript",
 "Branding",
 "SEO"
-];,
+];`,
 
-function createExperience() {
+`function createExperience() {
 const idea = getVision();
 const design = buildInterface(idea);
 return optimize(design);
-},
+}`,
 
-.hero {
+`.hero {
 position: relative;
 display: grid;
 min-height: 100vh;
 overflow: hidden;
-},
+}`,
 
 `const projects =
 document.querySelectorAll(
@@ -292,82 +308,82 @@ projects.forEach(project => {
 project.classList.add("active");
 });`,
 
-@media (max-width: 767px) {
+`@media (max-width: 767px) {
 .portfolio {
 grid-template-columns: 1fr;
 padding: 70px 20px;
 }
-},
+}`,
 
-function updateNavigation() {
+`function updateNavigation() {
 sections.forEach(section => {
 const top = section.offsetTop;
 const height = section.offsetHeight;
 });
-},
+}`,
 
 `<section id="projects">
-
 <article class="project">
 <h2>Creative Experience</h2>
 <p>Design • Develop • Create</p>
 </article>
 </section>`,
 
-userExperience
+`userExperience
 .design()
 .develop()
 .optimize()
-.deliver();
+.deliver();`
 
 ];
 
+
 const heroCodePositions = [
 
-{
-    left: "2%",
-    top: "10%"
-},
+    {
+        left: "2%",
+        top: "10%"
+    },
 
-{
-    left: "35%",
-    top: "6%"
-},
+    {
+        left: "35%",
+        top: "6%"
+    },
 
-{
-    right: "2%",
-    top: "14%"
-},
+    {
+        right: "2%",
+        top: "14%"
+    },
 
-{
-    left: "4%",
-    bottom: "5%"
-},
+    {
+        left: "4%",
+        bottom: "5%"
+    },
 
-{
-    left: "38%",
-    bottom: "7%"
-},
+    {
+        left: "38%",
+        bottom: "7%"
+    },
 
-{
-    right: "1%",
-    bottom: "8%"
-},
+    {
+        right: "1%",
+        bottom: "8%"
+    },
 
-{
-    left: "25%",
-    top: "42%"
-},
+    {
+        left: "25%",
+        top: "42%"
+    },
 
-{
-    right: "25%",
-    top: "48%"
-},
+    {
+        right: "25%",
+        top: "48%"
+    },
 
-{
-    left: "59%",
-    top: "27%"
-}
+    {
+        left: "59%",
+        top: "27%"
+    }
 
 ];
 
@@ -375,96 +391,104 @@ const heroCodePositions = [
 
 function buildHeroCode() {
 
+
 if (
-!heroCodeBackground
+    !heroCodeBackground
 ) {
 
-return;
+    return;
 
 }
 
+
 heroCodeBackground.innerHTML =
-"";
+    "";
+
 
 const width =
-window.innerWidth;
+    window.innerWidth;
+
 
 let totalBlocks =
-9;
+    9;
+
 
 if (
-width <= 767
+    width <= 767
 ) {
 
-totalBlocks =
-    7;
+    totalBlocks =
+        7;
 
 }
 
 
 
 for (
-let i = 0;
-i < totalBlocks;
-i++
+    let i = 0;
+    i < totalBlocks;
+    i++
 ) {
 
-const block =
-    document.createElement(
-        "pre"
-    );
+
+    const block =
+        document.createElement(
+            "pre"
+        );
 
 
-block.className =
-    "hero-code-block";
+    block.className =
+        "hero-code-block";
 
 
-block.textContent =
-    heroCodeBlocks[
-        i %
-        heroCodeBlocks.length
-    ];
+    block.textContent =
+        heroCodeBlocks[
+            i %
+            heroCodeBlocks.length
+        ];
 
 
-const position =
-    heroCodePositions[
-        i %
-        heroCodePositions.length
-    ];
+    const position =
+        heroCodePositions[
+            i %
+            heroCodePositions.length
+        ];
 
 
-Object.keys(
-    position
-)
-.forEach(
-    property => {
+    Object.keys(
+        position
+    )
+    .forEach(
+        property => {
 
 
-        block.style[
-            property
-        ] =
-            position[
+            block.style[
                 property
-            ];
+            ] =
+                position[
+                    property
+                ];
 
 
-    }
-);
-
-
-block.style.animationDelay =
-    `-${
-        i *
-        1.7
-    }s`;
-
-
-heroCodeBackground
-    .appendChild(
-        block
+        }
     );
+
+
+    block.style.animationDelay =
+        `-${
+            i *
+            1.7
+        }s`;
+
+
+    heroCodeBackground
+        .appendChild(
+            block
+        );
+
 
 }
+
 
 }
 
@@ -479,171 +503,187 @@ LOADER
 ========================================================= */
 
 const loader =
-document.getElementById(
-"pageLoader"
-);
+    document.getElementById(
+        "pageLoader"
+    );
+
 
 const loaderPercent =
-document.getElementById(
-"loaderPercent"
-);
+    document.getElementById(
+        "loaderPercent"
+    );
+
 
 const loaderProgress =
-document.getElementById(
-"loaderProgress"
-);
+    document.getElementById(
+        "loaderProgress"
+    );
+
 
 const loaderTypingText =
-document.getElementById(
-"loaderTypingText"
-);
+    document.getElementById(
+        "loaderTypingText"
+    );
+
 
 body.classList.add(
-"loader-active"
+    "loader-active"
 );
+
 
 const loaderMessages = [
 
-"Initializing interface...",
+    "Initializing interface...",
 
-"Loading creative assets...",
+    "Loading creative assets...",
 
-"Compiling digital experience...",
+    "Compiling digital experience...",
 
-"Preparing featured projects...",
+    "Preparing featured projects...",
 
-"Optimizing responsive layout...",
+    "Optimizing responsive layout...",
 
-"Connecting creative components...",
+    "Connecting creative components...",
 
-"Almost ready...",
+    "Almost ready...",
 
-"Launching portfolio..."
+    "Launching portfolio..."
 
 ];
 
+
 let loaderMessageIndex =
-0;
+    0;
+
 
 let loaderCharacterIndex =
-0;
+    0;
+
 
 let loaderDeleting =
-false;
+    false;
+
 
 let loaderTypingStopped =
-false;
+    false;
 
 
 
 function typeLoaderMessage() {
 
-if (
-!loaderTypingText ||
-loaderTypingStopped
-) {
-
-return;
-
-}
-
-const currentMessage =
-loaderMessages[
-loaderMessageIndex
-];
-
-
 
 if (
-!loaderDeleting
+    !loaderTypingText ||
+    loaderTypingStopped
 ) {
-
-loaderCharacterIndex++;
-
-
-loaderTypingText.textContent =
-    currentMessage.substring(
-        0,
-        loaderCharacterIndex
-    );
-
-
-if (
-    loaderCharacterIndex >=
-    currentMessage.length
-) {
-
-
-    loaderDeleting =
-        true;
-
-
-    setTimeout(
-        typeLoaderMessage,
-        260
-    );
-
 
     return;
 
 }
 
 
-setTimeout(
-    typeLoaderMessage,
-    25
-);
+const currentMessage =
+    loaderMessages[
+        loaderMessageIndex
+    ];
+
+
+
+if (
+    !loaderDeleting
+) {
+
+
+    loaderCharacterIndex++;
+
+
+    loaderTypingText.textContent =
+        currentMessage.substring(
+            0,
+            loaderCharacterIndex
+        );
+
+
+    if (
+        loaderCharacterIndex >=
+        currentMessage.length
+    ) {
+
+
+        loaderDeleting =
+            true;
+
+
+        setTimeout(
+            typeLoaderMessage,
+            260
+        );
+
+
+        return;
+
+    }
+
+
+    setTimeout(
+        typeLoaderMessage,
+        25
+    );
+
 
 }
 
 else {
 
-loaderCharacterIndex--;
+
+    loaderCharacterIndex--;
 
 
-loaderTypingText.textContent =
-    currentMessage.substring(
-        0,
-        loaderCharacterIndex
-    );
+    loaderTypingText.textContent =
+        currentMessage.substring(
+            0,
+            loaderCharacterIndex
+        );
 
 
-if (
-    loaderCharacterIndex <=
-    0
-) {
+    if (
+        loaderCharacterIndex <=
+        0
+    ) {
 
 
-    loaderDeleting =
-        false;
+        loaderDeleting =
+            false;
 
 
-    loaderMessageIndex =
-        (
-            loaderMessageIndex +
-            1
-        )
-        %
-        loaderMessages.length;
+        loaderMessageIndex =
+            (
+                loaderMessageIndex +
+                1
+            )
+            %
+            loaderMessages.length;
+
+
+        setTimeout(
+            typeLoaderMessage,
+            70
+        );
+
+
+        return;
+
+    }
 
 
     setTimeout(
         typeLoaderMessage,
-        70
+        12
     );
 
 
-    return;
-
 }
 
-
-setTimeout(
-    typeLoaderMessage,
-    12
-);
-
-}
 
 }
 
@@ -654,82 +694,92 @@ typeLoaderMessage();
 
 
 const loaderDuration =
-6500;
+    6500;
+
 
 const loaderStartTime =
-performance.now();
+    performance.now();
+
 
 let loaderComplete =
-false;
+    false;
 
 
 
 function finishLoader() {
 
+
 if (
-loaderComplete
+    loaderComplete
 ) {
 
-return;
+    return;
 
 }
+
 
 loaderComplete =
-true;
+    true;
+
 
 loaderTypingStopped =
-true;
+    true;
+
 
 if (
-loaderPercent
+    loaderPercent
 ) {
 
-loaderPercent.textContent =
-    "100%";
+    loaderPercent.textContent =
+        "100%";
 
 }
 
+
 if (
-loaderProgress
+    loaderProgress
 ) {
 
-loaderProgress.style.width =
-    "100%";
+    loaderProgress.style.width =
+        "100%";
 
 }
 
+
 if (
-loaderTypingText
+    loaderTypingText
 ) {
 
-loaderTypingText.textContent =
-    "Experience ready.";
+    loaderTypingText.textContent =
+        "Experience ready.";
 
 }
+
 
 setTimeout(
-() => {
+    () => {
 
-    if (
-        loader
-    ) {
 
-        loader.classList.add(
-            "hide"
+        if (
+            loader
+        ) {
+
+            loader.classList.add(
+                "hide"
+            );
+
+        }
+
+
+        body.classList.remove(
+            "loader-active"
         );
 
-    }
 
-
-    body.classList.remove(
-        "loader-active"
-    );
-
-
-},
-650
-
+    },
+    650
 );
+
 
 }
 
@@ -739,121 +789,133 @@ function updateLoaderProgress(
 currentTime
 ) {
 
+
 if (
-loaderComplete
+    loaderComplete
 ) {
 
-return;
+    return;
 
 }
 
+
 const elapsed =
-currentTime -
-loaderStartTime;
+    currentTime -
+    loaderStartTime;
+
 
 let progress =
-Math.min(
-elapsed /
-loaderDuration,
-1
-);
+    Math.min(
+        elapsed /
+        loaderDuration,
+        1
+    );
+
 
 if (
-progress <
-.55
+    progress <
+    .55
 ) {
 
-progress =
-    progress *
-    1.08;
+    progress =
+        progress *
+        1.08;
 
 }
 
 else if (
-progress <
-.88
+    progress <
+    .88
 ) {
 
-progress =
-    .594 +
-    (
-        progress -
-        .55
-    )
-    *
-    .82;
+    progress =
+        .594 +
+        (
+            progress -
+            .55
+        )
+        *
+        .82;
 
 }
 
 else {
 
-progress =
-    .8646 +
-    (
-        progress -
-        .88
-    )
-    *
-    1.128;
+    progress =
+        .8646 +
+        (
+            progress -
+            .88
+        )
+        *
+        1.128;
 
 }
 
+
 progress =
-Math.min(
-progress,
-1
-);
+    Math.min(
+        progress,
+        1
+    );
+
 
 const percent =
-Math.floor(
-progress *
-100
-);
+    Math.floor(
+        progress *
+        100
+    );
+
 
 if (
-loaderPercent
+    loaderPercent
 ) {
 
-loaderPercent.textContent =
-    `${percent}%`;
+    loaderPercent.textContent =
+        `${percent}%`;
 
 }
+
 
 if (
-loaderProgress
+    loaderProgress
 ) {
 
-loaderProgress.style.width =
-    `${percent}%`;
+    loaderProgress.style.width =
+        `${percent}%`;
 
 }
+
 
 if (
-elapsed >=
-loaderDuration
+    elapsed >=
+    loaderDuration
 ) {
 
-finishLoader();
+    finishLoader();
 
-return;
-
-}
-
-requestAnimationFrame(
-updateLoaderProgress
-);
+    return;
 
 }
-
 
 
 requestAnimationFrame(
-updateLoaderProgress
+    updateLoaderProgress
 );
+
+
+}
+
+
+
+requestAnimationFrame(
+    updateLoaderProgress
+);
+
 
 setTimeout(
-finishLoader,
-7800
+    finishLoader,
+    7800
 );
 
 
@@ -863,152 +925,163 @@ HERO ROLE TYPEWRITER
 ========================================================= */
 
 const heroRoleTyping =
-document.getElementById(
-"heroRoleTyping"
-);
+    document.getElementById(
+        "heroRoleTyping"
+    );
+
 
 const heroRoles = [
 
-"Web Design",
+    "Web Design",
 
-"Graphic Design",
+    "Graphic Design",
 
-"UI / UX Design",
+    "UI / UX Design",
 
-"Creative Development",
+    "Creative Development",
 
-"Branding",
+    "Branding",
 
-"SEO Optimization"
+    "SEO Optimization"
 
 ];
 
+
 let heroRoleIndex =
-0;
+    0;
+
 
 let heroCharacterIndex =
-0;
+    0;
+
 
 let heroDeleting =
-false;
+    false;
 
 
 
 function typeHeroRole() {
 
-if (
-!heroRoleTyping
-) {
-
-return;
-
-}
-
-const currentRole =
-heroRoles[
-heroRoleIndex
-];
-
-
 
 if (
-!heroDeleting
+    !heroRoleTyping
 ) {
-
-heroCharacterIndex++;
-
-
-heroRoleTyping.textContent =
-    currentRole.substring(
-        0,
-        heroCharacterIndex
-    );
-
-
-if (
-    heroCharacterIndex >=
-    currentRole.length
-) {
-
-
-    heroDeleting =
-        true;
-
-
-    setTimeout(
-        typeHeroRole,
-        1250
-    );
-
 
     return;
 
 }
 
 
-setTimeout(
-    typeHeroRole,
-    70
-);
+const currentRole =
+    heroRoles[
+        heroRoleIndex
+    ];
+
+
+
+if (
+    !heroDeleting
+) {
+
+
+    heroCharacterIndex++;
+
+
+    heroRoleTyping.textContent =
+        currentRole.substring(
+            0,
+            heroCharacterIndex
+        );
+
+
+    if (
+        heroCharacterIndex >=
+        currentRole.length
+    ) {
+
+
+        heroDeleting =
+            true;
+
+
+        setTimeout(
+            typeHeroRole,
+            1250
+        );
+
+
+        return;
+
+    }
+
+
+    setTimeout(
+        typeHeroRole,
+        70
+    );
+
 
 }
 
 else {
 
-heroCharacterIndex--;
+
+    heroCharacterIndex--;
 
 
-heroRoleTyping.textContent =
-    currentRole.substring(
-        0,
-        heroCharacterIndex
-    );
+    heroRoleTyping.textContent =
+        currentRole.substring(
+            0,
+            heroCharacterIndex
+        );
 
 
-if (
-    heroCharacterIndex <=
-    0
-) {
+    if (
+        heroCharacterIndex <=
+        0
+    ) {
 
 
-    heroDeleting =
-        false;
+        heroDeleting =
+            false;
 
 
-    heroRoleIndex =
-        (
-            heroRoleIndex +
-            1
-        )
-        %
-        heroRoles.length;
+        heroRoleIndex =
+            (
+                heroRoleIndex +
+                1
+            )
+            %
+            heroRoles.length;
+
+
+        setTimeout(
+            typeHeroRole,
+            220
+        );
+
+
+        return;
+
+    }
 
 
     setTimeout(
         typeHeroRole,
-        220
+        35
     );
 
 
-    return;
+}
+
 
 }
+
 
 
 setTimeout(
     typeHeroRole,
-    35
-);
-
-}
-
-}
-
-
-
-setTimeout(
-typeHeroRole,
-900
+    900
 );
 
 
@@ -1019,19 +1092,22 @@ HEADER
 
 function updateHeader() {
 
+
 if (
-!header
+    !header
 ) {
 
-return;
+    return;
 
 }
 
+
 header.classList.toggle(
-"scrolled",
-window.scrollY >
-40
+    "scrolled",
+    window.scrollY >
+    40
 );
+
 
 }
 
@@ -1039,12 +1115,13 @@ window.scrollY >
 
 updateHeader();
 
+
 window.addEventListener(
-"scroll",
-updateHeader,
-{
-passive: true
-}
+    "scroll",
+    updateHeader,
+    {
+        passive: true
+    }
 );
 
 
@@ -1058,26 +1135,30 @@ TAP SCREEN = SHOW
 ========================================================= */
 
 let previousScrollY =
-window.scrollY;
+    window.scrollY;
+
 
 let mobileScrollTicking =
-false;
+    false;
 
 
 
 function showMobileNavigation() {
 
+
 if (
-!mobileBottomNav
+    !mobileBottomNav
 ) {
 
-return;
+    return;
 
 }
 
+
 mobileBottomNav.classList.remove(
-"nav-hidden"
+    "nav-hidden"
 );
+
 
 }
 
@@ -1085,17 +1166,20 @@ mobileBottomNav.classList.remove(
 
 function hideMobileNavigation() {
 
+
 if (
-!mobileBottomNav
+    !mobileBottomNav
 ) {
 
-return;
+    return;
 
 }
 
+
 mobileBottomNav.classList.add(
-"nav-hidden"
+    "nav-hidden"
 );
+
 
 }
 
@@ -1103,39 +1187,46 @@ mobileBottomNav.classList.add(
 
 function updateMobileNavigationVisibility() {
 
+
 if (
-!mobileBottomNav
+    !mobileBottomNav
 ) {
 
-return;
+    return;
 
 }
 
+
 if (
-window.innerWidth >
-767
+    window.innerWidth >
+    767
 ) {
 
-showMobileNavigation();
+
+    showMobileNavigation();
 
 
-previousScrollY =
-    window.scrollY;
+    previousScrollY =
+        window.scrollY;
 
 
-return;
+    return;
+
 
 }
+
 
 const currentScrollY =
-Math.max(
-window.scrollY,
-0
-);
+    Math.max(
+        window.scrollY,
+        0
+    );
+
 
 const difference =
-currentScrollY -
-previousScrollY;
+    currentScrollY -
+    previousScrollY;
+
 
 /*
 Always show navigation
@@ -1143,83 +1234,93 @@ near the top of page.
 */
 
 if (
-currentScrollY <=
-35
+    currentScrollY <=
+    35
 ) {
 
-showMobileNavigation();
+
+    showMobileNavigation();
+
 
 }
+
 
 /*
 Scrolling down.
 */
 
 else if (
-difference >
-7
+    difference >
+    7
 ) {
 
-hideMobileNavigation();
+
+    hideMobileNavigation();
+
 
 }
+
 
 /*
 Scrolling up.
 */
 
 else if (
-difference <
--5
+    difference <
+    -5
 ) {
 
-showMobileNavigation();
+
+    showMobileNavigation();
+
 
 }
 
+
 previousScrollY =
-currentScrollY;
+    currentScrollY;
+
 
 }
 
 
 
 window.addEventListener(
-"scroll",
-() => {
-
-    if (
-        !mobileScrollTicking
-    ) {
+    "scroll",
+    () => {
 
 
-        window.requestAnimationFrame(
-            () => {
+        if (
+            !mobileScrollTicking
+        ) {
 
 
-                updateMobileNavigationVisibility();
+            window.requestAnimationFrame(
+                () => {
 
 
-                mobileScrollTicking =
-                    false;
+                    updateMobileNavigationVisibility();
 
 
-            }
-        );
+                    mobileScrollTicking =
+                        false;
 
 
-        mobileScrollTicking =
-            true;
+                }
+            );
 
 
+            mobileScrollTicking =
+                true;
+
+
+        }
+
+
+    },
+    {
+        passive: true
     }
-
-
-},
-{
-    passive: true
-}
-
 );
 
 
@@ -1230,26 +1331,26 @@ to show navigation again.
 */
 
 document.addEventListener(
-"pointerdown",
-() => {
-
-    if (
-        window.innerWidth <=
-        767
-    ) {
+    "pointerdown",
+    () => {
 
 
-        showMobileNavigation();
+        if (
+            window.innerWidth <=
+            767
+        ) {
 
 
+            showMobileNavigation();
+
+
+        }
+
+
+    },
+    {
+        passive: true
     }
-
-
-},
-{
-    passive: true
-}
-
 );
 
 
@@ -1260,26 +1361,26 @@ starts touching screen.
 */
 
 document.addEventListener(
-"touchstart",
-() => {
-
-    if (
-        window.innerWidth <=
-        767
-    ) {
+    "touchstart",
+    () => {
 
 
-        showMobileNavigation();
+        if (
+            window.innerWidth <=
+            767
+        ) {
 
 
+            showMobileNavigation();
+
+
+        }
+
+
+    },
+    {
+        passive: true
     }
-
-
-},
-{
-    passive: true
-}
-
 );
 
 
@@ -1289,27 +1390,30 @@ CUSTOM CURSOR
 ========================================================= */
 
 if (
-cursor
+    cursor
 ) {
 
+
 document.addEventListener(
-"mousemove",
-event => {
-
-    cursor.style.left =
-        `${event.clientX}px`;
+    "mousemove",
+    event => {
 
 
-    cursor.style.top =
-        `${event.clientY}px`;
+        cursor.style.left =
+            `${event.clientX}px`;
 
 
-}
+        cursor.style.top =
+            `${event.clientY}px`;
 
+
+    }
 );
+
 
 document
 .querySelectorAll(
+    `
     a,
     button,
     .service-card,
@@ -1317,42 +1421,43 @@ document
     .project-card,
     .about-stat,
     .hero-experience-card
-   
+    `
 )
 .forEach(
-item => {
-
-    item.addEventListener(
-        "mouseenter",
-        () => {
+    item => {
 
 
-            cursor.classList.add(
-                "active"
-            );
+        item.addEventListener(
+            "mouseenter",
+            () => {
 
 
-        }
-    );
+                cursor.classList.add(
+                    "active"
+                );
 
 
-    item.addEventListener(
-        "mouseleave",
-        () => {
+            }
+        );
 
 
-            cursor.classList.remove(
-                "active"
-            );
+        item.addEventListener(
+            "mouseleave",
+            () => {
 
 
-        }
-    );
+                cursor.classList.remove(
+                    "active"
+                );
 
 
-}
+            }
+        );
 
+
+    }
 );
+
 
 }
 
@@ -1364,70 +1469,70 @@ SMOOTH INTERNAL LINKS
 
 document
 .querySelectorAll(
-'a[href^="#"]'
+    'a[href^="#"]'
 )
 .forEach(
-link => {
-
-    link.addEventListener(
-        "click",
-        event => {
+    link => {
 
 
-            const href =
-                link.getAttribute(
-                    "href"
-                );
+        link.addEventListener(
+            "click",
+            event => {
 
 
-            if (
-                !href ||
-                href ===
-                "#"
-            ) {
-
-                return;
-
-            }
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
 
 
-            const target =
-                document.querySelector(
-                    href
-                );
+                if (
+                    !href ||
+                    href ===
+                    "#"
+                ) {
 
-
-            if (
-                !target
-            ) {
-
-                return;
-
-            }
-
-
-            event.preventDefault();
-
-
-            target.scrollIntoView(
-                {
-
-                    behavior:
-                        "smooth",
-
-                    block:
-                        "start"
+                    return;
 
                 }
-            );
 
 
-        }
-    );
+                const target =
+                    document.querySelector(
+                        href
+                    );
 
 
-}
+                if (
+                    !target
+                ) {
 
+                    return;
+
+                }
+
+
+                event.preventDefault();
+
+
+                target.scrollIntoView(
+                    {
+
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "start"
+
+                    }
+                );
+
+
+            }
+        );
+
+
+    }
 );
 
 
@@ -1437,93 +1542,100 @@ ACTIVE NAVIGATION
 ========================================================= */
 
 const sections =
-document.querySelectorAll(
-"section[id]"
-);
+    document.querySelectorAll(
+        "section[id]"
+    );
+
 
 const desktopNavLinks =
-document.querySelectorAll(
-".nav-links a"
-);
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
 
 const mobileNavLinks =
-document.querySelectorAll(
-".mobile-bottom-link"
-);
+    document.querySelectorAll(
+        ".mobile-bottom-link"
+    );
 
 
 
 function updateNavigation() {
 
+
 let current =
-"home";
+    "home";
+
 
 sections.forEach(
-section => {
-
-    const sectionTop =
-        section.offsetTop -
-        220;
+    section => {
 
 
-    const sectionHeight =
-        section.offsetHeight;
+        const sectionTop =
+            section.offsetTop -
+            220;
 
 
-    if (
-        window.scrollY >=
-        sectionTop
-        &&
-        window.scrollY <
-        sectionTop +
-        sectionHeight
-    ) {
+        const sectionHeight =
+            section.offsetHeight;
 
 
-        current =
-            section.id;
+        if (
+            window.scrollY >=
+            sectionTop
+            &&
+            window.scrollY <
+            sectionTop +
+            sectionHeight
+        ) {
+
+
+            current =
+                section.id;
+
+
+        }
 
 
     }
-
-
-}
-
 );
+
 
 desktopNavLinks.forEach(
-link => {
-
-    link.classList.toggle(
-        "active",
-        link.getAttribute(
-            "href"
-        )
-        ===
-        `#${current}`
-    );
+    link => {
 
 
-}
+        link.classList.toggle(
+            "active",
+            link.getAttribute(
+                "href"
+            )
+            ===
+            `#${current}`
+        );
 
+
+    }
 );
+
 
 mobileNavLinks.forEach(
-link => {
-
-    link.classList.toggle(
-        "active",
-        link.getAttribute(
-            "href"
-        )
-        ===
-        `#${current}`
-    );
+    link => {
 
 
-}
+        link.classList.toggle(
+            "active",
+            link.getAttribute(
+                "href"
+            )
+            ===
+            `#${current}`
+        );
 
+
+    }
 );
+
 
 }
 
@@ -1531,12 +1643,13 @@ link => {
 
 updateNavigation();
 
+
 window.addEventListener(
-"scroll",
-updateNavigation,
-{
-passive: true
-}
+    "scroll",
+    updateNavigation,
+    {
+        passive: true
+    }
 );
 
 
@@ -1547,19 +1660,22 @@ BACK TO TOP
 
 function updateBackToTop() {
 
+
 if (
-!backToTop
+    !backToTop
 ) {
 
-return;
+    return;
 
 }
 
+
 backToTop.classList.toggle(
-"show",
-window.scrollY >
-500
+    "show",
+    window.scrollY >
+    500
 );
+
 
 }
 
@@ -1567,12 +1683,13 @@ window.scrollY >
 
 updateBackToTop();
 
+
 window.addEventListener(
-"scroll",
-updateBackToTop,
-{
-passive: true
-}
+    "scroll",
+    updateBackToTop,
+    {
+        passive: true
+    }
 );
 
 
@@ -1583,142 +1700,149 @@ SCROLL REVEAL
 
 const revealElements = [
 
-...document.querySelectorAll(
-    ".section-heading"
-),
+    ...document.querySelectorAll(
+        ".section-heading"
+    ),
 
-...document.querySelectorAll(
-    ".about-visual"
-),
+    ...document.querySelectorAll(
+        ".about-visual"
+    ),
 
-...document.querySelectorAll(
-    ".about-content"
-),
+    ...document.querySelectorAll(
+        ".about-content"
+    ),
 
-...document.querySelectorAll(
-    ".about-stat"
-),
+    ...document.querySelectorAll(
+        ".about-stat"
+    ),
 
-...document.querySelectorAll(
-    ".service-card"
-),
+    ...document.querySelectorAll(
+        ".service-card"
+    ),
 
-...document.querySelectorAll(
-    ".skill-card"
-),
+    ...document.querySelectorAll(
+        ".skill-card"
+    ),
 
-...document.querySelectorAll(
-    ".process-item"
-),
+    ...document.querySelectorAll(
+        ".process-item"
+    ),
 
-...document.querySelectorAll(
-    ".project-card"
-),
+    ...document.querySelectorAll(
+        ".project-card"
+    ),
 
-...document.querySelectorAll(
-    ".why-heading"
-),
+    ...document.querySelectorAll(
+        ".why-heading"
+    ),
 
-...document.querySelectorAll(
-    ".why-item"
-),
+    ...document.querySelectorAll(
+        ".why-item"
+    ),
 
-...document.querySelectorAll(
-    ".contact-container"
-)
+    ...document.querySelectorAll(
+        ".contact-container"
+    )
 
 ];
 
+
 revealElements.forEach(
-element => {
-
-    element.classList.add(
-        "reveal"
-    );
+    element => {
 
 
-}
+        element.classList.add(
+            "reveal"
+        );
 
+
+    }
 );
 
 
 
 if (
-"IntersectionObserver"
-in window
+    "IntersectionObserver"
+    in window
 ) {
 
+
 const observer =
-new IntersectionObserver(
-entries => {
-
-        entries.forEach(
-            entry => {
+    new IntersectionObserver(
+        entries => {
 
 
-                if (
-                    entry.isIntersecting
-                ) {
+            entries.forEach(
+                entry => {
 
 
-                    entry.target
-                        .classList
-                        .add(
-                            "active"
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+
+                        entry.target
+                            .classList
+                            .add(
+                                "active"
+                            );
+
+
+                        observer.unobserve(
+                            entry.target
                         );
 
 
-                    observer.unobserve(
-                        entry.target
-                    );
+                    }
 
 
                 }
+            );
 
 
-            }
+        },
+        {
+
+            threshold:
+                .12,
+
+            rootMargin:
+                "0px 0px -40px 0px"
+
+        }
+    );
+
+
+revealElements.forEach(
+    element => {
+
+
+        observer.observe(
+            element
         );
 
-
-    },
-    {
-
-        threshold:
-            .12,
-
-        rootMargin:
-            "0px 0px -40px 0px"
 
     }
 );
 
-revealElements.forEach(
-element => {
-
-    observer.observe(
-        element
-    );
-
-
-}
-
-);
 
 }
 
 else {
 
+
 revealElements.forEach(
-element => {
-
-    element.classList.add(
-        "active"
-    );
+    element => {
 
 
-}
+        element.classList.add(
+            "active"
+        );
 
+
+    }
 );
+
 
 }
 
@@ -1729,12 +1853,13 @@ ANIMATED ABOUT NUMBERS
 ========================================================= */
 
 const statNumbers =
-document.querySelectorAll(
-".stat-number"
-);
+    document.querySelectorAll(
+        ".stat-number"
+    );
+
 
 let statsStarted =
-false;
+    false;
 
 
 
@@ -1742,30 +1867,35 @@ function animateStat(
 element
 ) {
 
+
 const finalNumber =
-Number(
-element.dataset.number
-);
+    Number(
+        element.dataset.number
+    );
+
 
 const suffix =
-element.dataset.suffix ||
-"";
+    element.dataset.suffix ||
+    "";
+
 
 if (
-Number.isNaN(
-finalNumber
-)
+    Number.isNaN(
+        finalNumber
+    )
 ) {
 
-return;
+    return;
 
 }
 
+
 const duration =
-1400;
+    1400;
+
 
 const startTime =
-performance.now();
+    performance.now();
 
 
 
@@ -1773,59 +1903,70 @@ function update(
 currentTime
 ) {
 
+
 const progress =
-Math.min(
-(
-currentTime -
-startTime
-)
-/
-duration,
-1
-);
+    Math.min(
+        (
+            currentTime -
+            startTime
+        )
+        /
+        duration,
+        1
+    );
+
 
 const eased =
-1 -
-Math.pow(
-1 -
-progress,
-3
-);
+    1 -
+    Math.pow(
+        1 -
+        progress,
+        3
+    );
+
 
 const currentValue =
-Math.round(
-finalNumber *
-eased
-);
+    Math.round(
+        finalNumber *
+        eased
+    );
+
 
 element.textContent =
-${currentValue}${suffix};
+    `${currentValue}${suffix}`;
+
 
 if (
-progress <
-1
+    progress <
+    1
 ) {
 
-requestAnimationFrame(
-    update
-);
+
+    requestAnimationFrame(
+        update
+    );
+
 
 }
 
 else {
 
-element.textContent =
-    `${finalNumber}${suffix}`;
+
+    element.textContent =
+        `${finalNumber}${suffix}`;
+
 
 }
+
 
 }
 
 
 
 requestAnimationFrame(
-update
+    update
 );
+
 
 }
 
@@ -1833,101 +1974,112 @@ update
 
 function startStats() {
 
+
 if (
-statsStarted
+    statsStarted
 ) {
 
-return;
+    return;
 
 }
+
 
 statsStarted =
-true;
+    true;
+
 
 statNumbers.forEach(
-(
-element,
-index
-) => {
-
-    setTimeout(
-        () => {
+    (
+        element,
+        index
+    ) => {
 
 
-            animateStat(
-                element
-            );
+        setTimeout(
+            () => {
 
 
-        },
-        index *
-        140
-    );
+                animateStat(
+                    element
+                );
 
 
-}
+            },
+            index *
+            140
+        );
 
+
+    }
 );
+
 
 }
 
 
 
 const aboutStats =
-document.querySelector(
-".about-stats"
-);
+    document.querySelector(
+        ".about-stats"
+    );
+
 
 if (
-aboutStats &&
-"IntersectionObserver"
-in window
+    aboutStats &&
+    "IntersectionObserver"
+    in window
 ) {
 
+
 const statsObserver =
-new IntersectionObserver(
-entries => {
-
-        entries.forEach(
-            entry => {
+    new IntersectionObserver(
+        entries => {
 
 
-                if (
-                    entry.isIntersecting
-                ) {
+            entries.forEach(
+                entry => {
 
 
-                    startStats();
+                    if (
+                        entry.isIntersecting
+                    ) {
 
 
-                    statsObserver.disconnect();
+                        startStats();
+
+
+                        statsObserver.disconnect();
+
+
+                    }
 
 
                 }
+            );
 
 
-            }
-        );
+        },
+        {
 
+            threshold:
+                .35
 
-    },
-    {
+        }
+    );
 
-        threshold:
-            .35
-
-    }
-);
 
 statsObserver.observe(
-aboutStats
+    aboutStats
 );
+
 
 }
 
 else {
 
+
 startStats();
+
 
 }
 
@@ -1939,104 +2091,104 @@ PROJECT CARD TILT
 
 document
 .querySelectorAll(
-".project-card"
+    ".project-card"
 )
 .forEach(
-card => {
-
-    card.addEventListener(
-        "mousemove",
-        event => {
+    card => {
 
 
-            if (
-                window.innerWidth <=
-                900
-            ) {
-
-                return;
-
-            }
+        card.addEventListener(
+            "mousemove",
+            event => {
 
 
-            const rect =
-                card.getBoundingClientRect();
+                if (
+                    window.innerWidth <=
+                    900
+                ) {
+
+                    return;
+
+                }
 
 
-            const x =
-                event.clientX -
-                rect.left;
+                const rect =
+                    card.getBoundingClientRect();
 
 
-            const y =
-                event.clientY -
-                rect.top;
+                const x =
+                    event.clientX -
+                    rect.left;
 
 
-            const centerX =
-                rect.width /
-                2;
+                const y =
+                    event.clientY -
+                    rect.top;
 
 
-            const centerY =
-                rect.height /
-                2;
+                const centerX =
+                    rect.width /
+                    2;
 
 
-            const rotateX =
-                (
+                const centerY =
+                    rect.height /
+                    2;
+
+
+                const rotateX =
                     (
-                        y -
+                        (
+                            y -
+                            centerY
+                        )
+                        /
                         centerY
                     )
-                    /
-                    centerY
-                )
-                *
-                -1.2;
+                    *
+                    -1.2;
 
 
-            const rotateY =
-                (
+                const rotateY =
                     (
-                        x -
+                        (
+                            x -
+                            centerX
+                        )
+                        /
                         centerX
                     )
-                    /
-                    centerX
-                )
-                *
-                1.2;
+                    *
+                    1.2;
 
 
-            card.style.transform =
-                `
-                perspective(1200px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                translateY(-8px)
-                `;
+                card.style.transform =
+                    `
+                    perspective(1200px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    translateY(-8px)
+                    `;
 
 
-        }
-    );
+            }
+        );
 
 
-    card.addEventListener(
-        "mouseleave",
-        () => {
+        card.addEventListener(
+            "mouseleave",
+            () => {
 
 
-            card.style.transform =
-                "";
+                card.style.transform =
+                    "";
 
 
-        }
-    );
+            }
+        );
 
 
-}
-
+    }
 );
 
 
@@ -2046,91 +2198,94 @@ HERO CODE MOUSE DEPTH
 ========================================================= */
 
 if (
-hero &&
-heroCodeBackground
+    hero &&
+    heroCodeBackground
 ) {
 
+
 hero.addEventListener(
-"mousemove",
-event => {
+    "mousemove",
+    event => {
 
-    if (
-        window.innerWidth <=
-        900
-    ) {
 
-        return;
+        if (
+            window.innerWidth <=
+            900
+        ) {
+
+            return;
+
+        }
+
+
+        const rect =
+            hero.getBoundingClientRect();
+
+
+        const x =
+            (
+                event.clientX -
+                rect.left
+            )
+            /
+            rect.width;
+
+
+        const y =
+            (
+                event.clientY -
+                rect.top
+            )
+            /
+            rect.height;
+
+
+        const moveX =
+            (
+                x -
+                .5
+            )
+            *
+            -12;
+
+
+        const moveY =
+            (
+                y -
+                .5
+            )
+            *
+            -8;
+
+
+        heroCodeBackground
+            .style
+            .transform =
+            `translate3d(
+                ${moveX}px,
+                ${moveY}px,
+                0
+            )`;
+
 
     }
-
-
-    const rect =
-        hero.getBoundingClientRect();
-
-
-    const x =
-        (
-            event.clientX -
-            rect.left
-        )
-        /
-        rect.width;
-
-
-    const y =
-        (
-            event.clientY -
-            rect.top
-        )
-        /
-        rect.height;
-
-
-    const moveX =
-        (
-            x -
-            .5
-        )
-        *
-        -12;
-
-
-    const moveY =
-        (
-            y -
-            .5
-        )
-        *
-        -8;
-
-
-    heroCodeBackground
-        .style
-        .transform =
-        `translate3d(
-            ${moveX}px,
-            ${moveY}px,
-            0
-        )`;
-
-
-}
-
 );
+
 
 hero.addEventListener(
-"mouseleave",
-() => {
-
-    heroCodeBackground
-        .style
-        .transform =
-        "translate3d(0,0,0)";
+    "mouseleave",
+    () => {
 
 
-}
+        heroCodeBackground
+            .style
+            .transform =
+            "translate3d(0,0,0)";
 
+
+    }
 );
+
 
 }
 
@@ -2141,112 +2296,116 @@ HERO PROFILE DEPTH
 ========================================================= */
 
 const heroProfileStage =
-document.querySelector(
-".hero-profile-stage"
-);
+    document.querySelector(
+        ".hero-profile-stage"
+    );
+
 
 if (
-hero &&
-heroProfileStage
+    hero &&
+    heroProfileStage
 ) {
 
+
 hero.addEventListener(
-"mousemove",
-event => {
+    "mousemove",
+    event => {
 
-    if (
-        window.innerWidth <=
-        900
-    ) {
 
-        return;
+        if (
+            window.innerWidth <=
+            900
+        ) {
+
+            return;
+
+        }
+
+
+        const rect =
+            hero.getBoundingClientRect();
+
+
+        const x =
+            (
+                event.clientX -
+                rect.left
+            )
+            /
+            rect.width;
+
+
+        const y =
+            (
+                event.clientY -
+                rect.top
+            )
+            /
+            rect.height;
+
+
+        const moveX =
+            (
+                x -
+                .5
+            )
+            *
+            7;
+
+
+        const moveY =
+            (
+                y -
+                .5
+            )
+            *
+            6;
+
+
+        heroProfileStage
+            .style
+            .setProperty(
+                "--hero-move-x",
+                `${moveX}px`
+            );
+
+
+        heroProfileStage
+            .style
+            .setProperty(
+                "--hero-move-y",
+                `${moveY}px`
+            );
+
 
     }
-
-
-    const rect =
-        hero.getBoundingClientRect();
-
-
-    const x =
-        (
-            event.clientX -
-            rect.left
-        )
-        /
-        rect.width;
-
-
-    const y =
-        (
-            event.clientY -
-            rect.top
-        )
-        /
-        rect.height;
-
-
-    const moveX =
-        (
-            x -
-            .5
-        )
-        *
-        7;
-
-
-    const moveY =
-        (
-            y -
-            .5
-        )
-        *
-        6;
-
-
-    heroProfileStage
-        .style
-        .setProperty(
-            "--hero-move-x",
-            `${moveX}px`
-        );
-
-
-    heroProfileStage
-        .style
-        .setProperty(
-            "--hero-move-y",
-            `${moveY}px`
-        );
-
-
-}
-
 );
+
 
 hero.addEventListener(
-"mouseleave",
-() => {
-
-    heroProfileStage
-        .style
-        .setProperty(
-            "--hero-move-x",
-            "0px"
-        );
+    "mouseleave",
+    () => {
 
 
-    heroProfileStage
-        .style
-        .setProperty(
-            "--hero-move-y",
-            "0px"
-        );
+        heroProfileStage
+            .style
+            .setProperty(
+                "--hero-move-x",
+                "0px"
+            );
 
 
-}
+        heroProfileStage
+            .style
+            .setProperty(
+                "--hero-move-y",
+                "0px"
+            );
 
+
+    }
 );
+
 
 }
 
@@ -2258,68 +2417,69 @@ RESPONSIVE RESIZE
 
 let resizeTimer;
 
+
 window.addEventListener(
-"resize",
-() => {
-
-    clearTimeout(
-        resizeTimer
-    );
+    "resize",
+    () => {
 
 
-    resizeTimer =
-        setTimeout(
-            () => {
-
-
-                buildHeroCode();
-
-
-                if (
-                    window.innerWidth <=
-                    900 &&
-                    heroProfileStage
-                ) {
-
-
-                    heroProfileStage
-                        .style
-                        .setProperty(
-                            "--hero-move-x",
-                            "0px"
-                        );
-
-
-                    heroProfileStage
-                        .style
-                        .setProperty(
-                            "--hero-move-y",
-                            "0px"
-                        );
-
-
-                }
-
-
-                if (
-                    window.innerWidth >
-                    767
-                ) {
-
-
-                    showMobileNavigation();
-
-
-                }
-
-
-            },
-            280
+        clearTimeout(
+            resizeTimer
         );
 
 
-}
+        resizeTimer =
+            setTimeout(
+                () => {
 
+
+                    buildHeroCode();
+
+
+                    if (
+                        window.innerWidth <=
+                        900 &&
+                        heroProfileStage
+                    ) {
+
+
+                        heroProfileStage
+                            .style
+                            .setProperty(
+                                "--hero-move-x",
+                                "0px"
+                            );
+
+
+                        heroProfileStage
+                            .style
+                            .setProperty(
+                                "--hero-move-y",
+                                "0px"
+                            );
+
+
+                    }
+
+
+                    if (
+                        window.innerWidth >
+                        767
+                    ) {
+
+
+                        showMobileNavigation();
+
+
+                    }
+
+
+                },
+                280
+            );
+
+
+    }
 );
 
 
@@ -2329,20 +2489,24 @@ CURRENT YEAR
 ========================================================= */
 
 const copyright =
-document.querySelector(
-".copyright"
-);
+    document.querySelector(
+        ".copyright"
+    );
+
 
 if (
-copyright
+    copyright
 ) {
 
+
 copyright.textContent =
-© ${
+    `© ${
         new Date().getFullYear()
-    } Jhonaiza Gede. All Rights Reserved.;
+    } Jhonaiza Gede. All Rights Reserved.`;
+
 
 }
+
 
 }
 );
