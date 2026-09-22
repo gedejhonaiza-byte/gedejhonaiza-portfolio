@@ -151,8 +151,7 @@ if (
     width <= 520
 ) {
 
-    columns =
-        6;
+    columns = 6;
 
 }
 
@@ -160,8 +159,7 @@ else if (
     width <= 900
 ) {
 
-    columns =
-        9;
+    columns = 9;
 
 }
 
@@ -417,8 +415,7 @@ if (
     width <= 767
 ) {
 
-    totalBlocks =
-        7;
+    totalBlocks = 8;
 
 }
 
@@ -552,20 +549,13 @@ const loaderMessages = [
 ];
 
 
-let loaderMessageIndex =
-    0;
+let loaderMessageIndex = 0;
 
+let loaderCharacterIndex = 0;
 
-let loaderCharacterIndex =
-    0;
+let loaderDeleting = false;
 
-
-let loaderDeleting =
-    false;
-
-
-let loaderTypingStopped =
-    false;
+let loaderTypingStopped = false;
 
 
 
@@ -610,8 +600,7 @@ if (
     ) {
 
 
-        loaderDeleting =
-            true;
+        loaderDeleting = true;
 
 
         setTimeout(
@@ -647,13 +636,11 @@ else {
 
 
     if (
-        loaderCharacterIndex <=
-        0
+        loaderCharacterIndex <= 0
     ) {
 
 
-        loaderDeleting =
-            false;
+        loaderDeleting = false;
 
 
         loaderMessageIndex =
@@ -693,16 +680,14 @@ typeLoaderMessage();
 
 
 
-const loaderDuration =
-    6500;
+const loaderDuration = 6500;
 
 
 const loaderStartTime =
     performance.now();
 
 
-let loaderComplete =
-    false;
+let loaderComplete = false;
 
 
 
@@ -718,12 +703,9 @@ if (
 }
 
 
-loaderComplete =
-    true;
+loaderComplete = true;
 
-
-loaderTypingStopped =
-    true;
+loaderTypingStopped = true;
 
 
 if (
@@ -786,7 +768,7 @@ setTimeout(
 
 
 function updateLoaderProgress(
-currentTime
+    currentTime
 ) {
 
 
@@ -813,19 +795,16 @@ let progress =
 
 
 if (
-    progress <
-    .55
+    progress < .55
 ) {
 
     progress =
-        progress *
-        1.08;
+        progress * 1.08;
 
 }
 
 else if (
-    progress <
-    .88
+    progress < .88
 ) {
 
     progress =
@@ -921,7 +900,7 @@ setTimeout(
 
 
 /* =========================================================
-HERO ROLE TYPEWRITER
+HERO TYPEWRITER
 ========================================================= */
 
 const heroRoleTyping =
@@ -947,16 +926,11 @@ const heroRoles = [
 ];
 
 
-let heroRoleIndex =
-    0;
+let heroRoleIndex = 0;
 
+let heroCharacterIndex = 0;
 
-let heroCharacterIndex =
-    0;
-
-
-let heroDeleting =
-    false;
+let heroDeleting = false;
 
 
 
@@ -1000,8 +974,7 @@ if (
     ) {
 
 
-        heroDeleting =
-            true;
+        heroDeleting = true;
 
 
         setTimeout(
@@ -1037,13 +1010,11 @@ else {
 
 
     if (
-        heroCharacterIndex <=
-        0
+        heroCharacterIndex <= 0
     ) {
 
 
-        heroDeleting =
-            false;
+        heroDeleting = false;
 
 
         heroRoleIndex =
@@ -1082,6 +1053,110 @@ else {
 setTimeout(
     typeHeroRole,
     900
+);
+
+
+
+/* =========================================================
+WHY HIRE ME TABS
+========================================================= */
+
+const hireTabs =
+    document.querySelectorAll(
+        ".hire-tab"
+    );
+
+
+const hirePanels =
+    document.querySelectorAll(
+        ".hire-tab-panel"
+    );
+
+
+const hireContentScroll =
+    document.querySelector(
+        ".hire-content-scroll"
+    );
+
+
+
+hireTabs.forEach(
+    tab => {
+
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+
+                const selectedTab =
+                    tab.dataset.hireTab;
+
+
+                hireTabs.forEach(
+                    button => {
+
+
+                        button
+                            .classList
+                            .remove(
+                                "active"
+                            );
+
+
+                    }
+                );
+
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                hirePanels.forEach(
+                    panel => {
+
+
+                        const isActive =
+                            panel.dataset.hirePanel
+                            ===
+                            selectedTab;
+
+
+                        panel
+                            .classList
+                            .toggle(
+                                "active",
+                                isActive
+                            );
+
+
+                    }
+                );
+
+
+                if (
+                    hireContentScroll
+                ) {
+
+
+                    hireContentScroll
+                        .scrollTo(
+                            {
+                                top: 0,
+                                behavior: "smooth"
+                            }
+                        );
+
+
+                }
+
+
+            }
+        );
+
+
+    }
 );
 
 
@@ -1127,11 +1202,7 @@ window.addEventListener(
 
 
 /* =========================================================
-MOBILE NAV AUTO HIDE
-
-SCROLL DOWN = HIDE
-SCROLL UP = SHOW
-TAP SCREEN = SHOW
+MOBILE NAVIGATION
 ========================================================= */
 
 let previousScrollY =
@@ -1228,14 +1299,8 @@ const difference =
     previousScrollY;
 
 
-/*
-Always show navigation
-near the top of page.
-*/
-
 if (
-    currentScrollY <=
-    35
+    currentScrollY <= 35
 ) {
 
 
@@ -1244,14 +1309,8 @@ if (
 
 }
 
-
-/*
-Scrolling down.
-*/
-
 else if (
-    difference >
-    7
+    difference > 7
 ) {
 
 
@@ -1260,14 +1319,8 @@ else if (
 
 }
 
-
-/*
-Scrolling up.
-*/
-
 else if (
-    difference <
-    -5
+    difference < -5
 ) {
 
 
@@ -1302,16 +1355,14 @@ window.addEventListener(
                     updateMobileNavigationVisibility();
 
 
-                    mobileScrollTicking =
-                        false;
+                    mobileScrollTicking = false;
 
 
                 }
             );
 
 
-            mobileScrollTicking =
-                true;
+            mobileScrollTicking = true;
 
 
         }
@@ -1325,19 +1376,13 @@ window.addEventListener(
 
 
 
-/*
-Tap anywhere on screen
-to show navigation again.
-*/
-
 document.addEventListener(
     "pointerdown",
     () => {
 
 
         if (
-            window.innerWidth <=
-            767
+            window.innerWidth <= 767
         ) {
 
 
@@ -1355,19 +1400,13 @@ document.addEventListener(
 
 
 
-/*
-Also show nav when user
-starts touching screen.
-*/
-
 document.addEventListener(
     "touchstart",
     () => {
 
 
         if (
-            window.innerWidth <=
-            767
+            window.innerWidth <= 767
         ) {
 
 
@@ -1416,11 +1455,14 @@ document
     `
     a,
     button,
-    .service-card,
     .skill-card,
     .project-card,
     .about-stat,
-    .hero-experience-card
+    .hero-experience-card,
+    .hire-tool-card,
+    .experience-card,
+    .education-card,
+    .achievement-card
     `
 )
 .forEach(
@@ -1464,7 +1506,7 @@ document
 
 
 /* =========================================================
-SMOOTH INTERNAL LINKS
+SMOOTH LINKS
 ========================================================= */
 
 document
@@ -1488,8 +1530,7 @@ document
 
                 if (
                     !href ||
-                    href ===
-                    "#"
+                    href === "#"
                 ) {
 
                     return;
@@ -1717,7 +1758,11 @@ const revealElements = [
     ),
 
     ...document.querySelectorAll(
-        ".service-card"
+        ".hire-sidebar"
+    ),
+
+    ...document.querySelectorAll(
+        ".hire-content-window"
     ),
 
     ...document.querySelectorAll(
@@ -1864,7 +1909,7 @@ let statsStarted =
 
 
 function animateStat(
-element
+    element
 ) {
 
 
@@ -1900,7 +1945,7 @@ const startTime =
 
 
 function update(
-currentTime
+    currentTime
 ) {
 
 
@@ -1937,8 +1982,7 @@ element.textContent =
 
 
 if (
-    progress <
-    1
+    progress < 1
 ) {
 
 
@@ -1984,8 +2028,7 @@ if (
 }
 
 
-statsStarted =
-    true;
+statsStarted = true;
 
 
 statNumbers.forEach(
@@ -2061,8 +2104,7 @@ const statsObserver =
         },
         {
 
-            threshold:
-                .35
+            threshold: .35
 
         }
     );
@@ -2103,8 +2145,7 @@ document
 
 
                 if (
-                    window.innerWidth <=
-                    900
+                    window.innerWidth <= 900
                 ) {
 
                     return;
@@ -2194,7 +2235,7 @@ document
 
 
 /* =========================================================
-HERO CODE MOUSE DEPTH
+HERO CODE PARALLAX
 ========================================================= */
 
 if (
@@ -2209,8 +2250,7 @@ hero.addEventListener(
 
 
         if (
-            window.innerWidth <=
-            900
+            window.innerWidth <= 900
         ) {
 
             return;
@@ -2292,7 +2332,7 @@ hero.addEventListener(
 
 
 /* =========================================================
-HERO PROFILE DEPTH
+HERO PROFILE PARALLAX
 ========================================================= */
 
 const heroProfileStage =
@@ -2313,8 +2353,7 @@ hero.addEventListener(
 
 
         if (
-            window.innerWidth <=
-            900
+            window.innerWidth <= 900
         ) {
 
             return;
@@ -2437,8 +2476,7 @@ window.addEventListener(
 
 
                     if (
-                        window.innerWidth <=
-                        900 &&
+                        window.innerWidth <= 900 &&
                         heroProfileStage
                     ) {
 
@@ -2463,8 +2501,7 @@ window.addEventListener(
 
 
                     if (
-                        window.innerWidth >
-                        767
+                        window.innerWidth > 767
                     ) {
 
 
