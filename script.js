@@ -126,128 +126,130 @@ const loaderCodeLines = [
 function buildLoaderCode() {
 
 
-if (
-    !loaderCodeBackground
-) {
-
-    return;
-
-}
-
-
-loaderCodeBackground.innerHTML =
-    "";
-
-
-const width =
-    window.innerWidth;
-
-
-let columns =
-    15;
-
-
-if (
-    width <= 520
-) {
-
-    columns =
-        6;
-
-}
-
-else if (
-    width <= 900
-) {
-
-    columns =
-        9;
-
-}
-
-
-
-for (
-    let i = 0;
-    i < columns;
-    i++
-) {
-
-
-    const column =
-        document.createElement(
-            "div"
-        );
-
-
-    column.className =
-        "code-column";
-
-
-    column.style.left =
-        `${
-            (
-                i /
-                columns
-            )
-            *
-            100
-        }%`;
-
-
-    column.style.animationDuration =
-        `${
-            18 +
-            Math.random() *
-            16
-        }s`;
-
-
-    column.style.animationDelay =
-        `-${
-            Math.random() *
-            18
-        }s`;
-
-
-
-    for (
-        let j = 0;
-        j < 16;
-        j++
+    if (
+        !loaderCodeBackground
     ) {
 
-
-        const line =
-            document.createElement(
-                "span"
-            );
-
-
-        line.innerHTML =
-            loaderCodeLines[
-                Math.floor(
-                    Math.random() *
-                    loaderCodeLines.length
-                )
-            ];
-
-
-        column.appendChild(
-            line
-        );
-
+        return;
 
     }
 
 
-    loaderCodeBackground
-        .appendChild(
-            column
-        );
+    loaderCodeBackground.innerHTML =
+        "";
 
 
-}
+    const width =
+        window.innerWidth;
+
+
+    let columns =
+        15;
+
+
+    if (
+        width <=
+        520
+    ) {
+
+        columns =
+            6;
+
+    }
+
+    else if (
+        width <=
+        900
+    ) {
+
+        columns =
+            9;
+
+    }
+
+
+
+    for (
+        let i = 0;
+        i < columns;
+        i++
+    ) {
+
+
+        const column =
+            document.createElement(
+                "div"
+            );
+
+
+        column.className =
+            "code-column";
+
+
+        column.style.left =
+            `${
+                (
+                    i /
+                    columns
+                )
+                *
+                100
+            }%`;
+
+
+        column.style.animationDuration =
+            `${
+                18 +
+                Math.random() *
+                16
+            }s`;
+
+
+        column.style.animationDelay =
+            `-${
+                Math.random() *
+                18
+            }s`;
+
+
+
+        for (
+            let j = 0;
+            j < 16;
+            j++
+        ) {
+
+
+            const line =
+                document.createElement(
+                    "span"
+                );
+
+
+            line.innerHTML =
+                loaderCodeLines[
+                    Math.floor(
+                        Math.random() *
+                        loaderCodeLines.length
+                    )
+                ];
+
+
+            column.appendChild(
+                line
+            );
+
+
+        }
+
+
+        loaderCodeBackground
+            .appendChild(
+                column
+            );
+
+
+    }
 
 
 }
@@ -392,102 +394,103 @@ const heroCodePositions = [
 function buildHeroCode() {
 
 
-if (
-    !heroCodeBackground
-) {
+    if (
+        !heroCodeBackground
+    ) {
 
-    return;
+        return;
 
-}
-
-
-heroCodeBackground.innerHTML =
-    "";
+    }
 
 
-const width =
-    window.innerWidth;
+    heroCodeBackground.innerHTML =
+        "";
 
 
-let totalBlocks =
-    9;
+    const width =
+        window.innerWidth;
 
 
-if (
-    width <= 767
-) {
-
-    totalBlocks =
-        8;
-
-}
+    let totalBlocks =
+        9;
 
 
+    if (
+        width <=
+        767
+    ) {
 
-for (
-    let i = 0;
-    i < totalBlocks;
-    i++
-) {
+        totalBlocks =
+            8;
 
-
-    const block =
-        document.createElement(
-            "pre"
-        );
+    }
 
 
-    block.className =
-        "hero-code-block";
+
+    for (
+        let i = 0;
+        i < totalBlocks;
+        i++
+    ) {
 
 
-    block.textContent =
-        heroCodeBlocks[
-            i %
-            heroCodeBlocks.length
-        ];
+        const block =
+            document.createElement(
+                "pre"
+            );
 
 
-    const position =
-        heroCodePositions[
-            i %
-            heroCodePositions.length
-        ];
+        block.className =
+            "hero-code-block";
 
 
-    Object.keys(
-        position
-    )
-    .forEach(
-        property => {
+        block.textContent =
+            heroCodeBlocks[
+                i %
+                heroCodeBlocks.length
+            ];
 
 
-            block.style[
-                property
-            ] =
-                position[
+        const position =
+            heroCodePositions[
+                i %
+                heroCodePositions.length
+            ];
+
+
+        Object.keys(
+            position
+        )
+        .forEach(
+            property => {
+
+
+                block.style[
                     property
-                ];
+                ] =
+                    position[
+                        property
+                    ];
 
 
-        }
-    );
-
-
-    block.style.animationDelay =
-        `-${
-            i *
-            1.7
-        }s`;
-
-
-    heroCodeBackground
-        .appendChild(
-            block
+            }
         );
 
 
-}
+        block.style.animationDelay =
+            `-${
+                i *
+                1.7
+            }s`;
+
+
+        heroCodeBackground
+            .appendChild(
+                block
+            );
+
+
+    }
 
 
 }
@@ -572,117 +575,117 @@ let loaderTypingStopped =
 function typeLoaderMessage() {
 
 
-if (
-    !loaderTypingText ||
-    loaderTypingStopped
-) {
-
-    return;
-
-}
-
-
-const currentMessage =
-    loaderMessages[
-        loaderMessageIndex
-    ];
-
-
-
-if (
-    !loaderDeleting
-) {
-
-
-    loaderCharacterIndex++;
-
-
-    loaderTypingText.textContent =
-        currentMessage.substring(
-            0,
-            loaderCharacterIndex
-        );
-
-
     if (
-        loaderCharacterIndex >=
-        currentMessage.length
+        !loaderTypingText ||
+        loaderTypingStopped
     ) {
-
-
-        loaderDeleting =
-            true;
-
-
-        setTimeout(
-            typeLoaderMessage,
-            260
-        );
-
 
         return;
 
     }
 
 
-    setTimeout(
-        typeLoaderMessage,
-        25
-    );
+    const currentMessage =
+        loaderMessages[
+            loaderMessageIndex
+        ];
 
-
-}
-
-else {
-
-
-    loaderCharacterIndex--;
-
-
-    loaderTypingText.textContent =
-        currentMessage.substring(
-            0,
-            loaderCharacterIndex
-        );
 
 
     if (
-        loaderCharacterIndex <=
-        0
+        !loaderDeleting
     ) {
 
 
-        loaderDeleting =
-            false;
+        loaderCharacterIndex++;
 
 
-        loaderMessageIndex =
-            (
-                loaderMessageIndex +
-                1
-            )
-            %
-            loaderMessages.length;
+        loaderTypingText.textContent =
+            currentMessage.substring(
+                0,
+                loaderCharacterIndex
+            );
+
+
+        if (
+            loaderCharacterIndex >=
+            currentMessage.length
+        ) {
+
+
+            loaderDeleting =
+                true;
+
+
+            setTimeout(
+                typeLoaderMessage,
+                260
+            );
+
+
+            return;
+
+        }
 
 
         setTimeout(
             typeLoaderMessage,
-            70
+            25
         );
 
 
-        return;
-
     }
 
-
-    setTimeout(
-        typeLoaderMessage,
-        12
-    );
+    else {
 
 
-}
+        loaderCharacterIndex--;
+
+
+        loaderTypingText.textContent =
+            currentMessage.substring(
+                0,
+                loaderCharacterIndex
+            );
+
+
+        if (
+            loaderCharacterIndex <=
+            0
+        ) {
+
+
+            loaderDeleting =
+                false;
+
+
+            loaderMessageIndex =
+                (
+                    loaderMessageIndex +
+                    1
+                )
+                %
+                loaderMessages.length;
+
+
+            setTimeout(
+                typeLoaderMessage,
+                70
+            );
+
+
+            return;
+
+        }
+
+
+        setTimeout(
+            typeLoaderMessage,
+            12
+        );
+
+
+    }
 
 
 }
@@ -709,76 +712,76 @@ let loaderComplete =
 function finishLoader() {
 
 
-if (
-    loaderComplete
-) {
+    if (
+        loaderComplete
+    ) {
 
-    return;
+        return;
 
-}
-
-
-loaderComplete =
-    true;
+    }
 
 
-loaderTypingStopped =
-    true;
+    loaderComplete =
+        true;
 
 
-if (
-    loaderPercent
-) {
-
-    loaderPercent.textContent =
-        "100%";
-
-}
+    loaderTypingStopped =
+        true;
 
 
-if (
-    loaderProgress
-) {
+    if (
+        loaderPercent
+    ) {
 
-    loaderProgress.style.width =
-        "100%";
+        loaderPercent.textContent =
+            "100%";
 
-}
-
-
-if (
-    loaderTypingText
-) {
-
-    loaderTypingText.textContent =
-        "Experience ready.";
-
-}
+    }
 
 
-setTimeout(
-    () => {
+    if (
+        loaderProgress
+    ) {
+
+        loaderProgress.style.width =
+            "100%";
+
+    }
 
 
-        if (
-            loader
-        ) {
+    if (
+        loaderTypingText
+    ) {
 
-            loader.classList.add(
-                "hide"
+        loaderTypingText.textContent =
+            "Experience ready.";
+
+    }
+
+
+    setTimeout(
+        () => {
+
+
+            if (
+                loader
+            ) {
+
+                loader.classList.add(
+                    "hide"
+                );
+
+            }
+
+
+            body.classList.remove(
+                "loader-active"
             );
 
-        }
 
-
-        body.classList.remove(
-            "loader-active"
-        );
-
-
-    },
-    650
-);
+        },
+        650
+    );
 
 
 }
@@ -790,116 +793,118 @@ function updateLoaderProgress(
 ) {
 
 
-if (
-    loaderComplete
-) {
+    if (
+        loaderComplete
+    ) {
 
-    return;
+        return;
 
-}
-
-
-const elapsed =
-    currentTime -
-    loaderStartTime;
+    }
 
 
-let progress =
-    Math.min(
-        elapsed /
-        loaderDuration,
-        1
-    );
+    const elapsed =
+        currentTime -
+        loaderStartTime;
 
 
-if (
-    progress < .55
-) {
+    let progress =
+        Math.min(
+            elapsed /
+            loaderDuration,
+            1
+        );
+
+
+    if (
+        progress <
+        .55
+    ) {
+
+        progress =
+            progress *
+            1.08;
+
+    }
+
+    else if (
+        progress <
+        .88
+    ) {
+
+        progress =
+            .594 +
+            (
+                progress -
+                .55
+            )
+            *
+            .82;
+
+    }
+
+    else {
+
+        progress =
+            .8646 +
+            (
+                progress -
+                .88
+            )
+            *
+            1.128;
+
+    }
+
 
     progress =
-        progress *
-        1.08;
-
-}
-
-else if (
-    progress < .88
-) {
-
-    progress =
-        .594 +
-        (
-            progress -
-            .55
-        )
-        *
-        .82;
-
-}
-
-else {
-
-    progress =
-        .8646 +
-        (
-            progress -
-            .88
-        )
-        *
-        1.128;
-
-}
+        Math.min(
+            progress,
+            1
+        );
 
 
-progress =
-    Math.min(
-        progress,
-        1
+    const percent =
+        Math.floor(
+            progress *
+            100
+        );
+
+
+    if (
+        loaderPercent
+    ) {
+
+        loaderPercent.textContent =
+            `${percent}%`;
+
+    }
+
+
+    if (
+        loaderProgress
+    ) {
+
+        loaderProgress.style.width =
+            `${percent}%`;
+
+    }
+
+
+    if (
+        elapsed >=
+        loaderDuration
+    ) {
+
+        finishLoader();
+
+        return;
+
+    }
+
+
+    requestAnimationFrame(
+        updateLoaderProgress
     );
-
-
-const percent =
-    Math.floor(
-        progress *
-        100
-    );
-
-
-if (
-    loaderPercent
-) {
-
-    loaderPercent.textContent =
-        `${percent}%`;
-
-}
-
-
-if (
-    loaderProgress
-) {
-
-    loaderProgress.style.width =
-        `${percent}%`;
-
-}
-
-
-if (
-    elapsed >=
-    loaderDuration
-) {
-
-    finishLoader();
-
-    return;
-
-}
-
-
-requestAnimationFrame(
-    updateLoaderProgress
-);
 
 
 }
@@ -961,116 +966,116 @@ let heroDeleting =
 function typeHeroRole() {
 
 
-if (
-    !heroRoleTyping
-) {
-
-    return;
-
-}
-
-
-const currentRole =
-    heroRoles[
-        heroRoleIndex
-    ];
-
-
-
-if (
-    !heroDeleting
-) {
-
-
-    heroCharacterIndex++;
-
-
-    heroRoleTyping.textContent =
-        currentRole.substring(
-            0,
-            heroCharacterIndex
-        );
-
-
     if (
-        heroCharacterIndex >=
-        currentRole.length
+        !heroRoleTyping
     ) {
-
-
-        heroDeleting =
-            true;
-
-
-        setTimeout(
-            typeHeroRole,
-            1250
-        );
-
 
         return;
 
     }
 
 
-    setTimeout(
-        typeHeroRole,
-        70
-    );
+    const currentRole =
+        heroRoles[
+            heroRoleIndex
+        ];
 
-
-}
-
-else {
-
-
-    heroCharacterIndex--;
-
-
-    heroRoleTyping.textContent =
-        currentRole.substring(
-            0,
-            heroCharacterIndex
-        );
 
 
     if (
-        heroCharacterIndex <=
-        0
+        !heroDeleting
     ) {
 
 
-        heroDeleting =
-            false;
+        heroCharacterIndex++;
 
 
-        heroRoleIndex =
-            (
-                heroRoleIndex +
-                1
-            )
-            %
-            heroRoles.length;
+        heroRoleTyping.textContent =
+            currentRole.substring(
+                0,
+                heroCharacterIndex
+            );
+
+
+        if (
+            heroCharacterIndex >=
+            currentRole.length
+        ) {
+
+
+            heroDeleting =
+                true;
+
+
+            setTimeout(
+                typeHeroRole,
+                1250
+            );
+
+
+            return;
+
+        }
 
 
         setTimeout(
             typeHeroRole,
-            220
+            70
         );
 
 
-        return;
-
     }
 
-
-    setTimeout(
-        typeHeroRole,
-        35
-    );
+    else {
 
 
-}
+        heroCharacterIndex--;
+
+
+        heroRoleTyping.textContent =
+            currentRole.substring(
+                0,
+                heroCharacterIndex
+            );
+
+
+        if (
+            heroCharacterIndex <=
+            0
+        ) {
+
+
+            heroDeleting =
+                false;
+
+
+            heroRoleIndex =
+                (
+                    heroRoleIndex +
+                    1
+                )
+                %
+                heroRoles.length;
+
+
+            setTimeout(
+                typeHeroRole,
+                220
+            );
+
+
+            return;
+
+        }
+
+
+        setTimeout(
+            typeHeroRole,
+            35
+        );
+
+
+    }
 
 
 }
@@ -1124,11 +1129,9 @@ hireTabs.forEach(
                     button => {
 
 
-                        button
-                            .classList
-                            .remove(
-                                "active"
-                            );
+                        button.classList.remove(
+                            "active"
+                        );
 
 
                     }
@@ -1150,12 +1153,10 @@ hireTabs.forEach(
                             selectedTab;
 
 
-                        panel
-                            .classList
-                            .toggle(
-                                "active",
-                                isActive
-                            );
+                        panel.classList.toggle(
+                            "active",
+                            isActive
+                        );
 
 
                     }
@@ -1167,13 +1168,12 @@ hireTabs.forEach(
                 ) {
 
 
-                    hireContentScroll
-                        .scrollTo(
-                            {
-                                top: 0,
-                                behavior: "smooth"
-                            }
-                        );
+                    hireContentScroll.scrollTo(
+                        {
+                            top: 0,
+                            behavior: "smooth"
+                        }
+                    );
 
 
                 }
@@ -1195,20 +1195,20 @@ HEADER
 function updateHeader() {
 
 
-if (
-    !header
-) {
+    if (
+        !header
+    ) {
 
-    return;
+        return;
 
-}
+    }
 
 
-header.classList.toggle(
-    "scrolled",
-    window.scrollY >
-    40
-);
+    header.classList.toggle(
+        "scrolled",
+        window.scrollY >
+        40
+    );
 
 
 }
@@ -1244,18 +1244,18 @@ let mobileScrollTicking =
 function showMobileNavigation() {
 
 
-if (
-    !mobileBottomNav
-) {
+    if (
+        !mobileBottomNav
+    ) {
 
-    return;
+        return;
 
-}
+    }
 
 
-mobileBottomNav.classList.remove(
-    "nav-hidden"
-);
+    mobileBottomNav.classList.remove(
+        "nav-hidden"
+    );
 
 
 }
@@ -1265,18 +1265,18 @@ mobileBottomNav.classList.remove(
 function hideMobileNavigation() {
 
 
-if (
-    !mobileBottomNav
-) {
+    if (
+        !mobileBottomNav
+    ) {
 
-    return;
+        return;
 
-}
+    }
 
 
-mobileBottomNav.classList.add(
-    "nav-hidden"
-);
+    mobileBottomNav.classList.add(
+        "nav-hidden"
+    );
 
 
 }
@@ -1286,82 +1286,82 @@ mobileBottomNav.classList.add(
 function updateMobileNavigationVisibility() {
 
 
-if (
-    !mobileBottomNav
-) {
+    if (
+        !mobileBottomNav
+    ) {
 
-    return;
+        return;
 
-}
-
-
-if (
-    window.innerWidth >
-    767
-) {
+    }
 
 
-    showMobileNavigation();
+    if (
+        window.innerWidth >
+        767
+    ) {
+
+
+        showMobileNavigation();
+
+
+        previousScrollY =
+            window.scrollY;
+
+
+        return;
+
+
+    }
+
+
+    const currentScrollY =
+        Math.max(
+            window.scrollY,
+            0
+        );
+
+
+    const difference =
+        currentScrollY -
+        previousScrollY;
+
+
+    if (
+        currentScrollY <=
+        35
+    ) {
+
+
+        showMobileNavigation();
+
+
+    }
+
+    else if (
+        difference >
+        7
+    ) {
+
+
+        hideMobileNavigation();
+
+
+    }
+
+    else if (
+        difference <
+        -5
+    ) {
+
+
+        showMobileNavigation();
+
+
+    }
 
 
     previousScrollY =
-        window.scrollY;
-
-
-    return;
-
-
-}
-
-
-const currentScrollY =
-    Math.max(
-        window.scrollY,
-        0
-    );
-
-
-const difference =
-    currentScrollY -
-    previousScrollY;
-
-
-if (
-    currentScrollY <=
-    35
-) {
-
-
-    showMobileNavigation();
-
-
-}
-
-else if (
-    difference >
-    7
-) {
-
-
-    hideMobileNavigation();
-
-
-}
-
-else if (
-    difference <
-    -5
-) {
-
-
-    showMobileNavigation();
-
-
-}
-
-
-previousScrollY =
-    currentScrollY;
+        currentScrollY;
 
 
 }
@@ -1467,71 +1467,70 @@ if (
 ) {
 
 
-document.addEventListener(
-    "mousemove",
-    event => {
+    document.addEventListener(
+        "mousemove",
+        event => {
 
 
-        cursor.style.left =
-            `${event.clientX}px`;
+            cursor.style.left =
+                `${event.clientX}px`;
 
 
-        cursor.style.top =
-            `${event.clientY}px`;
+            cursor.style.top =
+                `${event.clientY}px`;
 
 
-    }
-);
+        }
+    );
 
 
-document
-.querySelectorAll(
-    `
-    a,
-    button,
-    .project-card,
-    .about-stat,
-    .hero-experience-card,
-    .hire-tool-card,
-    .experience-card,
-    .education-card,
-    .achievement-card
-    `
-)
-.forEach(
-    item => {
+    document.querySelectorAll(
+        `
+        a,
+        button,
+        .project-card,
+        .about-stat,
+        .hero-experience-card,
+        .hire-tool-card,
+        .experience-card,
+        .education-card,
+        .achievement-card
+        `
+    )
+    .forEach(
+        item => {
 
 
-        item.addEventListener(
-            "mouseenter",
-            () => {
+            item.addEventListener(
+                "mouseenter",
+                () => {
 
 
-                cursor.classList.add(
-                    "active"
-                );
+                    cursor.classList.add(
+                        "active"
+                    );
 
 
-            }
-        );
+                }
+            );
 
 
-        item.addEventListener(
-            "mouseleave",
-            () => {
+            item.addEventListener(
+                "mouseleave",
+                () => {
 
 
-                cursor.classList.remove(
-                    "active"
-                );
+                    cursor.classList.remove(
+                        "active"
+                    );
 
 
-            }
-        );
+                }
+            );
 
 
-    }
-);
+        }
+    );
 
 
 }
@@ -1542,8 +1541,7 @@ document
 SMOOTH LINKS
 ========================================================= */
 
-document
-.querySelectorAll(
+document.querySelectorAll(
     'a[href^="#"]'
 )
 .forEach(
@@ -1592,13 +1590,8 @@ document
 
                 target.scrollIntoView(
                     {
-
-                        behavior:
-                            "smooth",
-
-                        block:
-                            "start"
-
+                        behavior: "smooth",
+                        block: "start"
                     }
                 );
 
@@ -1638,78 +1631,78 @@ const mobileNavLinks =
 function updateNavigation() {
 
 
-let current =
-    "home";
+    let current =
+        "home";
 
 
-sections.forEach(
-    section => {
+    sections.forEach(
+        section => {
 
 
-        const sectionTop =
-            section.offsetTop -
-            220;
+            const sectionTop =
+                section.offsetTop -
+                220;
 
 
-        const sectionHeight =
-            section.offsetHeight;
+            const sectionHeight =
+                section.offsetHeight;
 
 
-        if (
-            window.scrollY >=
-            sectionTop
-            &&
-            window.scrollY <
-            sectionTop +
-            sectionHeight
-        ) {
+            if (
+                window.scrollY >=
+                sectionTop
+                &&
+                window.scrollY <
+                sectionTop +
+                sectionHeight
+            ) {
 
 
-            current =
-                section.id;
+                current =
+                    section.id;
+
+
+            }
 
 
         }
+    );
 
 
-    }
-);
+    desktopNavLinks.forEach(
+        link => {
 
 
-desktopNavLinks.forEach(
-    link => {
+            link.classList.toggle(
+                "active",
+                link.getAttribute(
+                    "href"
+                )
+                ===
+                `#${current}`
+            );
 
 
-        link.classList.toggle(
-            "active",
-            link.getAttribute(
-                "href"
-            )
-            ===
-            `#${current}`
-        );
+        }
+    );
 
 
-    }
-);
+    mobileNavLinks.forEach(
+        link => {
 
 
-mobileNavLinks.forEach(
-    link => {
+            link.classList.toggle(
+                "active",
+                link.getAttribute(
+                    "href"
+                )
+                ===
+                `#${current}`
+            );
 
 
-        link.classList.toggle(
-            "active",
-            link.getAttribute(
-                "href"
-            )
-            ===
-            `#${current}`
-        );
-
-
-    }
-);
+        }
+    );
 
 
 }
@@ -1736,20 +1729,20 @@ BACK TO TOP
 function updateBackToTop() {
 
 
-if (
-    !backToTop
-) {
+    if (
+        !backToTop
+    ) {
 
-    return;
+        return;
 
-}
+    }
 
 
-backToTop.classList.toggle(
-    "show",
-    window.scrollY >
-    500
-);
+    backToTop.classList.toggle(
+        "show",
+        window.scrollY >
+        500
+    );
 
 
 }
@@ -1800,19 +1793,7 @@ const revealElements = [
     ),
 
     ...document.querySelectorAll(
-        ".process-item"
-    ),
-
-    ...document.querySelectorAll(
         ".project-card"
-    ),
-
-    ...document.querySelectorAll(
-        ".why-heading"
-    ),
-
-    ...document.querySelectorAll(
-        ".why-item"
     ),
 
     ...document.querySelectorAll(
@@ -1842,62 +1823,60 @@ if (
 ) {
 
 
-const observer =
-    new IntersectionObserver(
-        entries => {
+    const observer =
+        new IntersectionObserver(
+            entries => {
 
 
-            entries.forEach(
-                entry => {
+                entries.forEach(
+                    entry => {
 
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
 
-                        entry.target
-                            .classList
-                            .add(
+                            entry.target.classList.add(
                                 "active"
                             );
 
 
-                        observer.unobserve(
-                            entry.target
-                        );
+                            observer.unobserve(
+                                entry.target
+                            );
+
+
+                        }
 
 
                     }
+                );
 
 
-                }
-            );
+            },
+            {
 
+                threshold: .12,
 
-        },
-        {
+                rootMargin:
+                    "0px 0px -40px 0px"
 
-            threshold: .12,
-
-            rootMargin:
-                "0px 0px -40px 0px"
-
-        }
-    );
-
-
-revealElements.forEach(
-    element => {
-
-
-        observer.observe(
-            element
+            }
         );
 
 
-    }
-);
+    revealElements.forEach(
+        element => {
+
+
+            observer.observe(
+                element
+            );
+
+
+        }
+    );
 
 
 }
@@ -1905,17 +1884,17 @@ revealElements.forEach(
 else {
 
 
-revealElements.forEach(
-    element => {
+    revealElements.forEach(
+        element => {
 
 
-        element.classList.add(
-            "active"
-        );
+            element.classList.add(
+                "active"
+            );
 
 
-    }
-);
+        }
+    );
 
 
 }
@@ -1923,7 +1902,7 @@ revealElements.forEach(
 
 
 /* =========================================================
-ABOUT NUMBERS
+ANIMATED ABOUT NUMBERS
 ========================================================= */
 
 const statNumbers =
@@ -1942,78 +1921,99 @@ function animateStat(
 ) {
 
 
-const finalNumber =
-    Number(
-        element.dataset.number
-    );
+    const finalNumber =
+        Number(
+            element.dataset.number
+        );
 
 
-const suffix =
-    element.dataset.suffix ||
-    "";
+    const suffix =
+        element.dataset.suffix ||
+        "";
 
 
-if (
-    Number.isNaN(
-        finalNumber
-    )
-) {
-
-    return;
-
-}
-
-
-const duration =
-    1400;
-
-
-const startTime =
-    performance.now();
-
-
-
-function update(
-    currentTime
-) {
-
-
-const progress =
-    Math.min(
-        (
-            currentTime -
-            startTime
+    if (
+        Number.isNaN(
+            finalNumber
         )
-        /
-        duration,
-        1
-    );
+    ) {
+
+        return;
+
+    }
 
 
-const eased =
-    1 -
-    Math.pow(
-        1 -
-        progress,
-        3
-    );
+    const duration =
+        1400;
 
 
-const currentValue =
-    Math.round(
-        finalNumber *
-        eased
-    );
+    const startTime =
+        performance.now();
 
 
-element.textContent =
-    `${currentValue}${suffix}`;
+
+    function update(
+        currentTime
+    ) {
 
 
-if (
-    progress <
-    1
-) {
+        const progress =
+            Math.min(
+                (
+                    currentTime -
+                    startTime
+                )
+                /
+                duration,
+                1
+            );
+
+
+        const eased =
+            1 -
+            Math.pow(
+                1 -
+                progress,
+                3
+            );
+
+
+        const currentValue =
+            Math.round(
+                finalNumber *
+                eased
+            );
+
+
+        element.textContent =
+            `${currentValue}${suffix}`;
+
+
+        if (
+            progress <
+            1
+        ) {
+
+
+            requestAnimationFrame(
+                update
+            );
+
+
+        }
+
+        else {
+
+
+            element.textContent =
+                `${finalNumber}${suffix}`;
+
+
+        }
+
+
+    }
+
 
 
     requestAnimationFrame(
@@ -2023,69 +2023,48 @@ if (
 
 }
 
-else {
-
-
-    element.textContent =
-        `${finalNumber}${suffix}`;
-
-
-}
-
-
-}
-
-
-
-requestAnimationFrame(
-    update
-);
-
-
-}
-
 
 
 function startStats() {
 
 
-if (
-    statsStarted
-) {
+    if (
+        statsStarted
+    ) {
 
-    return;
-
-}
-
-
-statsStarted =
-    true;
-
-
-statNumbers.forEach(
-    (
-        element,
-        index
-    ) => {
-
-
-        setTimeout(
-            () => {
-
-
-                animateStat(
-                    element
-                );
-
-
-            },
-            index *
-            140
-        );
-
+        return;
 
     }
-);
+
+
+    statsStarted =
+        true;
+
+
+    statNumbers.forEach(
+        (
+            element,
+            index
+        ) => {
+
+
+            setTimeout(
+                () => {
+
+
+                    animateStat(
+                        element
+                    );
+
+
+                },
+                index *
+                140
+            );
+
+
+        }
+    );
 
 
 }
@@ -2105,43 +2084,43 @@ if (
 ) {
 
 
-const statsObserver =
-    new IntersectionObserver(
-        entries => {
+    const statsObserver =
+        new IntersectionObserver(
+            entries => {
 
 
-            entries.forEach(
-                entry => {
+                entries.forEach(
+                    entry => {
 
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
 
-                        startStats();
+                            startStats();
 
 
-                        statsObserver.disconnect();
+                            statsObserver.disconnect();
+
+
+                        }
 
 
                     }
+                );
 
 
-                }
-            );
+            },
+            {
+                threshold: .35
+            }
+        );
 
 
-        },
-        {
-            threshold: .35
-        }
+    statsObserver.observe(
+        aboutStats
     );
-
-
-statsObserver.observe(
-    aboutStats
-);
 
 
 }
@@ -2149,7 +2128,7 @@ statsObserver.observe(
 else {
 
 
-startStats();
+    startStats();
 
 
 }
@@ -2160,8 +2139,7 @@ startStats();
 PORTFOLIO CARD TILT
 ========================================================= */
 
-document
-.querySelectorAll(
+document.querySelectorAll(
     ".project-card"
 )
 .forEach(
@@ -2274,88 +2252,84 @@ if (
 ) {
 
 
-hero.addEventListener(
-    "mousemove",
-    event => {
+    hero.addEventListener(
+        "mousemove",
+        event => {
 
 
-        if (
-            window.innerWidth <=
-            900
-        ) {
+            if (
+                window.innerWidth <=
+                900
+            ) {
 
-            return;
+                return;
+
+            }
+
+
+            const rect =
+                hero.getBoundingClientRect();
+
+
+            const x =
+                (
+                    event.clientX -
+                    rect.left
+                )
+                /
+                rect.width;
+
+
+            const y =
+                (
+                    event.clientY -
+                    rect.top
+                )
+                /
+                rect.height;
+
+
+            const moveX =
+                (
+                    x -
+                    .5
+                )
+                *
+                -12;
+
+
+            const moveY =
+                (
+                    y -
+                    .5
+                )
+                *
+                -8;
+
+
+            heroCodeBackground.style.transform =
+                `translate3d(
+                    ${moveX}px,
+                    ${moveY}px,
+                    0
+                )`;
+
 
         }
+    );
 
 
-        const rect =
-            hero.getBoundingClientRect();
+    hero.addEventListener(
+        "mouseleave",
+        () => {
 
 
-        const x =
-            (
-                event.clientX -
-                rect.left
-            )
-            /
-            rect.width;
+            heroCodeBackground.style.transform =
+                "translate3d(0,0,0)";
 
 
-        const y =
-            (
-                event.clientY -
-                rect.top
-            )
-            /
-            rect.height;
-
-
-        const moveX =
-            (
-                x -
-                .5
-            )
-            *
-            -12;
-
-
-        const moveY =
-            (
-                y -
-                .5
-            )
-            *
-            -8;
-
-
-        heroCodeBackground
-            .style
-            .transform =
-            `translate3d(
-                ${moveX}px,
-                ${moveY}px,
-                0
-            )`;
-
-
-    }
-);
-
-
-hero.addEventListener(
-    "mouseleave",
-    () => {
-
-
-        heroCodeBackground
-            .style
-            .transform =
-            "translate3d(0,0,0)";
-
-
-    }
-);
+        }
+    );
 
 
 }
@@ -2378,104 +2352,96 @@ if (
 ) {
 
 
-hero.addEventListener(
-    "mousemove",
-    event => {
+    hero.addEventListener(
+        "mousemove",
+        event => {
 
 
-        if (
-            window.innerWidth <=
-            900
-        ) {
+            if (
+                window.innerWidth <=
+                900
+            ) {
 
-            return;
+                return;
 
-        }
-
-
-        const rect =
-            hero.getBoundingClientRect();
+            }
 
 
-        const x =
-            (
-                event.clientX -
-                rect.left
-            )
-            /
-            rect.width;
+            const rect =
+                hero.getBoundingClientRect();
 
 
-        const y =
-            (
-                event.clientY -
-                rect.top
-            )
-            /
-            rect.height;
+            const x =
+                (
+                    event.clientX -
+                    rect.left
+                )
+                /
+                rect.width;
 
 
-        const moveX =
-            (
-                x -
-                .5
-            )
-            *
-            7;
+            const y =
+                (
+                    event.clientY -
+                    rect.top
+                )
+                /
+                rect.height;
 
 
-        const moveY =
-            (
-                y -
-                .5
-            )
-            *
-            6;
+            const moveX =
+                (
+                    x -
+                    .5
+                )
+                *
+                7;
 
 
-        heroProfileStage
-            .style
-            .setProperty(
+            const moveY =
+                (
+                    y -
+                    .5
+                )
+                *
+                6;
+
+
+            heroProfileStage.style.setProperty(
                 "--hero-move-x",
                 `${moveX}px`
             );
 
 
-        heroProfileStage
-            .style
-            .setProperty(
+            heroProfileStage.style.setProperty(
                 "--hero-move-y",
                 `${moveY}px`
             );
 
 
-    }
-);
+        }
+    );
 
 
-hero.addEventListener(
-    "mouseleave",
-    () => {
+    hero.addEventListener(
+        "mouseleave",
+        () => {
 
 
-        heroProfileStage
-            .style
-            .setProperty(
+            heroProfileStage.style.setProperty(
                 "--hero-move-x",
                 "0px"
             );
 
 
-        heroProfileStage
-            .style
-            .setProperty(
+            heroProfileStage.style.setProperty(
                 "--hero-move-y",
                 "0px"
             );
 
 
-    }
-);
+        }
+    );
 
 
 }
@@ -2514,20 +2480,16 @@ window.addEventListener(
                     ) {
 
 
-                        heroProfileStage
-                            .style
-                            .setProperty(
-                                "--hero-move-x",
-                                "0px"
-                            );
+                        heroProfileStage.style.setProperty(
+                            "--hero-move-x",
+                            "0px"
+                        );
 
 
-                        heroProfileStage
-                            .style
-                            .setProperty(
-                                "--hero-move-y",
-                                "0px"
-                            );
+                        heroProfileStage.style.setProperty(
+                            "--hero-move-y",
+                            "0px"
+                        );
 
 
                     }
@@ -2559,21 +2521,19 @@ window.addEventListener(
 CURRENT YEAR
 ========================================================= */
 
-const copyright =
-    document.querySelector(
-        ".copyright"
+const copyrightYear =
+    document.getElementById(
+        "copyrightYear"
     );
 
 
 if (
-    copyright
+    copyrightYear
 ) {
 
 
-copyright.textContent =
-    `© ${
-        new Date().getFullYear()
-    } Jhonaiza Gede. All Rights Reserved.`;
+    copyrightYear.textContent =
+        new Date().getFullYear();
 
 
 }
