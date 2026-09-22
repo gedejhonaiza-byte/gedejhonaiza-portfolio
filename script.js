@@ -694,7 +694,7 @@ typeLoaderMessage();
 
 
 const loaderDuration =
-    8000;
+    6500;
 
 
 const loaderStartTime =
