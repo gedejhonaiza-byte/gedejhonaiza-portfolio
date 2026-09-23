@@ -6459,3 +6459,138 @@ SMALL MOBILE
     }
 
 }
+/* =========================================================
+MY PORTFOLIO FILTER BUTTONS
+MOBILE FIX - ALL BUTTONS VISIBLE
+NO HORIZONTAL SLIDING
+========================================================= */
+
+@media (max-width:767px){
+
+    .gallery-filter-tabs{
+        width:100%;
+
+        margin:26px auto 0;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        /* IMPORTANT */
+        flex-wrap:wrap;
+
+        gap:10px;
+
+        /* REMOVE HORIZONTAL SLIDING */
+        overflow:visible;
+
+        padding:0;
+
+        scrollbar-width:auto;
+
+        touch-action:auto;
+    }
+
+
+    .gallery-filter-tabs::-webkit-scrollbar{
+        display:none;
+    }
+
+
+    .gallery-filter{
+        /* allow buttons to wrap naturally */
+        flex:0 1 auto;
+
+        min-width:0;
+
+        min-height:42px;
+
+        padding:10px 16px;
+
+        font-size:12px;
+
+        white-space:nowrap;
+    }
+
+}
+
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px){
+
+    .gallery-filter-tabs{
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+        gap:10px;
+
+        overflow:visible;
+    }
+
+
+    .gallery-filter{
+        width:100%;
+
+        min-width:0;
+
+        padding:11px 8px;
+
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+
+        text-align:center;
+
+        font-size:11px;
+
+        line-height:1.25;
+
+        white-space:normal;
+    }
+
+
+    /* ALL BUTTON FULL WIDTH */
+
+    .gallery-filter:first-child{
+        grid-column:1 / -1;
+
+        width:min(150px,100%);
+
+        justify-self:center;
+    }
+
+}
+
+
+/* =========================================================
+VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width:360px){
+
+    .gallery-filter-tabs{
+        grid-template-columns:1fr;
+    }
+
+
+    .gallery-filter,
+    .gallery-filter:first-child{
+        grid-column:auto;
+
+        width:100%;
+
+        justify-self:stretch;
+    }
+
+}
