@@ -14,88 +14,254 @@ document.addEventListener("DOMContentLoaded", () => {
     const loaderCodeBackground = document.getElementById("loaderCodeBackground");
 
     /* =========================================================
-       LOADER COMPUTER CODE BACKGROUND
+    LOADER BACKGROUND CODE
     ========================================================= */
 
     const loaderCodeLines = [
         '<span class="code-keyword">const</span> portfolio = new CreativeExperience();',
+
         '<span class="code-keyword">function</span> buildWebsite() { return <span class="code-string">"experience"</span>; }',
+
         '&lt;section class=<span class="code-string">"portfolio"</span>&gt;',
+
         "display: grid;",
+
         "grid-template-columns: 1fr 1fr;",
+
         '<span class="code-keyword">const</span> designer = <span class="code-string">"Jhonaiza Gede"</span>;',
+
         'document.querySelector(<span class="code-string">".project"</span>);',
+
         "background: linear-gradient(135deg, #050505, #D7B56D);",
+
         '&lt;div class=<span class="code-string">"creative"</span>&gt;',
+
         "transform: translateY(-10px);",
+
         '<span class="code-keyword">let</span> creativity = true;',
+
         "animation: reveal .8s ease;",
+
         '<span class="code-keyword">if</span> (idea) { createExperience(); }',
+
         'font-family: "Poppins", sans-serif;',
+
         '<span class="code-keyword">const</span> skills = [<span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>, <span class="code-string">"JavaScript"</span>];',
+
         '&lt;article class=<span class="code-string">"portfolio-card"</span>&gt;',
+
         "border: 1px solid rgba(215,181,109,.25);",
+
         '<span class="code-keyword">return</span> digitalExperience;',
+
         'window.addEventListener(<span class="code-string">"scroll"</span>, reveal);',
+
         "const brand = { creativity: true, purpose: true };",
+
         "backdrop-filter: blur(20px);",
+
         '&lt;nav class=<span class="code-string">"navbar"</span>&gt;',
+
         "responsive: true;",
+
         "userExperience.optimize();",
+
         '<span class="code-keyword">const</span> vision = <span class="code-string">"design with purpose"</span>;',
+
         "object-fit: cover;",
+
         "transition: all .4s ease;",
+
         'console.log(<span class="code-string">"Creating digital experiences..."</span>);',
+
         "creativeDeveloper.initialize();",
+
         "&lt;/portfolio&gt;"
     ];
 
+
+    /* =========================================================
+    BUILD LOADER TYPING CODE
+    ========================================================= */
+
     function buildLoaderCode() {
+
         if (!loaderCodeBackground) return;
 
         loaderCodeBackground.innerHTML = "";
 
         const width = window.innerWidth;
-        let columns = 15;
+
+        let panelCount = 5;
+        let linesPerPanel = 7;
+
 
         if (width <= 520) {
-            columns = 6;
+
+            panelCount = 3;
+            linesPerPanel = 6;
+
         } else if (width <= 900) {
-            columns = 9;
+
+            panelCount = 4;
+            linesPerPanel = 7;
+
         }
 
-        for (let i = 0; i < columns; i++) {
-            const column = document.createElement("div");
 
-            column.className = "code-column";
-            column.style.left = `${(i / columns) * 100}%`;
-            column.style.animationDuration = `${18 + Math.random() * 16}s`;
-            column.style.animationDelay = `-${Math.random() * 18}s`;
+        const panelPositions = [
 
-            for (let j = 0; j < 16; j++) {
-                const line = document.createElement("span");
+            {
+                left: "2%",
+                top: "8%"
+            },
+
+            {
+                right: "3%",
+                top: "4%"
+            },
+
+            {
+                left: "8%",
+                bottom: "7%"
+            },
+
+            {
+                right: "5%",
+                bottom: "8%"
+            },
+
+            {
+                left: "37%",
+                top: "30%"
+            }
+
+        ];
+
+
+        for (
+            let i = 0;
+            i < panelCount;
+            i++
+        ) {
+
+            const panel =
+                document.createElement("div");
+
+            const position =
+                panelPositions[
+                    i %
+                    panelPositions.length
+                ];
+
+
+            panel.className =
+                "loader-code-panel";
+
+
+            Object.keys(
+                position
+            ).forEach(
+                property => {
+
+                    panel.style[property] =
+                        position[property];
+
+                }
+            );
+
+
+            for (
+                let j = 0;
+                j < linesPerPanel;
+                j++
+            ) {
+
+                const line =
+                    document.createElement("span");
+
+
+                const lineIndex =
+                    (
+                        i * 5 +
+                        j
+                    ) %
+                    loaderCodeLines.length;
+
+
+                const typeDelay =
+                    .15 +
+                    (
+                        i *
+                        .22
+                    ) +
+                    (
+                        j *
+                        .16
+                    );
+
+
+                const typeDuration =
+                    .48 +
+                    (
+                        (
+                            j %
+                            3
+                        ) *
+                        .08
+                    );
+
+
+                line.className =
+                    "loader-code-line";
+
+
+                line.style.setProperty(
+                    "--type-delay",
+                    `${typeDelay}s`
+                );
+
+
+                line.style.setProperty(
+                    "--type-duration",
+                    `${typeDuration}s`
+                );
+
 
                 line.innerHTML =
                     loaderCodeLines[
-                        Math.floor(Math.random() * loaderCodeLines.length)
+                        lineIndex
                     ];
 
-                column.appendChild(line);
+
+                panel.appendChild(
+                    line
+                );
+
             }
 
-            loaderCodeBackground.appendChild(column);
+
+            loaderCodeBackground.appendChild(
+                panel
+            );
+
         }
+
     }
+
 
     buildLoaderCode();
 
 
     /* =========================================================
-       HERO COMPUTER CODE BACKGROUND
+    HERO COMPUTER CODE BACKGROUND
     ========================================================= */
 
     const heroCodeBackground =
-        document.getElementById("heroCodeBackground");
+        document.getElementById(
+            "heroCodeBackground"
+        );
+
 
     const heroCodeBlocks = [
 
@@ -163,110 +329,226 @@ const height = section.offsetHeight;
 .develop()
 .optimize()
 .deliver();`
+
     ];
+
 
     const heroCodePositions = [
-        { left: "2%", top: "10%" },
-        { left: "35%", top: "6%" },
-        { right: "2%", top: "14%" },
-        { left: "4%", bottom: "5%" },
-        { left: "38%", bottom: "7%" },
-        { right: "1%", bottom: "8%" },
-        { left: "25%", top: "42%" },
-        { right: "25%", top: "48%" },
-        { left: "59%", top: "27%" }
+
+        {
+            left: "2%",
+            top: "10%"
+        },
+
+        {
+            left: "35%",
+            top: "6%"
+        },
+
+        {
+            right: "2%",
+            top: "14%"
+        },
+
+        {
+            left: "4%",
+            bottom: "5%"
+        },
+
+        {
+            left: "38%",
+            bottom: "7%"
+        },
+
+        {
+            right: "1%",
+            bottom: "8%"
+        },
+
+        {
+            left: "25%",
+            top: "42%"
+        },
+
+        {
+            right: "25%",
+            top: "48%"
+        },
+
+        {
+            left: "59%",
+            top: "27%"
+        }
+
     ];
 
+
     function buildHeroCode() {
+
         if (!heroCodeBackground) return;
 
         heroCodeBackground.innerHTML = "";
 
         let totalBlocks = 9;
 
-        if (window.innerWidth <= 767) {
+
+        if (
+            window.innerWidth <=
+            767
+        ) {
+
             totalBlocks = 8;
+
         }
 
-        for (let i = 0; i < totalBlocks; i++) {
-            const block = document.createElement("pre");
 
-            block.className = "hero-code-block";
+        for (
+            let i = 0;
+            i < totalBlocks;
+            i++
+        ) {
+
+            const block =
+                document.createElement(
+                    "pre"
+                );
+
+
+            block.className =
+                "hero-code-block";
+
 
             block.textContent =
                 heroCodeBlocks[
-                    i % heroCodeBlocks.length
+                    i %
+                    heroCodeBlocks.length
                 ];
+
 
             const position =
                 heroCodePositions[
-                    i % heroCodePositions.length
+                    i %
+                    heroCodePositions.length
                 ];
 
-            Object.keys(position).forEach(property => {
-                block.style[property] =
-                    position[property];
-            });
+
+            Object.keys(
+                position
+            ).forEach(
+                property => {
+
+                    block.style[property] =
+                        position[property];
+
+                }
+            );
+
 
             block.style.animationDelay =
                 `-${i * 1.7}s`;
 
-            heroCodeBackground.appendChild(block);
+
+            heroCodeBackground.appendChild(
+                block
+            );
+
         }
+
     }
+
 
     buildHeroCode();
 
 
     /* =========================================================
-       PAGE LOADER
+    PAGE LOADER
     ========================================================= */
 
     const loader =
-        document.getElementById("pageLoader");
+        document.getElementById(
+            "pageLoader"
+        );
+
 
     const loaderPercent =
-        document.getElementById("loaderPercent");
+        document.getElementById(
+            "loaderPercent"
+        );
+
 
     const loaderProgress =
-        document.getElementById("loaderProgress");
+        document.getElementById(
+            "loaderProgress"
+        );
+
 
     const loaderTypingText =
-        document.getElementById("loaderTypingText");
+        document.getElementById(
+            "loaderTypingText"
+        );
 
-    body.classList.add("loader-active");
+
+    body.classList.add(
+        "loader-active"
+    );
+
 
     const loaderMessages = [
+
         "Initializing interface...",
+
         "Loading creative assets...",
+
         "Compiling digital experience...",
+
         "Preparing featured portfolio...",
+
         "Optimizing responsive layout...",
+
         "Connecting creative components...",
+
         "Almost ready...",
+
         "Launching portfolio..."
+
     ];
 
+
     let loaderMessageIndex = 0;
+
     let loaderCharacterIndex = 0;
+
     let loaderDeleting = false;
+
     let loaderTypingStopped = false;
 
+
+    /* =========================================================
+    LOADER TEXT TYPING
+    ========================================================= */
+
     function typeLoaderMessage() {
+
         if (
             !loaderTypingText ||
             loaderTypingStopped
         ) {
+
             return;
+
         }
+
 
         const currentMessage =
             loaderMessages[
                 loaderMessageIndex
             ];
 
+
         if (!loaderDeleting) {
+
             loaderCharacterIndex++;
+
 
             loaderTypingText.textContent =
                 currentMessage.substring(
@@ -274,28 +556,37 @@ const height = section.offsetHeight;
                     loaderCharacterIndex
                 );
 
+
             if (
                 loaderCharacterIndex >=
                 currentMessage.length
             ) {
+
                 loaderDeleting = true;
+
 
                 setTimeout(
                     typeLoaderMessage,
                     260
                 );
 
+
                 return;
+
             }
+
 
             setTimeout(
                 typeLoaderMessage,
                 25
             );
 
+
         } else {
 
+
             loaderCharacterIndex--;
+
 
             loaderTypingText.textContent =
                 currentMessage.substring(
@@ -303,76 +594,111 @@ const height = section.offsetHeight;
                     loaderCharacterIndex
                 );
 
+
             if (
-                loaderCharacterIndex <= 0
+                loaderCharacterIndex <=
+                0
             ) {
+
                 loaderDeleting = false;
+
 
                 loaderMessageIndex =
                     (
-                        loaderMessageIndex + 1
+                        loaderMessageIndex +
+                        1
                     ) %
                     loaderMessages.length;
+
 
                 setTimeout(
                     typeLoaderMessage,
                     70
                 );
 
+
                 return;
+
             }
+
 
             setTimeout(
                 typeLoaderMessage,
                 12
             );
+
         }
+
     }
+
 
     typeLoaderMessage();
 
 
     /* =========================================================
-       LOADER PROGRESS
+    LOADER PROGRESS
     ========================================================= */
 
-    const loaderDuration = 6500;
+    const loaderDuration =
+        6500;
+
 
     const loaderStartTime =
         performance.now();
 
-    let loaderComplete = false;
+
+    let loaderComplete =
+        false;
+
 
     function finishLoader() {
+
         if (loaderComplete) return;
 
-        loaderComplete = true;
 
-        loaderTypingStopped = true;
+        loaderComplete =
+            true;
+
+
+        loaderTypingStopped =
+            true;
+
 
         if (loaderPercent) {
+
             loaderPercent.textContent =
                 "100%";
+
         }
+
 
         if (loaderProgress) {
+
             loaderProgress.style.width =
                 "100%";
+
         }
 
+
         if (loaderTypingText) {
+
             loaderTypingText.textContent =
                 "Experience ready.";
+
         }
+
 
         setTimeout(
             () => {
 
                 if (loader) {
+
                     loader.classList.add(
                         "hide"
                     );
+
                 }
+
 
                 body.classList.remove(
                     "loader-active"
@@ -381,7 +707,9 @@ const height = section.offsetHeight;
             },
             650
         );
+
     }
+
 
     function updateLoaderProgress(
         currentTime
@@ -389,9 +717,11 @@ const height = section.offsetHeight;
 
         if (loaderComplete) return;
 
+
         const elapsed =
             currentTime -
             loaderStartTime;
+
 
         let progress =
             Math.min(
@@ -400,13 +730,19 @@ const height = section.offsetHeight;
                 1
             );
 
-        if (progress < .55) {
+
+        if (
+            progress <
+            .55
+        ) {
 
             progress =
-                progress * 1.08;
+                progress *
+                1.08;
 
         } else if (
-            progress < .88
+            progress <
+            .88
         ) {
 
             progress =
@@ -426,7 +762,9 @@ const height = section.offsetHeight;
                     .88
                 ) *
                 1.128;
+
         }
+
 
         progress =
             Math.min(
@@ -434,37 +772,53 @@ const height = section.offsetHeight;
                 1
             );
 
+
         const percent =
             Math.floor(
-                progress * 100
+                progress *
+                100
             );
 
+
         if (loaderPercent) {
+
             loaderPercent.textContent =
                 `${percent}%`;
+
         }
 
+
         if (loaderProgress) {
+
             loaderProgress.style.width =
                 `${percent}%`;
+
         }
+
 
         if (
             elapsed >=
             loaderDuration
         ) {
+
             finishLoader();
+
             return;
+
         }
+
 
         requestAnimationFrame(
             updateLoaderProgress
         );
+
     }
+
 
     requestAnimationFrame(
         updateLoaderProgress
     );
+
 
     setTimeout(
         finishLoader,
@@ -473,7 +827,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       HERO ROLE TYPING
+    HERO ROLE TYPEWRITER
     ========================================================= */
 
     const heroRoleTyping =
@@ -481,63 +835,90 @@ const height = section.offsetHeight;
             "heroRoleTyping"
         );
 
+
     const heroRoles = [
+
         "Web Design",
+
         "Graphic Design",
+
         "UI / UX Design",
+
         "Creative Development",
+
         "Branding",
+
         "SEO Optimization"
+
     ];
 
-    let heroRoleIndex = 0;
-    let heroCharacterIndex = 0;
-    let heroDeleting = false;
+
+    let heroRoleIndex =
+        0;
+
+
+    let heroCharacterIndex =
+        0;
+
+
+    let heroDeleting =
+        false;
+
 
     function typeHeroRole() {
 
-        if (!heroRoleTyping) {
-            return;
-        }
+        if (!heroRoleTyping) return;
+
 
         const currentRole =
             heroRoles[
                 heroRoleIndex
             ];
 
+
         if (!heroDeleting) {
 
             heroCharacterIndex++;
+
 
             heroRoleTyping.textContent =
                 currentRole.substring(
                     0,
                     heroCharacterIndex
                 );
+
 
             if (
                 heroCharacterIndex >=
                 currentRole.length
             ) {
 
-                heroDeleting = true;
+                heroDeleting =
+                    true;
+
 
                 setTimeout(
                     typeHeroRole,
                     1250
                 );
 
+
                 return;
+
             }
+
 
             setTimeout(
                 typeHeroRole,
                 70
             );
 
+
         } else {
 
+
             heroCharacterIndex--;
+
 
             heroRoleTyping.textContent =
                 currentRole.substring(
@@ -545,11 +926,15 @@ const height = section.offsetHeight;
                     heroCharacterIndex
                 );
 
+
             if (
-                heroCharacterIndex <= 0
+                heroCharacterIndex <=
+                0
             ) {
 
-                heroDeleting = false;
+                heroDeleting =
+                    false;
+
 
                 heroRoleIndex =
                     (
@@ -558,20 +943,27 @@ const height = section.offsetHeight;
                     ) %
                     heroRoles.length;
 
+
                 setTimeout(
                     typeHeroRole,
                     220
                 );
 
+
                 return;
+
             }
+
 
             setTimeout(
                 typeHeroRole,
                 35
             );
+
         }
+
     }
+
 
     setTimeout(
         typeHeroRole,
@@ -580,7 +972,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       SERVICES / WHY HIRE ME TABS
+    SERVICES TABS
     ========================================================= */
 
     const hireTabs =
@@ -588,15 +980,18 @@ const height = section.offsetHeight;
             ".hire-tab"
         );
 
+
     const hirePanels =
         document.querySelectorAll(
             ".hire-tab-panel"
         );
 
+
     const hireContentScroll =
         document.querySelector(
             ".hire-content-scroll"
         );
+
 
     hireTabs.forEach(
         tab => {
@@ -608,6 +1003,7 @@ const height = section.offsetHeight;
                     const selectedTab =
                         tab.dataset.hireTab;
 
+
                     hireTabs.forEach(
                         button => {
 
@@ -618,9 +1014,11 @@ const height = section.offsetHeight;
                         }
                     );
 
+
                     tab.classList.add(
                         "active"
                     );
+
 
                     hirePanels.forEach(
                         panel => {
@@ -630,6 +1028,7 @@ const height = section.offsetHeight;
                                     .hirePanel ===
                                 selectedTab;
 
+
                             panel.classList.toggle(
                                 "active",
                                 isActive
@@ -638,15 +1037,19 @@ const height = section.offsetHeight;
                         }
                     );
 
+
                     if (
                         hireContentScroll
                     ) {
 
                         hireContentScroll.scrollTo(
                             {
+
                                 top: 0,
+
                                 behavior:
                                     "smooth"
+
                             }
                         );
 
@@ -660,11 +1063,14 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       FEATURED WORK AUTO SLIDER
-       6 MEDIUM CARDS
-       DESKTOP 3
-       TABLET 2
-       MOBILE 1
+    FEATURED WORK AUTO SLIDER
+
+    6 MEDIUM CARDS
+
+    DESKTOP = 3
+    TABLET  = 2
+    MOBILE  = 1
+
     ========================================================= */
 
     const featuredSliderShell =
@@ -672,15 +1078,18 @@ const height = section.offsetHeight;
             ".featured-slider-shell"
         );
 
+
     const featuredSlider =
         document.getElementById(
             "featuredSlider"
         );
 
+
     const featuredTrack =
         document.getElementById(
             "featuredTrack"
         );
+
 
     const featuredSlides =
         Array.from(
@@ -689,25 +1098,40 @@ const height = section.offsetHeight;
             )
         );
 
+
     const featuredPrev =
         document.getElementById(
             "featuredPrev"
         );
+
 
     const featuredNext =
         document.getElementById(
             "featuredNext"
         );
 
+
     const featuredDots =
         document.getElementById(
             "featuredDots"
         );
 
-    let featuredIndex = 0;
-    let featuredTimer = null;
-    let featuredTouchStartX = 0;
-    let featuredTouchDeltaX = 0;
+
+    let featuredIndex =
+        0;
+
+
+    let featuredTimer =
+        null;
+
+
+    let featuredTouchStartX =
+        0;
+
+
+    let featuredTouchDeltaX =
+        0;
+
 
     const prefersReducedMotion =
         window.matchMedia(
@@ -716,7 +1140,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       FEATURED RESPONSIVE CARD COUNT
+    FEATURED RESPONSIVE VISIBLE COUNT
     ========================================================= */
 
     function getFeaturedVisibleCount() {
@@ -725,40 +1149,55 @@ const height = section.offsetHeight;
             window.innerWidth <=
             767
         ) {
+
             return 1;
+
         }
+
 
         if (
             window.innerWidth <=
             1100
         ) {
+
             return 2;
+
         }
 
+
         return 3;
+
     }
 
 
     function getFeaturedMaxIndex() {
 
         return Math.max(
+
             0,
+
             featuredSlides.length -
             getFeaturedVisibleCount()
+
         );
+
     }
 
 
     function getFeaturedGap() {
 
         if (!featuredTrack) {
+
             return 0;
+
         }
+
 
         const styles =
             window.getComputedStyle(
                 featuredTrack
             );
+
 
         return (
             parseFloat(
@@ -767,23 +1206,26 @@ const height = section.offsetHeight;
             ) ||
             0
         );
+
     }
 
 
     /* =========================================================
-       FEATURED DOTS
+    FEATURED DOTS
     ========================================================= */
 
     function buildFeaturedDots() {
 
-        if (!featuredDots) {
-            return;
-        }
+        if (!featuredDots) return;
+
 
         const maxIndex =
             getFeaturedMaxIndex();
 
-        featuredDots.innerHTML = "";
+
+        featuredDots.innerHTML =
+            "";
+
 
         for (
             let index = 0;
@@ -796,15 +1238,20 @@ const height = section.offsetHeight;
                     "button"
                 );
 
-            dot.type = "button";
+
+            dot.type =
+                "button";
+
 
             dot.className =
                 "featured-dot";
+
 
             dot.setAttribute(
                 "aria-label",
                 `Show featured project group ${index + 1}`
             );
+
 
             dot.addEventListener(
                 "click",
@@ -813,27 +1260,31 @@ const height = section.offsetHeight;
                     featuredIndex =
                         index;
 
+
                     updateFeaturedSlider(
                         true
                     );
+
 
                     restartFeaturedAuto();
 
                 }
             );
 
+
             featuredDots.appendChild(
                 dot
             );
+
         }
+
     }
 
 
     function updateFeaturedDots() {
 
-        if (!featuredDots) {
-            return;
-        }
+        if (!featuredDots) return;
+
 
         featuredDots
             .querySelectorAll(
@@ -853,11 +1304,12 @@ const height = section.offsetHeight;
 
                 }
             );
+
     }
 
 
     /* =========================================================
-       MOVE FEATURED TRACK
+    MOVE FEATURED SLIDER
     ========================================================= */
 
     function updateFeaturedSlider(
@@ -868,29 +1320,39 @@ const height = section.offsetHeight;
             !featuredTrack ||
             !featuredSlides.length
         ) {
+
             return;
+
         }
+
 
         const maxIndex =
             getFeaturedMaxIndex();
 
+
         featuredIndex =
             Math.min(
+
                 Math.max(
                     featuredIndex,
                     0
                 ),
+
                 maxIndex
+
             );
+
 
         const slideWidth =
             featuredSlides[0]
                 .getBoundingClientRect()
                 .width;
 
+
         const step =
             slideWidth +
             getFeaturedGap();
+
 
         featuredTrack.style.transition =
             animate &&
@@ -900,32 +1362,39 @@ const height = section.offsetHeight;
                 :
                 "none";
 
+
         featuredTrack.style.transform =
             `translate3d(-${featuredIndex * step}px, 0, 0)`;
 
+
         updateFeaturedDots();
+
 
         if (featuredPrev) {
 
             featuredPrev.setAttribute(
                 "aria-disabled",
                 String(
-                    maxIndex === 0
+                    maxIndex ===
+                    0
                 )
             );
 
         }
+
 
         if (featuredNext) {
 
             featuredNext.setAttribute(
                 "aria-disabled",
                 String(
-                    maxIndex === 0
+                    maxIndex ===
+                    0
                 )
             );
 
         }
+
     }
 
 
@@ -936,62 +1405,81 @@ const height = section.offsetHeight;
         const maxIndex =
             getFeaturedMaxIndex();
 
+
         if (
-            maxIndex <= 0
+            maxIndex <=
+            0
         ) {
 
-            featuredIndex = 0;
+            featuredIndex =
+                0;
+
 
             updateFeaturedSlider(
                 true
             );
 
+
             return;
+
         }
 
+
         if (
-            index > maxIndex
+            index >
+            maxIndex
         ) {
 
-            featuredIndex = 0;
+            featuredIndex =
+                0;
+
 
         } else if (
-            index < 0
+            index <
+            0
         ) {
 
             featuredIndex =
                 maxIndex;
 
+
         } else {
 
             featuredIndex =
                 index;
+
         }
+
 
         updateFeaturedSlider(
             true
         );
+
     }
 
 
     function nextFeaturedSlide() {
 
         setFeaturedIndex(
-            featuredIndex + 1
+            featuredIndex +
+            1
         );
+
     }
 
 
     function previousFeaturedSlide() {
 
         setFeaturedIndex(
-            featuredIndex - 1
+            featuredIndex -
+            1
         );
+
     }
 
 
     /* =========================================================
-       FEATURED AUTOPLAY
+    FEATURED AUTO PLAY
     ========================================================= */
 
     function stopFeaturedAuto() {
@@ -1002,9 +1490,12 @@ const height = section.offsetHeight;
                 featuredTimer
             );
 
+
             featuredTimer =
                 null;
+
         }
+
     }
 
 
@@ -1012,13 +1503,22 @@ const height = section.offsetHeight;
 
         stopFeaturedAuto();
 
+
         if (
+
             prefersReducedMotion.matches ||
-            getFeaturedMaxIndex() <= 0 ||
+
+            getFeaturedMaxIndex() <=
+            0 ||
+
             document.hidden
+
         ) {
+
             return;
+
         }
+
 
         featuredTimer =
             window.setInterval(
@@ -1029,6 +1529,7 @@ const height = section.offsetHeight;
                 },
                 3600
             );
+
     }
 
 
@@ -1037,11 +1538,12 @@ const height = section.offsetHeight;
         stopFeaturedAuto();
 
         startFeaturedAuto();
+
     }
 
 
     /* =========================================================
-       FEATURED ARROWS
+    FEATURED ARROWS
     ========================================================= */
 
     if (featuredPrev) {
@@ -1056,6 +1558,7 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
@@ -1071,11 +1574,12 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
     /* =========================================================
-       PAUSE ON HOVER / FOCUS
+    PAUSE SLIDER ON HOVER / FOCUS
     ========================================================= */
 
     if (featuredSliderShell) {
@@ -1085,25 +1589,29 @@ const height = section.offsetHeight;
             stopFeaturedAuto
         );
 
+
         featuredSliderShell.addEventListener(
             "mouseleave",
             startFeaturedAuto
         );
+
 
         featuredSliderShell.addEventListener(
             "focusin",
             stopFeaturedAuto
         );
 
+
         featuredSliderShell.addEventListener(
             "focusout",
             startFeaturedAuto
         );
+
     }
 
 
     /* =========================================================
-       MOBILE SWIPE
+    MOBILE SWIPE
     ========================================================= */
 
     if (featuredSlider) {
@@ -1116,8 +1624,10 @@ const height = section.offsetHeight;
                     event.touches[0]
                         .clientX;
 
+
                 featuredTouchDeltaX =
                     0;
+
 
                 stopFeaturedAuto();
 
@@ -1165,14 +1675,19 @@ const height = section.offsetHeight;
                     } else {
 
                         previousFeaturedSlide();
+
                     }
+
                 }
+
 
                 featuredTouchStartX =
                     0;
 
+
                 featuredTouchDeltaX =
                     0;
+
 
                 startFeaturedAuto();
 
@@ -1181,11 +1696,12 @@ const height = section.offsetHeight;
                 passive: true
             }
         );
+
     }
 
 
     /* =========================================================
-       PAUSE WHEN BROWSER TAB IS HIDDEN
+    PAUSE WHEN TAB HIDDEN
     ========================================================= */
 
     document.addEventListener(
@@ -1201,6 +1717,7 @@ const height = section.offsetHeight;
             } else {
 
                 startFeaturedAuto();
+
             }
 
         }
@@ -1208,10 +1725,11 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       FEATURED RESPONSIVE RESIZE
+    RESPONSIVE FEATURED SLIDER
     ========================================================= */
 
     let featuredResizeTimer;
+
 
     window.addEventListener(
         "resize",
@@ -1221,6 +1739,7 @@ const height = section.offsetHeight;
                 featuredResizeTimer
             );
 
+
             featuredResizeTimer =
                 window.setTimeout(
                     () => {
@@ -1228,17 +1747,21 @@ const height = section.offsetHeight;
                         const maxIndex =
                             getFeaturedMaxIndex();
 
+
                         featuredIndex =
                             Math.min(
                                 featuredIndex,
                                 maxIndex
                             );
 
+
                         buildFeaturedDots();
+
 
                         updateFeaturedSlider(
                             false
                         );
+
 
                         startFeaturedAuto();
 
@@ -1261,17 +1784,19 @@ const height = section.offsetHeight;
         );
 
         startFeaturedAuto();
+
     }
 
 
     /* =========================================================
-       MY PORTFOLIO GALLERY
+    MY PORTFOLIO FILTER GALLERY
     ========================================================= */
 
     const galleryFilters =
         document.querySelectorAll(
             ".gallery-filter"
         );
+
 
     const galleryItems =
         Array.from(
@@ -1280,59 +1805,71 @@ const height = section.offsetHeight;
             )
         );
 
+
     const galleryCount =
         document.getElementById(
             "galleryCount"
         );
+
 
     const galleryPageNumbers =
         document.getElementById(
             "galleryPageNumbers"
         );
 
+
     const galleryFirst =
         document.getElementById(
             "galleryFirst"
         );
+
 
     const galleryPrev =
         document.getElementById(
             "galleryPrev"
         );
 
+
     const galleryNext =
         document.getElementById(
             "galleryNext"
         );
+
 
     const galleryLast =
         document.getElementById(
             "galleryLast"
         );
 
+
     /*
-    IMPORTANT:
-    Portfolio navigation now targets
-    the REAL My Portfolio section.
+    IMPORTANT
+
+    Portfolio navigation points to
+    #MyPortfolio
     */
+
 
     const gallerySection =
         document.getElementById(
             "MyPortfolio"
         );
 
+
     const galleryItemsPerPage =
         6;
 
+
     let activeGalleryFilter =
         "all";
+
 
     let activeGalleryPage =
         1;
 
 
     /* =========================================================
-       FILTER PORTFOLIO ITEMS
+    FILTER GALLERY
     ========================================================= */
 
     function getFilteredGalleryItems() {
@@ -1341,21 +1878,24 @@ const height = section.offsetHeight;
             item => {
 
                 return (
+
                     activeGalleryFilter ===
                     "all" ||
 
                     item.dataset
                         .galleryCategory ===
                     activeGalleryFilter
+
                 );
 
             }
         );
+
     }
 
 
     /* =========================================================
-       PORTFOLIO PAGE NUMBERS
+    PAGINATION NUMBERS
     ========================================================= */
 
     function getGalleryPaginationItems(
@@ -1363,68 +1903,106 @@ const height = section.offsetHeight;
     ) {
 
         if (
-            totalPages <= 5
+            totalPages <=
+            5
         ) {
 
             return Array.from(
+
                 {
                     length:
                         totalPages
                 },
+
                 (
                     _,
                     index
                 ) =>
-                    index + 1
+                    index +
+                    1
+
             );
+
         }
 
 
         if (
-            activeGalleryPage <= 3
+            activeGalleryPage <=
+            3
         ) {
 
             return [
+
                 1,
+
                 2,
+
                 3,
+
                 4,
+
                 "...",
+
                 totalPages
+
             ];
+
         }
 
 
         if (
             activeGalleryPage >=
-            totalPages - 2
+            totalPages -
+            2
         ) {
 
             return [
+
                 1,
+
                 "...",
-                totalPages - 3,
-                totalPages - 2,
-                totalPages - 1,
+
+                totalPages -
+                3,
+
+                totalPages -
+                2,
+
+                totalPages -
+                1,
+
                 totalPages
+
             ];
+
         }
 
 
         return [
+
             1,
+
             "...",
-            activeGalleryPage - 1,
+
+            activeGalleryPage -
+            1,
+
             activeGalleryPage,
-            activeGalleryPage + 1,
+
+            activeGalleryPage +
+            1,
+
             "...",
+
             totalPages
+
         ];
+
     }
 
 
     /* =========================================================
-       RENDER PORTFOLIO PAGINATION
+    BUILD PAGINATION
     ========================================================= */
 
     function renderGalleryPagination(
@@ -1434,11 +2012,15 @@ const height = section.offsetHeight;
         if (
             !galleryPageNumbers
         ) {
+
             return;
+
         }
+
 
         galleryPageNumbers.innerHTML =
             "";
+
 
         getGalleryPaginationItems(
             totalPages
@@ -1447,7 +2029,8 @@ const height = section.offsetHeight;
             item => {
 
                 if (
-                    item === "..."
+                    item ===
+                    "..."
                 ) {
 
                     const ellipsis =
@@ -1455,18 +2038,23 @@ const height = section.offsetHeight;
                             "span"
                         );
 
+
                     ellipsis.className =
                         "gallery-page-ellipsis";
 
+
                     ellipsis.textContent =
                         "...";
+
 
                     galleryPageNumbers
                         .appendChild(
                             ellipsis
                         );
 
+
                     return;
+
                 }
 
 
@@ -1475,14 +2063,18 @@ const height = section.offsetHeight;
                         "button"
                     );
 
+
                 button.type =
                     "button";
+
 
                 button.className =
                     "gallery-page-number";
 
+
                 button.textContent =
                     item;
+
 
                 button.setAttribute(
                     "aria-label",
@@ -1499,10 +2091,12 @@ const height = section.offsetHeight;
                         "active"
                     );
 
+
                     button.setAttribute(
                         "aria-current",
                         "page"
                     );
+
                 }
 
 
@@ -1526,11 +2120,12 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
     /* =========================================================
-       ENABLE / DISABLE GALLERY ARROWS
+    UPDATE PAGINATION BUTTONS
     ========================================================= */
 
     function updateGalleryControls(
@@ -1549,6 +2144,7 @@ const height = section.offsetHeight;
                     button.disabled =
                         activeGalleryPage ===
                         1;
+
                 }
 
             }
@@ -1567,15 +2163,17 @@ const height = section.offsetHeight;
                     button.disabled =
                         activeGalleryPage ===
                         totalPages;
+
                 }
 
             }
         );
+
     }
 
 
     /* =========================================================
-       RENDER MY PORTFOLIO
+    RENDER GALLERY
     ========================================================= */
 
     function renderGallery(
@@ -1585,29 +2183,39 @@ const height = section.offsetHeight;
         if (
             !galleryItems.length
         ) {
+
             return;
+
         }
+
 
         const filteredItems =
             getFilteredGalleryItems();
 
+
         const totalItems =
             filteredItems.length;
 
+
         const totalPages =
             Math.max(
+
                 1,
+
                 Math.ceil(
                     totalItems /
                     galleryItemsPerPage
                 )
+
             );
+
 
         activeGalleryPage =
             Math.min(
                 activeGalleryPage,
                 totalPages
             );
+
 
         const startIndex =
             (
@@ -1616,11 +2224,15 @@ const height = section.offsetHeight;
             ) *
             galleryItemsPerPage;
 
+
         const endIndex =
             Math.min(
+
                 startIndex +
                 galleryItemsPerPage,
+
                 totalItems
+
             );
 
 
@@ -1649,9 +2261,7 @@ const height = section.offsetHeight;
             );
 
 
-        if (
-            galleryCount
-        ) {
+        if (galleryCount) {
 
             galleryCount.textContent =
                 totalItems
@@ -1659,12 +2269,14 @@ const height = section.offsetHeight;
                     `Showing ${startIndex + 1}-${endIndex} of ${totalItems} projects`
                     :
                     "No projects found";
+
         }
 
 
         renderGalleryPagination(
             totalPages
         );
+
 
         updateGalleryControls(
             totalPages
@@ -1678,14 +2290,18 @@ const height = section.offsetHeight;
 
             gallerySection.scrollIntoView(
                 {
+
                     behavior:
                         "smooth",
 
                     block:
                         "start"
+
                 }
             );
+
         }
+
     }
 
 
@@ -1697,14 +2313,16 @@ const height = section.offsetHeight;
         activeGalleryPage =
             page;
 
+
         renderGallery(
             shouldScroll
         );
+
     }
 
 
     /* =========================================================
-       GALLERY FILTER BUTTONS
+    GALLERY FILTER BUTTONS
     ========================================================= */
 
     galleryFilters.forEach(
@@ -1718,6 +2336,7 @@ const height = section.offsetHeight;
                         filter.dataset
                             .galleryFilter;
 
+
                     activeGalleryPage =
                         1;
 
@@ -1727,7 +2346,8 @@ const height = section.offsetHeight;
 
                             button.classList.toggle(
                                 "active",
-                                button === filter
+                                button ===
+                                filter
                             );
 
                         }
@@ -1746,12 +2366,10 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       GALLERY FIRST
+    GALLERY FIRST
     ========================================================= */
 
-    if (
-        galleryFirst
-    ) {
+    if (galleryFirst) {
 
         galleryFirst.addEventListener(
             "click",
@@ -1764,42 +2382,43 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
     /* =========================================================
-       GALLERY PREVIOUS
+    GALLERY PREVIOUS
     ========================================================= */
 
-    if (
-        galleryPrev
-    ) {
+    if (galleryPrev) {
 
         galleryPrev.addEventListener(
             "click",
             () => {
 
                 setGalleryPage(
+
                     Math.max(
                         1,
                         activeGalleryPage -
                         1
                     ),
+
                     true
+
                 );
 
             }
         );
+
     }
 
 
     /* =========================================================
-       GALLERY NEXT
+    GALLERY NEXT
     ========================================================= */
 
-    if (
-        galleryNext
-    ) {
+    if (galleryNext) {
 
         galleryNext.addEventListener(
             "click",
@@ -1807,36 +2426,41 @@ const height = section.offsetHeight;
 
                 const totalPages =
                     Math.max(
+
                         1,
+
                         Math.ceil(
                             getFilteredGalleryItems()
                                 .length /
                             galleryItemsPerPage
                         )
+
                     );
 
 
                 setGalleryPage(
+
                     Math.min(
                         totalPages,
                         activeGalleryPage +
                         1
                     ),
+
                     true
+
                 );
 
             }
         );
+
     }
 
 
     /* =========================================================
-       GALLERY LAST
+    GALLERY LAST
     ========================================================= */
 
-    if (
-        galleryLast
-    ) {
+    if (galleryLast) {
 
         galleryLast.addEventListener(
             "click",
@@ -1844,12 +2468,15 @@ const height = section.offsetHeight;
 
                 const totalPages =
                     Math.max(
+
                         1,
+
                         Math.ceil(
                             getFilteredGalleryItems()
                                 .length /
                             galleryItemsPerPage
                         )
+
                     );
 
 
@@ -1860,6 +2487,7 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
@@ -1869,23 +2497,28 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       DESKTOP HEADER SCROLL EFFECT
+    DESKTOP HEADER SCROLL
     ========================================================= */
 
     function updateHeader() {
 
-        if (!header) {
-            return;
-        }
+        if (!header) return;
+
 
         header.classList.toggle(
+
             "scrolled",
+
             window.scrollY >
             40
+
         );
+
     }
 
+
     updateHeader();
+
 
     window.addEventListener(
         "scroll",
@@ -1897,14 +2530,12 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       MOBILE BOTTOM NAVIGATION
-       HIDE WHEN SCROLL DOWN
-       SHOW WHEN SCROLL UP
-       SHOW WHEN SCREEN IS TOUCHED
+    MOBILE NAVIGATION
     ========================================================= */
 
     let previousScrollY =
         window.scrollY;
+
 
     let mobileScrollTicking =
         false;
@@ -1915,13 +2546,17 @@ const height = section.offsetHeight;
         if (
             !mobileBottomNav
         ) {
+
             return;
+
         }
+
 
         mobileBottomNav
             .classList.remove(
                 "nav-hidden"
             );
+
     }
 
 
@@ -1930,13 +2565,17 @@ const height = section.offsetHeight;
         if (
             !mobileBottomNav
         ) {
+
             return;
+
         }
+
 
         mobileBottomNav
             .classList.add(
                 "nav-hidden"
             );
+
     }
 
 
@@ -1945,7 +2584,9 @@ const height = section.offsetHeight;
         if (
             !mobileBottomNav
         ) {
+
             return;
+
         }
 
 
@@ -1956,10 +2597,13 @@ const height = section.offsetHeight;
 
             showMobileNavigation();
 
+
             previousScrollY =
                 window.scrollY;
 
+
             return;
+
         }
 
 
@@ -1968,6 +2612,7 @@ const height = section.offsetHeight;
                 window.scrollY,
                 0
             );
+
 
         const difference =
             currentScrollY -
@@ -1981,6 +2626,7 @@ const height = section.offsetHeight;
 
             showMobileNavigation();
 
+
         } else if (
             difference >
             7
@@ -1988,17 +2634,20 @@ const height = section.offsetHeight;
 
             hideMobileNavigation();
 
+
         } else if (
             difference <
             -5
         ) {
 
             showMobileNavigation();
+
         }
 
 
         previousScrollY =
             currentScrollY;
+
     }
 
 
@@ -2015,14 +2664,17 @@ const height = section.offsetHeight;
 
                         updateMobileNavigationVisibility();
 
+
                         mobileScrollTicking =
                             false;
 
                     }
                 );
 
+
                 mobileScrollTicking =
                     true;
+
             }
 
         },
@@ -2033,7 +2685,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       TAP SCREEN TO SHOW MOBILE NAV
+    TOUCH SCREEN SHOW MOBILE NAVIGATION
     ========================================================= */
 
     document.addEventListener(
@@ -2046,6 +2698,7 @@ const height = section.offsetHeight;
             ) {
 
                 showMobileNavigation();
+
             }
 
         },
@@ -2065,6 +2718,7 @@ const height = section.offsetHeight;
             ) {
 
                 showMobileNavigation();
+
             }
 
         },
@@ -2075,7 +2729,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       CUSTOM CURSOR
+    CUSTOM CURSOR
     ========================================================= */
 
     if (cursor) {
@@ -2086,6 +2740,7 @@ const height = section.offsetHeight;
 
                 cursor.style.left =
                     `${event.clientX}px`;
+
 
                 cursor.style.top =
                     `${event.clientY}px`;
@@ -2099,8 +2754,6 @@ const height = section.offsetHeight;
             a,
             button,
             .project-card,
-            .featured-slide,
-            .gallery-card,
             .about-stat,
             .hero-experience-card,
             .hire-tool-card,
@@ -2137,11 +2790,12 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
     /* =========================================================
-       SMOOTH INTERNAL LINKS
+    SMOOTH INTERNAL LINKS
     ========================================================= */
 
     document
@@ -2160,33 +2814,43 @@ const height = section.offsetHeight;
                                 "href"
                             );
 
+
                         if (
                             !href ||
-                            href === "#"
+                            href ===
+                            "#"
                         ) {
+
                             return;
+
                         }
+
 
                         const target =
                             document.querySelector(
                                 href
                             );
 
-                        if (
-                            !target
-                        ) {
+
+                        if (!target) {
+
                             return;
+
                         }
+
 
                         event.preventDefault();
 
+
                         target.scrollIntoView(
                             {
+
                                 behavior:
                                     "smooth",
 
                                 block:
                                     "start"
+
                             }
                         );
 
@@ -2198,7 +2862,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       ACTIVE NAVIGATION
+    ACTIVE NAVIGATION
     ========================================================= */
 
     const sections =
@@ -2206,10 +2870,12 @@ const height = section.offsetHeight;
             "section[id]"
         );
 
+
     const desktopNavLinks =
         document.querySelectorAll(
             ".nav-links a"
         );
+
 
     const mobileNavLinks =
         document.querySelectorAll(
@@ -2230,21 +2896,27 @@ const height = section.offsetHeight;
                     section.offsetTop -
                     220;
 
+
                 const sectionHeight =
                     section.offsetHeight;
 
 
                 if (
+
                     window.scrollY >=
                     sectionTop
+
                     &&
+
                     window.scrollY <
                     sectionTop +
                     sectionHeight
+
                 ) {
 
                     current =
                         section.id;
+
                 }
 
             }
@@ -2255,11 +2927,14 @@ const height = section.offsetHeight;
             link => {
 
                 link.classList.toggle(
+
                     "active",
+
                     link.getAttribute(
                         "href"
                     ) ===
                     `#${current}`
+
                 );
 
             }
@@ -2270,15 +2945,19 @@ const height = section.offsetHeight;
             link => {
 
                 link.classList.toggle(
+
                     "active",
+
                     link.getAttribute(
                         "href"
                     ) ===
                     `#${current}`
+
                 );
 
             }
         );
+
     }
 
 
@@ -2295,20 +2974,27 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       BACK TO TOP
+    BACK TO TOP
     ========================================================= */
 
     function updateBackToTop() {
 
         if (!backToTop) {
+
             return;
+
         }
 
+
         backToTop.classList.toggle(
+
             "show",
+
             window.scrollY >
             500
+
         );
+
     }
 
 
@@ -2325,7 +3011,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       SCROLL REVEAL
+    SCROLL REVEAL
     ========================================================= */
 
     const revealElements = [
@@ -2359,20 +3045,9 @@ const height = section.offsetHeight;
         ),
 
         ...document.querySelectorAll(
-            ".featured-slide"
-        ),
-
-        ...document.querySelectorAll(
-            ".portfolio-gallery-heading"
-        ),
-
-        ...document.querySelectorAll(
-            ".gallery-card"
-        ),
-
-        ...document.querySelectorAll(
             ".contact-container"
         )
+
     ];
 
 
@@ -2408,9 +3083,11 @@ const height = section.offsetHeight;
                                         "active"
                                     );
 
+
                                 observer.unobserve(
                                     entry.target
                                 );
+
                             }
 
                         }
@@ -2418,11 +3095,13 @@ const height = section.offsetHeight;
 
                 },
                 {
+
                     threshold:
                         .12,
 
                     rootMargin:
                         "0px 0px -40px 0px"
+
                 }
             );
 
@@ -2437,7 +3116,9 @@ const height = section.offsetHeight;
             }
         );
 
+
     } else {
+
 
         revealElements.forEach(
             element => {
@@ -2448,17 +3129,19 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
     /* =========================================================
-       ABOUT ME ANIMATED NUMBERS
+    ABOUT STATS ANIMATION
     ========================================================= */
 
     const statNumbers =
         document.querySelectorAll(
             ".stat-number"
         );
+
 
     let statsStarted =
         false;
@@ -2474,6 +3157,7 @@ const height = section.offsetHeight;
                     .number
             );
 
+
         const suffix =
             element.dataset
                 .suffix ||
@@ -2485,12 +3169,15 @@ const height = section.offsetHeight;
                 finalNumber
             )
         ) {
+
             return;
+
         }
 
 
         const duration =
             1400;
+
 
         const startTime =
             performance.now();
@@ -2502,12 +3189,15 @@ const height = section.offsetHeight;
 
             const progress =
                 Math.min(
+
                     (
                         currentTime -
                         startTime
                     ) /
                     duration,
+
                     1
+
                 );
 
 
@@ -2540,17 +3230,22 @@ const height = section.offsetHeight;
                     update
                 );
 
+
             } else {
+
 
                 element.textContent =
                     `${finalNumber}${suffix}`;
+
             }
+
         }
 
 
         requestAnimationFrame(
             update
         );
+
     }
 
 
@@ -2559,7 +3254,9 @@ const height = section.offsetHeight;
         if (
             statsStarted
         ) {
+
             return;
+
         }
 
 
@@ -2587,6 +3284,7 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
@@ -2615,8 +3313,10 @@ const height = section.offsetHeight;
 
                                 startStats();
 
+
                                 statsObserver
                                     .disconnect();
+
                             }
 
                         }
@@ -2634,14 +3334,17 @@ const height = section.offsetHeight;
             aboutStats
         );
 
+
     } else {
 
+
         startStats();
+
     }
 
 
     /* =========================================================
-       FEATURED PROJECT 3D HOVER
+    PORTFOLIO FEATURE CARDS 3D HOVER
     ========================================================= */
 
     document
@@ -2659,7 +3362,9 @@ const height = section.offsetHeight;
                             window.innerWidth <=
                             900
                         ) {
+
                             return;
+
                         }
 
 
@@ -2671,6 +3376,7 @@ const height = section.offsetHeight;
                             event.clientX -
                             rect.left;
 
+
                         const y =
                             event.clientY -
                             rect.top;
@@ -2679,6 +3385,7 @@ const height = section.offsetHeight;
                         const centerX =
                             rect.width /
                             2;
+
 
                         const centerY =
                             rect.height /
@@ -2734,7 +3441,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       HERO CODE MOUSE PARALLAX
+    HERO CODE BACKGROUND PARALLAX
     ========================================================= */
 
     if (
@@ -2750,7 +3457,9 @@ const height = section.offsetHeight;
                     window.innerWidth <=
                     900
                 ) {
+
                     return;
+
                 }
 
 
@@ -2808,11 +3517,12 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
     /* =========================================================
-       HERO PROFILE FLOAT / PARALLAX
+    HERO PROFILE FLOAT PARALLAX
     ========================================================= */
 
     const heroProfileStage =
@@ -2834,7 +3544,9 @@ const height = section.offsetHeight;
                     window.innerWidth <=
                     900
                 ) {
+
                     return;
+
                 }
 
 
@@ -2910,11 +3622,12 @@ const height = section.offsetHeight;
 
             }
         );
+
     }
 
 
     /* =========================================================
-       WINDOW RESIZE
+    RESPONSIVE RESIZE
     ========================================================= */
 
     let resizeTimer;
@@ -2933,19 +3646,8 @@ const height = section.offsetHeight;
                 setTimeout(
                     () => {
 
-                        /*
-                        Rebuild computer
-                        code background
-                        */
-
                         buildHeroCode();
 
-
-                        /*
-                        Remove desktop
-                        profile parallax
-                        on tablets/mobile
-                        */
 
                         if (
                             window.innerWidth <=
@@ -2965,15 +3667,9 @@ const height = section.offsetHeight;
                                     "--hero-move-y",
                                     "0px"
                                 );
+
                         }
 
-
-                        /*
-                        Make sure mobile
-                        navigation resets
-                        correctly when
-                        returning desktop
-                        */
 
                         if (
                             window.innerWidth >
@@ -2981,6 +3677,7 @@ const height = section.offsetHeight;
                         ) {
 
                             showMobileNavigation();
+
                         }
 
                     },
@@ -2992,7 +3689,7 @@ const height = section.offsetHeight;
 
 
     /* =========================================================
-       FOOTER COPYRIGHT YEAR
+    COPYRIGHT YEAR
     ========================================================= */
 
     const copyrightYear =
@@ -3001,13 +3698,12 @@ const height = section.offsetHeight;
         );
 
 
-    if (
-        copyrightYear
-    ) {
+    if (copyrightYear) {
 
         copyrightYear.textContent =
             new Date()
                 .getFullYear();
+
     }
 
 });
