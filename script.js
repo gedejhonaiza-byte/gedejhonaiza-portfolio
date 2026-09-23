@@ -409,7 +409,7 @@ const height = section.offsetHeight;
             }
         });
     });
-
+document.addEventListener("DOMContentLoaded", function () {
     const galleryFilters = document.querySelectorAll(".gallery-filter");
     const galleryItems = Array.from(document.querySelectorAll(".gallery-card"));
     const galleryCount = document.getElementById("galleryCount");
@@ -419,843 +419,137 @@ const height = section.offsetHeight;
     const galleryNext = document.getElementById("galleryNext");
     const galleryLast = document.getElementById("galleryLast");
     const gallerySection = document.getElementById("portfolio-gallery");
-
-    const galleryItemsPerPage = 6;
+    const featuredWorkSlider = document.querySelector(".featured-work-slider");
 
     let activeGalleryFilter = "all";
     let activeGalleryPage = 1;
+    const galleryItemsPerPage = 6;
+    let featuredSliderTimer = null;
+    let featuredSliderPaused = false;
 
     function getFilteredGalleryItems() {
-        return galleryItems.filter(item => {
-            return (
-                activeGalleryFilter === "all" ||
-                item.dataset.galleryCategory === activeGalleryFilter
-            );
+        return galleryItems.filter(function (item) {
+            return activeGalleryFilter === "all" || item.dataset.galleryCategory === activeGalleryFilter;
         });
     }
 
-    function getGalleryPaginationItems(totalPages) {
-        if (totalPages <= 5) {
-            return Array.from(
-                { length: totalPages },
-                (_, index) => index + 1
-            );
-        }
-
-        if (activeGalleryPage <= 3) {
-            return [1, 2, 3, 4, "...", totalPages];
-        }
-
-        if (activeGalleryPage >= totalPages - 2) {
-            return [
-                1,
-                "...",
-                totalPages - 3,
-                totalPages - 2,
-                totalPages - 1,
-                totalPages
-            ];
-        }
-
-        return [
-            1,
-            "...",
-            activeGalleryPage - 1,
-            activeGalleryPage,
-            activeGalleryPage + 1,
-            "...",
-            totalPages
-        ];
-    }
-
-    function renderGalleryPagination(totalPages) {
-        if (!galleryPageNumbers) return;
-
-        galleryPageNumbers.innerHTML = "";
-
-        getGalleryPaginationItems(totalPages).forEach(item => {
-            if (item === "...") {
-                const ellipsis = document.createElement("span");
-
-                ellipsis.className = "gallery-page-ellipsis";
-                ellipsis.textContent = "...";
-
-                galleryPageNumbers.appendChild(ellipsis);
-
-                return;
-            }
-
-            const button = document.createElement("button");
-
-            button.type = "button";
-            button.className = "gallery-page-number";
-            button.textContent = item;
-
-            button.setAttribute(
-                "aria-label",
-                `Go to portfolio page ${item}`
-            );
-
-            if (item === activeGalleryPage) {
-                button.classList.add("active");
-                button.setAttribute("aria-current", "page");
-            }
-
-            button.addEventListener("click", () => {
-                setGalleryPage(item, true);
-            });
-
-            galleryPageNumbers.appendChild(button);
-        });
-    }
-
-    function updateGalleryControls(totalPages) {
-        [galleryFirst, galleryPrev].forEach(button => {
-            if (button) {
-                button.disabled = activeGalleryPage === 1;
-            }
-        });
-
-        [galleryNext, galleryLast].forEach(button => {
-            if (button) {
-                button.disabled = activeGalleryPage === totalPages;
-            }
-        });
-    }
-
-    function renderGallery(shouldScroll) {
+    function renderGallery() {
         if (!galleryItems.length) return;
 
         const filteredItems = getFilteredGalleryItems();
-        const totalItems = filteredItems.length;
-
-        const totalPages = Math.max(
-            1,
-            Math.ceil(totalItems / galleryItemsPerPage)
-        );
+        const totalPages = Math.max(1, Math.ceil(filteredItems.length / galleryItemsPerPage));
 
         activeGalleryPage = Math.min(activeGalleryPage, totalPages);
 
         const startIndex = (activeGalleryPage - 1) * galleryItemsPerPage;
-        const endIndex = Math.min(
-            startIndex + galleryItemsPerPage,
-            totalItems
-        );
+        const endIndex = Math.min(startIndex + galleryItemsPerPage, filteredItems.length);
 
-        galleryItems.forEach(item => {
+        galleryItems.forEach(function (item) {
             item.hidden = true;
         });
 
-        filteredItems
-            .slice(startIndex, endIndex)
-            .forEach(item => {
-                item.hidden = false;
-            });
+        filteredItems.slice(startIndex, endIndex).forEach(function (item) {
+            item.hidden = false;
+        });
 
         if (galleryCount) {
-            galleryCount.textContent = totalItems
-                ? `Showing ${startIndex + 1}-${endIndex} of ${totalItems} projects`
+            galleryCount.textContent = filteredItems.length
+                ? "Showing " + (startIndex + 1) + "-" + endIndex + " of " + filteredItems.length + " projects"
                 : "No projects found";
         }
 
-        renderGalleryPagination(totalPages);
-        updateGalleryControls(totalPages);
+        if (galleryPageNumbers) {
+            galleryPageNumbers.innerHTML = "";
 
-        if (shouldScroll && gallerySection) {
-            gallerySection.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            for (let page = 1; page <= totalPages; page++) {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "gallery-page-number";
+                button.textContent = page;
+
+                if (page === activeGalleryPage) {
+                    button.classList.add("active");
+                }
+
+                button.addEventListener("click", function () {
+                    activeGalleryPage = page;
+                    renderGallery();
+
+                    if (gallerySection) {
+                        gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+
+                galleryPageNumbers.appendChild(button);
+            }
         }
+
+        if (galleryFirst) galleryFirst.disabled = activeGalleryPage === 1;
+        if (galleryPrev) galleryPrev.disabled = activeGalleryPage === 1;
+        if (galleryNext) galleryNext.disabled = activeGalleryPage === totalPages;
+        if (galleryLast) galleryLast.disabled = activeGalleryPage === totalPages;
     }
 
-    function setGalleryPage(page, shouldScroll) {
-        activeGalleryPage = page;
-        renderGallery(shouldScroll);
-    }
-
-    galleryFilters.forEach(filter => {
-        filter.addEventListener("click", () => {
+    galleryFilters.forEach(function (filter) {
+        filter.addEventListener("click", function () {
             activeGalleryFilter = filter.dataset.galleryFilter;
             activeGalleryPage = 1;
 
-            galleryFilters.forEach(button => {
+            galleryFilters.forEach(function (button) {
                 button.classList.toggle("active", button === filter);
             });
 
-            renderGallery(false);
+            renderGallery();
         });
     });
 
-    if (galleryFirst) {
-        galleryFirst.addEventListener("click", () => {
-            setGalleryPage(1, true);
-        });
-    }
-
-    if (galleryPrev) {
-        galleryPrev.addEventListener("click", () => {
-            setGalleryPage(
-                Math.max(1, activeGalleryPage - 1),
-                true
-            );
-        });
-    }
-
-    if (galleryNext) {
-        galleryNext.addEventListener("click", () => {
-            const totalPages = Math.max(
-                1,
-                Math.ceil(
-                    getFilteredGalleryItems().length / galleryItemsPerPage
-                )
-            );
-
-            setGalleryPage(
-                Math.min(totalPages, activeGalleryPage + 1),
-                true
-            );
-        });
-    }
-
-    if (galleryLast) {
-        galleryLast.addEventListener("click", () => {
-            const totalPages = Math.max(
-                1,
-                Math.ceil(
-                    getFilteredGalleryItems().length / galleryItemsPerPage
-                )
-            );
-
-            setGalleryPage(totalPages, true);
-        });
-    }
-
-    renderGallery(false);
-
-    function updateHeader() {
-        if (!header) return;
-
-        header.classList.toggle("scrolled", window.scrollY > 40);
-    }
-
-    updateHeader();
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        { passive: true }
-    );
-
-    let previousScrollY = window.scrollY;
-    let mobileScrollTicking = false;
-
-    function showMobileNavigation() {
-        if (!mobileBottomNav) return;
-
-        mobileBottomNav.classList.remove("nav-hidden");
-    }
-
-    function hideMobileNavigation() {
-        if (!mobileBottomNav) return;
-
-        mobileBottomNav.classList.add("nav-hidden");
-    }
-
-    function updateMobileNavigationVisibility() {
-        if (!mobileBottomNav) return;
-
-        if (window.innerWidth > 767) {
-            showMobileNavigation();
-            previousScrollY = window.scrollY;
-            return;
-        }
-
-        const currentScrollY = Math.max(window.scrollY, 0);
-        const difference = currentScrollY - previousScrollY;
-
-        if (currentScrollY <= 35) {
-            showMobileNavigation();
-        } else if (difference > 7) {
-            hideMobileNavigation();
-        } else if (difference < -5) {
-            showMobileNavigation();
-        }
-
-        previousScrollY = currentScrollY;
-    }
-
-    window.addEventListener(
-        "scroll",
-        () => {
-            if (!mobileScrollTicking) {
-                window.requestAnimationFrame(() => {
-                    updateMobileNavigationVisibility();
-                    mobileScrollTicking = false;
-                });
-
-                mobileScrollTicking = true;
-            }
-        },
-        { passive: true }
-    );
-
-    document.addEventListener(
-        "pointerdown",
-        () => {
-            if (window.innerWidth <= 767) {
-                showMobileNavigation();
-            }
-        },
-        { passive: true }
-    );
-
-    document.addEventListener(
-        "touchstart",
-        () => {
-            if (window.innerWidth <= 767) {
-                showMobileNavigation();
-            }
-        },
-        { passive: true }
-    );
-
-    if (cursor) {
-        document.addEventListener("mousemove", event => {
-            cursor.style.left = `${event.clientX}px`;
-            cursor.style.top = `${event.clientY}px`;
-        });
-
-        document.querySelectorAll(
-            `
-            a,
-            button,
-            .project-card,
-            .about-stat,
-            .hero-experience-card,
-            .hire-tool-card,
-            .experience-card,
-            .education-card,
-            .achievement-card
-            `
-        )
-        .forEach(item => {
-            item.addEventListener("mouseenter", () => {
-                cursor.classList.add("active");
-            });
-
-            item.addEventListener("mouseleave", () => {
-                cursor.classList.remove("active");
-            });
-        });
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener("click", event => {
-            const href = link.getAttribute("href");
-
-            if (!href || href === "#") return;
-
-            const target = document.querySelector(href);
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
-    });
-
-    const sections = document.querySelectorAll("section[id]");
-    const desktopNavLinks = document.querySelectorAll(".nav-links a");
-    const mobileNavLinks = document.querySelectorAll(".mobile-bottom-link");
-
-    function updateNavigation() {
-        let current = "home";
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 220;
-            const sectionHeight = section.offsetHeight;
-
-            if (
-                window.scrollY >= sectionTop &&
-                window.scrollY < sectionTop + sectionHeight
-            ) {
-                current = section.id;
-            }
-        });
-
-        desktopNavLinks.forEach(link => {
-            link.classList.toggle(
-                "active",
-                link.getAttribute("href") === `#${current}`
-            );
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.classList.toggle(
-                "active",
-                link.getAttribute("href") === `#${current}`
-            );
-        });
-    }
-
-    updateNavigation();
-
-    window.addEventListener(
-        "scroll",
-        updateNavigation,
-        { passive: true }
-    );
-
-    function updateBackToTop() {
-        if (!backToTop) return;
-
-        backToTop.classList.toggle("show", window.scrollY > 500);
-    }
-
-    updateBackToTop();
-
-    window.addEventListener(
-        "scroll",
-        updateBackToTop,
-        { passive: true }
-    );
-
-    const revealElements = [
-        ...document.querySelectorAll(".section-heading"),
-        ...document.querySelectorAll(".about-visual"),
-        ...document.querySelectorAll(".about-content"),
-        ...document.querySelectorAll(".about-stat"),
-        ...document.querySelectorAll(".hire-sidebar"),
-        ...document.querySelectorAll(".hire-content-window"),
-        ...document.querySelectorAll(".project-card"),
-        ...document.querySelectorAll(".contact-container")
-    ];
-
-    revealElements.forEach(element => {
-        element.classList.add("reveal");
-    });
-
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("active");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: .12,
-                rootMargin: "0px 0px -40px 0px"
-            }
-        );
-
-        revealElements.forEach(element => {
-            observer.observe(element);
-        });
-    } else {
-        revealElements.forEach(element => {
-            element.classList.add("active");
-        });
-    }
-
-    const statNumbers = document.querySelectorAll(".stat-number");
-
-    let statsStarted = false;
-
-    function animateStat(element) {
-        const finalNumber = Number(element.dataset.number);
-        const suffix = element.dataset.suffix || "";
-
-        if (Number.isNaN(finalNumber)) return;
-
-        const duration = 1400;
-        const startTime = performance.now();
-
-        function update(currentTime) {
-            const progress = Math.min(
-                (currentTime - startTime) / duration,
-                1
-            );
-
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const currentValue = Math.round(finalNumber * eased);
-
-            element.textContent = `${currentValue}${suffix}`;
-
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            } else {
-                element.textContent = `${finalNumber}${suffix}`;
-            }
-        }
-
-        requestAnimationFrame(update);
-    }
-
-    function startStats() {
-        if (statsStarted) return;
-
-        statsStarted = true;
-
-        statNumbers.forEach((element, index) => {
-            setTimeout(() => {
-                animateStat(element);
-            }, index * 140);
-        });
-    }
-
-    const aboutStats = document.querySelector(".about-stats");
-
-    if (aboutStats && "IntersectionObserver" in window) {
-        const statsObserver = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        startStats();
-                        statsObserver.disconnect();
-                    }
-                });
-            },
-            {
-                threshold: .35
-            }
-        );
-
-        statsObserver.observe(aboutStats);
-    } else {
-        startStats();
-    }
-
-    document.querySelectorAll(".project-card").forEach(card => {
-        card.addEventListener("mousemove", event => {
-            if (window.innerWidth <= 900) return;
-
-            const rect = card.getBoundingClientRect();
-
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -1.2;
-            const rotateY = ((x - centerX) / centerX) * 1.2;
-
-            card.style.transform = `
-                perspective(1200px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                translateY(-8px)
-            `;
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.style.transform = "";
-        });
-    });
-
-    if (hero && heroCodeBackground) {
-        hero.addEventListener("mousemove", event => {
-            if (window.innerWidth <= 900) return;
-
-            const rect = hero.getBoundingClientRect();
-
-            const x = (event.clientX - rect.left) / rect.width;
-            const y = (event.clientY - rect.top) / rect.height;
-
-            const moveX = (x - .5) * -12;
-            const moveY = (y - .5) * -8;
-
-            heroCodeBackground.style.transform =
-                `translate3d(${moveX}px, ${moveY}px, 0)`;
-        });
-
-        hero.addEventListener("mouseleave", () => {
-            heroCodeBackground.style.transform = "translate3d(0,0,0)";
-        });
-    }
-
-    const heroProfileStage = document.querySelector(".hero-profile-stage");
-
-    if (hero && heroProfileStage) {
-        hero.addEventListener("mousemove", event => {
-            if (window.innerWidth <= 900) return;
-
-            const rect = hero.getBoundingClientRect();
-
-            const x = (event.clientX - rect.left) / rect.width;
-            const y = (event.clientY - rect.top) / rect.height;
-
-            const moveX = (x - .5) * 7;
-            const moveY = (y - .5) * 6;
-
-            heroProfileStage.style.setProperty(
-                "--hero-move-x",
-                `${moveX}px`
-            );
-
-            heroProfileStage.style.setProperty(
-                "--hero-move-y",
-                `${moveY}px`
-            );
-        });
-
-        hero.addEventListener("mouseleave", () => {
-            heroProfileStage.style.setProperty("--hero-move-x", "0px");
-            heroProfileStage.style.setProperty("--hero-move-y", "0px");
-        });
-    }
-
-    let resizeTimer;
-
-    window.addEventListener("resize", () => {
-        clearTimeout(resizeTimer);
-
-        resizeTimer = setTimeout(() => {
-            buildHeroCode();
-
-            if (window.innerWidth <= 900 && heroProfileStage) {
-                heroProfileStage.style.setProperty("--hero-move-x", "0px");
-                heroProfileStage.style.setProperty("--hero-move-y", "0px");
-            }
-
-            if (window.innerWidth > 767) {
-                showMobileNavigation();
-            }
-        }, 280);
-    });
-
-    const copyrightYear = document.getElementById("copyrightYear");
-
-    if (copyrightYear) {
-        copyrightYear.textContent = new Date().getFullYear();
-    }
-    const galleryFilters = document.querySelectorAll(".gallery-filter");
-const galleryItems = Array.from(document.querySelectorAll(".gallery-card"));
-const galleryCount = document.getElementById("galleryCount");
-const galleryPageNumbers = document.getElementById("galleryPageNumbers");
-const galleryFirst = document.getElementById("galleryFirst");
-const galleryPrev = document.getElementById("galleryPrev");
-const galleryNext = document.getElementById("galleryNext");
-const galleryLast = document.getElementById("galleryLast");
-const gallerySection = document.getElementById("portfolio-gallery");
-const galleryItemsPerPage = 6;
-
-let activeGalleryFilter = "all";
-let activeGalleryPage = 1;
-
-function getFilteredGalleryItems(){
-    return galleryItems.filter(item => activeGalleryFilter === "all" || item.dataset.galleryCategory === activeGalleryFilter);
-}
-
-function getGalleryPaginationItems(totalPages){
-    if(totalPages <= 5){
-        return Array.from({length:totalPages},(_,index) => index + 1);
-    }
-
-    if(activeGalleryPage <= 3){
-        return [1,2,3,4,"...",totalPages];
-    }
-
-    if(activeGalleryPage >= totalPages - 2){
-        return [1,"...",totalPages - 3,totalPages - 2,totalPages - 1,totalPages];
-    }
-
-    return [1,"...",activeGalleryPage - 1,activeGalleryPage,activeGalleryPage + 1,"...",totalPages];
-}
-
-function renderGalleryPagination(totalPages){
-    if(!galleryPageNumbers){
-        return;
-    }
-
-    galleryPageNumbers.innerHTML = "";
-
-    getGalleryPaginationItems(totalPages).forEach(item => {
-        if(item === "..."){
-            const ellipsis = document.createElement("span");
-            ellipsis.className = "gallery-page-ellipsis";
-            ellipsis.textContent = "...";
-            galleryPageNumbers.appendChild(ellipsis);
-            return;
-        }
-
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "gallery-page-number";
-        button.textContent = item;
-        button.setAttribute("aria-label",`Go to portfolio page ${item}`);
-
-        if(item === activeGalleryPage){
-            button.classList.add("active");
-            button.setAttribute("aria-current","page");
-        }
-
-        button.addEventListener("click",() => setGalleryPage(item,true));
-        galleryPageNumbers.appendChild(button);
-    });
-}
-
-function updateGalleryControls(totalPages){
-    [galleryFirst,galleryPrev].forEach(button => {
-        if(button){
-            button.disabled = activeGalleryPage === 1;
-        }
-    });
-
-    [galleryNext,galleryLast].forEach(button => {
-        if(button){
-            button.disabled = activeGalleryPage === totalPages;
-        }
-    });
-}
-
-function renderGallery(shouldScroll){
-    if(!galleryItems.length){
-        return;
-    }
-
-    const filteredItems = getFilteredGalleryItems();
-    const totalItems = filteredItems.length;
-    const totalPages = Math.max(1,Math.ceil(totalItems / galleryItemsPerPage));
-
-    activeGalleryPage = Math.min(activeGalleryPage,totalPages);
-
-    const startIndex = (activeGalleryPage - 1) * galleryItemsPerPage;
-    const endIndex = Math.min(startIndex + galleryItemsPerPage,totalItems);
-
-    galleryItems.forEach(item => {
-        item.hidden = true;
-    });
-
-    filteredItems.slice(startIndex,endIndex).forEach(item => {
-        item.hidden = false;
-    });
-
-    if(galleryCount){
-        galleryCount.textContent = totalItems
-            ? `Showing ${startIndex + 1}-${endIndex} of ${totalItems} projects`
-            : "No projects found";
-    }
-
-    renderGalleryPagination(totalPages);
-    updateGalleryControls(totalPages);
-
-    if(shouldScroll && gallerySection){
-        gallerySection.scrollIntoView({behavior:"smooth",block:"start"});
-    }
-}
-
-function setGalleryPage(page,shouldScroll){
-    activeGalleryPage = page;
-    renderGallery(shouldScroll);
-}
-
-galleryFilters.forEach(filter => {
-    filter.addEventListener("click",() => {
-        activeGalleryFilter = filter.dataset.galleryFilter;
+    if (galleryFirst) galleryFirst.addEventListener("click", function () {
         activeGalleryPage = 1;
+        renderGallery();
+    });
 
-        galleryFilters.forEach(button => {
-            button.classList.toggle("active",button === filter);
+    if (galleryPrev) galleryPrev.addEventListener("click", function () {
+        activeGalleryPage = Math.max(1, activeGalleryPage - 1);
+        renderGallery();
+    });
+
+    if (galleryNext) galleryNext.addEventListener("click", function () {
+        const totalPages = Math.max(1, Math.ceil(getFilteredGalleryItems().length / galleryItemsPerPage));
+        activeGalleryPage = Math.min(totalPages, activeGalleryPage + 1);
+        renderGallery();
+    });
+
+    if (galleryLast) galleryLast.addEventListener("click", function () {
+        activeGalleryPage = Math.max(1, Math.ceil(getFilteredGalleryItems().length / galleryItemsPerPage));
+        renderGallery();
+    });
+
+    function slideFeaturedWork() {
+        if (!featuredWorkSlider || featuredSliderPaused) return;
+        if (featuredWorkSlider.scrollWidth <= featuredWorkSlider.clientWidth) return;
+
+        const firstCard = featuredWorkSlider.querySelector(".project-card");
+        const distance = firstCard ? firstCard.offsetWidth + 22 : 340;
+        const nearEnd = featuredWorkSlider.scrollLeft + featuredWorkSlider.clientWidth >= featuredWorkSlider.scrollWidth - 12;
+
+        if (nearEnd) {
+            featuredWorkSlider.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+            featuredWorkSlider.scrollBy({ left: distance, behavior: "smooth" });
+        }
+    }
+
+    if (featuredWorkSlider) {
+        featuredWorkSlider.addEventListener("mouseenter", function () {
+            featuredSliderPaused = true;
         });
 
-        renderGallery(false);
-    });
-});
+        featuredWorkSlider.addEventListener("mouseleave", function () {
+            featuredSliderPaused = false;
+        });
 
-if(galleryFirst){
-    galleryFirst.addEventListener("click",() => setGalleryPage(1,true));
-}
-
-if(galleryPrev){
-    galleryPrev.addEventListener("click",() => setGalleryPage(Math.max(1,activeGalleryPage - 1),true));
-}
-
-if(galleryNext){
-    galleryNext.addEventListener("click",() => {
-        const totalPages = Math.max(1,Math.ceil(getFilteredGalleryItems().length / galleryItemsPerPage));
-        setGalleryPage(Math.min(totalPages,activeGalleryPage + 1),true);
-    });
-}
-
-if(galleryLast){
-    galleryLast.addEventListener("click",() => {
-        const totalPages = Math.max(1,Math.ceil(getFilteredGalleryItems().length / galleryItemsPerPage));
-        setGalleryPage(totalPages,true);
-    });
-}
-
-renderGallery(false);
-
-const featuredWorkSlider = document.querySelector(".featured-work-slider");
-let featuredSliderTimer = null;
-let featuredSliderPaused = false;
-
-function getFeaturedSlideDistance(){
-    if(!featuredWorkSlider){
-        return 0;
+        featuredSliderTimer = setInterval(slideFeaturedWork, 3600);
     }
 
-    const firstCard = featuredWorkSlider.querySelector(".project-card");
-
-    if(!firstCard){
-        return 0;
-    }
-
-    const sliderStyles = window.getComputedStyle(featuredWorkSlider);
-    const gap = parseFloat(sliderStyles.columnGap || sliderStyles.gap || "0") || 0;
-
-    return firstCard.getBoundingClientRect().width + gap;
-}
-
-function slideFeaturedWork(){
-    if(!featuredWorkSlider || featuredSliderPaused || featuredWorkSlider.scrollWidth <= featuredWorkSlider.clientWidth){
-        return;
-    }
-
-    const nearEnd = featuredWorkSlider.scrollLeft + featuredWorkSlider.clientWidth >= featuredWorkSlider.scrollWidth - 12;
-
-    if(nearEnd){
-        featuredWorkSlider.scrollTo({left:0,behavior:"smooth"});
-        return;
-    }
-
-    featuredWorkSlider.scrollBy({left:getFeaturedSlideDistance(),behavior:"smooth"});
-}
-
-function startFeaturedSlider(){
-    if(!featuredWorkSlider || window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-        return;
-    }
-
-    clearInterval(featuredSliderTimer);
-    featuredSliderTimer = setInterval(slideFeaturedWork,3600);
-}
-
-function pauseFeaturedSlider(){
-    featuredSliderPaused = true;
-}
-
-function resumeFeaturedSlider(){
-    featuredSliderPaused = false;
-}
-
-if(featuredWorkSlider){
-    featuredWorkSlider.addEventListener("mouseenter",pauseFeaturedSlider);
-    featuredWorkSlider.addEventListener("mouseleave",resumeFeaturedSlider);
-    featuredWorkSlider.addEventListener("focusin",pauseFeaturedSlider);
-    featuredWorkSlider.addEventListener("focusout",resumeFeaturedSlider);
-    featuredWorkSlider.addEventListener("touchstart",pauseFeaturedSlider,{passive:true});
-    featuredWorkSlider.addEventListener("touchend",resumeFeaturedSlider,{passive:true});
-
-    startFeaturedSlider();
-}
+    renderGallery();
 });
