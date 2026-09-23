@@ -5538,3 +5538,392 @@ SMALL MOBILE
     }
 
 }
+/* =========================================================
+CONTACT HEADING RESTORE
+========================================================= */
+
+.contact-main-heading{
+    margin:0 auto 35px;
+
+    font-size:clamp(42px,5vw,72px);
+
+    line-height:1.08;
+
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+    text-align:center;
+
+    color:#fff;
+}
+
+
+.contact-main-heading span{
+    color:#D7B56D;
+}
+
+
+
+/* =========================================================
+CONTACT INFO CARDS
+========================================================= */
+
+.contact-info-grid{
+    width:100%;
+    max-width:1200px;
+
+    margin:45px auto 50px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:28px;
+}
+
+
+.contact-info-card{
+    --card-glow:#D7B56D;
+
+    position:relative;
+
+    min-height:138px;
+
+    padding:25px 27px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:18px;
+
+    background:#1d1d1d;
+
+    text-align:left;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+
+/* WHATSAPP GREEN */
+
+.contact-whatsapp{
+    --card-glow:#32d879;
+}
+
+
+/* EMAIL SOFT RED */
+
+.contact-email-card{
+    --card-glow:#ff7474;
+}
+
+
+/* LOCATION GOLD */
+
+.contact-location-card{
+    --card-glow:#D7B56D;
+}
+
+
+
+/* =========================================================
+BACKLIGHT / SAME COLOR AS ICON
+========================================================= */
+
+.contact-info-card::after{
+    content:"";
+
+    position:absolute;
+
+    left:8%;
+    right:8%;
+
+    bottom:-10px;
+
+    height:35px;
+
+    border-radius:50%;
+
+    background:var(--card-glow);
+
+    opacity:0;
+
+    filter:blur(25px);
+
+    pointer-events:none;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+
+.contact-info-card:hover{
+    transform:translateY(-7px);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--card-glow) 55%,
+            transparent
+        );
+
+    box-shadow:
+        0 16px 30px rgba(0,0,0,.40),
+        0 6px 20px
+        color-mix(
+            in srgb,
+            var(--card-glow) 35%,
+            transparent
+        );
+}
+
+
+.contact-info-card:hover::after{
+    opacity:.8;
+
+    transform:translateY(-4px);
+}
+
+
+
+/* =========================================================
+TOP ROW
+========================================================= */
+
+.contact-card-top{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+
+
+/* =========================================================
+MAIN ICON
+========================================================= */
+
+.contact-main-icon{
+    width:31px;
+    height:31px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:var(--card-glow);
+
+    text-decoration:none;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+
+.contact-main-icon svg{
+    width:27px;
+    height:27px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+}
+
+
+.contact-info-card:hover .contact-main-icon{
+    transform:
+        translateY(-3px)
+        scale(1.1);
+
+    filter:
+        drop-shadow(
+            0 0 9px
+            var(--card-glow)
+        );
+}
+
+
+
+/* =========================================================
+COPY BUTTON
+========================================================= */
+
+.contact-copy-btn{
+    width:32px;
+    height:32px;
+
+    padding:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:transparent;
+
+    color:#969ba4;
+
+    cursor:pointer;
+
+    transition:
+        color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+
+.contact-copy-btn svg{
+    width:16px;
+    height:16px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+}
+
+
+.contact-copy-btn:hover{
+    color:var(--card-glow);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--card-glow) 10%,
+            transparent
+        );
+
+    transform:translateY(-2px);
+}
+
+
+.contact-copy-btn.copied{
+    color:var(--card-glow);
+}
+
+
+
+/* =========================================================
+CONTACT VALUE
+========================================================= */
+
+.contact-info-value{
+    margin-top:20px;
+
+    font-size:clamp(15px,1.4vw,19px);
+
+    font-weight:600;
+
+    line-height:1.45;
+
+    color:#fff;
+
+    text-align:center;
+
+    overflow-wrap:anywhere;
+}
+
+
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media(max-width:1024px){
+
+    .contact-info-grid{
+        gap:18px;
+    }
+
+
+    .contact-info-card{
+        padding:22px 20px;
+
+        min-height:125px;
+    }
+
+
+    .contact-info-value{
+        font-size:14px;
+    }
+
+}
+
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media(max-width:767px){
+
+    .contact-main-heading{
+        margin-bottom:30px;
+
+        font-size:clamp(38px,11vw,56px);
+
+        letter-spacing:-1.5px;
+    }
+
+
+    .contact-info-grid{
+        max-width:520px;
+
+        margin:
+            35px
+            auto
+            40px;
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+
+    .contact-info-card{
+        min-height:115px;
+
+        padding:20px 21px;
+    }
+
+
+    .contact-info-value{
+        font-size:14px;
+    }
+
+}
