@@ -1695,7 +1695,7 @@ SERVICES
 
 .hire-panel-heading h3{
     font-size:clamp(31px,3.3vw,48px);
-    color:#fff;
+    color:var(--gold);
 }
 
 .hire-panel-heading > p:last-child{
@@ -1749,7 +1749,7 @@ SKILLS GROUPS
     align-items:center;
     justify-content:center;
     gap:8px;
-    color:#F6C90E;
+    color:#fff;
     font-size:14px;
     font-weight:700;
     line-height:1.2;
