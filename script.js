@@ -640,7 +640,7 @@ const height = section.offsetHeight;
     ========================================================= */
 
     const loaderDuration =
-        6500;
+        6000;
 
 
     const loaderStartTime =
