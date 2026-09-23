@@ -3752,6 +3752,181 @@ All Rights Reserved.
 
 <script src="script.js"></script>
 
+<script>
+(function () {
+    function forceOpenSite() {
+        var loader = document.querySelector(".loader");
+        var progress = document.getElementById("loaderProgress");
+        var percent = document.getElementById("loaderPercent");
+
+        if (progress) {
+            progress.style.width = "100%";
+        }
+
+        if (percent) {
+            percent.textContent = "100%";
+        }
+
+        document.body.classList.remove("loader-active");
+
+        if (loader) {
+            loader.classList.add("hide");
+
+            setTimeout(function () {
+                loader.style.display = "none";
+            }, 700);
+        }
+    }
+
+    function scrollToPortfolioHash() {
+        if (!window.location.hash) {
+            return;
+        }
+
+        var target = document.querySelector(window.location.hash);
+
+        if (target) {
+            setTimeout(function () {
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }, 900);
+        }
+    }
+
+    function initPortfolioGallery() {
+        var filters = document.querySelectorAll(".gallery-filter");
+        var cards = Array.from(document.querySelectorAll(".gallery-card"));
+        var count = document.getElementById("galleryCount");
+        var numbers = document.getElementById("galleryPageNumbers");
+        var first = document.getElementById("galleryFirst");
+        var prev = document.getElementById("galleryPrev");
+        var next = document.getElementById("galleryNext");
+        var last = document.getElementById("galleryLast");
+
+        var activeFilter = "all";
+        var activePage = 1;
+        var perPage = 6;
+
+        function filteredCards() {
+            return cards.filter(function (card) {
+                return activeFilter === "all" || card.dataset.galleryCategory === activeFilter;
+            });
+        }
+
+        function renderGallery() {
+            var visibleCards = filteredCards();
+            var totalPages = Math.max(1, Math.ceil(visibleCards.length / perPage));
+            var start = (activePage - 1) * perPage;
+            var end = Math.min(start + perPage, visibleCards.length);
+
+            activePage = Math.min(activePage, totalPages);
+
+            cards.forEach(function (card) {
+                card.hidden = true;
+            });
+
+            visibleCards.slice(start, end).forEach(function (card) {
+                card.hidden = false;
+            });
+
+            if (count) {
+                count.textContent = visibleCards.length
+                    ? "Showing " + (start + 1) + "-" + end + " of " + visibleCards.length + " projects"
+                    : "No projects found";
+            }
+
+            if (numbers) {
+                numbers.innerHTML = "";
+
+                for (var page = 1; page <= totalPages; page++) {
+                    var button = document.createElement("button");
+                    button.type = "button";
+                    button.className = "gallery-page-number";
+                    button.textContent = page;
+
+                    if (page === activePage) {
+                        button.classList.add("active");
+                    }
+
+                    button.addEventListener("click", function () {
+                        activePage = Number(this.textContent);
+                        renderGallery();
+                    });
+
+                    numbers.appendChild(button);
+                }
+            }
+
+            if (first) first.disabled = activePage === 1;
+            if (prev) prev.disabled = activePage === 1;
+            if (next) next.disabled = activePage === totalPages;
+            if (last) last.disabled = activePage === totalPages;
+        }
+
+        filters.forEach(function (filter) {
+            filter.addEventListener("click", function () {
+                activeFilter = filter.dataset.galleryFilter;
+                activePage = 1;
+
+                filters.forEach(function (btn) {
+                    btn.classList.toggle("active", btn === filter);
+                });
+
+                renderGallery();
+            });
+        });
+
+        if (first) {
+            first.addEventListener("click", function () {
+                activePage = 1;
+                renderGallery();
+            });
+        }
+
+        if (prev) {
+            prev.addEventListener("click", function () {
+                activePage = Math.max(1, activePage - 1);
+                renderGallery();
+            });
+        }
+
+        if (next) {
+            next.addEventListener("click", function () {
+                activePage = activePage + 1;
+                renderGallery();
+            });
+        }
+
+        if (last) {
+            last.addEventListener("click", function () {
+                activePage = Math.max(1, Math.ceil(filteredCards().length / perPage));
+                renderGallery();
+            });
+        }
+
+        renderGallery();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        forceOpenSite();
+        initPortfolioGallery();
+        scrollToPortfolioHash();
+    });
+
+    window.addEventListener("load", function () {
+        forceOpenSite();
+        scrollToPortfolioHash();
+    });
+
+    setTimeout(forceOpenSite, 2500);
+})();
+</script>
+
+</body>
+</html>
+
 
 </body>
 </html>
