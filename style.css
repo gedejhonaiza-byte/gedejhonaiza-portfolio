@@ -4893,3 +4893,85 @@ RESPONSIVE SAFETY
         opacity:1;
     }
 }
+/* =========================================================
+MY PORTFOLIO PARAGRAPH ALIGNMENT FIX
+========================================================= */
+
+.portfolio-gallery-heading{
+    width:100%;
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+}
+
+
+/* PARAGRAPH */
+.portfolio-gallery-heading .section-intro{
+    width:100%;
+    max-width:940px;
+
+    margin:0 auto;
+
+    padding:0 20px;
+
+    text-align:center;
+
+    font-size:17px;
+    line-height:1.9;
+
+    color:#aaa8ad;
+
+    /* makes both lines visually balanced */
+    text-wrap:balance;
+}
+
+
+/* TABLET */
+@media(max-width:1024px){
+
+    .portfolio-gallery-heading .section-intro{
+        max-width:760px;
+        padding:0 15px;
+
+        font-size:15px;
+        line-height:1.8;
+    }
+
+}
+
+
+/* MOBILE */
+@media(max-width:767px){
+
+    .portfolio-gallery-heading .section-intro{
+        width:100%;
+        max-width:560px;
+
+        padding:0 5px;
+
+        font-size:13px;
+        line-height:1.75;
+
+        text-align:center;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+@media(max-width:430px){
+
+    .portfolio-gallery-heading .section-intro{
+        max-width:340px;
+
+        font-size:12px;
+        line-height:1.7;
+    }
+
+}
