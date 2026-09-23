@@ -282,7 +282,7 @@ DESKTOP HEADER
 
 
 <a
-    href="#MyPortfolio"
+    href="#home"
     class="logo"
     aria-label="Jhonaiza Gede Home"
 >
@@ -293,7 +293,7 @@ JG
 <ul class="nav-links">
 
 <li>
-<a href="#MyPortfolio">
+<a href="#home">
 Home
 </a>
 </li>
@@ -311,7 +311,7 @@ Services
 </li>
 
 <li>
-<a href="#projects">
+<a href="#MyPortfolio">
 Portfolio
 </a>
 </li>
@@ -407,7 +407,7 @@ Services
 
 
 <a
-    href="#projects"
+    href="#MyPortfolio"
     class="mobile-bottom-link"
 >
 
@@ -478,7 +478,7 @@ HERO
 
 <section
     class="hero"
-    id="MyPortfolio"
+    id="home"
 >
 
 
@@ -750,7 +750,7 @@ View CV
 
 
 <a
-    href="#projects"
+    href="#MyPortfolio"
     class="hero-project-link hero-icon-button"
 >
 
@@ -3423,16 +3423,16 @@ and modern creative technology.
 
 
 <!-- =====================================================
-PORTFOLIO
+FEATURED WORK — AUTO SLIDER
 ===================================================== -->
 
 <section
     class="section projects-section"
-    id="projects"
+    id="featured-work"
 >
 
 
-<div class="section-heading">
+<div class="section-heading featured-work-heading">
 
 
 <p class="section-label">
@@ -3441,16 +3441,16 @@ FEATURED WORK
 
 
 <h2>
-Selected Portfolio
+Selected Projects
 </h2>
 
 
 <p class="section-intro">
 
-A collection of websites, interactive experiences,
-visual designs, branding concepts, and digital
-solutions created with clarity, creativity,
-functionality, and impact.
+A curated selection of websites, creative design,
+branding, SEO, and digital experiences. The six
+medium cards slide automatically and pause when
+you hover, focus, or touch the slider.
 
 </p>
 
@@ -3458,11 +3458,39 @@ functionality, and impact.
 </div>
 
 
+<div class="featured-slider-shell">
 
-<div class="project-grid">
+
+<button
+    class="featured-arrow featured-prev"
+    id="featuredPrev"
+    type="button"
+    aria-label="Previous featured projects"
+>
+
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="m15 5-7 7 7 7"></path>
+</svg>
+
+</button>
 
 
-<article class="project-card featured-project-card">
+<div
+    class="featured-slider"
+    id="featuredSlider"
+    aria-label="Featured project slider"
+>
+
+
+<div
+    class="featured-track"
+    id="featuredTrack"
+>
+
+
+<!-- 01 — FILEFLOW -->
+
+<article class="project-card featured-slide featured-project-card">
 
 
 <a
@@ -3516,9 +3544,8 @@ FileFlow — Modern File Manager
 <p>
 
 A responsive file management dashboard featuring
-file search, grid and list views, folders,
-favorites, sorting, uploads, storage tracking,
-local persistence, and interactive controls.
+search, grid and list views, folders, uploads,
+sorting, favorites, and interactive controls.
 
 </p>
 
@@ -3526,12 +3553,8 @@ local persistence, and interactive controls.
 <div class="project-tech">
 
 <span>HTML</span>
-
 <span>CSS</span>
-
 <span>JavaScript</span>
-
-<span>Responsive</span>
 
 </div>
 
@@ -3554,8 +3577,9 @@ VIEW LIVE PROJECT
 </article>
 
 
+<!-- 02 — PORTFOLIO WEBSITE -->
 
-<article class="project-card">
+<article class="project-card featured-slide">
 
 
 <div class="project-image">
@@ -3595,10 +3619,9 @@ Premium Portfolio Website
 
 <p>
 
-A sophisticated personal portfolio experience
-combining modern typography, elegant layouts,
-responsive design, premium visuals, and
-interactive front-end development.
+A sophisticated portfolio experience combining
+modern typography, responsive design, premium
+visuals, and interactive front-end development.
 
 </p>
 
@@ -3606,16 +3629,14 @@ interactive front-end development.
 <div class="project-tech">
 
 <span>Web Design</span>
-
 <span>UI / UX</span>
-
 <span>Responsive</span>
 
 </div>
 
 
 <a
-   href="#portfolio-gallery"
+    href="#MyPortfolio"
     class="project-link"
 >
 
@@ -3632,8 +3653,9 @@ VIEW PORTFOLIO
 </article>
 
 
+<!-- 03 — BRAND IDENTITY -->
 
-<article class="project-card">
+<article class="project-card featured-slide">
 
 
 <div class="project-image">
@@ -3673,10 +3695,9 @@ Brand Identity & Creative Design
 
 <p>
 
-A premium identity concept combining
-logo design, typography, color systems,
-stationery, visual storytelling, and
-professional brand presentation.
+A premium identity concept combining logo design,
+typography, color systems, visual storytelling,
+and polished brand presentation.
 
 </p>
 
@@ -3684,20 +3705,18 @@ professional brand presentation.
 <div class="project-tech">
 
 <span>Branding</span>
-
 <span>Graphic Design</span>
-
-<span>Visual Identity</span>
+<span>Identity</span>
 
 </div>
 
 
 <a
-    href="#contact"
+    href="#MyPortfolio"
     class="project-link"
 >
 
-DISCUSS A BRAND PROJECT
+VIEW PROJECTS
 
 <span>→</span>
 
@@ -3710,8 +3729,9 @@ DISCUSS A BRAND PROJECT
 </article>
 
 
+<!-- 04 — WEB EXPERIENCE -->
 
-<article class="project-card">
+<article class="project-card featured-slide">
 
 
 <div class="project-image">
@@ -3751,10 +3771,9 @@ Modern Web Experience
 
 <p>
 
-A high-impact responsive website concept
-focused on modern aesthetics, strong visual
-hierarchy, optimized performance, and
-seamless desktop and mobile experiences.
+A responsive website concept focused on modern
+aesthetics, visual hierarchy, performance, and
+smooth experiences across screen sizes.
 
 </p>
 
@@ -3762,20 +3781,170 @@ seamless desktop and mobile experiences.
 <div class="project-tech">
 
 <span>Web Design</span>
-
 <span>UI / UX</span>
-
 <span>Development</span>
 
 </div>
 
 
 <a
-    href="#contact"
+    href="#MyPortfolio"
     class="project-link"
 >
 
-START A WEB PROJECT
+VIEW PROJECTS
+
+<span>→</span>
+
+</a>
+
+
+</div>
+
+
+</article>
+
+
+<!-- 05 — SOCIAL MEDIA DESIGN -->
+
+<article class="project-card featured-slide">
+
+
+<div class="project-image">
+
+
+<img
+    src="assets/projects/branding-cover.webp"
+    alt="Social Media Creative Campaign sample project"
+    loading="lazy"
+>
+
+
+<div class="project-overlay">
+
+<span>
+DIGITAL CAMPAIGN
+</span>
+
+</div>
+
+
+</div>
+
+
+<div class="project-content">
+
+
+<p class="project-category">
+SOCIAL MEDIA • GRAPHIC DESIGN • CONTENT
+</p>
+
+
+<h3>
+Social Media Creative Campaign
+</h3>
+
+
+<p>
+
+A coordinated set of branded digital graphics,
+promotional content, and campaign visuals built
+for a consistent social presence.
+
+</p>
+
+
+<div class="project-tech">
+
+<span>Canva</span>
+<span>Branding</span>
+<span>Content</span>
+
+</div>
+
+
+<a
+    href="#MyPortfolio"
+    class="project-link"
+>
+
+VIEW PROJECTS
+
+<span>→</span>
+
+</a>
+
+
+</div>
+
+
+</article>
+
+
+<!-- 06 — SEO / DIGITAL OPTIMIZATION -->
+
+<article class="project-card featured-slide">
+
+
+<div class="project-image">
+
+
+<img
+    src="assets/projects/web-experience-cover.webp"
+    alt="SEO and Digital Optimization sample project"
+    loading="lazy"
+>
+
+
+<div class="project-overlay">
+
+<span>
+SEO & OPTIMIZATION
+</span>
+
+</div>
+
+
+</div>
+
+
+<div class="project-content">
+
+
+<p class="project-category">
+SEO • PERFORMANCE • DIGITAL
+</p>
+
+
+<h3>
+SEO & Digital Optimization
+</h3>
+
+
+<p>
+
+Website structure, content presentation, keyword
+planning, usability, and performance improvements
+for stronger digital discoverability.
+
+</p>
+
+
+<div class="project-tech">
+
+<span>SEO</span>
+<span>Analytics</span>
+<span>Optimization</span>
+
+</div>
+
+
+<a
+    href="#MyPortfolio"
+    class="project-link"
+>
+
+VIEW PROJECTS
 
 <span>→</span>
 
@@ -3791,6 +3960,33 @@ START A WEB PROJECT
 </div>
 
 
+</div>
+
+
+<button
+    class="featured-arrow featured-next"
+    id="featuredNext"
+    type="button"
+    aria-label="Next featured projects"
+>
+
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="m9 5 7 7-7 7"></path>
+</svg>
+
+</button>
+
+
+<div
+    class="featured-dots"
+    id="featuredDots"
+    aria-label="Featured project slider pages"
+></div>
+
+
+</div>
+
+
 </section>
 
 
@@ -3800,7 +3996,7 @@ MY PORTFOLIO GALLERY
 
 <section
     class="section portfolio-gallery-section"
-    id="portfolio-gallery"
+    id="MyPortfolio"
 >
 
 
@@ -4845,7 +5041,7 @@ FOOTER
 
 
 <a
-    href="#MyPortfolio"
+    href="#home"
     class="footer-profile"
     aria-label="Jhonaiza Gede Home"
 >
@@ -4922,7 +5118,7 @@ Quick Links
 <div class="footer-nav">
 
 
-<a href="#MyPortfolio">
+<a href="#home">
 Home
 </a>
 
@@ -4937,7 +5133,7 @@ Services
 </a>
 
 
-<a href="#projects">
+<a href="#MyPortfolio">
 Portfolio
 </a>
 
@@ -4979,7 +5175,7 @@ All Rights Reserved.
 
 
 <a
-   href="#MyPortfolio"
+   href="#home"
     class="back-to-top"
     aria-label="Back to top"
 >
@@ -4988,17 +5184,6 @@ All Rights Reserved.
 
 
 <script src="script.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    if (
-        window.location.pathname === "/index.html" ||
-        window.location.pathname === "/"
-    ) {
-        history.replaceState(null, "", "/#MyPortfolio");
-    }
-});
-</script>
 
 </body>
 </html>
