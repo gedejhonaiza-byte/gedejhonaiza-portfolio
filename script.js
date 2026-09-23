@@ -3688,259 +3688,214 @@ const height = section.offsetHeight;
     );
 
 
-    /* =========================================================
-    CONTACT COPY BUTTONS
-    COPIES WHATSAPP NUMBER, EMAIL, OR LOCATION
-    FROM data-copy=""
-    ========================================================= */
+   /* =========================================================
+CONTACT COPY BUTTONS
+========================================================= */
 
-    const contactCopyButtons =
-        document.querySelectorAll(
-            ".contact-copy-btn"
-        );
+const contactCopyButtons =
+    document.querySelectorAll(
+        ".contact-copy-btn"
+    );
 
 
-    async function copyContactValue(
-        button
-    ) {
+async function copyContactValue(
+    button
+) {
 
-        const textToCopy =
-            button.dataset.copy;
+    const textToCopy =
+        button.dataset.copy;
 
 
-        if (!textToCopy) {
+    if (!textToCopy) {
 
-            return;
-
-        }
-
-
-        const originalAriaLabel =
-            button.getAttribute(
-                "aria-label"
-            );
-
-
-        const originalTitle =
-            button.getAttribute(
-                "title"
-            );
-
-
-        try {
-
-            /*
-            MODERN COPY METHOD
-            Works on HTTPS / Vercel
-            */
-
-            if (
-                navigator.clipboard &&
-                window.isSecureContext
-            ) {
-
-                await navigator.clipboard.writeText(
-                    textToCopy
-                );
-
-
-            } else {
-
-                /*
-                FALLBACK COPY METHOD
-                */
-
-                const temporaryInput =
-                    document.createElement(
-                        "textarea"
-                    );
-
-
-                temporaryInput.value =
-                    textToCopy;
-
-
-                temporaryInput.setAttribute(
-                    "readonly",
-                    ""
-                );
-
-
-                temporaryInput.style.position =
-                    "fixed";
-
-
-                temporaryInput.style.left =
-                    "-9999px";
-
-
-                temporaryInput.style.top =
-                    "0";
-
-
-                temporaryInput.style.opacity =
-                    "0";
-
-
-                document.body.appendChild(
-                    temporaryInput
-                );
-
-
-                temporaryInput.select();
-
-
-                temporaryInput.setSelectionRange(
-                    0,
-                    temporaryInput.value.length
-                );
-
-
-                document.execCommand(
-                    "copy"
-                );
-
-
-                temporaryInput.remove();
-
-            }
-
-
-            /*
-            COPIED VISUAL STATE
-            */
-
-            button.classList.add(
-                "copied"
-            );
-
-
-            button.setAttribute(
-                "aria-label",
-                "Copied"
-            );
-
-
-            button.setAttribute(
-                "title",
-                "Copied!"
-            );
-
-
-            /*
-            OPTIONAL:
-            If your HTML includes a span with
-            class="copy-feedback",
-            it will display "Copied!"
-            */
-
-            const feedback =
-                button.querySelector(
-                    ".copy-feedback"
-                );
-
-
-            if (feedback) {
-
-                feedback.textContent =
-                    "Copied!";
-
-            }
-
-
-            setTimeout(
-                () => {
-
-                    button.classList.remove(
-                        "copied"
-                    );
-
-
-                    if (
-                        originalAriaLabel
-                    ) {
-
-                        button.setAttribute(
-                            "aria-label",
-                            originalAriaLabel
-                        );
-
-
-                    } else {
-
-                        button.removeAttribute(
-                            "aria-label"
-                        );
-
-                    }
-
-
-                    if (
-                        originalTitle
-                    ) {
-
-                        button.setAttribute(
-                            "title",
-                            originalTitle
-                        );
-
-
-                    } else {
-
-                        button.removeAttribute(
-                            "title"
-                        );
-
-                    }
-
-
-                    if (feedback) {
-
-                        feedback.textContent =
-                            "";
-
-                    }
-
-                },
-                1400
-            );
-
-
-        } catch (error) {
-
-            console.error(
-                "Unable to copy contact information:",
-                error
-            );
-
-        }
+        return;
 
     }
 
 
-    contactCopyButtons.forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                event => {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
+    const originalAriaLabel =
+        button.getAttribute(
+            "aria-label"
+        );
 
 
-                    copyContactValue(
-                        button
+    const originalTitle =
+        button.getAttribute(
+            "title"
+        );
+
+
+    try {
+
+        if (
+            navigator.clipboard &&
+            window.isSecureContext
+        ) {
+
+            await navigator.clipboard.writeText(
+                textToCopy
+            );
+
+
+        } else {
+
+            const temporaryInput =
+                document.createElement(
+                    "textarea"
+                );
+
+
+            temporaryInput.value =
+                textToCopy;
+
+
+            temporaryInput.setAttribute(
+                "readonly",
+                ""
+            );
+
+
+            temporaryInput.style.position =
+                "fixed";
+
+
+            temporaryInput.style.left =
+                "-9999px";
+
+
+            temporaryInput.style.top =
+                "0";
+
+
+            temporaryInput.style.opacity =
+                "0";
+
+
+            document.body.appendChild(
+                temporaryInput
+            );
+
+
+            temporaryInput.select();
+
+
+            temporaryInput.setSelectionRange(
+                0,
+                temporaryInput.value.length
+            );
+
+
+            document.execCommand(
+                "copy"
+            );
+
+
+            temporaryInput.remove();
+
+        }
+
+
+        button.classList.add(
+            "copied"
+        );
+
+
+        button.setAttribute(
+            "aria-label",
+            "Copied"
+        );
+
+
+        button.setAttribute(
+            "title",
+            "Copied!"
+        );
+
+
+        setTimeout(
+            () => {
+
+                button.classList.remove(
+                    "copied"
+                );
+
+
+                if (
+                    originalAriaLabel
+                ) {
+
+                    button.setAttribute(
+                        "aria-label",
+                        originalAriaLabel
+                    );
+
+
+                } else {
+
+                    button.removeAttribute(
+                        "aria-label"
                     );
 
                 }
-            );
-
-        }
-    );
 
 
+                if (
+                    originalTitle
+                ) {
+
+                    button.setAttribute(
+                        "title",
+                        originalTitle
+                    );
+
+
+                } else {
+
+                    button.removeAttribute(
+                        "title"
+                    );
+
+                }
+
+            },
+            1400
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to copy contact information:",
+            error
+        );
+
+    }
+
+}
+
+
+contactCopyButtons.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                copyContactValue(
+                    button
+                );
+
+            }
+        );
+
+    }
+);
+    
     /* =========================================================
     COPYRIGHT YEAR
     ========================================================= */
