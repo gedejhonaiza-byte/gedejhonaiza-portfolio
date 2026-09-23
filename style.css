@@ -4110,3 +4110,453 @@ REDUCED MOTION
     }
 
 }
+
+/* =========================================================
+2026 UPDATE — UNIFIED LUXURY GOLD SERVICE CARDS
+All right-side cards now match the active Skills button.
+========================================================= */
+
+.hire-content-window .hire-tool-card,
+.hire-content-window .experience-card,
+.hire-content-window .achievement-card,
+.hire-content-window .education-card{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    border:1px solid rgba(255,242,189,.78);
+    background:
+        linear-gradient(
+            115deg,
+            #80602A 0%,
+            #B98B3D 13%,
+            #D7B56D 30%,
+            #FFF2BD 48%,
+            #E8CC8B 58%,
+            #D7B56D 72%,
+            #A77B35 88%,
+            #755521 100%
+        );
+    background-size:220% 100%;
+    color:#11100b;
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.68),
+        inset 0 -2px 5px rgba(84,52,8,.24),
+        0 10px 26px rgba(0,0,0,.24),
+        0 0 18px rgba(215,181,109,.15);
+    transition:
+        transform .38s cubic-bezier(.22,1,.36,1),
+        box-shadow .38s ease,
+        filter .38s ease,
+        border-color .38s ease,
+        background-position .55s ease;
+}
+
+.hire-content-window .hire-tool-card::before,
+.hire-content-window .experience-card::before,
+.hire-content-window .achievement-card::before,
+.hire-content-window .education-card::before{
+    content:"";
+    position:absolute;
+    z-index:5;
+    top:-120%;
+    left:-72%;
+    width:42%;
+    height:340%;
+    pointer-events:none;
+    opacity:0;
+    transform:rotate(23deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,.82),
+            rgba(255,242,189,.98),
+            transparent
+        );
+    transition:
+        left .78s ease,
+        opacity .22s ease;
+}
+
+.hire-content-window .hire-tool-card:hover,
+.hire-content-window .experience-card:hover,
+.hire-content-window .achievement-card:hover,
+.hire-content-window .education-card:hover{
+    transform:translateY(-7px) scale(1.018);
+    background-position:100% center;
+    border-color:#FFF2BD;
+    filter:brightness(1.07) saturate(1.06);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.86),
+        0 18px 38px rgba(0,0,0,.34),
+        0 0 22px rgba(215,181,109,.55),
+        0 0 46px rgba(255,242,189,.19);
+}
+
+.hire-content-window .hire-tool-card:hover::before,
+.hire-content-window .experience-card:hover::before,
+.hire-content-window .achievement-card:hover::before,
+.hire-content-window .education-card:hover::before{
+    left:136%;
+    opacity:1;
+}
+
+.hire-content-window .hire-tool-card > *,
+.hire-content-window .experience-card > *,
+.hire-content-window .achievement-card > *,
+.hire-content-window .education-card > *{
+    position:relative;
+    z-index:6;
+}
+
+.hire-content-window .hire-tool-card,
+.hire-content-window .hire-tool-card strong,
+.hire-content-window .hire-tool-icon,
+.hire-content-window .experience-card h4,
+.hire-content-window .experience-card p,
+.hire-content-window .experience-year,
+.hire-content-window .achievement-card h4,
+.hire-content-window .achievement-card p,
+.hire-content-window .achievement-number,
+.hire-content-window .achievement-label,
+.hire-content-window .education-card h4,
+.hire-content-window .education-card p,
+.hire-content-window .education-date,
+.hire-content-window .education-icon{
+    color:#11100b !important;
+}
+
+.hire-content-window .education-icon,
+.hire-content-window .achievement-medal{
+    border-color:rgba(17,16,11,.24);
+    background:rgba(255,255,255,.20);
+    color:#11100b;
+}
+
+
+/* =========================================================
+2026 UPDATE — FEATURED WORK AUTO SLIDER
+Six medium glass cards, autoplay, hover pause and arrows.
+========================================================= */
+
+.projects-section{
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at 18% 24%,
+            rgba(215,181,109,.10),
+            transparent 29%
+        ),
+        radial-gradient(
+            circle at 86% 55%,
+            rgba(255,242,189,.055),
+            transparent 32%
+        ),
+        #080808;
+}
+
+.featured-work-heading{
+    margin-bottom:42px;
+}
+
+.featured-slider-shell{
+    position:relative;
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    padding:28px 68px 58px;
+    overflow:hidden;
+    border:1px solid rgba(255,242,189,.16);
+    border-radius:28px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.018) 42%,
+            rgba(215,181,109,.045)
+        );
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.07),
+        0 26px 80px rgba(0,0,0,.34);
+}
+
+.featured-slider-shell::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(
+            circle at 16% 5%,
+            rgba(255,242,189,.08),
+            transparent 25%
+        );
+}
+
+.featured-slider{
+    position:relative;
+    z-index:2;
+    width:100%;
+    overflow:hidden;
+    touch-action:pan-y;
+}
+
+.featured-track{
+    display:flex;
+    align-items:stretch;
+    gap:22px;
+    transform:translate3d(0,0,0);
+    transition:transform .75s cubic-bezier(.22,1,.36,1);
+    will-change:transform;
+}
+
+.featured-slide{
+    flex:0 0 calc((100% - 44px) / 3);
+    min-width:0;
+    min-height:500px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025) 52%,
+            rgba(215,181,109,.045)
+        );
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 18px 42px rgba(0,0,0,.30);
+}
+
+.featured-slide:hover{
+    border-color:rgba(255,242,189,.58);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.13),
+        0 24px 50px rgba(0,0,0,.38),
+        0 0 24px rgba(215,181,109,.18);
+}
+
+.featured-slide .project-image{
+    height:220px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.featured-slide .project-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+        linear-gradient(
+            180deg,
+            transparent 52%,
+            rgba(5,5,5,.30) 100%
+        );
+}
+
+.featured-slide .project-content{
+    padding:24px 23px 26px;
+}
+
+.featured-slide .project-content h3{
+    min-height:58px;
+    margin-bottom:12px;
+    font-size:clamp(18px,1.45vw,23px);
+    line-height:1.25;
+}
+
+.featured-slide .project-content > p:not(.project-category){
+    min-height:88px;
+    font-size:11px;
+    line-height:1.75;
+    color:#b1b1b6;
+}
+
+.featured-slide .project-tech{
+    min-height:33px;
+    margin-top:18px;
+}
+
+.featured-slide .project-tech span{
+    border-color:rgba(215,181,109,.18);
+    background:rgba(255,255,255,.025);
+    color:#aaa6a0;
+}
+
+.featured-slide .project-link{
+    margin-top:20px;
+}
+
+.featured-arrow{
+    position:absolute;
+    z-index:10;
+    top:50%;
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,242,189,.46);
+    border-radius:50%;
+    background:rgba(9,9,9,.76);
+    color:var(--gold-light);
+    cursor:pointer;
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    transform:translateY(-50%);
+    transition:
+        transform .28s ease,
+        color .28s ease,
+        border-color .28s ease,
+        background .28s ease,
+        box-shadow .28s ease;
+}
+
+.featured-arrow svg{
+    width:20px;
+    height:20px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.featured-arrow:hover,
+.featured-arrow:focus-visible{
+    color:#15110a;
+    border-color:#FFF2BD;
+    background:
+        linear-gradient(
+            135deg,
+            #8D672D,
+            #D7B56D,
+            #FFF2BD,
+            #D7B56D
+        );
+    box-shadow:
+        0 0 20px rgba(215,181,109,.36),
+        0 12px 28px rgba(0,0,0,.32);
+}
+
+.featured-prev{
+    left:12px;
+}
+
+.featured-next{
+    right:12px;
+}
+
+.featured-dots{
+    position:absolute;
+    z-index:8;
+    left:50%;
+    bottom:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transform:translateX(-50%);
+}
+
+.featured-dot{
+    width:7px;
+    height:7px;
+    padding:0;
+    border:0;
+    border-radius:999px;
+    background:rgba(255,255,255,.22);
+    cursor:pointer;
+    transition:
+        width .28s ease,
+        background .28s ease,
+        box-shadow .28s ease;
+}
+
+.featured-dot.active{
+    width:25px;
+    background:var(--gold);
+    box-shadow:0 0 12px rgba(215,181,109,.58);
+}
+
+@media (max-width:1100px){
+
+    .featured-slide{
+        flex-basis:calc((100% - 20px) / 2);
+    }
+
+    .featured-track{
+        gap:20px;
+    }
+
+}
+
+@media (max-width:767px){
+
+    .featured-slider-shell{
+        padding:18px 14px 56px;
+        border-radius:22px;
+    }
+
+    .featured-track{
+        gap:14px;
+    }
+
+    .featured-slide{
+        flex-basis:100%;
+        min-height:0;
+    }
+
+    .featured-slide .project-image{
+        height:230px;
+    }
+
+    .featured-slide .project-content{
+        padding:22px 20px 24px;
+    }
+
+    .featured-slide .project-content h3,
+    .featured-slide .project-content > p:not(.project-category){
+        min-height:0;
+    }
+
+    .featured-arrow{
+        top:auto;
+        bottom:10px;
+        width:38px;
+        height:38px;
+        transform:none;
+    }
+
+    .featured-prev{
+        left:16px;
+    }
+
+    .featured-next{
+        right:16px;
+    }
+
+    .featured-dots{
+        bottom:23px;
+    }
+
+}
+
+@media (max-width:430px){
+
+    .featured-slide .project-image{
+        height:205px;
+    }
+
+    .featured-slider-shell{
+        padding-left:11px;
+        padding-right:11px;
+    }
+
+}
+
