@@ -1749,7 +1749,7 @@ SKILLS GROUPS
     align-items:center;
     justify-content:center;
     gap:8px;
-    color:#fff;
+    color:#F6C90E;
     font-size:14px;
     font-weight:700;
     line-height:1.2;
@@ -2097,7 +2097,7 @@ EXPERIENCE / ACHIEVEMENT / EDUCATION
 .experience-card h4,
 .achievement-card h4{
     margin-bottom:9px;
-    color:#fff;
+    color:#070707;
     font-size:18px;
 }
 
@@ -4560,3 +4560,336 @@ Six medium glass cards, autoplay, hover pause and arrows.
 
 }
 
+/* =========================================================
+2026 UPDATE — FLOATING PORTFOLIO + HERO GOLD FRAME +
+LOADER TYPING CODE ZOOM
+Keeps the existing layout, responsive breakpoints and content intact.
+========================================================= */
+
+/* Keep the manually selected white Services group headings intact. */
+.hire-group-heading h4{
+    color:#fff;
+}
+
+/* ---------------------------------------------------------
+LOADER BACKGROUND — TYPING CODE + SLOW CAMERA ZOOM
+--------------------------------------------------------- */
+.loader-code-background{
+    opacity:.42;
+    transform-origin:center center;
+    animation:loaderCodeCameraZoom 7.2s cubic-bezier(.18,.72,.22,1) both;
+}
+
+.loader-code-panel{
+    position:absolute;
+    width:min(34vw,470px);
+    max-width:46%;
+    padding:12px 14px;
+    overflow:hidden;
+    border-left:1px solid rgba(215,181,109,.20);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(215,181,109,.025),
+            transparent 84%
+        );
+    font-family:var(--mono);
+    font-size:clamp(7px,.62vw,10px);
+    line-height:1.75;
+    color:rgba(188,190,186,.45);
+    filter:drop-shadow(0 0 12px rgba(0,0,0,.55));
+    transform:translateZ(0);
+}
+
+.loader-code-panel:nth-child(even){
+    color:rgba(215,181,109,.42);
+    border-left-color:rgba(255,242,189,.18);
+}
+
+.loader-code-panel:nth-child(3){
+    opacity:.72;
+}
+
+.loader-code-panel:nth-child(5){
+    opacity:.58;
+    filter:blur(.15px) drop-shadow(0 0 15px rgba(215,181,109,.07));
+}
+
+.loader-code-line{
+    display:block;
+    width:max-content;
+    max-width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+    clip-path:inset(0 100% 0 0);
+    opacity:0;
+    animation:
+        loaderCodeTyping var(--type-duration,.55s) steps(26,end) forwards,
+        loaderCodeGlow 2.8s ease-in-out infinite;
+    animation-delay:
+        var(--type-delay,0s),
+        calc(var(--type-delay,0s) + .55s);
+}
+
+.loader-code-line::after{
+    content:"";
+    display:inline-block;
+    width:1px;
+    height:1em;
+    margin-left:4px;
+    vertical-align:-2px;
+    background:rgba(255,242,189,.72);
+    box-shadow:0 0 7px rgba(215,181,109,.38);
+    animation:loaderCodeCaret .55s steps(1,end) infinite;
+}
+
+@keyframes loaderCodeTyping{
+    0%{
+        clip-path:inset(0 100% 0 0);
+        opacity:.25;
+    }
+
+    100%{
+        clip-path:inset(0 0 0 0);
+        opacity:1;
+    }
+}
+
+@keyframes loaderCodeCaret{
+    50%{
+        opacity:0;
+    }
+}
+
+@keyframes loaderCodeGlow{
+    0%,
+    100%{
+        text-shadow:none;
+    }
+
+    50%{
+        text-shadow:0 0 8px rgba(215,181,109,.16);
+    }
+}
+
+@keyframes loaderCodeCameraZoom{
+    0%{
+        transform:scale(.94);
+        filter:blur(.35px);
+    }
+
+    45%{
+        transform:scale(1.03);
+        filter:blur(0);
+    }
+
+    100%{
+        transform:scale(1.15);
+        filter:blur(.12px);
+    }
+}
+
+/* ---------------------------------------------------------
+HERO PROFILE — WHOLE GROUP FLOATS TOGETHER
+Image + 5+ box + available tag remain one floating composition.
+--------------------------------------------------------- */
+.hero-profile-float{
+    will-change:transform;
+    animation:heroProfilePremiumFloat 5.8s ease-in-out infinite;
+}
+
+@keyframes heroProfilePremiumFloat{
+    0%,
+    100%{
+        transform:translate3d(0,0,0) rotate(.01deg);
+    }
+
+    50%{
+        transform:translate3d(0,-15px,0) rotate(.01deg);
+    }
+}
+
+/* Remove the separate badge animation so the badge moves WITH the profile. */
+.hero-experience-card{
+    animation:none;
+}
+
+.hero-photo-tag{
+    animation:none;
+}
+
+/* ---------------------------------------------------------
+HERO PROFILE FRAME — ANIMATED METALLIC GOLD SHIMMER
+--------------------------------------------------------- */
+.hero-shape-outline,
+.hero-shape-main{
+    border-color:transparent;
+    overflow:visible;
+}
+
+.hero-shape-outline::before,
+.hero-shape-main::before{
+    content:"";
+    position:absolute;
+    z-index:20;
+    inset:-2px;
+    padding:2px;
+    border-radius:inherit;
+    pointer-events:none;
+    background:
+        linear-gradient(
+            120deg,
+            #6d4b1f 0%,
+            #A67C38 18%,
+            #D7B56D 35%,
+            #FFF2BD 48%,
+            #D7B56D 60%,
+            #8D672D 78%,
+            #FFF2BD 92%,
+            #6d4b1f 100%
+        );
+    background-size:300% 300%;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    animation:heroGoldFrameShimmer 4.8s linear infinite;
+    filter:drop-shadow(0 0 5px rgba(215,181,109,.16));
+}
+
+.hero-shape-main::before{
+    animation-delay:-1.6s;
+}
+
+@keyframes heroGoldFrameShimmer{
+    0%{
+        background-position:0% 50%;
+        filter:drop-shadow(0 0 4px rgba(215,181,109,.12));
+    }
+
+    50%{
+        background-position:100% 50%;
+        filter:drop-shadow(0 0 11px rgba(255,242,189,.32));
+    }
+
+    100%{
+        background-position:0% 50%;
+        filter:drop-shadow(0 0 4px rgba(215,181,109,.12));
+    }
+}
+
+/* ---------------------------------------------------------
+MY PORTFOLIO — ALL VISIBLE CARDS FLOAT
+The existing hover scale/glow stays intact because floating uses translate.
+--------------------------------------------------------- */
+.portfolio-gallery-grid .gallery-card{
+    --portfolio-float-distance:-9px;
+    animation:portfolioCardPremiumFloat 6s ease-in-out infinite;
+    will-change:translate;
+}
+
+.portfolio-gallery-grid .gallery-card:nth-child(6n + 2){
+    --portfolio-float-distance:-12px;
+    animation-delay:-1s;
+}
+
+.portfolio-gallery-grid .gallery-card:nth-child(6n + 3){
+    --portfolio-float-distance:-8px;
+    animation-delay:-2s;
+}
+
+.portfolio-gallery-grid .gallery-card:nth-child(6n + 4){
+    --portfolio-float-distance:-11px;
+    animation-delay:-3s;
+}
+
+.portfolio-gallery-grid .gallery-card:nth-child(6n + 5){
+    --portfolio-float-distance:-7px;
+    animation-delay:-4s;
+}
+
+.portfolio-gallery-grid .gallery-card:nth-child(6n + 6){
+    --portfolio-float-distance:-10px;
+    animation-delay:-5s;
+}
+
+@keyframes portfolioCardPremiumFloat{
+    0%,
+    100%{
+        translate:0 0;
+    }
+
+    50%{
+        translate:0 var(--portfolio-float-distance,-9px);
+    }
+}
+
+/* ---------------------------------------------------------
+RESPONSIVE SAFETY
+--------------------------------------------------------- */
+@media(max-width:900px){
+    .loader-code-panel{
+        width:48vw;
+        max-width:52%;
+        font-size:7px;
+        opacity:.62;
+    }
+}
+
+@media(max-width:767px){
+    .loader-code-background{
+        opacity:.32;
+    }
+
+    .loader-code-panel{
+        width:72vw;
+        max-width:74%;
+        padding:8px 10px;
+        font-size:6.5px;
+        line-height:1.65;
+    }
+
+    .loader-code-panel:nth-child(2){
+        right:-18% !important;
+    }
+
+    .loader-code-panel:nth-child(3){
+        left:-12% !important;
+        bottom:8% !important;
+    }
+
+    .portfolio-gallery-grid .gallery-card{
+        --portfolio-float-distance:-6px;
+        animation-duration:5.4s;
+    }
+
+    .hero-profile-float{
+        animation-duration:5.2s;
+    }
+}
+
+@media(max-width:430px){
+    .loader-code-panel{
+        width:82vw;
+        max-width:84%;
+        font-size:6px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .loader-code-background,
+    .loader-code-line,
+    .loader-code-line::after,
+    .hero-profile-float,
+    .hero-shape-outline::before,
+    .hero-shape-main::before,
+    .portfolio-gallery-grid .gallery-card{
+        animation:none !important;
+    }
+
+    .loader-code-line{
+        clip-path:none;
+        opacity:1;
+    }
+}
