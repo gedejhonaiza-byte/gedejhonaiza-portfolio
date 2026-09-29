@@ -7264,3 +7264,412 @@ VERY SMALL MOBILE
     }
 
 }
+
+/* =========================================================
+EXPERIENCE CARD HOVER FIX
+NO BLOCKING / NO DARK OVERLAY
+SHIMMER HOVER EFFECT INTACT
+========================================================= */
+
+
+/* =========================================================
+EXPERIENCE CARD
+========================================================= */
+
+.experience-card{
+    position:relative !important;
+    isolation:isolate !important;
+
+    overflow:hidden !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111 0%,
+            #0b0b0b 52%,
+            #080808 100%
+        ) !important;
+
+    border:
+        1px solid
+        rgba(215,181,109,.32) !important;
+
+    filter:none !important;
+
+    opacity:1 !important;
+
+    transition:
+        transform .38s cubic-bezier(.22,1,.36,1),
+        border-color .38s ease,
+        box-shadow .38s ease,
+        background .38s ease !important;
+}
+
+
+/* =========================================================
+SHIMMER EFFECT
+STAYS BEHIND CONTENT
+========================================================= */
+
+.experience-card::before{
+    content:"" !important;
+
+    position:absolute !important;
+
+    z-index:1 !important;
+
+    top:-120% !important;
+    left:-70% !important;
+
+    width:38% !important;
+    height:350% !important;
+
+    opacity:0 !important;
+
+    pointer-events:none !important;
+
+    transform:
+        rotate(22deg) !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(215,181,109,.05) 20%,
+            rgba(255,242,189,.20) 40%,
+            rgba(255,255,255,.55) 50%,
+            rgba(255,242,189,.25) 60%,
+            rgba(215,181,109,.08) 80%,
+            transparent 100%
+        ) !important;
+
+    transition:
+        left .85s ease,
+        opacity .25s ease !important;
+}
+
+
+/* =========================================================
+SOFT GOLD INNER GLOW
+NO DARK OVERLAY
+========================================================= */
+
+.experience-card::after{
+    content:"" !important;
+
+    position:absolute !important;
+
+    z-index:0 !important;
+
+    inset:0 !important;
+
+    border-radius:inherit !important;
+
+    pointer-events:none !important;
+
+    opacity:0 !important;
+
+    background:
+        radial-gradient(
+            circle at 18% 50%,
+            rgba(215,181,109,.12),
+            transparent 42%
+        ) !important;
+
+    transition:
+        opacity .38s ease !important;
+}
+
+
+/* =========================================================
+KEEP ALL CONTENT ABOVE SHIMMER
+========================================================= */
+
+.experience-card > *{
+    position:relative !important;
+
+    z-index:5 !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+}
+
+
+/* =========================================================
+CARD HOVER
+========================================================= */
+
+.experience-card:hover{
+    transform:
+        translateY(-7px)
+        scale(1.012) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515 0%,
+            #0e0e0e 52%,
+            #090909 100%
+        ) !important;
+
+    border-color:
+        rgba(215,181,109,.82) !important;
+
+    filter:none !important;
+
+    opacity:1 !important;
+
+    box-shadow:
+        0 20px 44px
+        rgba(0,0,0,.48),
+
+        0 0 22px
+        rgba(215,181,109,.18),
+
+        inset 0 1px 0
+        rgba(255,255,255,.05) !important;
+}
+
+
+/* MOVE SHIMMER ACROSS CARD */
+
+.experience-card:hover::before{
+    left:135% !important;
+
+    opacity:1 !important;
+}
+
+
+/* SHOW SOFT GOLD GLOW */
+
+.experience-card:hover::after{
+    opacity:1 !important;
+}
+
+
+/* =========================================================
+LOGO
+========================================================= */
+
+.experience-logo{
+    position:relative !important;
+
+    z-index:6 !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease !important;
+}
+
+
+.experience-logo img{
+    display:block !important;
+
+    width:100% !important;
+    height:100% !important;
+
+    object-fit:contain !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+}
+
+
+.experience-card:hover
+.experience-logo{
+    transform:
+        translateY(-2px)
+        scale(1.04) !important;
+
+    border-color:
+        rgba(215,181,109,.72) !important;
+
+    box-shadow:
+        0 10px 26px
+        rgba(0,0,0,.32),
+
+        0 0 16px
+        rgba(215,181,109,.16) !important;
+}
+
+
+/* =========================================================
+CALENDAR + YEAR
+========================================================= */
+
+.experience-date{
+    position:relative !important;
+
+    z-index:7 !important;
+
+    color:#D7B56D !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+}
+
+
+.experience-date span{
+    color:#D7B56D !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+}
+
+
+.experience-date svg{
+    color:#D7B56D !important;
+
+    fill:none !important;
+
+    stroke:currentColor !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+}
+
+
+/* =========================================================
+JOB TITLE
+========================================================= */
+
+.experience-card h4{
+    position:relative !important;
+
+    z-index:7 !important;
+
+    color:#FFFFFF !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+}
+
+
+.experience-card:hover h4{
+    color:#FFFFFF !important;
+
+    opacity:1 !important;
+}
+
+
+/* =========================================================
+COMPANY NAME
+========================================================= */
+
+.experience-card
+.experience-company{
+    position:relative !important;
+
+    z-index:7 !important;
+
+    color:#D6D6D6 !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+}
+
+
+.experience-card:hover
+.experience-company{
+    color:#E2E2E2 !important;
+
+    opacity:1 !important;
+}
+
+
+/* =========================================================
+LOCATION
+========================================================= */
+
+.experience-card
+.experience-location{
+    position:relative !important;
+
+    z-index:7 !important;
+
+    color:#999999 !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+}
+
+
+.experience-card:hover
+.experience-location{
+    color:#B5B5B5 !important;
+
+    opacity:1 !important;
+}
+
+
+/* =========================================================
+PREVENT OLD CSS FROM DIMMING CONTENT
+========================================================= */
+
+.experience-card:hover img,
+.experience-card:hover svg,
+.experience-card:hover span,
+.experience-card:hover h4,
+.experience-card:hover p,
+.experience-card:hover .experience-card-body,
+.experience-card:hover .experience-date,
+.experience-card:hover .experience-logo{
+    opacity:1 !important;
+
+    visibility:visible !important;
+
+    filter:none !important;
+}
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width:767px){
+
+    .experience-card:hover{
+        transform:
+            translateY(-4px) !important;
+    }
+
+
+    .experience-card::before{
+        width:42% !important;
+    }
+
+}
+
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    .experience-card,
+    .experience-card::before,
+    .experience-card::after,
+    .experience-logo{
+        transition:none !important;
+    }
+
+
+    .experience-card:hover{
+        transform:none !important;
+    }
+
+}
