@@ -1788,575 +1788,700 @@ const height = section.offsetHeight;
     }
 
 
-    /* =========================================================
-    MY PORTFOLIO FILTER GALLERY
-    ========================================================= */
+/* =========================================================
+MY PORTFOLIO FILTER GALLERY
+40 PROJECTS
+6 PROJECTS PER PAGE
+========================================================= */
 
-    const galleryFilters =
+const galleryFilters =
+    document.querySelectorAll(
+        "#MyPortfolio .gallery-filter"
+    );
+
+
+const galleryItems =
+    Array.from(
         document.querySelectorAll(
-            ".gallery-filter"
-        );
+            "#MyPortfolio .gallery-card"
+        )
+    );
 
 
-    const galleryItems =
-        Array.from(
-            document.querySelectorAll(
-                ".gallery-card"
-            )
-        );
+const galleryCount =
+    document.getElementById(
+        "galleryCount"
+    );
 
 
-    const galleryCount =
-        document.getElementById(
-            "galleryCount"
-        );
+const galleryPageNumbers =
+    document.getElementById(
+        "galleryPageNumbers"
+    );
 
 
-    const galleryPageNumbers =
-        document.getElementById(
-            "galleryPageNumbers"
-        );
+const galleryFirst =
+    document.getElementById(
+        "galleryFirst"
+    );
 
 
-    const galleryFirst =
-        document.getElementById(
-            "galleryFirst"
-        );
+const galleryPrev =
+    document.getElementById(
+        "galleryPrev"
+    );
 
 
-    const galleryPrev =
-        document.getElementById(
-            "galleryPrev"
-        );
+const galleryNext =
+    document.getElementById(
+        "galleryNext"
+    );
 
 
-    const galleryNext =
-        document.getElementById(
-            "galleryNext"
-        );
+const galleryLast =
+    document.getElementById(
+        "galleryLast"
+    );
 
 
-    const galleryLast =
-        document.getElementById(
-            "galleryLast"
-        );
+const gallerySection =
+    document.getElementById(
+        "MyPortfolio"
+    );
 
 
-    /*
-    IMPORTANT
+/* =========================================================
+IMPORTANT
+SHOW 6 PROJECTS PER PAGE
+40 PROJECTS = 7 PAGES
+========================================================= */
 
-    Portfolio navigation points to
-    #MyPortfolio
-    */
-
-
-    const gallerySection =
-        document.getElementById(
-            "MyPortfolio"
-        );
+const galleryItemsPerPage =
+    6;
 
 
-    const galleryItemsPerPage =
-        6;
+let activeGalleryFilter =
+    "all";
 
 
-    let activeGalleryFilter =
-        "all";
+let activeGalleryPage =
+    1;
 
 
-    let activeGalleryPage =
-        1;
+/* =========================================================
+FILTER PROJECTS
+========================================================= */
+
+function getFilteredGalleryItems() {
+
+    return galleryItems.filter(
+        item => {
+
+            return (
+
+                activeGalleryFilter ===
+                "all"
+
+                ||
+
+                item.dataset
+                    .galleryCategory ===
+                activeGalleryFilter
+
+            );
+
+        }
+    );
+
+}
 
 
-    /* =========================================================
-    FILTER GALLERY
-    ========================================================= */
+/* =========================================================
+BUILD PAGE NUMBERS
+SHOW ALL AVAILABLE PAGES
+ALL = 1 2 3 4 5 6 7
+========================================================= */
 
-    function getFilteredGalleryItems() {
+function getGalleryPaginationItems(
+    totalPages
+) {
 
-        return galleryItems.filter(
-            item => {
+    return Array.from(
 
-                return (
+        {
+            length:
+                totalPages
+        },
 
-                    activeGalleryFilter ===
-                    "all" ||
+        (
+            _,
+            index
+        ) =>
 
-                    item.dataset
-                        .galleryCategory ===
-                    activeGalleryFilter
+            index +
+            1
 
+    );
+
+}
+
+
+/* =========================================================
+RENDER PAGE NUMBERS
+========================================================= */
+
+function renderGalleryPagination(
+    totalPages
+) {
+
+    if (
+        !galleryPageNumbers
+    ) {
+
+        return;
+
+    }
+
+
+    galleryPageNumbers.innerHTML =
+        "";
+
+
+    getGalleryPaginationItems(
+        totalPages
+    )
+    .forEach(
+        pageNumber => {
+
+            const button =
+                document.createElement(
+                    "button"
                 );
 
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "gallery-page-number";
+
+
+            button.textContent =
+                pageNumber;
+
+
+            button.setAttribute(
+                "aria-label",
+                `Go to portfolio page ${pageNumber}`
+            );
+
+
+            if (
+                pageNumber ===
+                activeGalleryPage
+            ) {
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                button.setAttribute(
+                    "aria-current",
+                    "page"
+                );
+
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    setGalleryPage(
+                        pageNumber,
+                        true
+                    );
+
+                }
+            );
+
+
+            galleryPageNumbers
+                .appendChild(
+                    button
+                );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+UPDATE FIRST / PREV / NEXT / LAST
+========================================================= */
+
+function updateGalleryControls(
+    totalPages
+) {
+
+    if (
+        galleryFirst
+    ) {
+
+        galleryFirst.disabled =
+            activeGalleryPage ===
+            1;
+
+    }
+
+
+    if (
+        galleryPrev
+    ) {
+
+        galleryPrev.disabled =
+            activeGalleryPage ===
+            1;
+
+    }
+
+
+    if (
+        galleryNext
+    ) {
+
+        galleryNext.disabled =
+            activeGalleryPage ===
+            totalPages;
+
+    }
+
+
+    if (
+        galleryLast
+    ) {
+
+        galleryLast.disabled =
+            activeGalleryPage ===
+            totalPages;
+
+    }
+
+}
+
+
+/* =========================================================
+RENDER PORTFOLIO GALLERY
+========================================================= */
+
+function renderGallery(
+    shouldScroll =
+    false
+) {
+
+    if (
+        !galleryItems.length
+    ) {
+
+        return;
+
+    }
+
+
+    const filteredItems =
+        getFilteredGalleryItems();
+
+
+    const totalItems =
+        filteredItems.length;
+
+
+    const totalPages =
+        Math.max(
+
+            1,
+
+            Math.ceil(
+                totalItems /
+                galleryItemsPerPage
+            )
+
+        );
+
+
+    activeGalleryPage =
+        Math.max(
+
+            1,
+
+            Math.min(
+                activeGalleryPage,
+                totalPages
+            )
+
+        );
+
+
+    const startIndex =
+
+        (
+            activeGalleryPage -
+            1
+        )
+
+        *
+
+        galleryItemsPerPage;
+
+
+    const endIndex =
+        Math.min(
+
+            startIndex +
+            galleryItemsPerPage,
+
+            totalItems
+
+        );
+
+
+    /* HIDE EVERY CARD FIRST */
+
+    galleryItems.forEach(
+        item => {
+
+            item.hidden =
+                true;
+
+        }
+    );
+
+
+    /* SHOW ONLY CURRENT PAGE */
+
+    filteredItems
+        .slice(
+            startIndex,
+            endIndex
+        )
+        .forEach(
+            item => {
+
+                item.hidden =
+                    false;
+
+            }
+        );
+
+
+    /* =====================================================
+    PROJECT COUNT
+
+    ALL FILTER:
+
+    PAGE 1
+    Showing 1-6 of 40 projects
+
+    PAGE 2
+    Showing 7-12 of 40 projects
+
+    PAGE 7
+    Showing 37-40 of 40 projects
+    ===================================================== */
+
+    if (
+        galleryCount
+    ) {
+
+        galleryCount.textContent =
+
+            totalItems
+
+                ?
+
+                `Showing ${startIndex + 1}-${endIndex} of ${totalItems} projects`
+
+                :
+
+                "No projects found";
+
+    }
+
+
+    renderGalleryPagination(
+        totalPages
+    );
+
+
+    updateGalleryControls(
+        totalPages
+    );
+
+
+    if (
+        shouldScroll &&
+        gallerySection
+    ) {
+
+        const headerOffset =
+            105;
+
+
+        const sectionTop =
+
+            gallerySection
+                .getBoundingClientRect()
+                .top
+
+            +
+
+            window.pageYOffset
+
+            -
+
+            headerOffset;
+
+
+        window.scrollTo(
+            {
+                top:
+                    sectionTop,
+
+                behavior:
+                    "smooth"
             }
         );
 
     }
 
-
-    /* =========================================================
-    PAGINATION NUMBERS
-    ========================================================= */
-
-    function getGalleryPaginationItems(
-        totalPages
-    ) {
-
-        if (
-            totalPages <=
-            5
-        ) {
-
-            return Array.from(
-
-                {
-                    length:
-                        totalPages
-                },
-
-                (
-                    _,
-                    index
-                ) =>
-                    index +
-                    1
-
-            );
-
-        }
+}
 
 
-        if (
-            activeGalleryPage <=
-            3
-        ) {
+/* =========================================================
+SET PAGE
+========================================================= */
 
-            return [
+function setGalleryPage(
+    page,
+    shouldScroll =
+    false
+) {
 
-                1,
+    const filteredItems =
+        getFilteredGalleryItems();
 
-                2,
 
-                3,
+    const totalPages =
+        Math.max(
 
-                4,
+            1,
 
-                "...",
+            Math.ceil(
 
+                filteredItems.length /
+                galleryItemsPerPage
+
+            )
+
+        );
+
+
+    activeGalleryPage =
+        Math.max(
+
+            1,
+
+            Math.min(
+                page,
                 totalPages
+            )
 
-            ];
+        );
 
-        }
 
+    renderGallery(
+        shouldScroll
+    );
 
-        if (
-            activeGalleryPage >=
-            totalPages -
-            2
-        ) {
+}
 
-            return [
 
-                1,
+/* =========================================================
+FILTER BUTTONS
+========================================================= */
 
-                "...",
+galleryFilters.forEach(
+    filter => {
 
-                totalPages -
-                3,
+        filter.addEventListener(
+            "click",
+            () => {
 
-                totalPages -
-                2,
+                activeGalleryFilter =
+                    filter.dataset
+                        .galleryFilter;
 
-                totalPages -
-                1,
 
-                totalPages
+                activeGalleryPage =
+                    1;
 
-            ];
 
-        }
+                galleryFilters.forEach(
+                    button => {
 
+                        button.classList.toggle(
 
-        return [
+                            "active",
 
-            1,
+                            button ===
+                            filter
 
-            "...",
-
-            activeGalleryPage -
-            1,
-
-            activeGalleryPage,
-
-            activeGalleryPage +
-            1,
-
-            "...",
-
-            totalPages
-
-        ];
-
-    }
-
-
-    /* =========================================================
-    BUILD PAGINATION
-    ========================================================= */
-
-    function renderGalleryPagination(
-        totalPages
-    ) {
-
-        if (
-            !galleryPageNumbers
-        ) {
-
-            return;
-
-        }
-
-
-        galleryPageNumbers.innerHTML =
-            "";
-
-
-        getGalleryPaginationItems(
-            totalPages
-        )
-        .forEach(
-            item => {
-
-                if (
-                    item ===
-                    "..."
-                ) {
-
-                    const ellipsis =
-                        document.createElement(
-                            "span"
-                        );
-
-
-                    ellipsis.className =
-                        "gallery-page-ellipsis";
-
-
-                    ellipsis.textContent =
-                        "...";
-
-
-                    galleryPageNumbers
-                        .appendChild(
-                            ellipsis
-                        );
-
-
-                    return;
-
-                }
-
-
-                const button =
-                    document.createElement(
-                        "button"
-                    );
-
-
-                button.type =
-                    "button";
-
-
-                button.className =
-                    "gallery-page-number";
-
-
-                button.textContent =
-                    item;
-
-
-                button.setAttribute(
-                    "aria-label",
-                    `Go to portfolio page ${item}`
-                );
-
-
-                if (
-                    item ===
-                    activeGalleryPage
-                ) {
-
-                    button.classList.add(
-                        "active"
-                    );
-
-
-                    button.setAttribute(
-                        "aria-current",
-                        "page"
-                    );
-
-                }
-
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        setGalleryPage(
-                            item,
-                            true
                         );
 
                     }
                 );
 
 
-                galleryPageNumbers
-                    .appendChild(
-                        button
-                    );
+                renderGallery(
+                    false
+                );
 
             }
         );
 
     }
+);
 
 
-    /* =========================================================
-    UPDATE PAGINATION BUTTONS
-    ========================================================= */
+/* =========================================================
+FIRST
+========================================================= */
 
-    function updateGalleryControls(
-        totalPages
-    ) {
+if (
+    galleryFirst
+) {
 
-        [
-            galleryFirst,
-            galleryPrev
-        ]
-        .forEach(
-            button => {
+    galleryFirst.addEventListener(
+        "click",
+        () => {
 
-                if (button) {
-
-                    button.disabled =
-                        activeGalleryPage ===
-                        1;
-
-                }
-
-            }
-        );
-
-
-        [
-            galleryNext,
-            galleryLast
-        ]
-        .forEach(
-            button => {
-
-                if (button) {
-
-                    button.disabled =
-                        activeGalleryPage ===
-                        totalPages;
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =========================================================
-    RENDER GALLERY
-    ========================================================= */
-
-    function renderGallery(
-        shouldScroll
-    ) {
-
-        if (
-            !galleryItems.length
-        ) {
-
-            return;
+            setGalleryPage(
+                1,
+                true
+            );
 
         }
+    );
+
+}
 
 
-        const filteredItems =
-            getFilteredGalleryItems();
+/* =========================================================
+PREVIOUS
+========================================================= */
 
+if (
+    galleryPrev
+) {
 
-        const totalItems =
-            filteredItems.length;
+    galleryPrev.addEventListener(
+        "click",
+        () => {
 
+            setGalleryPage(
 
-        const totalPages =
-            Math.max(
-
+                activeGalleryPage -
                 1,
 
-                Math.ceil(
-                    totalItems /
-                    galleryItemsPerPage
-                )
+                true
 
-            );
-
-
-        activeGalleryPage =
-            Math.min(
-                activeGalleryPage,
-                totalPages
-            );
-
-
-        const startIndex =
-            (
-                activeGalleryPage -
-                1
-            ) *
-            galleryItemsPerPage;
-
-
-        const endIndex =
-            Math.min(
-
-                startIndex +
-                galleryItemsPerPage,
-
-                totalItems
-
-            );
-
-
-        galleryItems.forEach(
-            item => {
-
-                item.hidden =
-                    true;
-
-            }
-        );
-
-
-        filteredItems
-            .slice(
-                startIndex,
-                endIndex
-            )
-            .forEach(
-                item => {
-
-                    item.hidden =
-                        false;
-
-                }
-            );
-
-
-        if (galleryCount) {
-
-            galleryCount.textContent =
-                totalItems
-                    ?
-                    `Showing ${startIndex + 1}-${endIndex} of ${totalItems} projects`
-                    :
-                    "No projects found";
-
-        }
-
-
-        renderGalleryPagination(
-            totalPages
-        );
-
-
-        updateGalleryControls(
-            totalPages
-        );
-
-
-        if (
-            shouldScroll &&
-            gallerySection
-        ) {
-
-            gallerySection.scrollIntoView(
-                {
-
-                    behavior:
-                        "smooth",
-
-                    block:
-                        "start"
-
-                }
             );
 
         }
+    );
 
-    }
-
-
-    function setGalleryPage(
-        page,
-        shouldScroll
-    ) {
-
-        activeGalleryPage =
-            page;
+}
 
 
-        renderGallery(
-            shouldScroll
-        );
+/* =========================================================
+NEXT
+========================================================= */
 
-    }
+if (
+    galleryNext
+) {
 
+    galleryNext.addEventListener(
+        "click",
+        () => {
 
-    /* =========================================================
-    GALLERY FILTER BUTTONS
-    ========================================================= */
+            setGalleryPage(
 
-    galleryFilters.forEach(
-        filter => {
+                activeGalleryPage +
+                1,
 
-            filter.addEventListener(
-                "click",
-                () => {
+                true
 
-                    activeGalleryFilter =
-                        filter.dataset
-                            .galleryFilter;
+            );
 
+        }
+    );
 
-                    activeGalleryPage =
-                        1;
-
-
-                    galleryFilters.forEach(
-                        button => {
-
-                            button.classList.toggle(
-                                "active",
-                                button ===
-                                filter
-                            );
-
-                        }
-                    );
+}
 
 
-                    renderGallery(
-                        false
-                    );
+/* =========================================================
+LAST
+========================================================= */
+
+if (
+    galleryLast
+) {
+
+    galleryLast.addEventListener(
+        "click",
+        () => {
+
+            const totalPages =
+                Math.max(
+
+                    1,
+
+                    Math.ceil(
+
+                        getFilteredGalleryItems()
+                            .length
+
+                        /
+
+                        galleryItemsPerPage
+
+                    )
+
+                );
+
+
+            setGalleryPage(
+                totalPages,
+                true
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+INITIAL LOAD
+========================================================= */
+
+renderGallery(
+    false
+);
 
                 }
             );
