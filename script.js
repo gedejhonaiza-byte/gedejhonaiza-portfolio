@@ -1788,700 +1788,562 @@ const height = section.offsetHeight;
     }
 
 
-/* =========================================================
-MY PORTFOLIO FILTER GALLERY
-40 PROJECTS
-6 PROJECTS PER PAGE
-========================================================= */
+    /* =========================================================
+    MY PORTFOLIO FILTER GALLERY
+    40 PROJECTS
+    6 PROJECTS PER PAGE
+    ========================================================= */
 
-const galleryFilters =
-    document.querySelectorAll(
-        "#MyPortfolio .gallery-filter"
-    );
-
-
-const galleryItems =
-    Array.from(
+    const galleryFilters =
         document.querySelectorAll(
-            "#MyPortfolio .gallery-card"
-        )
-    );
+            "#MyPortfolio .gallery-filter"
+        );
 
 
-const galleryCount =
-    document.getElementById(
-        "galleryCount"
-    );
+    const galleryItems =
+        Array.from(
+            document.querySelectorAll(
+                "#MyPortfolio .gallery-card"
+            )
+        );
 
 
-const galleryPageNumbers =
-    document.getElementById(
-        "galleryPageNumbers"
-    );
+    const galleryCount =
+        document.getElementById(
+            "galleryCount"
+        );
 
 
-const galleryFirst =
-    document.getElementById(
-        "galleryFirst"
-    );
+    const galleryPageNumbers =
+        document.getElementById(
+            "galleryPageNumbers"
+        );
 
 
-const galleryPrev =
-    document.getElementById(
-        "galleryPrev"
-    );
+    const galleryFirst =
+        document.getElementById(
+            "galleryFirst"
+        );
 
 
-const galleryNext =
-    document.getElementById(
-        "galleryNext"
-    );
+    const galleryPrev =
+        document.getElementById(
+            "galleryPrev"
+        );
 
 
-const galleryLast =
-    document.getElementById(
-        "galleryLast"
-    );
+    const galleryNext =
+        document.getElementById(
+            "galleryNext"
+        );
 
 
-const gallerySection =
-    document.getElementById(
-        "MyPortfolio"
-    );
+    const galleryLast =
+        document.getElementById(
+            "galleryLast"
+        );
 
 
-/* =========================================================
-IMPORTANT
-SHOW 6 PROJECTS PER PAGE
-40 PROJECTS = 7 PAGES
-========================================================= */
-
-const galleryItemsPerPage =
-    6;
+    const gallerySection =
+        document.getElementById(
+            "MyPortfolio"
+        );
 
 
-let activeGalleryFilter =
-    "all";
+    /* =========================================================
+    IMPORTANT
+    SHOW 6 PROJECTS PER PAGE
+    40 PROJECTS = 7 PAGES
+    ========================================================= */
+
+    const galleryItemsPerPage =
+        6;
 
 
-let activeGalleryPage =
-    1;
+    let activeGalleryFilter =
+        "all";
 
 
-/* =========================================================
-FILTER PROJECTS
-========================================================= */
-
-function getFilteredGalleryItems() {
-
-    return galleryItems.filter(
-        item => {
-
-            return (
-
-                activeGalleryFilter ===
-                "all"
-
-                ||
-
-                item.dataset
-                    .galleryCategory ===
-                activeGalleryFilter
-
-            );
-
-        }
-    );
-
-}
+    let activeGalleryPage =
+        1;
 
 
-/* =========================================================
-BUILD PAGE NUMBERS
-SHOW ALL AVAILABLE PAGES
-ALL = 1 2 3 4 5 6 7
-========================================================= */
+    /* =========================================================
+    FILTER PROJECTS
+    ========================================================= */
 
-function getGalleryPaginationItems(
-    totalPages
-) {
+    function getFilteredGalleryItems() {
 
-    return Array.from(
+        return galleryItems.filter(
+            item => {
 
-        {
-            length:
-                totalPages
-        },
+                return (
 
-        (
-            _,
-            index
-        ) =>
+                    activeGalleryFilter ===
+                    "all"
 
-            index +
-            1
+                    ||
 
-    );
+                    item.dataset
+                        .galleryCategory ===
+                    activeGalleryFilter
 
-}
+                );
 
-
-/* =========================================================
-RENDER PAGE NUMBERS
-========================================================= */
-
-function renderGalleryPagination(
-    totalPages
-) {
-
-    if (
-        !galleryPageNumbers
-    ) {
-
-        return;
+            }
+        );
 
     }
 
 
-    galleryPageNumbers.innerHTML =
-        "";
+    /* =========================================================
+    BUILD PAGE NUMBERS
+    ALL = 1 2 3 4 5 6 7
+    ========================================================= */
 
-
-    getGalleryPaginationItems(
+    function getGalleryPaginationItems(
         totalPages
-    )
-    .forEach(
-        pageNumber => {
+    ) {
 
-            const button =
-                document.createElement(
-                    "button"
-                );
+        return Array.from(
 
+            {
+                length:
+                    totalPages
+            },
 
-            button.type =
-                "button";
+            (
+                _,
+                index
+            ) =>
 
+                index +
+                1
 
-            button.className =
-                "gallery-page-number";
+        );
 
-
-            button.textContent =
-                pageNumber;
-
-
-            button.setAttribute(
-                "aria-label",
-                `Go to portfolio page ${pageNumber}`
-            );
+    }
 
 
-            if (
-                pageNumber ===
-                activeGalleryPage
-            ) {
+    /* =========================================================
+    RENDER PAGE NUMBERS
+    ========================================================= */
 
-                button.classList.add(
-                    "active"
-                );
+    function renderGalleryPagination(
+        totalPages
+    ) {
+
+        if (
+            !galleryPageNumbers
+        ) {
+
+            return;
+
+        }
+
+
+        galleryPageNumbers.innerHTML =
+            "";
+
+
+        getGalleryPaginationItems(
+            totalPages
+        )
+        .forEach(
+            pageNumber => {
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.type =
+                    "button";
+
+
+                button.className =
+                    "gallery-page-number";
+
+
+                button.textContent =
+                    pageNumber;
 
 
                 button.setAttribute(
-                    "aria-current",
-                    "page"
+                    "aria-label",
+                    `Go to portfolio page ${pageNumber}`
                 );
 
-            }
+
+                if (
+                    pageNumber ===
+                    activeGalleryPage
+                ) {
+
+                    button.classList.add(
+                        "active"
+                    );
 
 
-            button.addEventListener(
-                "click",
-                () => {
-
-                    setGalleryPage(
-                        pageNumber,
-                        true
+                    button.setAttribute(
+                        "aria-current",
+                        "page"
                     );
 
                 }
-            );
 
 
-            galleryPageNumbers
-                .appendChild(
-                    button
-                );
+                button.addEventListener(
+                    "click",
+                    () => {
 
-        }
-    );
-
-}
-
-
-/* =========================================================
-UPDATE FIRST / PREV / NEXT / LAST
-========================================================= */
-
-function updateGalleryControls(
-    totalPages
-) {
-
-    if (
-        galleryFirst
-    ) {
-
-        galleryFirst.disabled =
-            activeGalleryPage ===
-            1;
-
-    }
-
-
-    if (
-        galleryPrev
-    ) {
-
-        galleryPrev.disabled =
-            activeGalleryPage ===
-            1;
-
-    }
-
-
-    if (
-        galleryNext
-    ) {
-
-        galleryNext.disabled =
-            activeGalleryPage ===
-            totalPages;
-
-    }
-
-
-    if (
-        galleryLast
-    ) {
-
-        galleryLast.disabled =
-            activeGalleryPage ===
-            totalPages;
-
-    }
-
-}
-
-
-/* =========================================================
-RENDER PORTFOLIO GALLERY
-========================================================= */
-
-function renderGallery(
-    shouldScroll =
-    false
-) {
-
-    if (
-        !galleryItems.length
-    ) {
-
-        return;
-
-    }
-
-
-    const filteredItems =
-        getFilteredGalleryItems();
-
-
-    const totalItems =
-        filteredItems.length;
-
-
-    const totalPages =
-        Math.max(
-
-            1,
-
-            Math.ceil(
-                totalItems /
-                galleryItemsPerPage
-            )
-
-        );
-
-
-    activeGalleryPage =
-        Math.max(
-
-            1,
-
-            Math.min(
-                activeGalleryPage,
-                totalPages
-            )
-
-        );
-
-
-    const startIndex =
-
-        (
-            activeGalleryPage -
-            1
-        )
-
-        *
-
-        galleryItemsPerPage;
-
-
-    const endIndex =
-        Math.min(
-
-            startIndex +
-            galleryItemsPerPage,
-
-            totalItems
-
-        );
-
-
-    /* HIDE EVERY CARD FIRST */
-
-    galleryItems.forEach(
-        item => {
-
-            item.hidden =
-                true;
-
-        }
-    );
-
-
-    /* SHOW ONLY CURRENT PAGE */
-
-    filteredItems
-        .slice(
-            startIndex,
-            endIndex
-        )
-        .forEach(
-            item => {
-
-                item.hidden =
-                    false;
-
-            }
-        );
-
-
-    /* =====================================================
-    PROJECT COUNT
-
-    ALL FILTER:
-
-    PAGE 1
-    Showing 1-6 of 40 projects
-
-    PAGE 2
-    Showing 7-12 of 40 projects
-
-    PAGE 7
-    Showing 37-40 of 40 projects
-    ===================================================== */
-
-    if (
-        galleryCount
-    ) {
-
-        galleryCount.textContent =
-
-            totalItems
-
-                ?
-
-                `Showing ${startIndex + 1}-${endIndex} of ${totalItems} projects`
-
-                :
-
-                "No projects found";
-
-    }
-
-
-    renderGalleryPagination(
-        totalPages
-    );
-
-
-    updateGalleryControls(
-        totalPages
-    );
-
-
-    if (
-        shouldScroll &&
-        gallerySection
-    ) {
-
-        const headerOffset =
-            105;
-
-
-        const sectionTop =
-
-            gallerySection
-                .getBoundingClientRect()
-                .top
-
-            +
-
-            window.pageYOffset
-
-            -
-
-            headerOffset;
-
-
-        window.scrollTo(
-            {
-                top:
-                    sectionTop,
-
-                behavior:
-                    "smooth"
-            }
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-SET PAGE
-========================================================= */
-
-function setGalleryPage(
-    page,
-    shouldScroll =
-    false
-) {
-
-    const filteredItems =
-        getFilteredGalleryItems();
-
-
-    const totalPages =
-        Math.max(
-
-            1,
-
-            Math.ceil(
-
-                filteredItems.length /
-                galleryItemsPerPage
-
-            )
-
-        );
-
-
-    activeGalleryPage =
-        Math.max(
-
-            1,
-
-            Math.min(
-                page,
-                totalPages
-            )
-
-        );
-
-
-    renderGallery(
-        shouldScroll
-    );
-
-}
-
-
-/* =========================================================
-FILTER BUTTONS
-========================================================= */
-
-galleryFilters.forEach(
-    filter => {
-
-        filter.addEventListener(
-            "click",
-            () => {
-
-                activeGalleryFilter =
-                    filter.dataset
-                        .galleryFilter;
-
-
-                activeGalleryPage =
-                    1;
-
-
-                galleryFilters.forEach(
-                    button => {
-
-                        button.classList.toggle(
-
-                            "active",
-
-                            button ===
-                            filter
-
+                        setGalleryPage(
+                            pageNumber,
+                            true
                         );
 
                     }
                 );
 
 
-                renderGallery(
-                    false
-                );
+                galleryPageNumbers
+                    .appendChild(
+                        button
+                    );
 
             }
         );
 
     }
-);
 
 
-/* =========================================================
-FIRST
-========================================================= */
+    /* =========================================================
+    UPDATE FIRST / PREV / NEXT / LAST
+    ========================================================= */
 
-if (
-    galleryFirst
-) {
+    function updateGalleryControls(
+        totalPages
+    ) {
 
-    galleryFirst.addEventListener(
-        "click",
-        () => {
+        if (
+            galleryFirst
+        ) {
 
-            setGalleryPage(
-                1,
-                true
-            );
+            galleryFirst.disabled =
+                activeGalleryPage ===
+                1;
 
         }
-    );
-
-}
 
 
-/* =========================================================
-PREVIOUS
-========================================================= */
+        if (
+            galleryPrev
+        ) {
 
-if (
-    galleryPrev
-) {
+            galleryPrev.disabled =
+                activeGalleryPage ===
+                1;
 
-    galleryPrev.addEventListener(
-        "click",
-        () => {
+        }
 
-            setGalleryPage(
 
+        if (
+            galleryNext
+        ) {
+
+            galleryNext.disabled =
+                activeGalleryPage ===
+                totalPages;
+
+        }
+
+
+        if (
+            galleryLast
+        ) {
+
+            galleryLast.disabled =
+                activeGalleryPage ===
+                totalPages;
+
+        }
+
+    }
+
+
+    /* =========================================================
+    RENDER PORTFOLIO GALLERY
+    ========================================================= */
+
+    function renderGallery(
+        shouldScroll =
+        false
+    ) {
+
+        if (
+            !galleryItems.length
+        ) {
+
+            return;
+
+        }
+
+
+        const filteredItems =
+            getFilteredGalleryItems();
+
+
+        const totalItems =
+            filteredItems.length;
+
+
+        const totalPages =
+            Math.max(
+
+                1,
+
+                Math.ceil(
+                    totalItems /
+                    galleryItemsPerPage
+                )
+
+            );
+
+
+        activeGalleryPage =
+            Math.max(
+
+                1,
+
+                Math.min(
+                    activeGalleryPage,
+                    totalPages
+                )
+
+            );
+
+
+        const startIndex =
+
+            (
                 activeGalleryPage -
+                1
+            )
+
+            *
+
+            galleryItemsPerPage;
+
+
+        const endIndex =
+            Math.min(
+
+                startIndex +
+                galleryItemsPerPage,
+
+                totalItems
+
+            );
+
+
+        /* HIDE EVERY CARD FIRST */
+
+        galleryItems.forEach(
+            item => {
+
+                item.hidden =
+                    true;
+
+            }
+        );
+
+
+        /* SHOW CURRENT PAGE ONLY */
+
+        filteredItems
+            .slice(
+                startIndex,
+                endIndex
+            )
+            .forEach(
+                item => {
+
+                    item.hidden =
+                        false;
+
+                }
+            );
+
+
+        /* =====================================================
+        PROJECT COUNT
+
+        PAGE 1 = Showing 1-6 of 40 projects
+        PAGE 2 = Showing 7-12 of 40 projects
+        PAGE 3 = Showing 13-18 of 40 projects
+        PAGE 4 = Showing 19-24 of 40 projects
+        PAGE 5 = Showing 25-30 of 40 projects
+        PAGE 6 = Showing 31-36 of 40 projects
+        PAGE 7 = Showing 37-40 of 40 projects
+        ===================================================== */
+
+        if (
+            galleryCount
+        ) {
+
+            galleryCount.textContent =
+
+                totalItems
+
+                    ?
+
+                    `Showing ${startIndex + 1}-${endIndex} of ${totalItems} projects`
+
+                    :
+
+                    "No projects found";
+
+        }
+
+
+        renderGalleryPagination(
+            totalPages
+        );
+
+
+        updateGalleryControls(
+            totalPages
+        );
+
+
+        if (
+            shouldScroll &&
+            gallerySection
+        ) {
+
+            const headerOffset =
+                105;
+
+
+            const sectionTop =
+
+                gallerySection
+                    .getBoundingClientRect()
+                    .top
+
+                +
+
+                window.pageYOffset
+
+                -
+
+                headerOffset;
+
+
+            window.scrollTo(
+                {
+                    top:
+                        sectionTop,
+
+                    behavior:
+                        "smooth"
+                }
+            );
+
+        }
+
+    }
+
+
+    /* =========================================================
+    SET PAGE
+    ========================================================= */
+
+    function setGalleryPage(
+        page,
+        shouldScroll =
+        false
+    ) {
+
+        const filteredItems =
+            getFilteredGalleryItems();
+
+
+        const totalPages =
+            Math.max(
+
                 1,
 
-                true
+                Math.ceil(
+
+                    filteredItems.length /
+                    galleryItemsPerPage
+
+                )
 
             );
 
-        }
-    );
 
-}
+        activeGalleryPage =
+            Math.max(
 
-
-/* =========================================================
-NEXT
-========================================================= */
-
-if (
-    galleryNext
-) {
-
-    galleryNext.addEventListener(
-        "click",
-        () => {
-
-            setGalleryPage(
-
-                activeGalleryPage +
                 1,
 
-                true
+                Math.min(
+                    page,
+                    totalPages
+                )
 
             );
 
-        }
-    );
 
-}
+        renderGallery(
+            shouldScroll
+        );
 
-
-/* =========================================================
-LAST
-========================================================= */
-
-if (
-    galleryLast
-) {
-
-    galleryLast.addEventListener(
-        "click",
-        () => {
-
-            const totalPages =
-                Math.max(
-
-                    1,
-
-                    Math.ceil(
-
-                        getFilteredGalleryItems()
-                            .length
-
-                        /
-
-                        galleryItemsPerPage
-
-                    )
-
-                );
+    }
 
 
-            setGalleryPage(
-                totalPages,
-                true
-            );
+    /* =========================================================
+    FILTER BUTTONS
+    ========================================================= */
 
-        }
-    );
+    galleryFilters.forEach(
+        filter => {
 
-}
+            filter.addEventListener(
+                "click",
+                () => {
+
+                    activeGalleryFilter =
+                        filter.dataset
+                            .galleryFilter;
 
 
-/* =========================================================
-INITIAL LOAD
-========================================================= */
+                    activeGalleryPage =
+                        1;
 
-renderGallery(
-    false
-);
+
+                    galleryFilters.forEach(
+                        button => {
+
+                            button.classList.toggle(
+
+                                "active",
+
+                                button ===
+                                filter
+
+                            );
+
+                        }
+                    );
+
+
+                    renderGallery(
+                        false
+                    );
 
                 }
             );
@@ -2491,10 +2353,12 @@ renderGallery(
 
 
     /* =========================================================
-    GALLERY FIRST
+    FIRST
     ========================================================= */
 
-    if (galleryFirst) {
+    if (
+        galleryFirst
+    ) {
 
         galleryFirst.addEventListener(
             "click",
@@ -2512,10 +2376,12 @@ renderGallery(
 
 
     /* =========================================================
-    GALLERY PREVIOUS
+    PREVIOUS
     ========================================================= */
 
-    if (galleryPrev) {
+    if (
+        galleryPrev
+    ) {
 
         galleryPrev.addEventListener(
             "click",
@@ -2523,11 +2389,8 @@ renderGallery(
 
                 setGalleryPage(
 
-                    Math.max(
-                        1,
-                        activeGalleryPage -
-                        1
-                    ),
+                    activeGalleryPage -
+                    1,
 
                     true
 
@@ -2540,36 +2403,21 @@ renderGallery(
 
 
     /* =========================================================
-    GALLERY NEXT
+    NEXT
     ========================================================= */
 
-    if (galleryNext) {
+    if (
+        galleryNext
+    ) {
 
         galleryNext.addEventListener(
             "click",
             () => {
 
-                const totalPages =
-                    Math.max(
-
-                        1,
-
-                        Math.ceil(
-                            getFilteredGalleryItems()
-                                .length /
-                            galleryItemsPerPage
-                        )
-
-                    );
-
-
                 setGalleryPage(
 
-                    Math.min(
-                        totalPages,
-                        activeGalleryPage +
-                        1
-                    ),
+                    activeGalleryPage +
+                    1,
 
                     true
 
@@ -2582,10 +2430,12 @@ renderGallery(
 
 
     /* =========================================================
-    GALLERY LAST
+    LAST
     ========================================================= */
 
-    if (galleryLast) {
+    if (
+        galleryLast
+    ) {
 
         galleryLast.addEventListener(
             "click",
@@ -2597,9 +2447,14 @@ renderGallery(
                         1,
 
                         Math.ceil(
+
                             getFilteredGalleryItems()
-                                .length /
+                                .length
+
+                            /
+
                             galleryItemsPerPage
+
                         )
 
                     );
@@ -2615,6 +2470,10 @@ renderGallery(
 
     }
 
+
+    /* =========================================================
+    INITIAL LOAD
+    ========================================================= */
 
     renderGallery(
         false
@@ -3813,214 +3672,215 @@ renderGallery(
     );
 
 
-   /* =========================================================
-CONTACT COPY BUTTONS
-========================================================= */
+    /* =========================================================
+    CONTACT COPY BUTTONS
+    ========================================================= */
 
-const contactCopyButtons =
-    document.querySelectorAll(
-        ".contact-copy-btn"
-    );
-
-
-async function copyContactValue(
-    button
-) {
-
-    const textToCopy =
-        button.dataset.copy;
-
-
-    if (!textToCopy) {
-
-        return;
-
-    }
-
-
-    const originalAriaLabel =
-        button.getAttribute(
-            "aria-label"
+    const contactCopyButtons =
+        document.querySelectorAll(
+            ".contact-copy-btn"
         );
 
 
-    const originalTitle =
-        button.getAttribute(
-            "title"
-        );
+    async function copyContactValue(
+        button
+    ) {
+
+        const textToCopy =
+            button.dataset.copy;
 
 
-    try {
+        if (!textToCopy) {
 
-        if (
-            navigator.clipboard &&
-            window.isSecureContext
-        ) {
-
-            await navigator.clipboard.writeText(
-                textToCopy
-            );
-
-
-        } else {
-
-            const temporaryInput =
-                document.createElement(
-                    "textarea"
-                );
-
-
-            temporaryInput.value =
-                textToCopy;
-
-
-            temporaryInput.setAttribute(
-                "readonly",
-                ""
-            );
-
-
-            temporaryInput.style.position =
-                "fixed";
-
-
-            temporaryInput.style.left =
-                "-9999px";
-
-
-            temporaryInput.style.top =
-                "0";
-
-
-            temporaryInput.style.opacity =
-                "0";
-
-
-            document.body.appendChild(
-                temporaryInput
-            );
-
-
-            temporaryInput.select();
-
-
-            temporaryInput.setSelectionRange(
-                0,
-                temporaryInput.value.length
-            );
-
-
-            document.execCommand(
-                "copy"
-            );
-
-
-            temporaryInput.remove();
+            return;
 
         }
 
 
-        button.classList.add(
-            "copied"
-        );
+        const originalAriaLabel =
+            button.getAttribute(
+                "aria-label"
+            );
 
 
-        button.setAttribute(
-            "aria-label",
-            "Copied"
-        );
+        const originalTitle =
+            button.getAttribute(
+                "title"
+            );
 
 
-        button.setAttribute(
-            "title",
-            "Copied!"
-        );
+        try {
 
+            if (
+                navigator.clipboard &&
+                window.isSecureContext
+            ) {
 
-        setTimeout(
-            () => {
-
-                button.classList.remove(
-                    "copied"
+                await navigator.clipboard.writeText(
+                    textToCopy
                 );
 
 
-                if (
-                    originalAriaLabel
-                ) {
+            } else {
 
-                    button.setAttribute(
-                        "aria-label",
-                        originalAriaLabel
+                const temporaryInput =
+                    document.createElement(
+                        "textarea"
                     );
 
 
-                } else {
-
-                    button.removeAttribute(
-                        "aria-label"
-                    );
-
-                }
+                temporaryInput.value =
+                    textToCopy;
 
 
-                if (
-                    originalTitle
-                ) {
-
-                    button.setAttribute(
-                        "title",
-                        originalTitle
-                    );
-
-
-                } else {
-
-                    button.removeAttribute(
-                        "title"
-                    );
-
-                }
-
-            },
-            1400
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "Unable to copy contact information:",
-            error
-        );
-
-    }
-
-}
-
-
-contactCopyButtons.forEach(
-    button => {
-
-        button.addEventListener(
-            "click",
-            event => {
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-
-                copyContactValue(
-                    button
+                temporaryInput.setAttribute(
+                    "readonly",
+                    ""
                 );
+
+
+                temporaryInput.style.position =
+                    "fixed";
+
+
+                temporaryInput.style.left =
+                    "-9999px";
+
+
+                temporaryInput.style.top =
+                    "0";
+
+
+                temporaryInput.style.opacity =
+                    "0";
+
+
+                document.body.appendChild(
+                    temporaryInput
+                );
+
+
+                temporaryInput.select();
+
+
+                temporaryInput.setSelectionRange(
+                    0,
+                    temporaryInput.value.length
+                );
+
+
+                document.execCommand(
+                    "copy"
+                );
+
+
+                temporaryInput.remove();
 
             }
-        );
+
+
+            button.classList.add(
+                "copied"
+            );
+
+
+            button.setAttribute(
+                "aria-label",
+                "Copied"
+            );
+
+
+            button.setAttribute(
+                "title",
+                "Copied!"
+            );
+
+
+            setTimeout(
+                () => {
+
+                    button.classList.remove(
+                        "copied"
+                    );
+
+
+                    if (
+                        originalAriaLabel
+                    ) {
+
+                        button.setAttribute(
+                            "aria-label",
+                            originalAriaLabel
+                        );
+
+
+                    } else {
+
+                        button.removeAttribute(
+                            "aria-label"
+                        );
+
+                    }
+
+
+                    if (
+                        originalTitle
+                    ) {
+
+                        button.setAttribute(
+                            "title",
+                            originalTitle
+                        );
+
+
+                    } else {
+
+                        button.removeAttribute(
+                            "title"
+                        );
+
+                    }
+
+                },
+                1400
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Unable to copy contact information:",
+                error
+            );
+
+        }
 
     }
-);
-    
+
+
+    contactCopyButtons.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
+
+
+                    copyContactValue(
+                        button
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
     /* =========================================================
     COPYRIGHT YEAR
     ========================================================= */
