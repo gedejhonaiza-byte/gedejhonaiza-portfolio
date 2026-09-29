@@ -6594,3 +6594,673 @@ VERY SMALL MOBILE
     }
 
 }
+
+/* =========================================================
+NEW EXPERIENCE CARDS
+LOGO + CALENDAR + YEAR
+========================================================= */
+
+
+/* =========================================================
+EXPERIENCE GRID
+========================================================= */
+
+.experience-grid{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:20px;
+}
+
+
+/* =========================================================
+EXPERIENCE CARD
+========================================================= */
+
+.experience-card{
+    position:relative;
+    isolation:isolate;
+
+    display:grid;
+
+    grid-template-columns:
+        82px
+        minmax(0,1fr);
+
+    align-items:center;
+
+    gap:22px;
+
+    width:100%;
+
+    min-width:0;
+    min-height:180px;
+
+    padding:25px;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(215,181,109,.22);
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111 0%,
+            #0B0B0B 50%,
+            #080808 100%
+        );
+
+    color:#FFFFFF;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.035),
+
+        0 15px 35px
+        rgba(0,0,0,.30);
+
+    filter:none;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    transition:
+        transform .38s
+        cubic-bezier(.22,1,.36,1),
+
+        border-color .38s ease,
+
+        box-shadow .38s ease,
+
+        background .38s ease;
+}
+
+
+/* =========================================================
+EXPERIENCE GOLD LIGHT EFFECT
+========================================================= */
+
+.experience-card::before{
+    content:"";
+
+    position:absolute;
+
+    z-index:0;
+
+    top:-120%;
+    left:-65%;
+
+    width:34%;
+    height:340%;
+
+    opacity:0;
+
+    transform:
+        rotate(22deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(215,181,109,.05),
+            rgba(255,242,189,.25),
+            rgba(255,255,255,.34),
+            rgba(215,181,109,.14),
+            transparent
+        );
+
+    transition:
+        left .85s ease,
+        opacity .3s ease;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+SUBTLE INNER GOLD GLOW
+========================================================= */
+
+.experience-card::after{
+    content:"";
+
+    position:absolute;
+
+    z-index:0;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    opacity:0;
+
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(215,181,109,.09),
+            transparent 38%
+        );
+
+    transition:
+        opacity .38s ease;
+
+    pointer-events:none;
+}
+
+
+/* KEEP CONTENT ABOVE EFFECT */
+
+.experience-card > *{
+    position:relative;
+    z-index:2;
+}
+
+
+/* =========================================================
+CARD HOVER
+========================================================= */
+
+.experience-card:hover{
+    transform:
+        translateY(-7px)
+        scale(1.01);
+
+    border-color:
+        rgba(215,181,109,.62);
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515 0%,
+            #0D0D0D 52%,
+            #090909 100%
+        );
+
+    filter:none;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.06),
+
+        0 20px 42px
+        rgba(0,0,0,.42),
+
+        0 0 24px
+        rgba(215,181,109,.11);
+}
+
+
+.experience-card:hover::before{
+    left:132%;
+    opacity:1;
+}
+
+
+.experience-card:hover::after{
+    opacity:1;
+}
+
+
+/* =========================================================
+COMPANY LOGO
+========================================================= */
+
+.experience-logo{
+    position:relative;
+
+    width:82px;
+    height:82px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:8px;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(215,181,109,.22);
+
+    border-radius:10px;
+
+    background:#FFFFFF;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.24);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.experience-logo img{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    max-width:100%;
+
+    object-fit:contain;
+
+    object-position:center;
+}
+
+
+.experience-card:hover
+.experience-logo{
+    transform:
+        translateY(-2px)
+        scale(1.04);
+
+    border-color:
+        rgba(215,181,109,.62);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.34),
+
+        0 0 15px
+        rgba(215,181,109,.12);
+}
+
+
+/* =========================================================
+EXPERIENCE CONTENT
+========================================================= */
+
+.experience-card-body{
+    min-width:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    justify-content:center;
+}
+
+
+/* =========================================================
+CALENDAR + YEAR
+========================================================= */
+
+.experience-date{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin:
+        0
+        0
+        11px;
+
+    color:
+        #D7B56D;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    letter-spacing:.3px;
+}
+
+
+.experience-date span{
+    color:#D7B56D;
+}
+
+
+.experience-date svg{
+    flex:0 0 auto;
+
+    width:18px;
+    height:18px;
+
+    fill:none;
+
+    stroke:
+        currentColor;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+}
+
+
+/* =========================================================
+JOB TITLE
+========================================================= */
+
+.experience-card h4{
+    margin:
+        0
+        0
+        8px;
+
+    color:
+        #F8F8F8 !important;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        clamp(
+            17px,
+            1.35vw,
+            22px
+        );
+
+    font-weight:700;
+
+    line-height:1.35;
+
+    letter-spacing:-.25px;
+}
+
+
+/* =========================================================
+RESET OLD EXPERIENCE PARAGRAPH COLOR
+========================================================= */
+
+.experience-card p{
+    margin:0;
+
+    color:
+        #C8C8C8;
+
+    font-size:13px;
+
+    line-height:1.55;
+}
+
+
+/* =========================================================
+COMPANY NAME
+========================================================= */
+
+.experience-card
+.experience-company{
+    margin:
+        0
+        0
+        2px;
+
+    color:
+        #D8D8D8 !important;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    line-height:1.55;
+}
+
+
+/* =========================================================
+LOCATION
+========================================================= */
+
+.experience-card
+.experience-location{
+    margin:0;
+
+    color:
+        #8F8F8F !important;
+
+    font-size:12px;
+
+    font-weight:400;
+
+    line-height:1.55;
+}
+
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width:1100px){
+
+    .experience-grid{
+        gap:17px;
+    }
+
+
+    .experience-card{
+        grid-template-columns:
+            70px
+            minmax(0,1fr);
+
+        gap:18px;
+
+        min-height:165px;
+
+        padding:21px;
+    }
+
+
+    .experience-logo{
+        width:70px;
+        height:70px;
+
+        padding:7px;
+    }
+
+
+    .experience-card h4{
+        font-size:17px;
+    }
+
+
+    .experience-card
+    .experience-company{
+        font-size:12px;
+    }
+
+
+    .experience-card
+    .experience-location{
+        font-size:11px;
+    }
+
+}
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width:767px){
+
+    .experience-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+
+    .experience-card{
+        grid-template-columns:
+            64px
+            minmax(0,1fr);
+
+        align-items:center;
+
+        gap:16px;
+
+        min-height:auto;
+
+        padding:19px 17px;
+    }
+
+
+    .experience-logo{
+        width:64px;
+        height:64px;
+
+        padding:6px;
+
+        border-radius:8px;
+    }
+
+
+    .experience-date{
+        margin-bottom:7px;
+
+        font-size:12px;
+    }
+
+
+    .experience-date svg{
+        width:16px;
+        height:16px;
+    }
+
+
+    .experience-card h4{
+        margin-bottom:5px;
+
+        font-size:16px;
+    }
+
+
+    .experience-card
+    .experience-company{
+        font-size:12px;
+    }
+
+
+    .experience-card
+    .experience-location{
+        font-size:11px;
+    }
+
+
+    .experience-card:hover{
+        transform:
+            translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px){
+
+    .experience-card{
+        grid-template-columns:
+            56px
+            minmax(0,1fr);
+
+        gap:13px;
+
+        padding:16px 14px;
+    }
+
+
+    .experience-logo{
+        width:56px;
+        height:56px;
+
+        padding:5px;
+    }
+
+
+    .experience-date{
+        gap:6px;
+
+        font-size:11px;
+    }
+
+
+    .experience-date svg{
+        width:15px;
+        height:15px;
+    }
+
+
+    .experience-card h4{
+        font-size:15px;
+
+        line-height:1.3;
+    }
+
+
+    .experience-card
+    .experience-company{
+        font-size:11px;
+    }
+
+
+    .experience-card
+    .experience-location{
+        font-size:10px;
+    }
+
+}
+
+
+/* =========================================================
+VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width:360px){
+
+    .experience-card{
+        grid-template-columns:
+            50px
+            minmax(0,1fr);
+
+        gap:11px;
+
+        padding:14px 12px;
+    }
+
+
+    .experience-logo{
+        width:50px;
+        height:50px;
+
+        padding:4px;
+    }
+
+
+    .experience-card h4{
+        font-size:14px;
+    }
+
+}
