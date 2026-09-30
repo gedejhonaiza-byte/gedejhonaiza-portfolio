@@ -9082,3 +9082,486 @@ REDUCED MOTION
     }
 
 }
+
+/* =========================================================
+PORTFOLIO IMAGE VIEWER
+========================================================= */
+
+.portfolio-image-modal{
+    position:fixed;
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
+
+    opacity:0;
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+
+.portfolio-image-modal.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+
+/* =========================================================
+BACKDROP
+========================================================= */
+
+.portfolio-image-modal-backdrop{
+    position:absolute;
+    inset:0;
+
+    background:
+        rgba(0,0,0,.92);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+}
+
+
+/* =========================================================
+MAIN VIEWER
+========================================================= */
+
+.portfolio-image-modal-content{
+    position:relative;
+    z-index:2;
+
+    width:min(1100px,96vw);
+
+    max-height:92vh;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(215,181,109,.55);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #070707
+        );
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.75),
+
+        0 0 35px
+        rgba(215,181,109,.10);
+
+    transform:
+        translateY(18px)
+        scale(.97);
+
+    transition:
+        transform .4s
+        cubic-bezier(.22,1,.36,1);
+}
+
+
+.portfolio-image-modal.active
+.portfolio-image-modal-content{
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+IMAGE FRAME
+========================================================= */
+
+.portfolio-image-modal-frame{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:100%;
+
+    min-height:300px;
+
+    max-height:72vh;
+
+    padding:18px;
+
+    overflow:auto;
+
+    background:
+        #050505;
+}
+
+
+.portfolio-image-modal-frame img{
+    display:block;
+
+    width:auto;
+    height:auto;
+
+    max-width:100%;
+    max-height:68vh;
+
+    object-fit:contain;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+X CLOSE BUTTON
+========================================================= */
+
+.portfolio-image-modal-close{
+    position:absolute;
+
+    top:16px;
+    right:16px;
+
+    z-index:10;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:46px;
+    height:46px;
+
+    padding:0;
+
+    border:
+        1px solid
+        rgba(255,242,189,.65);
+
+    border-radius:50%;
+
+    background:
+        rgba(5,5,5,.88);
+
+    color:#FFF2BD;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 24px
+        rgba(0,0,0,.35);
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+}
+
+
+.portfolio-image-modal-close:hover{
+    transform:
+        rotate(90deg)
+        scale(1.06);
+
+    background:#D7B56D;
+
+    border-color:#D7B56D;
+
+    color:#050505;
+}
+
+
+.portfolio-image-modal-close svg{
+    width:22px;
+    height:22px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+}
+
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+.portfolio-image-modal-footer{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:
+        18px
+        22px;
+
+    border-top:
+        1px solid
+        rgba(215,181,109,.18);
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #080808
+        );
+}
+
+
+.portfolio-image-modal-label{
+    display:block;
+
+    margin-bottom:4px;
+
+    color:#D7B56D;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:1.4px;
+}
+
+
+.portfolio-image-modal-footer h3{
+    margin:0;
+
+    color:#ffffff;
+
+    font-size:
+        clamp(
+            15px,
+            1.5vw,
+            20px
+        );
+
+    line-height:1.35;
+}
+
+
+/* =========================================================
+BACK BUTTON
+========================================================= */
+
+.portfolio-image-back-button{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    flex-shrink:0;
+
+    min-height:42px;
+
+    padding:
+        9px
+        14px;
+
+    border:
+        1px solid
+        rgba(215,181,109,.45);
+
+    border-radius:8px;
+
+    background:
+        rgba(215,181,109,.06);
+
+    color:#D7B56D;
+
+    cursor:pointer;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    letter-spacing:.7px;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.portfolio-image-back-button:hover{
+    background:#D7B56D;
+
+    color:#050505;
+
+    transform:
+        translateY(-2px);
+}
+
+
+.portfolio-image-back-button svg{
+    width:17px;
+    height:17px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+}
+
+
+/* =========================================================
+LOCK PAGE WHEN VIEWER IS OPEN
+========================================================= */
+
+body.portfolio-modal-open{
+    overflow:hidden !important;
+}
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width:767px){
+
+    .portfolio-image-modal{
+        padding:12px;
+    }
+
+
+    .portfolio-image-modal-content{
+        width:100%;
+
+        max-height:94vh;
+
+        border-radius:14px;
+    }
+
+
+    .portfolio-image-modal-frame{
+        min-height:250px;
+
+        max-height:70vh;
+
+        padding:10px;
+    }
+
+
+    .portfolio-image-modal-frame img{
+        max-height:66vh;
+    }
+
+
+    .portfolio-image-modal-close{
+        top:10px;
+        right:10px;
+
+        width:40px;
+        height:40px;
+    }
+
+
+    .portfolio-image-modal-close svg{
+        width:19px;
+        height:19px;
+    }
+
+
+    .portfolio-image-modal-footer{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        padding:
+            14px
+            15px;
+
+        gap:12px;
+    }
+
+
+    .portfolio-image-back-button{
+        width:100%;
+    }
+
+}
+
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px){
+
+    .portfolio-image-modal{
+        padding:8px;
+    }
+
+
+    .portfolio-image-modal-frame{
+        min-height:220px;
+    }
+
+
+    .portfolio-image-modal-footer h3{
+        font-size:14px;
+    }
+
+}
+
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    .portfolio-image-modal,
+    .portfolio-image-modal-content,
+    .portfolio-image-modal-close,
+    .portfolio-image-back-button{
+        transition:none !important;
+    }
+
+}
