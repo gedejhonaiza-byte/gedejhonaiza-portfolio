@@ -3900,3 +3900,315 @@ const height = section.offsetHeight;
     }
 
 });
+
+/* =========================================================
+PORTFOLIO IMAGE VIEWER
+VIEW IMAGE INSIDE WEBSITE — NO NEW TAB
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const portfolioSection =
+        document.querySelector("#MyPortfolio");
+
+    const modal =
+        document.querySelector("#portfolioImageModal");
+
+    const modalImage =
+        document.querySelector("#portfolioImageModalImage");
+
+    const modalTitle =
+        document.querySelector("#portfolioImageModalTitle");
+
+    const closeButton =
+        document.querySelector("#portfolioImageModalClose");
+
+    const backButton =
+        document.querySelector("#portfolioImageBackButton");
+
+    const backdrop =
+        document.querySelector(
+            ".portfolio-image-modal-backdrop"
+        );
+
+
+    if (
+        !portfolioSection ||
+        !modal ||
+        !modalImage
+    ) {
+        return;
+    }
+
+
+
+    /* =====================================================
+    FIND ALL PORTFOLIO "VIEW" BUTTONS
+
+    IMPORTANT:
+    "View Project" links remain normal website links.
+    Only buttons with text exactly "View" open the image viewer.
+    ===================================================== */
+
+    const portfolioViewLinks =
+        document.querySelectorAll(
+            "#MyPortfolio .gallery-card-actions a"
+        );
+
+
+    portfolioViewLinks.forEach(function (link) {
+
+        const buttonText =
+            link.textContent
+                .trim()
+                .toLowerCase();
+
+
+        /* ONLY IMAGE VIEW BUTTONS */
+
+        if (buttonText !== "view") {
+            return;
+        }
+
+
+        /* REMOVE NEW TAB BEHAVIOR */
+
+        link.removeAttribute("target");
+
+        link.removeAttribute("rel");
+
+
+        link.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const imageUrl =
+                    link.getAttribute("href");
+
+
+                const galleryCard =
+                    link.closest(".gallery-card");
+
+
+                const cardTitle =
+                    galleryCard
+                        ? galleryCard.querySelector("h3")
+                        : null;
+
+
+                const cardImage =
+                    galleryCard
+                        ? galleryCard.querySelector(
+                            ".gallery-card-image img"
+                        )
+                        : null;
+
+
+
+                /* SET LARGE IMAGE */
+
+                modalImage.src =
+                    imageUrl ||
+                    (
+                        cardImage
+                            ? cardImage.src
+                            : ""
+                    );
+
+
+                /* SET ALT TEXT */
+
+                modalImage.alt =
+                    cardImage
+                        ? cardImage.alt
+                        : "Portfolio project preview";
+
+
+                /* SET TITLE */
+
+                if (modalTitle) {
+
+                    modalTitle.textContent =
+                        cardTitle
+                            ? cardTitle.textContent.trim()
+                            : "Project Preview";
+
+                }
+
+
+
+                /* OPEN MODAL */
+
+                modal.classList.add(
+                    "active"
+                );
+
+
+                modal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                document.body.classList.add(
+                    "portfolio-modal-open"
+                );
+
+
+                /* MOVE KEYBOARD FOCUS */
+
+                if (closeButton) {
+
+                    setTimeout(
+                        function () {
+
+                            closeButton.focus();
+
+                        },
+                        100
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+
+    /* =====================================================
+    CLOSE MODAL
+    ===================================================== */
+
+    function closePortfolioModal() {
+
+        modal.classList.remove(
+            "active"
+        );
+
+
+        modal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        document.body.classList.remove(
+            "portfolio-modal-open"
+        );
+
+
+        /*
+        RETURN TO PORTFOLIO SECTION
+        */
+
+        setTimeout(
+            function () {
+
+                portfolioSection.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            },
+            120
+        );
+
+
+        /*
+        CLEAR IMAGE AFTER CLOSE
+        */
+
+        setTimeout(
+            function () {
+
+                if (
+                    !modal.classList.contains(
+                        "active"
+                    )
+                ) {
+
+                    modalImage.src = "";
+
+                }
+
+            },
+            400
+        );
+
+    }
+
+
+
+    /* =====================================================
+    X BUTTON
+    ===================================================== */
+
+    if (closeButton) {
+
+        closeButton.addEventListener(
+            "click",
+            closePortfolioModal
+        );
+
+    }
+
+
+
+    /* =====================================================
+    BACK TO PORTFOLIO BUTTON
+    ===================================================== */
+
+    if (backButton) {
+
+        backButton.addEventListener(
+            "click",
+            closePortfolioModal
+        );
+
+    }
+
+
+
+    /* =====================================================
+    CLICK DARK BACKGROUND TO CLOSE
+    ===================================================== */
+
+    if (backdrop) {
+
+        backdrop.addEventListener(
+            "click",
+            closePortfolioModal
+        );
+
+    }
+
+
+
+    /* =====================================================
+    ESC KEY TO CLOSE
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains(
+                    "active"
+                )
+            ) {
+
+                closePortfolioModal();
+
+            }
+
+        }
+    );
+
+});
