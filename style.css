@@ -8153,3 +8153,530 @@ EDUCATION LOGO IMAGES
     }
 
 }
+
+/* =========================================================
+CERTIFICATE / ACHIEVEMENT CARDS
+FINAL RESPONSIVE VERSION
+========================================================= */
+
+
+/* =========================================================
+CERTIFICATE GRID
+========================================================= */
+
+.certificate-grid{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:22px;
+}
+
+
+/* =========================================================
+CERTIFICATE CARD
+========================================================= */
+
+.certificate-card{
+    position:relative;
+    isolation:isolate;
+
+    min-width:0;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(215,181,109,.38);
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111 0%,
+            #0b0b0b 55%,
+            #080808 100%
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.32);
+
+    transition:
+        transform .38s
+        cubic-bezier(.22,1,.36,1),
+
+        border-color .38s ease,
+
+        box-shadow .38s ease;
+}
+
+
+/* =========================================================
+CARD HOVER
+========================================================= */
+
+.certificate-card:hover{
+    transform:
+        translateY(-7px)
+        scale(1.01);
+
+    border-color:
+        rgba(215,181,109,.88);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.48),
+
+        0 0 24px
+        rgba(215,181,109,.18);
+}
+
+
+/* =========================================================
+CERTIFICATE IMAGE
+========================================================= */
+
+.certificate-image{
+    position:relative;
+
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:16 / 10;
+
+    overflow:hidden;
+
+    background:#ffffff;
+}
+
+
+.certificate-image img{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+    object-position:center;
+
+    background:#ffffff;
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+}
+
+
+/* IMAGE HOVER */
+
+.certificate-card:hover
+.certificate-image img{
+    transform:
+        scale(1.035);
+
+    filter:
+        brightness(.78);
+}
+
+
+/* =========================================================
+VIEW CERTIFICATE OVERLAY
+========================================================= */
+
+.certificate-overlay{
+    position:absolute;
+
+    inset:0;
+
+    z-index:3;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        rgba(0,0,0,.30);
+
+    opacity:0;
+
+    transition:
+        opacity .35s ease;
+}
+
+
+.certificate-card:hover
+.certificate-overlay{
+    opacity:1;
+}
+
+
+.certificate-overlay span{
+    padding:
+        10px
+        17px;
+
+    border:
+        1px solid
+        rgba(255,242,189,.80);
+
+    border-radius:999px;
+
+    background:
+        rgba(5,5,5,.78);
+
+    color:#FFF2BD;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+CERTIFICATE CONTENT
+========================================================= */
+
+.certificate-content{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        20px
+        21px
+        22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #090909
+        );
+}
+
+
+/* =========================================================
+SHIMMER EFFECT
+========================================================= */
+
+.certificate-content::before{
+    content:"";
+
+    position:absolute;
+
+    z-index:0;
+
+    top:-130%;
+    left:-70%;
+
+    width:38%;
+    height:360%;
+
+    opacity:0;
+
+    transform:
+        rotate(22deg);
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(215,181,109,.05) 20%,
+            rgba(255,242,189,.20) 40%,
+            rgba(255,255,255,.46) 50%,
+            rgba(255,242,189,.20) 60%,
+            rgba(215,181,109,.05) 80%,
+            transparent 100%
+        );
+
+    transition:
+        left .85s ease,
+        opacity .25s ease;
+}
+
+
+.certificate-card:hover
+.certificate-content::before{
+    left:135%;
+
+    opacity:1;
+}
+
+
+/* KEEP TEXT ABOVE SHIMMER */
+
+.certificate-content > *{
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* =========================================================
+CERTIFICATE YEAR
+========================================================= */
+
+.certificate-year{
+    margin:
+        0
+        0
+        7px;
+
+    color:#D7B56D !important;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    letter-spacing:.8px;
+}
+
+
+/* =========================================================
+CERTIFICATE TITLE
+========================================================= */
+
+.certificate-content h4{
+    margin:
+        0
+        0
+        6px;
+
+    color:#FFFFFF !important;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        clamp(
+            16px,
+            1.4vw,
+            20px
+        );
+
+    font-weight:700;
+
+    line-height:1.35;
+}
+
+
+/* =========================================================
+CERTIFICATE ISSUER
+========================================================= */
+
+.certificate-issuer{
+    margin:
+        0
+        0
+        8px;
+
+    color:#CCCCCC !important;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    line-height:1.5;
+}
+
+
+/* =========================================================
+CERTIFICATE DESCRIPTION
+========================================================= */
+
+.certificate-description{
+    margin:0;
+
+    color:#8F8F8F !important;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+TEXT HOVER
+========================================================= */
+
+.certificate-card:hover
+.certificate-content h4{
+    color:#FFFFFF !important;
+}
+
+
+.certificate-card:hover
+.certificate-year{
+    color:#FFF2BD !important;
+}
+
+
+.certificate-card:hover
+.certificate-issuer{
+    color:#E2E2E2 !important;
+}
+
+
+.certificate-card:hover
+.certificate-description{
+    color:#B5B5B5 !important;
+}
+
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width:900px){
+
+    .certificate-grid{
+        gap:17px;
+    }
+
+
+    .certificate-content{
+        padding:
+            18px
+            18px
+            20px;
+    }
+
+}
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width:767px){
+
+    .certificate-grid{
+        grid-template-columns:1fr;
+
+        gap:17px;
+    }
+
+
+    .certificate-card:hover{
+        transform:
+            translateY(-4px);
+    }
+
+
+    .certificate-image{
+        aspect-ratio:16 / 10;
+    }
+
+}
+
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px){
+
+    .certificate-content{
+        padding:
+            16px
+            16px
+            18px;
+    }
+
+
+    .certificate-content h4{
+        font-size:15px;
+    }
+
+
+    .certificate-issuer{
+        font-size:11px;
+    }
+
+
+    .certificate-description{
+        font-size:10px;
+    }
+
+
+    .certificate-overlay span{
+        padding:
+            8px
+            13px;
+
+        font-size:9px;
+    }
+
+}
+
+
+/* =========================================================
+VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width:360px){
+
+    .certificate-content{
+        padding:
+            14px
+            14px
+            16px;
+    }
+
+
+    .certificate-content h4{
+        font-size:14px;
+    }
+
+
+    .certificate-year{
+        font-size:10px;
+    }
+
+}
+
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    .certificate-card,
+    .certificate-image img,
+    .certificate-content::before,
+    .certificate-overlay{
+        transition:none;
+    }
+
+
+    .certificate-card:hover{
+        transform:none;
+    }
+
+
+    .certificate-card:hover
+    .certificate-image img{
+        transform:none;
+    }
+
+}
