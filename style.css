@@ -8073,3 +8073,83 @@ MOBILE
     }
 
 }
+
+/* =========================================================
+EDUCATION LOGO IMAGES
+========================================================= */
+
+.education-icon{
+    width:70px;
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:8px;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+    background:#ffffff;
+
+    border:
+        1px solid
+        rgba(0,0,0,.14);
+
+    flex-shrink:0;
+}
+
+
+.education-icon img{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+    object-position:center;
+}
+
+
+/* HOVER */
+
+.education-card:hover
+.education-icon{
+    transform:
+        translateY(-2px)
+        scale(1.04);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.20);
+}
+
+
+/* TABLET */
+
+@media (max-width:768px){
+
+    .education-icon{
+        width:64px;
+        height:64px;
+
+        margin:0 auto;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width:480px){
+
+    .education-icon{
+        width:58px;
+        height:58px;
+
+        padding:6px;
+    }
+
+}
