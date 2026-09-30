@@ -8153,3 +8153,932 @@ EDUCATION LOGO IMAGES
     }
 
 }
+
+/* =========================================================
+NEW ACHIEVEMENTS TAB
+PREMIUM CERTIFICATE SHOWCASE
+========================================================= */
+
+
+/* =========================================================
+HEADING
+========================================================= */
+
+.achievement-heading{
+    margin-bottom:30px;
+}
+
+
+.achievement-heading h3{
+    margin-bottom:8px;
+}
+
+
+.achievement-heading > p:last-child{
+    max-width:680px;
+}
+
+
+/* =========================================================
+GRID
+========================================================= */
+
+.achievement-showcase{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:24px;
+
+    align-items:stretch;
+}
+
+
+/* =========================================================
+CARD
+========================================================= */
+
+.achievement-premium-card{
+    position:relative;
+
+    isolation:isolate;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(215,181,109,.28);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22,22,22,.98),
+            rgba(9,9,9,.99)
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.35);
+
+    transition:
+        transform .4s
+        cubic-bezier(.22,1,.36,1),
+
+        border-color .4s ease,
+
+        box-shadow .4s ease;
+}
+
+
+/* GOLD TOP LINE */
+
+.achievement-premium-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:10%;
+
+    z-index:8;
+
+    width:80%;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #A67C38,
+            #D7B56D,
+            #FFF2BD,
+            #D7B56D,
+            #A67C38,
+            transparent
+        );
+
+    opacity:.8;
+}
+
+
+/* BACKGROUND GLOW */
+
+.achievement-premium-card::after{
+    content:"";
+
+    position:absolute;
+
+    z-index:-1;
+
+    top:-100px;
+    right:-100px;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:
+        rgba(215,181,109,.12);
+
+    filter:
+        blur(75px);
+
+    pointer-events:none;
+}
+
+
+/* CARD HOVER */
+
+.achievement-premium-card:hover{
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(215,181,109,.75);
+
+    box-shadow:
+        0 26px 60px
+        rgba(0,0,0,.5),
+
+        0 0 30px
+        rgba(215,181,109,.10);
+}
+
+
+/* =========================================================
+CERTIFICATE PREVIEW
+========================================================= */
+
+.achievement-preview{
+    position:relative;
+
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:16 / 10;
+
+    overflow:hidden;
+
+    background:#fff;
+
+    text-decoration:none;
+}
+
+
+.achievement-preview img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:contain;
+    object-position:center;
+
+    background:#fff;
+
+    transition:
+        transform .55s
+        cubic-bezier(.22,1,.36,1),
+
+        filter .45s ease;
+}
+
+
+/* IMAGE HOVER */
+
+.achievement-premium-card:hover
+.achievement-preview img{
+    transform:
+        scale(1.045);
+
+    filter:
+        brightness(.60);
+}
+
+
+/* =========================================================
+CERTIFICATE NUMBER
+========================================================= */
+
+.achievement-number{
+    position:absolute;
+
+    top:14px;
+    left:14px;
+
+    z-index:6;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    width:42px;
+    height:42px;
+
+    border:
+        1px solid
+        rgba(255,242,189,.5);
+
+    border-radius:50%;
+
+    background:
+        rgba(4,4,4,.82);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    color:#FFF2BD;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:.6px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+IMAGE OVERLAY
+========================================================= */
+
+.achievement-preview-overlay{
+    position:absolute;
+
+    inset:0;
+
+    z-index:5;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    padding:20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5,5,5,.05),
+            rgba(5,5,5,.72)
+        );
+
+    opacity:0;
+
+    transition:
+        opacity .4s ease;
+}
+
+
+.achievement-premium-card:hover
+.achievement-preview-overlay{
+    opacity:1;
+}
+
+
+/* EYE ICON */
+
+.achievement-view-icon{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    width:46px;
+    height:46px;
+
+    border:
+        1px solid
+        rgba(255,242,189,.6);
+
+    border-radius:50%;
+
+    background:
+        rgba(7,7,7,.7);
+
+    transform:
+        translateY(8px);
+
+    transition:
+        transform .4s ease;
+}
+
+
+.achievement-premium-card:hover
+.achievement-view-icon{
+    transform:
+        translateY(0);
+}
+
+
+.achievement-view-icon svg{
+    width:21px;
+    height:21px;
+
+    fill:none;
+
+    stroke:#FFF2BD;
+
+    stroke-width:1.5;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+}
+
+
+.achievement-preview-overlay strong{
+    color:#fff;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:9px;
+
+    font-weight:500;
+
+    letter-spacing:1.5px;
+}
+
+
+/* =========================================================
+CONTENT
+========================================================= */
+
+.achievement-info{
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+    padding:
+        22px
+        23px
+        24px;
+
+    overflow:hidden;
+}
+
+
+/* SHIMMER */
+
+.achievement-info::before{
+    content:"";
+
+    position:absolute;
+
+    top:-150%;
+    left:-80%;
+
+    width:35%;
+    height:400%;
+
+    opacity:0;
+
+    transform:
+        rotate(23deg);
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(215,181,109,.04),
+            rgba(255,242,189,.16),
+            rgba(255,255,255,.28),
+            rgba(255,242,189,.16),
+            transparent
+        );
+
+    transition:
+        left .9s ease,
+        opacity .25s ease;
+}
+
+
+.achievement-premium-card:hover
+.achievement-info::before{
+    left:145%;
+
+    opacity:1;
+}
+
+
+.achievement-info > *{
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* =========================================================
+META
+========================================================= */
+
+.achievement-meta{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:12px;
+}
+
+
+/* YEAR */
+
+.achievement-year{
+    color:#D7B56D;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+}
+
+
+/* STATUS */
+
+.achievement-status{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#999;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:8px;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+}
+
+
+.achievement-status i{
+    display:block;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#D7B56D;
+
+    box-shadow:
+        0 0 10px
+        rgba(215,181,109,.8);
+}
+
+
+/* =========================================================
+TITLE
+========================================================= */
+
+.achievement-info h4{
+    margin:
+        0
+        0
+        9px;
+
+    color:#fff;
+
+    font-size:
+        clamp(
+            17px,
+            1.6vw,
+            21px
+        );
+
+    font-weight:700;
+
+    line-height:1.35;
+
+    transition:
+        color .3s ease;
+}
+
+
+.achievement-premium-card:hover
+.achievement-info h4{
+    color:#FFF2BD;
+}
+
+
+/* =========================================================
+ISSUER
+========================================================= */
+
+.achievement-issuer{
+    margin:
+        0
+        0
+        13px;
+
+    color:#aaa;
+
+    font-size:11px;
+
+    line-height:1.5;
+}
+
+
+.achievement-issuer span{
+    margin-right:6px;
+
+    color:#D7B56D;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+DESCRIPTION
+========================================================= */
+
+.achievement-description{
+    margin:
+        0
+        0
+        17px;
+
+    color:#898989;
+
+    font-size:11px;
+
+    line-height:1.75;
+}
+
+
+/* =========================================================
+SKILLS
+========================================================= */
+
+.achievement-skills{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-bottom:21px;
+}
+
+
+.achievement-skills span{
+    display:inline-flex;
+
+    align-items:center;
+
+    min-height:26px;
+
+    padding:
+        5px
+        9px;
+
+    border:
+        1px solid
+        rgba(215,181,109,.22);
+
+    border-radius:999px;
+
+    background:
+        rgba(215,181,109,.05);
+
+    color:#bbb;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:8px;
+
+    letter-spacing:.3px;
+
+    transition:
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+
+.achievement-premium-card:hover
+.achievement-skills span{
+    border-color:
+        rgba(215,181,109,.45);
+
+    background:
+        rgba(215,181,109,.09);
+
+    color:#E8D4A0;
+}
+
+
+/* =========================================================
+VIEW BUTTON
+========================================================= */
+
+.achievement-button{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    width:100%;
+
+    min-height:43px;
+
+    margin-top:auto;
+
+    padding:
+        10px
+        14px;
+
+    border:
+        1px solid
+        rgba(215,181,109,.32);
+
+    border-radius:8px;
+
+    background:
+        rgba(215,181,109,.04);
+
+    color:#D7B56D;
+
+    text-decoration:none;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:.8px;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.achievement-button svg{
+    width:17px;
+    height:17px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+    transition:
+        transform .3s ease;
+}
+
+
+.achievement-button:hover{
+    border-color:#D7B56D;
+
+    background:#D7B56D;
+
+    color:#070707;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.achievement-button:hover svg{
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width:1000px){
+
+    .achievement-showcase{
+        gap:18px;
+    }
+
+
+    .achievement-info{
+        padding:
+            19px
+            19px
+            21px;
+    }
+
+}
+
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width:767px){
+
+    .achievement-showcase{
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+
+    .achievement-premium-card{
+        border-radius:15px;
+    }
+
+
+    .achievement-premium-card:hover{
+        transform:
+            translateY(-4px);
+    }
+
+
+    .achievement-preview{
+        aspect-ratio:16 / 10;
+    }
+
+
+    .achievement-info{
+        padding:
+            18px
+            18px
+            20px;
+    }
+
+
+    .achievement-info h4{
+        font-size:17px;
+    }
+
+}
+
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px){
+
+    .achievement-heading{
+        margin-bottom:22px;
+    }
+
+
+    .achievement-preview{
+        aspect-ratio:16 / 10;
+    }
+
+
+    .achievement-number{
+        top:10px;
+        left:10px;
+
+        width:36px;
+        height:36px;
+
+        font-size:9px;
+    }
+
+
+    .achievement-info{
+        padding:
+            16px
+            15px
+            18px;
+    }
+
+
+    .achievement-meta{
+        margin-bottom:10px;
+    }
+
+
+    .achievement-info h4{
+        font-size:15px;
+    }
+
+
+    .achievement-description{
+        font-size:10px;
+    }
+
+
+    .achievement-skills{
+        gap:6px;
+
+        margin-bottom:16px;
+    }
+
+
+    .achievement-skills span{
+        font-size:7px;
+
+        padding:
+            4px
+            8px;
+    }
+
+
+    .achievement-button{
+        min-height:40px;
+
+        font-size:8px;
+    }
+
+}
+
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    .achievement-premium-card,
+    .achievement-preview img,
+    .achievement-preview-overlay,
+    .achievement-view-icon,
+    .achievement-info::before,
+    .achievement-button,
+    .achievement-button svg{
+        transition:none !important;
+    }
+
+
+    .achievement-premium-card:hover{
+        transform:none;
+    }
+
+
+    .achievement-premium-card:hover
+    .achievement-preview img{
+        transform:none;
+    }
+
+}
