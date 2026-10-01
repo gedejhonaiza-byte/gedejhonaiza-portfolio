@@ -9573,32 +9573,3 @@ REDUCED MOTION
     }
 
 }
-
-/* =========================================================
-   PORTFOLIO VIDEO / SOUND BUTTON
-========================================================= */
-
-.gallery-card-image {
-    width: 100%;
-    overflow: hidden;
-}
-
-.gallery-video {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-}
-
-.view-sound-btn {
-    border: none;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.view-sound-btn:hover {
-    color: #d7b56d;
-}
